@@ -24,9 +24,12 @@ public class ModVillagers {
             ()-> new PoiType(ImmutableSet.copyOf(Blocks.JUKEBOX.getStateDefinition().getPossibleStates()),
                     1, 1));
     public static final RegistryObject<VillagerProfession> DISC_JOCKEY = VILLAGER_PROFESSIONS.register("disc_jockey",
-            () -> new VillagerProfession("disc_jockey", x -> x.get() == DJ_POI.get(),
-                    x -> x.get() == DJ_POI.get(), ImmutableSet.of(), ImmutableSet.of(Blocks.NOTE_BLOCK),
-                    ModSounds.VILLAGER_WORK_DISC_JOCKEY.get()));
+            () -> new VillagerProfession("disc_jockey",
+                    x -> x.get() == DJ_POI.get(),
+                    x -> x.get() == DJ_POI.get(),
+                    ImmutableSet.of(),
+                    ImmutableSet.of(Blocks.NOTE_BLOCK),
+                    ModSounds.VILLAGER_WORK_DISC_JOCKEY.get()) );
 
     public static void registerPOIs() {
         try {

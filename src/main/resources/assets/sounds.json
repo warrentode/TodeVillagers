@@ -5,5 +5,14 @@
       "todevillagers:work_dj"
     ],
     "subtitle": "subtitles.todevillagers.work_dj"
-  }
+  },
+  "chakra_dream": {
+  "category": "record",
+  "sounds": [
+    {
+      "name": "todevillagers:chakra_dream",
+      "stream": true
+    }
+  ]
+}
 }

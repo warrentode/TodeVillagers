@@ -1,4 +1,9 @@
 {
   "entity.minecraft.villager.todevillagers.disc_jockey": "Disc Jockey",
-  "subtitles.todevillagers.work_dj": "Disc Jockey Works"
+  "subtitles.todevillagers.work_dj": "Disc Jockey Works",
+
+  "item.todevillagers.chakra_dream_music_disc": "Chakra Dream Music Disc",
+  "item.todevillagers.chakra_dream_music_disc.desc": "Warren Tode - Chakra Dream (CC-BY-NC-ND)",
+
+  "itemGroup.todevillagers_tab": "Tode Villagers"
 }
