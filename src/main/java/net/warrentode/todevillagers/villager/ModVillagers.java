@@ -1,7 +1,6 @@
 package net.warrentode.todevillagers.villager;
 
 import com.google.common.collect.ImmutableSet;
-import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.ai.village.poi.PoiType;
 import net.minecraft.world.entity.npc.VillagerProfession;
 import net.minecraft.world.level.block.Blocks;
@@ -11,6 +10,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.warrentode.todevillagers.TodeVillagers;
+import net.warrentode.todevillagers.sound.ModSounds;
 
 import java.lang.reflect.InvocationTargetException;
 
@@ -26,7 +26,7 @@ public class ModVillagers {
     public static final RegistryObject<VillagerProfession> DISC_JOCKEY = VILLAGER_PROFESSIONS.register("disc_jockey",
             () -> new VillagerProfession("disc_jockey", x -> x.get() == DJ_POI.get(),
                     x -> x.get() == DJ_POI.get(), ImmutableSet.of(), ImmutableSet.of(Blocks.NOTE_BLOCK),
-                    SoundEvents.AMETHYST_BLOCK_CHIME));
+                    ModSounds.VILLAGER_WORK_DISC_JOCKEY.get()));
 
     public static void registerPOIs() {
         try {

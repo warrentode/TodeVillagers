@@ -2,7 +2,6 @@ package net.warrentode.todevillagers;
 
 import com.mojang.logging.LogUtils;
 import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.CreativeModeTabEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -10,6 +9,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.warrentode.todevillagers.sound.ModSounds;
 import net.warrentode.todevillagers.villager.ModVillagers;
 import org.slf4j.Logger;
 
@@ -22,9 +22,9 @@ public class TodeVillagers {
 
         ModVillagers.register(modEventBus);
 
-        modEventBus.addListener(this::commonSetup);
+        ModSounds.register(modEventBus);
 
-        MinecraftForge.EVENT_BUS.register(this);
+        modEventBus.addListener(this::commonSetup);
 
         modEventBus.addListener(this::addCreative);
     }
