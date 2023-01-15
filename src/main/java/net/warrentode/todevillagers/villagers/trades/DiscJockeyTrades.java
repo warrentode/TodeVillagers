@@ -1,4 +1,4 @@
-package net.warrentode.todevillagers.event.trades;
+package net.warrentode.todevillagers.villagers.trades;
 
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import net.minecraft.world.entity.npc.VillagerTrades;
@@ -8,12 +8,13 @@ import net.minecraft.world.item.trading.MerchantOffer;
 import net.minecraftforge.event.village.VillagerTradesEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-import net.warrentode.todevillagers.TodeVillagers;
-import net.warrentode.todevillagers.villager.ModVillagers;
+import net.warrentode.todevillagers.villagers.ModVillagers;
 
 import java.util.List;
 
-@Mod.EventBusSubscriber(modid = TodeVillagers.MODID)
+import static net.warrentode.todevillagers.TodeVillagers.MODID;
+
+@Mod.EventBusSubscriber(modid = MODID)
 public class DiscJockeyTrades {
     // I messed around quite a bit trying to figure out the best way to do this, but I guess I don't understand Java
     // well enough yet to make the trades work with an Array List to ensure a fixed pool the game is choosing from at each

@@ -79,7 +79,7 @@ repositories {
 
 dependencies {
     implementation 'com.github.t9t.minecraft-rcon-client:minecraft-rcon-client:1.0.0'
-    minecraft 'net.minecraftforge:forge:1.19.2-43.2.0'
+    minecraft 'net.minecraftforge:forge:1.19.2-43.2.3'
 }
 jar {
     manifest {

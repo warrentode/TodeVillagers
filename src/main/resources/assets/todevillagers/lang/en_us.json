@@ -3,7 +3,8 @@
   "subtitles.todevillagers.work_dj": "Disc Jockey Works",
 
   "item.todevillagers.chakra_dream_music_disc": "Chakra Dream Music Disc",
-  "item.todevillagers.chakra_dream_music_disc.desc": "Warren Tode - Chakra Dream (CC-BY-NC-ND)",
+  "item.todevillagers.chakra_dream_music_disc.desc": "Chakra Dream by Warren Tode © 2019 (CC BY-NC-ND 4.0)",
+  "tooltips.todevillagers.chakra_dream_music_disc": "Composed with Muse Score",
 
-  "itemGroup.todevillagers_tab": "Tode Villagers"
+  "itemGroup.todevillagers_tab": "todevillagers"
 }

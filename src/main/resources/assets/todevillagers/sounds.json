@@ -1,0 +1,70 @@
+{
+  "chakra_dream": {
+    "category": "record",
+    "sounds": [
+      {
+        "name": "todevillagers:chakra_dream",
+        "stream": true
+      }
+    ]
+  },
+  "work_dj": {
+    "category": "neutral",
+    "sounds": [
+      {
+        "name": "todevillagers:work_dj"
+      },
+      {
+        "name": "minecraft:note/banjo"
+      },
+      {
+        "name": "minecraft:note/bass"
+      },
+      {
+        "name": "minecraft:note/bassattack"
+      },
+      {
+        "name": "minecraft:note/bd"
+      },
+      {
+        "name": "minecraft:note/bell"
+      },
+      {
+        "name": "minecraft:note/bit"
+      },
+      {
+        "name": "minecraft:note/cow_bell"
+      },
+      {
+        "name": "minecraft:note/didgeridoo"
+      },
+      {
+        "name": "minecraft:note/flute"
+      },
+      {
+        "name": "minecraft:note/guitar"
+      },
+      {
+        "name": "minecraft:note/harp"
+      },
+      {
+        "name": "minecraft:note/hat"
+      },
+      {
+        "name": "minecraft:note/icechime"
+      },
+      {
+        "name": "minecraft:note/iron_xylophone"
+      },
+      {
+        "name": "minecraft:note/pling"
+      },
+      {
+        "name": "minecraft:note/snare"
+      },
+      {
+        "name": "minecraft:note/xylobone"
+      }
+    ]
+  }
+}

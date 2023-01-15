@@ -1,31 +1,34 @@
 package net.warrentode.todevillagers;
 
-import com.mojang.logging.LogUtils;
 import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import net.warrentode.todevillagers.item.ModItems;
-import net.warrentode.todevillagers.sound.ModSounds;
-import net.warrentode.todevillagers.villager.ModVillagers;
-import org.slf4j.Logger;
+import net.warrentode.todevillagers.items.ModItems;
+import net.warrentode.todevillagers.sounds.ModSounds;
+import net.warrentode.todevillagers.villagers.ModVillagers;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 @Mod(TodeVillagers.MODID)
 public class TodeVillagers {
+    public static final Logger LOGGER = LogManager.getLogger(TodeVillagers.class);
     public static final String MODID = "todevillagers";
-    private static final Logger LOGGER = LogUtils.getLogger();
+
     public TodeVillagers() {
-        IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
+        MinecraftForge.EVENT_BUS.register(this);
 
-        ModItems.register(modEventBus);
-        ModVillagers.register(modEventBus);
+        IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
+        ModSounds.REGISTRY.register(bus);
 
-        ModSounds.register(modEventBus);
+        ModItems.REGISTRY.register(bus);
 
-        modEventBus.addListener(this::commonSetup);
+        ModVillagers.register(bus);
+        bus.addListener(this::commonSetup);
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
