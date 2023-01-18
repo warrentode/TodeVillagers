@@ -8,6 +8,7 @@ import net.minecraft.world.item.trading.MerchantOffer;
 import net.minecraftforge.event.village.VillagerTradesEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+import net.warrentode.todevillagers.items.ModItems;
 import net.warrentode.todevillagers.villagers.ModVillagers;
 
 import java.util.List;
@@ -206,6 +207,16 @@ public class DiscJockeyTrades {
             Int2ObjectMap<List<VillagerTrades.ItemListing>> trades = event.getTrades();
             //item for sale
             ItemStack stack = new ItemStack(Items.MUSIC_DISC_11, 1);
+            int villagerLevel = 5;
+            //price - this is what is given to the villager
+            trades.get(villagerLevel).add((trader, rand) -> new MerchantOffer(
+                    new ItemStack(Items.EMERALD, 32),
+                    stack,1,30,0.02F));
+        }
+        if(event.getType() == ModVillagers.DISC_JOCKEY.get()) {
+            Int2ObjectMap<List<VillagerTrades.ItemListing>> trades = event.getTrades();
+            //item for sale
+            ItemStack stack = new ItemStack(ModItems.CHAKRA_DREAM_MUSIC_DISC.get(), 1);
             int villagerLevel = 5;
             //price - this is what is given to the villager
             trades.get(villagerLevel).add((trader, rand) -> new MerchantOffer(

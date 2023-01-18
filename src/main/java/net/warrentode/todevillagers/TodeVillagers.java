@@ -1,5 +1,6 @@
 package net.warrentode.todevillagers;
 
+import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -8,7 +9,11 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.warrentode.todevillagers.blocks.ModBlocks;
+import net.warrentode.todevillagers.blocks.entity.ModBlockEntities;
 import net.warrentode.todevillagers.items.ModItems;
+import net.warrentode.todevillagers.screens.GlassKilnScreen;
+import net.warrentode.todevillagers.screens.ModMenuTypes;
 import net.warrentode.todevillagers.sounds.ModSounds;
 import net.warrentode.todevillagers.villagers.ModVillagers;
 import org.apache.logging.log4j.LogManager;
@@ -16,21 +21,28 @@ import org.apache.logging.log4j.Logger;
 
 @Mod(TodeVillagers.MODID)
 public class TodeVillagers {
+    @SuppressWarnings("unused")
     public static final Logger LOGGER = LogManager.getLogger(TodeVillagers.class);
     public static final String MODID = "todevillagers";
 
     public TodeVillagers() {
         MinecraftForge.EVENT_BUS.register(this);
 
-        IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
-        ModSounds.REGISTRY.register(bus);
+        IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
-        ModItems.REGISTRY.register(bus);
+        ModSounds.REGISTRY.register(modEventBus);
+        ModItems.REGISTRY.register(modEventBus);
 
-        ModVillagers.register(bus);
-        bus.addListener(this::commonSetup);
+        ModBlocks.register(modEventBus);
+        ModBlockEntities.register(modEventBus);
+        ModMenuTypes.register(modEventBus);
+
+        ModVillagers.register(modEventBus);
+
+        modEventBus.addListener(this::commonSetup);
     }
 
+    @SuppressWarnings({"Convert2MethodRef", "CodeBlock2Expr"})
     private void commonSetup(final FMLCommonSetupEvent event) {
         event.enqueueWork(() -> {
             ModVillagers.registerPOIs();
@@ -41,7 +53,7 @@ public class TodeVillagers {
     public static class ClientModEvents {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
-
+            MenuScreens.register(ModMenuTypes.GLASS_KILN_MENU.get(), GlassKilnScreen::new);
         }
     }
 }

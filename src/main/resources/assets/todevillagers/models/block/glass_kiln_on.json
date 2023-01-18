@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "up": "todevillagers:block/glass_kiln_top",
+    "down": "todevillagers:block/glass_kiln_top",
+    "north": "todevillagers:block/glass_kiln_front_on",
+    "east": "todevillagers:block/glass_kiln_side",
+    "south": "todevillagers:block/glass_kiln_side",
+    "west": "todevillagers:block/glass_kiln_side",
+    "particle": "todevillagers:block/glass_kiln_top"
+  }
+}

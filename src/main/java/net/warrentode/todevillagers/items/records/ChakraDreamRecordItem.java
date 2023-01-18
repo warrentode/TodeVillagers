@@ -7,6 +7,7 @@ import net.minecraft.world.item.RecordItem;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.registries.RegistryObject;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
@@ -16,7 +17,7 @@ public class ChakraDreamRecordItem extends RecordItem {
     }
 
     @Override
-    public void appendHoverText(ItemStack itemstack, Level world, List<Component> list, TooltipFlag flag) {
+    public void appendHoverText(@NotNull ItemStack itemstack, Level world, @NotNull List<Component> list, @NotNull TooltipFlag flag) {
         super.appendHoverText(itemstack, world, list, flag);
         list.add(Component.translatable("tooltips.todevillagers.chakra_dream_music_disc"));
     }

@@ -1,6 +1,5 @@
 {
   "chakra_dream": {
-    "category": "record",
     "sounds": [
       {
         "name": "todevillagers:chakra_dream",
@@ -9,10 +8,11 @@
     ]
   },
   "work_dj": {
-    "category": "neutral",
+    "subtitle": "subtitles.todevillagers.work_dj",
     "sounds": [
       {
-        "name": "todevillagers:work_dj"
+        "name": "todevillagers:work_dj",
+        "weight": 2
       },
       {
         "name": "minecraft:note/banjo"

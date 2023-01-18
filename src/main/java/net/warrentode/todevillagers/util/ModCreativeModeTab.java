@@ -4,6 +4,7 @@ import net.minecraft.core.NonNullList;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.warrentode.todevillagers.blocks.ModBlocks;
 import net.warrentode.todevillagers.items.ModItems;
 import org.jetbrains.annotations.NotNull;
 
@@ -21,6 +22,9 @@ public class ModCreativeModeTab extends CreativeModeTab {
 
     @Override
     public void fillItemList(final NonNullList<ItemStack> items) {
+        items.add(ModItems.MARVER.get().getDefaultInstance());
         items.add(ModItems.CHAKRA_DREAM_MUSIC_DISC.get().getDefaultInstance());
+
+        items.add((ModBlocks.GLASS_KILN.get().asItem().getDefaultInstance()));
     }
 }
