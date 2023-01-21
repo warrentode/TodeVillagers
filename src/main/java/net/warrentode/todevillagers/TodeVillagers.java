@@ -12,6 +12,7 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.warrentode.todevillagers.blocks.ModBlocks;
 import net.warrentode.todevillagers.blocks.entity.ModBlockEntities;
 import net.warrentode.todevillagers.items.ModItems;
+import net.warrentode.todevillagers.recipes.ModRecipes;
 import net.warrentode.todevillagers.screens.GlassKilnScreen;
 import net.warrentode.todevillagers.screens.ModMenuTypes;
 import net.warrentode.todevillagers.sounds.ModSounds;
@@ -36,6 +37,8 @@ public class TodeVillagers {
         ModBlocks.register(modEventBus);
         ModBlockEntities.register(modEventBus);
         ModMenuTypes.register(modEventBus);
+
+        ModRecipes.register(modEventBus);
 
         ModVillagers.register(modEventBus);
 

@@ -1,0 +1,19 @@
+{
+  "type": "todevillagers:glassblowing",
+  "ingredients":{
+    "tag": "#minecraft:sand"
+  },
+  "tool": {
+    "item": "todevillagers:marver"
+  },
+  "dye": {
+    "item": ""
+  },
+  "modifier": {
+    "item": ""
+  },
+  "result": {
+    "item": "minecraft:glass_bottle",
+    "count": 1
+  }
+}
