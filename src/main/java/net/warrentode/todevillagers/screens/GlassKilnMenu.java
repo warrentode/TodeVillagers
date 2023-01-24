@@ -11,6 +11,7 @@ import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.items.SlotItemHandler;
 import net.warrentode.todevillagers.blocks.ModBlocks;
 import net.warrentode.todevillagers.blocks.entity.GlassKilnBlockEntity;
+import net.warrentode.todevillagers.screens.slots.ModFuelSlot;
 import net.warrentode.todevillagers.screens.slots.ModResultSlot;
 import org.jetbrains.annotations.NotNull;
 
@@ -21,7 +22,7 @@ public class GlassKilnMenu extends AbstractContainerMenu {
 
     public GlassKilnMenu(int id, Inventory inventory, FriendlyByteBuf extraData) {
         /* the size of the SimpleContainerData must be the same size the getCount within the GlassKilnBlockEntity container data
-        * be sure to change these values when you readjust these methods to track furnace/fuel data as well  */
+         * be sure to change these values when you readjust these methods to track furnace/fuel data as well  */
         this(id, inventory, inventory.player.level.getBlockEntity(extraData.readBlockPos()), new SimpleContainerData(2));
     }
 
@@ -41,12 +42,12 @@ public class GlassKilnMenu extends AbstractContainerMenu {
             // the index is the slot's number
             // x and y is the pixel position of that slot
             /* you can also label the result slot and create a ResultSlot extending SlotItemHandler class file
-            * to block items from being placed into that particular slot  */
-            this.addSlot(new SlotItemHandler(handler, 0,62, 63));
-            this.addSlot(new SlotItemHandler(handler, 1,62, 27));
-            this.addSlot(new SlotItemHandler(handler, 2,37, 44));
-            this.addSlot(new SlotItemHandler(handler, 3,37, 17));
-            this.addSlot(new SlotItemHandler(handler, 4,87, 17));
+             * to block items from being placed into that particular slot  */
+            this.addSlot(new ModFuelSlot(handler, 0,62, 63));
+            this.addSlot(new SlotItemHandler(handler, 1,43, 18));
+            this.addSlot(new SlotItemHandler(handler, 2,62, 18));
+            this.addSlot(new SlotItemHandler(handler, 3,43, 37));
+            this.addSlot(new SlotItemHandler(handler, 4,62, 37));
             this.addSlot(new ModResultSlot(handler, 5,122, 45));
         });
 
@@ -58,7 +59,7 @@ public class GlassKilnMenu extends AbstractContainerMenu {
     }
 
     /* you will need a similar calculation for rendering burn time within the GUI
-    * come back to this when fuel and burn time data tracking has been added */
+     * come back to this when fuel and burn time data tracking has been added */
     public int getScaledProgress() {
         // these are from the cases set in the matching block entity class file
         int progress = this.data.get(0);
@@ -96,12 +97,12 @@ public class GlassKilnMenu extends AbstractContainerMenu {
     private static final int TE_INVENTORY_SLOT_COUNT = 6;
 
     /* all this big chuck of "stuff" is just calculating whether a stack of items can be quickly moved into any given slot
-    * within the player's inventory or hotbar slots, so system needs to know where the slots are and how many items are
-    * in the slot being checked and whether that slot has a matching stackable item for the moving stack to be merged into
-    * if the slot being checked is full or not matching, the system moves on to check the next slot and so on until either the moving stack has
-    * finished moving or all the slots have been checked */
+     * within the player's inventory or hotbar slots, so system needs to know where the slots are and how many items are
+     * in the slot being checked and whether that slot has a matching stackable item for the moving stack to be merged into
+     * if the slot being checked is full or not matching, the system moves on to check the next slot and so on until either the moving stack has
+     * finished moving or all the slots have been checked */
     /* we see this in action all the time whenever we shift click something from a crafting result slot to dump it all into our inventory in one shot
-    * this series of if/then/else statements is what makes that possible */
+     * this series of if/then/else statements is what makes that possible */
     @Override
     public @NotNull ItemStack quickMoveStack(@NotNull Player playerIn, int index) {
         Slot sourceSlot = slots.get(index);

@@ -9,6 +9,12 @@
   "item.todevillagers.marver": "Marver",
   "tooltips.todevillagers.marver": "A glassblowing tool to shape hot glass",
 
+  "item.todevillagers.glassblowing_pipe": "Glassblowing Pipe",
+  "tooltips.todevillagers.glassblowing_pipe": "A glassblowing tool to blow hot glass",
+
+  "item.todevillagers.glassblowing_shears": "Glassblowing Shears",
+  "tooltips.todevillagers.glassblowing_shears": "A glassblowing tool to cut hot glass",
+
   "block.todevillagers.glass_kiln": "Glass Kiln",
   "container.todevillagers.glass_kiln": "Glass Kiln",
 

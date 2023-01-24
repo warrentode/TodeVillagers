@@ -1,0 +1,18 @@
+{
+  "type": "todevillagers:glassblowing",
+  "key": {
+    "I": {
+      "tag": "minecraft:sand"
+    },
+    "T": {
+      "item": "todevillagers:marver"
+    }
+  },
+  "pattern": [
+    "IT"
+  ],
+  "result": {
+    "item": "minecraft:glass",
+    "count": 2
+  }
+}

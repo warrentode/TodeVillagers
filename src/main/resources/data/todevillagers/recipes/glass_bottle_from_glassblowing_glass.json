@@ -1,0 +1,18 @@
+{
+  "type": "todevillagers:glassblowing",
+  "key": {
+    "I": {
+      "item": "minecraft:glass"
+    },
+    "T": {
+      "item": "todevillagers:glassblowing_pipe"
+    }
+  },
+  "pattern": [
+    "IT"
+  ],
+  "result": {
+    "item": "minecraft:glass_bottle",
+    "count": 1
+  }
+}

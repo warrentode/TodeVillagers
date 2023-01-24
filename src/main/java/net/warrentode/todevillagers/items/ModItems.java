@@ -5,6 +5,8 @@ import net.minecraft.world.item.Rarity;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
+import net.warrentode.todevillagers.items.custom.GlassblowerShearsItem;
+import net.warrentode.todevillagers.items.custom.GlassblowingPipeItem;
 import net.warrentode.todevillagers.items.custom.MarverItem;
 import net.warrentode.todevillagers.items.records.ChakraDreamRecordItem;
 import net.warrentode.todevillagers.sounds.ModSounds;
@@ -20,5 +22,9 @@ public class ModItems {
                     new Item.Properties().tab(ModCreativeModeTab.TODEVILLAGERS_TAB).stacksTo(1).rarity(Rarity.RARE), 1360));
 
     public static final RegistryObject<Item> MARVER = REGISTRY.register("marver",
-            ()-> new MarverItem(new Item.Properties().tab(ModCreativeModeTab.TODEVILLAGERS_TAB).durability(64).setNoRepair()));
+            ()-> new MarverItem(new Item.Properties().tab(ModCreativeModeTab.TODEVILLAGERS_TAB)));
+    public static final RegistryObject<Item> GLASSBLOWING_PIPE = REGISTRY.register("glassblowing_pipe",
+            ()-> new GlassblowingPipeItem(new Item.Properties().tab(ModCreativeModeTab.TODEVILLAGERS_TAB)));
+    public static final RegistryObject<Item> GLASSBLOWER_SHEARS = REGISTRY.register("glassblower_shears",
+            ()-> new GlassblowerShearsItem(new Item.Properties().tab(ModCreativeModeTab.TODEVILLAGERS_TAB)));
 }
