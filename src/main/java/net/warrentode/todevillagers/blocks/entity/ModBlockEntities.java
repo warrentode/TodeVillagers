@@ -14,9 +14,10 @@ public class ModBlockEntities {
             DeferredRegister.create(ForgeRegistries.BLOCK_ENTITY_TYPES, MODID);
 
     public static final RegistryObject<BlockEntityType<GlassKilnBlockEntity>> GLASS_KILN_ENTITY =
-            BLOCK_ENTITIES.register("glass_kiln", ()->
-                    BlockEntityType.Builder.of(GlassKilnBlockEntity::new,
-                            ModBlocks.GLASS_KILN.get()).build(null));
+            BLOCK_ENTITIES.register("glass_kiln", ()-> {
+                return BlockEntityType.Builder.of(GlassKilnBlockEntity::new,
+                        ModBlocks.GLASS_KILN.get()).build(null);
+            });
 
     public static void register(IEventBus eventBus) {
         BLOCK_ENTITIES.register(eventBus);

@@ -6,15 +6,12 @@
     },
     "I": {
       "item": "minecraft:iron_ingot"
-    },
-    "D": {
-      "item": "minecraft:diamond"
     }
   },
   "pattern": [
     "S",
     "I",
-    "D"
+    "I"
   ],
   "result": {
     "item": "todevillagers:glassblower_shears"

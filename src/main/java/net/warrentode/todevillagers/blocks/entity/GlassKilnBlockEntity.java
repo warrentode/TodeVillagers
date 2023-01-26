@@ -40,10 +40,12 @@ public class GlassKilnBlockEntity extends BlockEntity implements MenuProvider {
     /* Data being tracked and synced through the menu */
     /* data variables being tracked within the container
      * progress is the same as Cook Time here
-     * revisit this when ready to track fuel with the entity as a furnace */
+     * Fuel Time is the same as Burn Time here */
     protected final ContainerData data;
     private int progress = 0;
     private int maxProgress = 100;
+    private int fuelTime = 0;
+    private int fuelDuration = 0;
 
     public GlassKilnBlockEntity(BlockPos pPos, BlockState pBlockState) {
         super(ModBlockEntities.GLASS_KILN_ENTITY.get(), pPos, pBlockState);
@@ -53,6 +55,8 @@ public class GlassKilnBlockEntity extends BlockEntity implements MenuProvider {
                 return switch (pIndex) {
                     case 0 -> GlassKilnBlockEntity.this.progress;
                     case 1 -> GlassKilnBlockEntity.this.maxProgress;
+                    case 2 -> GlassKilnBlockEntity.this.fuelTime;
+                    case 3 -> GlassKilnBlockEntity.this.fuelDuration;
                     default -> 0;
                 };
             }
@@ -62,12 +66,14 @@ public class GlassKilnBlockEntity extends BlockEntity implements MenuProvider {
                 switch (pIndex) {
                     case 0 -> GlassKilnBlockEntity.this.progress = pValue;
                     case 1 -> GlassKilnBlockEntity.this.maxProgress = pValue;
+                    case 2 -> GlassKilnBlockEntity.this.fuelTime = pValue;
+                    case 3 -> GlassKilnBlockEntity.this.fuelDuration = pValue;
                 }
             }
 
             @Override
             public int getCount() {
-                return 2;
+                return 4;
             }
         };
     }
@@ -107,6 +113,9 @@ public class GlassKilnBlockEntity extends BlockEntity implements MenuProvider {
     @Override
     protected void saveAdditional(CompoundTag nbt) {
         nbt.put("inventory", itemHandler.serializeNBT());
+        nbt.putInt("glass_kiln.progress", this.progress);
+        nbt.putInt("glass_kiln.fuelTime", this.fuelTime);
+        nbt.putInt("glass_kiln.fuelDuration", this.fuelDuration);
         super.saveAdditional(nbt);
     }
 
@@ -114,6 +123,9 @@ public class GlassKilnBlockEntity extends BlockEntity implements MenuProvider {
     public void load(@NotNull CompoundTag nbt) {
         super.load(nbt);
         itemHandler.deserializeNBT(nbt.getCompound("inventory"));
+        progress = nbt.getInt("glass_kiln.progress");
+        fuelTime = nbt.getInt("glass_kiln.fuelTime");
+        fuelDuration = nbt.getInt("glass_kiln.fuelDuration");
     }
 
     public void drops() {
@@ -127,12 +139,21 @@ public class GlassKilnBlockEntity extends BlockEntity implements MenuProvider {
     }
 
     public static void tick(Level level, BlockPos pos, BlockState state, GlassKilnBlockEntity pEntity) {
-        if(hasRecipe(pEntity)) {
-            pEntity.progress++;
-            setChanged(level, pos, state);
+        if(isBurningFuel(pEntity)) {
+            pEntity.fuelTime--;
+        }
 
-            if(pEntity.progress >= pEntity.maxProgress) {
-                craftItem(pEntity);
+        if(hasRecipe(pEntity)) {
+            if(hasFuelInFuelSlot(pEntity) && !isBurningFuel(pEntity)) {
+                pEntity.burnFuel();
+                setChanged(level, pos, state);
+            }
+            if(isBurningFuel(pEntity)) {
+                pEntity.progress++;
+                if(pEntity.progress >= pEntity.maxProgress) {
+                    craftItem(pEntity);
+                }
+                setChanged(level, pos, state);
             }
         } else {
             pEntity.resetProgress();
@@ -140,38 +161,35 @@ public class GlassKilnBlockEntity extends BlockEntity implements MenuProvider {
         }
     }
 
-    private void resetProgress() {
-        this.progress = 0;
+    private static boolean hasFuelInFuelSlot(GlassKilnBlockEntity pEntity) {
+        return !pEntity.itemHandler.getStackInSlot(4).isEmpty();
     }
 
-    /* to be changed here when ready to serialize recipes */
-    private static boolean craftItem(GlassKilnBlockEntity entity) {
-        Level level = entity.level;
-        SimpleContainer inventory = new SimpleContainer(entity.itemHandler.getSlots());
-        for (int i = 0; i < entity.itemHandler.getSlots(); i++) {
-            inventory.setItem(i, entity.itemHandler.getStackInSlot(i));
+    private static boolean isBurningFuel(GlassKilnBlockEntity pEntity) {
+        return pEntity.fuelTime > 0;
+    }
+
+    private int burnFuel() {
+        ItemStack pFuel = itemHandler.getStackInSlot(4).getItem().getDefaultInstance();
+        int burnTimeForItem = getItemBurnTime(this.level, pFuel);
+
+        if (this.fuelTime == 0) {
+            if (!pFuel.isEmpty() && getItemBurnTime(this.level, pFuel) > 0) {
+                this.fuelDuration = burnTimeForItem;
+                this.fuelTime = this.fuelDuration;
+                this.itemHandler.extractItem(4, 1, false);
+            }
+        } else if (pFuel.isEmpty()) {
+            ItemStack containerItem = pFuel.getCraftingRemainingItem();
+            itemHandler.setStackInSlot(4, containerItem);
+            return 0;
         }
+        return this.fuelTime;
+    }
 
-        Optional<GlassblowingRecipe> recipe = level.getRecipeManager().getRecipeFor(GlassblowingRecipe.Type.INSTANCE, inventory, level);
-
-        // need one for each slot in the GUI defined here
-        if (recipe.isPresent()) {
-
-            entity.itemHandler.extractItem(1, 1, false);
-            entity.itemHandler.extractItem(2, 1, false);
-            entity.itemHandler.extractItem(3, 1, false);
-            entity.itemHandler.extractItem(4, 1, false);
-
-            entity.itemHandler.setStackInSlot(5, new ItemStack(recipe.get().getResultItem().getItem(),
-                    entity.itemHandler.getStackInSlot(5).getCount() + (recipe.get().getResultItem().getCount())));
-
-            entity.resetProgress();
-            hasRecipe(entity);
-        } else {
-            return false;
-        }
-
-        return false;
+    public static int getItemBurnTime(Level level, ItemStack pFuel) {
+        int burnTime = net.minecraftforge.common.ForgeHooks.getBurnTime(pFuel, null);
+        return burnTime;
     }
 
     private static boolean hasRecipe(GlassKilnBlockEntity entity) {
@@ -181,9 +199,37 @@ public class GlassKilnBlockEntity extends BlockEntity implements MenuProvider {
             inventory.setItem(i, entity.itemHandler.getStackInSlot(i));
         }
 
-        Optional<GlassblowingRecipe> recipe = level.getRecipeManager().getRecipeFor(GlassblowingRecipe.Type.INSTANCE, inventory, level);
+        Optional<GlassblowingRecipe> match = level.getRecipeManager().getRecipeFor(GlassblowingRecipe.Type.INSTANCE, inventory, level);
 
-        return recipe.isPresent() && canInsertAmountIntoOutputSlot(inventory) && canInsertItemIntoOutputSlot(inventory, recipe.get().getResultItem());
+        return match.isPresent() && canInsertAmountIntoOutputSlot(inventory) && canInsertItemIntoOutputSlot(inventory, match.get().getResultItem());
+    }
+
+    private static void craftItem(GlassKilnBlockEntity entity) {
+        Level level = entity.level;
+        SimpleContainer inventory = new SimpleContainer(entity.itemHandler.getSlots());
+        for (int i = 0; i < entity.itemHandler.getSlots(); i++) {
+            inventory.setItem(i, entity.itemHandler.getStackInSlot(i));
+        }
+
+        Optional<GlassblowingRecipe> match = level.getRecipeManager().getRecipeFor(GlassblowingRecipe.Type.INSTANCE, inventory, level);
+
+        // need one for each slot in the GUI defined here
+        if (match.isPresent()) {
+
+            entity.itemHandler.extractItem(0, 1, false);
+            entity.itemHandler.extractItem(1, 1, false);
+            entity.itemHandler.extractItem(2, 1, false);
+            entity.itemHandler.extractItem(3, 1, false);
+
+            entity.itemHandler.setStackInSlot(5, new ItemStack(match.get().getResultItem().getItem(),
+                    entity.itemHandler.getStackInSlot(5).getCount() + (match.get().getResultItem().getCount())));
+
+            entity.resetProgress();
+        }
+    }
+
+    private void resetProgress() {
+        this.progress = 0;
     }
 
     private static boolean canInsertItemIntoOutputSlot(SimpleContainer inventory, ItemStack stack) {

@@ -41,12 +41,15 @@ public class GlassKilnScreen extends AbstractContainerScreen<GlassKilnMenu> {
         if(menu.isCrafting()) {
             blit(pPoseStack, x + 86, y + 45, 177, 14, menu.getScaledProgress(), 16);
         }
+
+        if(menu.hasFuel()) {
+            blit(pPoseStack, x + 87, y + 77, 177, 4, menu.getScaledFuelProgress(), 14);
+        }
     }
 
     @Override
     public void render(@NotNull PoseStack pPoseStack, int mouseX, int mouseY, float delta) {
         renderBackground(pPoseStack);
         super.render(pPoseStack, mouseX, mouseY, delta);
-        renderTooltip(pPoseStack, mouseX, mouseY);
     }
 }

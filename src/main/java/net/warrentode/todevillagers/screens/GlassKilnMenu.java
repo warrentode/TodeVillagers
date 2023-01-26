@@ -23,7 +23,7 @@ public class GlassKilnMenu extends AbstractContainerMenu {
     public GlassKilnMenu(int id, Inventory inventory, FriendlyByteBuf extraData) {
         /* the size of the SimpleContainerData must be the same size the getCount within the GlassKilnBlockEntity container data
          * be sure to change these values when you readjust these methods to track furnace/fuel data as well  */
-        this(id, inventory, inventory.player.level.getBlockEntity(extraData.readBlockPos()), new SimpleContainerData(2));
+        this(id, inventory, inventory.player.level.getBlockEntity(extraData.readBlockPos()), new SimpleContainerData(4));
     }
 
     public GlassKilnMenu(int id, Inventory inventory, BlockEntity entity, ContainerData data) {
@@ -43,11 +43,11 @@ public class GlassKilnMenu extends AbstractContainerMenu {
             // x and y is the pixel position of that slot
             /* you can also label the result slot and create a ResultSlot extending SlotItemHandler class file
              * to block items from being placed into that particular slot  */
-            this.addSlot(new ModFuelSlot(handler, 0,62, 63));
-            this.addSlot(new SlotItemHandler(handler, 1,43, 18));
-            this.addSlot(new SlotItemHandler(handler, 2,62, 18));
-            this.addSlot(new SlotItemHandler(handler, 3,43, 37));
-            this.addSlot(new SlotItemHandler(handler, 4,62, 37));
+            this.addSlot(new SlotItemHandler(handler, 0,43, 18));
+            this.addSlot(new SlotItemHandler(handler, 1,62, 18));
+            this.addSlot(new SlotItemHandler(handler, 2,43, 37));
+            this.addSlot(new SlotItemHandler(handler, 3,62, 37));
+            this.addSlot(new ModFuelSlot(handler, 4,62, 63));
             this.addSlot(new ModResultSlot(handler, 5,122, 45));
         });
 
@@ -58,8 +58,10 @@ public class GlassKilnMenu extends AbstractContainerMenu {
         return data.get(0) > 0;
     }
 
-    /* you will need a similar calculation for rendering burn time within the GUI
-     * come back to this when fuel and burn time data tracking has been added */
+    public boolean hasFuel() {
+        return data.get(2) > 0;
+    }
+
     public int getScaledProgress() {
         // these are from the cases set in the matching block entity class file
         int progress = this.data.get(0);
@@ -72,6 +74,17 @@ public class GlassKilnMenu extends AbstractContainerMenu {
         return maxProgress != 0 && progress != 0 ? progress * progressArrowSize / maxProgress : 0;
     }
 
+    public int getScaledFuelProgress() {
+        // these are from the cases set in the matching block entity class file
+        int fuelTime = this.data.get(2);
+        int fuelDuration = this.data.get(3);
+        // the pixel length or height of the progress arrow/bar in this GUI
+        // if your arrow/bar is vertical, you need the height, otherwise you need the length
+        int fuelScaleSize = 60;
+
+        // this calculates how much of that progress arrow/bar needs to be rendered in the GUI
+        return fuelDuration != 0 ? (int)(((float)fuelTime / (float)fuelDuration) * fuelScaleSize) : 0;
+    }
 
     /* quickMoveStack method start (the shift click remove stack in game) */
 
