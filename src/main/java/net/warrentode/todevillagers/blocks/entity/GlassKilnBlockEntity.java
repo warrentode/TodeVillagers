@@ -148,32 +148,30 @@ public class GlassKilnBlockEntity extends BlockEntity implements MenuProvider {
         if (isBurningFuel(pEntity)) {
             level.setBlock(pos, state.setValue(GlassKilnBlock.LIT, true), 3);
             pEntity.fuelTime--;
+        }
+        else if (!isBurningFuel(pEntity) && pEntity.itemHandler.getStackInSlot(4).isEmpty() && pEntity.progress > 0) {
+            level.setBlock(pos, state.setValue(GlassKilnBlock.LIT, false), 3);
+            pEntity.progress--;
+            setChanged(level, pos, state);
+        }
+        else if (!isBurningFuel(pEntity) && (pEntity.itemHandler.getStackInSlot(4).isEmpty() || !hasRecipe(pEntity))) {
+            level.setBlock(pos, state.setValue(GlassKilnBlock.LIT, false), 3);
+            setChanged(level, pos, state);
+        }
 
-            if (hasRecipe(pEntity)) {
+        if (hasRecipe(pEntity)) {
+            if (isBurningFuel(pEntity)) {
                 pEntity.progress++;
                 if (pEntity.progress >= pEntity.maxProgress) {
                     craftItem(pEntity);
                 }
                 setChanged(level, pos, state);
             }
-            else {
-                pEntity.resetProgress();
+            else if (hasFuelInFuelSlot(pEntity) && !isBurningFuel(pEntity)) {
                 setChanged(level, pos, state);
             }
-        }
-
-        else if (hasFuelInFuelSlot(pEntity) && !isBurningFuel(pEntity)) {
-            setChanged(level, pos, state);
-        }
-
-        else if (!isBurningFuel(pEntity) && pEntity.itemHandler.getStackInSlot(4).isEmpty() && pEntity.progress > 0) {
-            level.setBlock(pos, state.setValue(GlassKilnBlock.LIT, false), 3);
-            pEntity.progress--;
-            setChanged(level, pos, state);
-        }
-
-        else if (!isBurningFuel(pEntity) && (pEntity.itemHandler.getStackInSlot(4).isEmpty() || !hasRecipe(pEntity))) {
-            level.setBlock(pos, state.setValue(GlassKilnBlock.LIT, false), 3);
+        } else {
+            pEntity.resetProgress();
             setChanged(level, pos, state);
         }
     }
