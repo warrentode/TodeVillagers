@@ -34,6 +34,7 @@ public class GlassKilnBlock extends BaseEntityBlock {
 
     public GlassKilnBlock(Properties pProperties) {
         super(pProperties);
+        this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(LIT, Boolean.FALSE));
     }
 
     @Nullable

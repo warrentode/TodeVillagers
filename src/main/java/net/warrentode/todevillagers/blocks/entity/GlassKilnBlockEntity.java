@@ -21,6 +21,7 @@ import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
+import net.warrentode.todevillagers.blocks.custom.GlassKilnBlock;
 import net.warrentode.todevillagers.recipes.GlassblowingRecipe;
 import net.warrentode.todevillagers.screens.GlassKilnMenu;
 import org.jetbrains.annotations.NotNull;
@@ -140,25 +141,39 @@ public class GlassKilnBlockEntity extends BlockEntity implements MenuProvider {
     }
 
     public static void tick(Level level, BlockPos pos, BlockState state, GlassKilnBlockEntity pEntity) {
-        if(isBurningFuel(pEntity)) {
+        if (level.isClientSide()) {
+            return;
+        }
+
+        if (isBurningFuel(pEntity)) {
+            level.setBlock(pos, state.setValue(GlassKilnBlock.LIT, true), 3);
             pEntity.fuelTime--;
-        }
 
-        if(hasFuelInFuelSlot(pEntity) && !isBurningFuel(pEntity)) {
-            System.out.println("Fuel Check");
-            setChanged(level, pos, state);
-        }
-
-        if(hasRecipe(pEntity)) {
-            if(isBurningFuel(pEntity)) {
+            if (hasRecipe(pEntity)) {
                 pEntity.progress++;
-                if(pEntity.progress >= pEntity.maxProgress) {
+                if (pEntity.progress >= pEntity.maxProgress) {
                     craftItem(pEntity);
                 }
                 setChanged(level, pos, state);
             }
-        } else {
-            pEntity.resetProgress();
+            else {
+                pEntity.resetProgress();
+                setChanged(level, pos, state);
+            }
+        }
+
+        else if (hasFuelInFuelSlot(pEntity) && !isBurningFuel(pEntity)) {
+            setChanged(level, pos, state);
+        }
+
+        else if (!isBurningFuel(pEntity) && pEntity.itemHandler.getStackInSlot(4).isEmpty() && pEntity.progress > 0) {
+            level.setBlock(pos, state.setValue(GlassKilnBlock.LIT, false), 3);
+            pEntity.progress--;
+            setChanged(level, pos, state);
+        }
+
+        else if (!isBurningFuel(pEntity) && (pEntity.itemHandler.getStackInSlot(4).isEmpty() || !hasRecipe(pEntity))) {
+            level.setBlock(pos, state.setValue(GlassKilnBlock.LIT, false), 3);
             setChanged(level, pos, state);
         }
     }
@@ -182,11 +197,14 @@ public class GlassKilnBlockEntity extends BlockEntity implements MenuProvider {
             if (!pFuel.isEmpty() && getItemBurnTime(pFuel) > 0) {
                 pEntity.fuelDuration = burnTimeForItem;
                 pEntity.fuelTime = pEntity.fuelDuration;
-                pEntity.itemHandler.extractItem(4, 1, false);
+                if (pEntity.itemHandler.getStackInSlot(4).hasCraftingRemainingItem()) {
+                    ItemStack remainingItem = pEntity.itemHandler.getStackInSlot(4).getCraftingRemainingItem();
+                    pEntity.itemHandler.setStackInSlot(4, remainingItem);
+                }
+                else {
+                    pEntity.itemHandler.extractItem(4, 1, false);
+                }
             }
-        } else if (pFuel.isEmpty()) {
-            ItemStack containerItem = pFuel.getCraftingRemainingItem();
-            pEntity.itemHandler.setStackInSlot(4, containerItem);
         }
     }
 

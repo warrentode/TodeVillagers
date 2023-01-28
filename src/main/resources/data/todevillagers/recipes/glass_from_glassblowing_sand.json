@@ -1,15 +1,13 @@
 {
   "type": "todevillagers:glassblowing",
-  "key": {
-    "I": {
+  "group": "glass",
+  "ingredients": [
+    {
       "tag": "minecraft:sand"
     },
-    "T": {
+    {
       "item": "todevillagers:marver"
     }
-  },
-  "pattern": [
-    "IT"
   ],
   "result": {
     "item": "minecraft:glass",

@@ -1,18 +1,16 @@
 {
   "type": "todevillagers:glassblowing",
-  "key": {
-    "I": {
+  "group": "glass pane",
+  "ingredients": [
+    {
       "item": "minecraft:glass"
     },
-    "T": {
+    {
       "item": "todevillagers:glassblower_shears"
     }
-  },
-  "pattern": [
-    "IT"
   ],
   "result": {
     "item": "minecraft:glass_pane",
-    "count": 3
+    "count": 4
   }
 }
