@@ -15,6 +15,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.levelgen.SingleThreadedRandomSource;
 import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
@@ -22,6 +23,7 @@ import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
 import net.warrentode.todevillagers.blocks.custom.GlassKilnBlock;
+import net.warrentode.todevillagers.items.ModItems;
 import net.warrentode.todevillagers.recipes.GlassblowingRecipe;
 import net.warrentode.todevillagers.screens.GlassKilnMenu;
 import org.jetbrains.annotations.NotNull;
@@ -236,11 +238,60 @@ public class GlassKilnBlockEntity extends BlockEntity implements MenuProvider {
         // need one for each slot in the GUI defined here
         if (match.isPresent()) {
 
-            entity.itemHandler.extractItem(0, 1, false);
-            entity.itemHandler.extractItem(1, 1, false);
-            entity.itemHandler.extractItem(2, 1, false);
-            entity.itemHandler.extractItem(3, 1, false);
+            // check input 1 for tool and damage it if not at max damage rather than extract it, otherwise extract item
+            if (entity.itemHandler.getStackInSlot(0).getItem() == ModItems.GLASSBLOWING_PIPE.get()
+                    && (entity.itemHandler.getStackInSlot(0).getDamageValue() != entity.itemHandler.getStackInSlot(0).getMaxDamage())) {
+                entity.itemHandler.getStackInSlot(0).hurt(1, new SingleThreadedRandomSource(1), null);
+            } else if (entity.itemHandler.getStackInSlot(0).getItem() == ModItems.GLASSBLOWER_SHEARS.get()
+                    && (entity.itemHandler.getStackInSlot(0).getDamageValue() != entity.itemHandler.getStackInSlot(0).getMaxDamage())) {
+                entity.itemHandler.getStackInSlot(0).hurt(1, new SingleThreadedRandomSource(1), null);
+            } else if (entity.itemHandler.getStackInSlot(0).getItem() == ModItems.MARVER.get()
+                    && (entity.itemHandler.getStackInSlot(0).getDamageValue() != entity.itemHandler.getStackInSlot(0).getMaxDamage())) {
+                entity.itemHandler.getStackInSlot(0).hurt(1, new SingleThreadedRandomSource(1), null);
+            } else {
+                entity.itemHandler.extractItem(0, 1, false);
+            }
+            // check input 2 for tool and damage it if not at max damage rather than extract it, otherwise extract item
+            if (entity.itemHandler.getStackInSlot(1).getItem() == ModItems.GLASSBLOWING_PIPE.get()
+                    && (entity.itemHandler.getStackInSlot(1).getDamageValue() != entity.itemHandler.getStackInSlot(1).getMaxDamage())) {
+                entity.itemHandler.getStackInSlot(1).hurt(1, new SingleThreadedRandomSource(1), null);
+            } else if (entity.itemHandler.getStackInSlot(1).getItem() == ModItems.GLASSBLOWER_SHEARS.get()
+                    && (entity.itemHandler.getStackInSlot(1).getDamageValue() != entity.itemHandler.getStackInSlot(1).getMaxDamage())) {
+                entity.itemHandler.getStackInSlot(1).hurt(1, new SingleThreadedRandomSource(1), null);
+            } else if (entity.itemHandler.getStackInSlot(1).getItem() == ModItems.MARVER.get()
+                    && (entity.itemHandler.getStackInSlot(1).getDamageValue() != entity.itemHandler.getStackInSlot(1).getMaxDamage())) {
+                entity.itemHandler.getStackInSlot(1).hurt(1, new SingleThreadedRandomSource(1), null);
+            } else {
+                entity.itemHandler.extractItem(1, 1, false);
+            }
+            // check input 3 for tool and damage it if not at max damage rather than extract it, otherwise extract item
+            if (entity.itemHandler.getStackInSlot(2).getItem() == ModItems.GLASSBLOWING_PIPE.get()
+                    && (entity.itemHandler.getStackInSlot(2).getDamageValue() != entity.itemHandler.getStackInSlot(2).getMaxDamage())) {
+                entity.itemHandler.getStackInSlot(2).hurt(1, new SingleThreadedRandomSource(1), null);
+            } else if (entity.itemHandler.getStackInSlot(2).getItem() == ModItems.GLASSBLOWER_SHEARS.get()
+                    && (entity.itemHandler.getStackInSlot(2).getDamageValue() != entity.itemHandler.getStackInSlot(2).getMaxDamage())) {
+                entity.itemHandler.getStackInSlot(2).hurt(1, new SingleThreadedRandomSource(1), null);
+            } else if (entity.itemHandler.getStackInSlot(2).getItem() == ModItems.MARVER.get()
+                    && (entity.itemHandler.getStackInSlot(2).getDamageValue() != entity.itemHandler.getStackInSlot(2).getMaxDamage())) {
+                entity.itemHandler.getStackInSlot(2).hurt(1, new SingleThreadedRandomSource(1), null);
+            } else {
+                entity.itemHandler.extractItem(2, 1, false);
+            }
+            // check input 4 for tool and damage it if not at max damage rather than extract it, otherwise extract item
+            if (entity.itemHandler.getStackInSlot(3).getItem() == ModItems.GLASSBLOWING_PIPE.get()
+                    && (entity.itemHandler.getStackInSlot(3).getDamageValue() != entity.itemHandler.getStackInSlot(3).getMaxDamage())) {
+                entity.itemHandler.getStackInSlot(3).hurt(1, new SingleThreadedRandomSource(1), null);
+            } else if (entity.itemHandler.getStackInSlot(3).getItem() == ModItems.GLASSBLOWER_SHEARS.get()
+                    && (entity.itemHandler.getStackInSlot(3).getDamageValue() != entity.itemHandler.getStackInSlot(3).getMaxDamage())) {
+                entity.itemHandler.getStackInSlot(3).hurt(1, new SingleThreadedRandomSource(1), null);
+            } else if (entity.itemHandler.getStackInSlot(3).getItem() == ModItems.MARVER.get()
+                    && (entity.itemHandler.getStackInSlot(3).getDamageValue() != entity.itemHandler.getStackInSlot(3).getMaxDamage())) {
+                entity.itemHandler.getStackInSlot(3).hurt(1, new SingleThreadedRandomSource(1), null);
+            } else {
+                entity.itemHandler.extractItem(3, 1, false);
+            }
 
+            // place product of recipe into result slot
             entity.itemHandler.setStackInSlot(5, new ItemStack(match.get().getResultItem().getItem(),
                     entity.itemHandler.getStackInSlot(5).getCount() + (match.get().getResultItem().getCount())));
 

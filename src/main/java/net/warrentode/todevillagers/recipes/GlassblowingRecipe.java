@@ -113,7 +113,7 @@ public class GlassblowingRecipe implements Recipe<SimpleContainer> {
 
         @Override
         public @NotNull GlassblowingRecipe fromJson(@NotNull ResourceLocation id, @NotNull JsonObject pSerializedRecipe) {
-            String s = GsonHelper.getAsString(pSerializedRecipe, "group", "");
+            String group = GsonHelper.getAsString(pSerializedRecipe, "group", "");
             NonNullList<Ingredient> inputs = itemsFromJson(GsonHelper.getAsJsonArray(pSerializedRecipe, "ingredients"));
             if (inputs.isEmpty()) {
                 throw new JsonParseException("No ingredients for shapeless recipe");
@@ -121,7 +121,7 @@ public class GlassblowingRecipe implements Recipe<SimpleContainer> {
                 throw new JsonParseException("Too many ingredients for shapeless recipe. The maximum is " + width * height);
             } else {
                 ItemStack itemstack = ShapedRecipe.itemStackFromJson(GsonHelper.getAsJsonObject(pSerializedRecipe, "result"));
-                return new GlassblowingRecipe(id, s, itemstack, inputs);
+                return new GlassblowingRecipe(id, group, itemstack, inputs);
             }
         }
 
@@ -139,16 +139,16 @@ public class GlassblowingRecipe implements Recipe<SimpleContainer> {
         }
 
         public GlassblowingRecipe fromNetwork(@NotNull ResourceLocation id, FriendlyByteBuf buf) {
-            String s = buf.readUtf();
+            String group = buf.readUtf();
             int i = buf.readVarInt();
-            NonNullList<Ingredient> nonnulllist = NonNullList.withSize(i, Ingredient.EMPTY);
+            NonNullList<Ingredient> inputs = NonNullList.withSize(i, Ingredient.EMPTY);
 
-            for(int j = 0; j < nonnulllist.size(); ++j) {
-                nonnulllist.set(j, Ingredient.fromNetwork(buf));
+            for(int j = 0; j < inputs.size(); ++j) {
+                inputs.set(j, Ingredient.fromNetwork(buf));
             }
 
             ItemStack itemstack = buf.readItem();
-            return new GlassblowingRecipe(id, s, itemstack, nonnulllist);
+            return new GlassblowingRecipe(id, group, itemstack, inputs);
         }
 
         public void toNetwork(FriendlyByteBuf buf, GlassblowingRecipe pRecipe) {

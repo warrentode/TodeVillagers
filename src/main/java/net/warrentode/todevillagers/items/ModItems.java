@@ -22,9 +22,9 @@ public class ModItems {
                     new Item.Properties().tab(ModCreativeModeTab.TODEVILLAGERS_TAB).stacksTo(1).rarity(Rarity.RARE), 1360));
 
     public static final RegistryObject<Item> MARVER = REGISTRY.register("marver",
-            ()-> new MarverItem(new Item.Properties().tab(ModCreativeModeTab.TODEVILLAGERS_TAB)));
+            ()-> new MarverItem(new Item.Properties().durability(64).tab(ModCreativeModeTab.TODEVILLAGERS_TAB)));
     public static final RegistryObject<Item> GLASSBLOWING_PIPE = REGISTRY.register("glassblowing_pipe",
-            ()-> new GlassblowingPipeItem(new Item.Properties().tab(ModCreativeModeTab.TODEVILLAGERS_TAB)));
+            ()-> new GlassblowingPipeItem(new Item.Properties().durability(64).tab(ModCreativeModeTab.TODEVILLAGERS_TAB)));
     public static final RegistryObject<Item> GLASSBLOWER_SHEARS = REGISTRY.register("glassblower_shears",
-            ()-> new GlassblowerShearsItem(new Item.Properties().tab(ModCreativeModeTab.TODEVILLAGERS_TAB)));
+            ()-> new GlassblowerShearsItem(new Item.Properties().durability(64).tab(ModCreativeModeTab.TODEVILLAGERS_TAB)));
 }
