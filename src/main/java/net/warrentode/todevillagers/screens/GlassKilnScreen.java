@@ -20,11 +20,6 @@ public class GlassKilnScreen extends AbstractContainerScreen<GlassKilnMenu> {
     }
 
     @Override
-    protected void init() {
-        super.init();
-    }
-
-    @Override
     protected void renderBg(@NotNull PoseStack pPoseStack, float pPartialTick, int pMouseX, int pMouseY) {
         RenderSystem.setShader(GameRenderer::getPositionTexShader);
         RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
@@ -43,7 +38,7 @@ public class GlassKilnScreen extends AbstractContainerScreen<GlassKilnMenu> {
         }
 
         if(menu.hasFuel()) {
-            blit(pPoseStack, x + 87, y + 77, 177, 4, menu.getScaledFuelProgress(), 14);
+            blit(pPoseStack, x + 85, y + 77, 177, 4, menu.getScaledFuelProgress(), 3);
         }
     }
 

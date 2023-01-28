@@ -19,6 +19,7 @@ import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.common.ForgeHooks;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.Map;
 import java.util.Set;
@@ -32,7 +33,9 @@ public class GlassblowingRecipe implements Recipe<SimpleContainer> {
     final String group;
     private final ItemStack result;
     private final NonNullList<Ingredient> recipeItems;
+    @SuppressWarnings("CanBeFinal")
     static int MAX_WIDTH = 2;
+    @SuppressWarnings("CanBeFinal")
     static int MAX_HEIGHT = 2;
 
     public GlassblowingRecipe(ResourceLocation id, int width, int height, String group, ItemStack result, NonNullList<Ingredient> recipeItems) {
@@ -45,7 +48,7 @@ public class GlassblowingRecipe implements Recipe<SimpleContainer> {
     }
 
     @Override
-    public boolean matches(SimpleContainer inventory, Level level) {
+    public boolean matches(SimpleContainer inventory, @NotNull Level level) {
         for (int i = 0; i <= inventory.getContainerSize() - this.width; ++i) {
             for (int j = 0; j <= inventory.getContainerSize() - this.height; ++j) {
                 if (this.matches(inventory, i, j, true)) {
@@ -85,12 +88,12 @@ public class GlassblowingRecipe implements Recipe<SimpleContainer> {
     }
 
     @Override
-    public NonNullList<Ingredient> getIngredients() {
+    public @NotNull NonNullList<Ingredient> getIngredients() {
         return recipeItems;
     }
 
     @Override
-    public ItemStack assemble(SimpleContainer inventory) {
+    public @NotNull ItemStack assemble(@NotNull SimpleContainer inventory) {
         return result;
     }
 
@@ -100,22 +103,22 @@ public class GlassblowingRecipe implements Recipe<SimpleContainer> {
     }
 
     @Override
-    public ItemStack getResultItem() {
+    public @NotNull ItemStack getResultItem() {
         return result.copy();
     }
 
     @Override
-    public ResourceLocation getId() {
+    public @NotNull ResourceLocation getId() {
         return id;
     }
 
     @Override
-    public RecipeSerializer<?> getSerializer() {
+    public @NotNull RecipeSerializer<?> getSerializer() {
         return Serializer.INSTANCE;
     }
 
     @Override
-    public RecipeType<?> getType() {
+    public @NotNull RecipeType<?> getType() {
         return Type.INSTANCE;
     }
 
@@ -124,6 +127,7 @@ public class GlassblowingRecipe implements Recipe<SimpleContainer> {
         }
 
         public static final Type INSTANCE = new Type();
+        @SuppressWarnings("unused")
         public static final String ID = "glassblowing";
     }
 
@@ -196,6 +200,7 @@ public class GlassblowingRecipe implements Recipe<SimpleContainer> {
 
     private static int firstNonSpace(String pEntry) {
         int i;
+        //noinspection StatementWithEmptyBody
         for (i = 0; i < pEntry.length() && pEntry.charAt(i) == ' '; ++i) {
         }
 
@@ -204,6 +209,7 @@ public class GlassblowingRecipe implements Recipe<SimpleContainer> {
 
     private static int lastNonSpace(String pEntry) {
         int i;
+        //noinspection StatementWithEmptyBody
         for (i = pEntry.length() - 1; i >= 0 && pEntry.charAt(i) == ' '; --i) {
         }
 
@@ -234,6 +240,7 @@ public class GlassblowingRecipe implements Recipe<SimpleContainer> {
         }
     }
 
+    @SuppressWarnings("RedundantCast")
     static Map<String, Ingredient> keyFromJson(JsonObject pKeyEntry) {
         Map<String, Ingredient> map = Maps.newHashMap();
 
@@ -259,11 +266,11 @@ public class GlassblowingRecipe implements Recipe<SimpleContainer> {
 
     public static class Serializer implements RecipeSerializer<GlassblowingRecipe> {
         public static final Serializer INSTANCE = new Serializer();
-        public static final ResourceLocation ID =
-                new ResourceLocation(MODID, "glassblowing");
+        @SuppressWarnings("unused")
+        public static final ResourceLocation ID = new ResourceLocation(MODID, "glassblowing");
 
         @Override
-        public GlassblowingRecipe fromJson(ResourceLocation id, JsonObject pSerializedRecipe) {
+        public @NotNull GlassblowingRecipe fromJson(@NotNull ResourceLocation id, @NotNull JsonObject pSerializedRecipe) {
             String group = GsonHelper.getAsString(pSerializedRecipe, "group", "");
             Map<String, Ingredient> map = GlassblowingRecipe.keyFromJson(GsonHelper.getAsJsonObject(pSerializedRecipe, "key"));
             String[] astring = GlassblowingRecipe.shrink(GlassblowingRecipe.patternFromJson(GsonHelper.getAsJsonArray(pSerializedRecipe, "pattern")));
@@ -274,12 +281,13 @@ public class GlassblowingRecipe implements Recipe<SimpleContainer> {
             return new GlassblowingRecipe(id, i, j, group, result, ingredients);
         }
 
-        public GlassblowingRecipe fromNetwork(ResourceLocation id, FriendlyByteBuf pBuffer) {
+        public GlassblowingRecipe fromNetwork(@NotNull ResourceLocation id, FriendlyByteBuf pBuffer) {
             int i = pBuffer.readVarInt();
             int j = pBuffer.readVarInt();
             String group = pBuffer.readUtf();
             NonNullList<Ingredient> ingredients = NonNullList.withSize(i * j, Ingredient.EMPTY);
 
+            //noinspection Java8ListReplaceAll
             for (int k = 0; k < ingredients.size(); ++k) {
                 ingredients.set(k, Ingredient.fromNetwork(pBuffer));
             }

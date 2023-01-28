@@ -12,6 +12,7 @@ public class ModRecipes {
     public static final DeferredRegister<RecipeSerializer<?>> SERIALIZERS =
             DeferredRegister.create(ForgeRegistries.RECIPE_SERIALIZERS, MODID);
 
+    @SuppressWarnings("unused")
     public static final RegistryObject<RecipeSerializer<GlassblowingRecipe>> GLASSBLOWING_SERIALIZER =
             SERIALIZERS.register("glassblowing", () -> GlassblowingRecipe.Serializer.INSTANCE);
 

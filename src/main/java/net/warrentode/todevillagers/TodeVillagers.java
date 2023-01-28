@@ -45,6 +45,7 @@ public class TodeVillagers {
         modEventBus.addListener(this::commonSetup);
     }
 
+    @SuppressWarnings({"Convert2MethodRef", "CodeBlock2Expr"})
     private void commonSetup(final FMLCommonSetupEvent event) {
         event.enqueueWork(() -> {
             ModVillagers.registerPOIs();

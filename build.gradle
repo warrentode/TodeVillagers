@@ -1,3 +1,12 @@
+//file:noinspection GroovyAssignabilityCheck
+//file:noinspection GroovyAssignabilityCheck
+//file:noinspection GroovyAssignabilityCheck
+//file:noinspection GroovyAssignabilityCheck
+//file:noinspection GroovyAssignabilityCheck
+//file:noinspection GroovyAssignabilityCheck
+//file:noinspection GroovyAssignabilityCheck
+//file:noinspection GroovyAssignabilityCheck
+//file:noinspection GroovyAssignabilityCheck
 plugins {
     id 'eclipse'
     id 'maven-publish'
@@ -41,6 +50,7 @@ minecraft {
             }
         }
         gameTestServer {
+            //noinspection GroovyAssignabilityCheck
             workingDirectory project.file('run')
             property 'forge.logging.markers', 'REGISTRIES'
             property 'forge.logging.console.level', 'debug'
@@ -74,7 +84,7 @@ repositories {
 
 dependencies {
     implementation 'com.github.t9t.minecraft-rcon-client:minecraft-rcon-client:1.0.0'
-    minecraft 'net.minecraftforge:forge:1.19.2-43.2.3'
+    minecraft 'net.minecraftforge:forge:1.19.2-43.2.4'
 }
 jar {
     manifest {

@@ -13,11 +13,10 @@ public class ModBlockEntities {
     public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITIES =
             DeferredRegister.create(ForgeRegistries.BLOCK_ENTITY_TYPES, MODID);
 
+    @SuppressWarnings("DataFlowIssue")
     public static final RegistryObject<BlockEntityType<GlassKilnBlockEntity>> GLASS_KILN_ENTITY =
-            BLOCK_ENTITIES.register("glass_kiln", ()-> {
-                return BlockEntityType.Builder.of(GlassKilnBlockEntity::new,
-                        ModBlocks.GLASS_KILN.get()).build(null);
-            });
+            BLOCK_ENTITIES.register("glass_kiln", ()-> BlockEntityType.Builder.of(GlassKilnBlockEntity::new,
+                    ModBlocks.GLASS_KILN.get()).build(null));
 
     public static void register(IEventBus eventBus) {
         BLOCK_ENTITIES.register(eventBus);

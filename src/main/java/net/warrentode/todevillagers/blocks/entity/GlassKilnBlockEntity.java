@@ -15,6 +15,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.common.util.LazyOptional;
@@ -143,11 +144,12 @@ public class GlassKilnBlockEntity extends BlockEntity implements MenuProvider {
             pEntity.fuelTime--;
         }
 
+        if(hasFuelInFuelSlot(pEntity) && !isBurningFuel(pEntity)) {
+            System.out.println("Fuel Check");
+            setChanged(level, pos, state);
+        }
+
         if(hasRecipe(pEntity)) {
-            if(hasFuelInFuelSlot(pEntity) && !isBurningFuel(pEntity)) {
-                pEntity.burnFuel();
-                setChanged(level, pos, state);
-            }
             if(isBurningFuel(pEntity)) {
                 pEntity.progress++;
                 if(pEntity.progress >= pEntity.maxProgress) {
@@ -162,34 +164,34 @@ public class GlassKilnBlockEntity extends BlockEntity implements MenuProvider {
     }
 
     private static boolean hasFuelInFuelSlot(GlassKilnBlockEntity pEntity) {
-        return !pEntity.itemHandler.getStackInSlot(4).isEmpty();
+        if (!pEntity.itemHandler.getStackInSlot(4).isEmpty() && pEntity.fuelTime == 0) {
+            burnFuel(pEntity);
+        } else return pEntity.fuelTime > 0;
+        return false;
     }
 
     private static boolean isBurningFuel(GlassKilnBlockEntity pEntity) {
         return pEntity.fuelTime > 0;
     }
 
-    private int burnFuel() {
-        ItemStack pFuel = itemHandler.getStackInSlot(4).getItem().getDefaultInstance();
-        int burnTimeForItem = getItemBurnTime(this.level, pFuel);
+    private static void burnFuel(GlassKilnBlockEntity pEntity) {
+        ItemStack pFuel = pEntity.itemHandler.getStackInSlot(4).getItem().getDefaultInstance();
+        int burnTimeForItem = getItemBurnTime(pFuel);
 
-        if (this.fuelTime == 0) {
-            if (!pFuel.isEmpty() && getItemBurnTime(this.level, pFuel) > 0) {
-                this.fuelDuration = burnTimeForItem;
-                this.fuelTime = this.fuelDuration;
-                this.itemHandler.extractItem(4, 1, false);
+        if (pEntity.fuelTime == 0) {
+            if (!pFuel.isEmpty() && getItemBurnTime(pFuel) > 0) {
+                pEntity.fuelDuration = burnTimeForItem;
+                pEntity.fuelTime = pEntity.fuelDuration;
+                pEntity.itemHandler.extractItem(4, 1, false);
             }
         } else if (pFuel.isEmpty()) {
             ItemStack containerItem = pFuel.getCraftingRemainingItem();
-            itemHandler.setStackInSlot(4, containerItem);
-            return 0;
+            pEntity.itemHandler.setStackInSlot(4, containerItem);
         }
-        return this.fuelTime;
     }
 
-    public static int getItemBurnTime(Level level, ItemStack pFuel) {
-        int burnTime = net.minecraftforge.common.ForgeHooks.getBurnTime(pFuel, null);
-        return burnTime;
+    public static int getItemBurnTime(ItemStack pFuel) {
+        return ForgeHooks.getBurnTime(pFuel, null);
     }
 
     private static boolean hasRecipe(GlassKilnBlockEntity entity) {
@@ -199,6 +201,7 @@ public class GlassKilnBlockEntity extends BlockEntity implements MenuProvider {
             inventory.setItem(i, entity.itemHandler.getStackInSlot(i));
         }
 
+        assert level != null;
         Optional<GlassblowingRecipe> match = level.getRecipeManager().getRecipeFor(GlassblowingRecipe.Type.INSTANCE, inventory, level);
 
         return match.isPresent() && canInsertAmountIntoOutputSlot(inventory) && canInsertItemIntoOutputSlot(inventory, match.get().getResultItem());
@@ -211,6 +214,7 @@ public class GlassKilnBlockEntity extends BlockEntity implements MenuProvider {
             inventory.setItem(i, entity.itemHandler.getStackInSlot(i));
         }
 
+        assert level != null;
         Optional<GlassblowingRecipe> match = level.getRecipeManager().getRecipeFor(GlassblowingRecipe.Type.INSTANCE, inventory, level);
 
         // need one for each slot in the GUI defined here

@@ -11,7 +11,6 @@ import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.items.SlotItemHandler;
 import net.warrentode.todevillagers.blocks.ModBlocks;
 import net.warrentode.todevillagers.blocks.entity.GlassKilnBlockEntity;
-import net.warrentode.todevillagers.screens.slots.ModFuelSlot;
 import net.warrentode.todevillagers.screens.slots.ModResultSlot;
 import org.jetbrains.annotations.NotNull;
 
@@ -47,7 +46,8 @@ public class GlassKilnMenu extends AbstractContainerMenu {
             this.addSlot(new SlotItemHandler(handler, 1,62, 18));
             this.addSlot(new SlotItemHandler(handler, 2,43, 37));
             this.addSlot(new SlotItemHandler(handler, 3,62, 37));
-            this.addSlot(new ModFuelSlot(handler, 4,62, 63));
+            // Fuel Slot
+            this.addSlot(new SlotItemHandler(handler, 4,62, 63));
             this.addSlot(new ModResultSlot(handler, 5,122, 45));
         });
 
