@@ -130,6 +130,7 @@ public class GlassblowingRecipe implements Recipe<SimpleContainer> {
 
             for(int i = 0; i < ingredients.size(); ++i) {
                 Ingredient ingredient = Ingredient.fromJson(ingredients.get(i));
+                //noinspection ConstantValue,PointlessBooleanExpression
                 if (true || !ingredient.isEmpty()) { // FORGE: Skip checking if an ingredient is empty during shapeless recipe deserialization to prevent complex ingredients from caching tags too early. Can not be done using a config value due to sync issues.
                     inputs.add(ingredient);
                 }
@@ -143,6 +144,7 @@ public class GlassblowingRecipe implements Recipe<SimpleContainer> {
             int i = buf.readVarInt();
             NonNullList<Ingredient> inputs = NonNullList.withSize(i, Ingredient.EMPTY);
 
+            //noinspection Java8ListReplaceAll
             for(int j = 0; j < inputs.size(); ++j) {
                 inputs.set(j, Ingredient.fromNetwork(buf));
             }

@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "#forge:glass_pressure_plates",
+    "#todevillagers:glass_pressure_plates/reinforced",
+    "#todevillagers:glass_pressure_plates/glowing",
+    "#todevillagers:glass_pressure_plates/shifting",
+    "#todevillagers:glass_pressure_plates/tinted"
+  ]
+}

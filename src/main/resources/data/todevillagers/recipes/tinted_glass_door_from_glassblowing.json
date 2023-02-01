@@ -1,0 +1,23 @@
+{
+  "type": "todevillagers:glassblowing",
+  "category": "tinted_glass",
+  "group": "glass_door",
+  "ingredients": [
+    {
+      "item": "minecraft:tinted_glass"
+    },
+    {
+      "item": "todevillagers:glassblower_shears"
+    },
+    {
+      "item": "todevillagers:glassblowing_pipe"
+    },
+    {
+      "item": "todevillagers:marver"
+    }
+  ],
+  "result": {
+    "item": "todevillagers:tinted_glass_door",
+    "count": 1
+  }
+}

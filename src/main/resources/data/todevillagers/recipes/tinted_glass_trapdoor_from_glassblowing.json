@@ -1,0 +1,17 @@
+{
+  "type": "todevillagers:glassblowing",
+  "category": "tinted_glass",
+  "group": "glass_trapdoor",
+  "ingredients": [
+    {
+      "item": "minecraft:tinted_glass_door"
+    },
+    {
+      "item": "todevillagers:glassblower_shears"
+    }
+  ],
+  "result": {
+    "item": "todevillagers:tinted_glass_trapdoor",
+    "count": 2
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "type": "todevillagers:glassblowing",
+  "category": "shifting_glass",
+  "group": "glass_fence",
+  "ingredients": [
+    {
+      "item": "todevillagers:shifting_glass"
+    },
+    {
+      "item": "todevillagers:shifting_glass"
+    },
+    {
+      "item": "todevillagers:glassblower_shears"
+    }
+  ],
+  "result": {
+    "item": "todevillagers:shifting_glass_fence",
+    "count": 2
+  }
+}

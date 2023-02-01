@@ -1,0 +1,20 @@
+{
+  "type": "todevillagers:glassblowing",
+  "category": "tinted_glass",
+  "group": "glass_fence",
+  "ingredients": [
+    {
+      "item": "minecraft:tinted_glass"
+    },
+    {
+      "item": "minecraft:tinted_glass"
+    },
+    {
+      "item": "todevillagers:glassblower_shears"
+    }
+  ],
+  "result": {
+    "item": "todevillagers:tinted_glass_fence",
+    "count": 2
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "type": "todevillagers:glassblowing",
+  "category": "shifting_glass",
+  "group": "glass_wall",
+  "ingredients": [
+    {
+      "item": "todevillagers:shifting_glass"
+    },
+    {
+      "item": "todevillagers:shifting_glass"
+    },
+    {
+      "item": "todevillagers:marver"
+    }
+  ],
+  "result": {
+    "item": "todevillagers:shifting_glass_wall",
+    "count": 2
+  }
+}

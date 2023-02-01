@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/template_glass_pane_side_alt",
+  "render_type": "translucent",
+  "textures": {
+    "edge": "todevillagers:block/shifting_glass_pane_top",
+    "pane": "todevillagers:block/shifting_glass"
+  }
+}

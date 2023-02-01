@@ -6,7 +6,7 @@
   "item.todevillagers.chakra_dream_music_disc.desc": "Chakra Dream by Warren Tode © 2019 (CC BY-NC-ND 4.0)",
   "tooltips.todevillagers.chakra_dream_music_disc": "Composed with Muse Score",
 
-  "item.todevillagers.marver": "Marver",
+  "item.todevillagers.marver": "Glassblowing Marver",
   "tooltips.todevillagers.marver": "A glassblowing tool to shape hot glass",
 
   "item.todevillagers.glassblowing_pipe": "Glassblowing Pipe",
@@ -15,8 +15,59 @@
   "item.todevillagers.glassblower_shears": "Glassblowing Shears",
   "tooltips.todevillagers.glassblower_shears": "A glassblowing tool to cut hot glass",
 
+  "item.todevillagers.recycled_glass": "Crushed Glass",
+  "tooltips.todevillagers.recycled_glass": "Ready for recycling.",
+
   "block.todevillagers.glass_kiln": "Glass Kiln",
   "container.todevillagers.glass_kiln": "Glass Kiln",
 
-  "itemGroup.todevillagers_tab": "todevillagers"
+  "block.todevillagers.reinforced_glass": "Reinforced Glass",
+  "block.todevillagers.reinforced_glass_pane": "Reinforced Glass Pane",
+  "block.todevillagers.reinforced_glass_stairs": "Reinforced Glass Stairs",
+  "block.todevillagers.reinforced_glass_slab": "Reinforced Glass Slab",
+  "block.todevillagers.reinforced_glass_wall": "Reinforced Glass Wall",
+  "block.todevillagers.reinforced_glass_fence": "Reinforced Glass Fence",
+  "block.todevillagers.reinforced_glass_fence_gate": "Reinforced Glass Gate",
+  "block.todevillagers.reinforced_glass_button": "Reinforced Glass Button",
+  "block.todevillagers.reinforced_glass_pressure_plate": "Reinforced Glass Pressure Plate",
+  "block.todevillagers.reinforced_glass_door": "Reinforced Glass Door",
+  "block.todevillagers.reinforced_glass_trapdoor": "Reinforced Glass Trapdoor",
+
+  "block.todevillagers.glowing_glass": "Glowing Glass",
+  "block.todevillagers.glowing_glass_pane": "Glowing Glass Pane",
+  "block.todevillagers.glowing_glass_stairs": "Glowing Glass Stairs",
+  "block.todevillagers.glowing_glass_slab": "Glowing Glass Slab",
+  "block.todevillagers.glowing_glass_wall": "Glowing Glass Wall",
+  "block.todevillagers.glowing_glass_fence": "Glowing Glass Fence",
+  "block.todevillagers.glowing_glass_fence_gate": "Glowing Glass Gate",
+  "block.todevillagers.glowing_glass_button": "Glowing Glass Button",
+  "block.todevillagers.glowing_glass_pressure_plate": "Glowing Glass Pressure Plate",
+  "block.todevillagers.glowing_glass_door": "Glowing Glass Door",
+  "block.todevillagers.glowing_glass_trapdoor": "Glowing Glass Trapdoor",
+
+  "block.todevillagers.shifting_glass": "Shifting Glass",
+  "block.todevillagers.shifting_glass_pane": "Shifting Glass Pane",
+  "block.todevillagers.shifting_glass_stairs": "Shifting Glass Stairs",
+  "block.todevillagers.shifting_glass_slab": "Shifting Glass Slab",
+  "block.todevillagers.shifting_glass_wall": "Shifting Glass Wall",
+  "block.todevillagers.shifting_glass_fence": "Shifting Glass Fence",
+  "block.todevillagers.shifting_glass_fence_gate": "Shifting Glass Gate",
+  "block.todevillagers.shifting_glass_button": "Shifting Glass Button",
+  "block.todevillagers.shifting_glass_pressure_plate": "Shifting Glass Pressure Plate",
+  "block.todevillagers.shifting_glass_door": "Shifting Glass Door",
+  "block.todevillagers.shifting_glass_trapdoor": "Shifting Glass Trapdoor",
+
+  "block.todevillagers.tinted_glass_pane": "Tinted Glass Pane",
+  "block.todevillagers.tinted_glass_stairs": "Tinted Glass Stairs",
+  "block.todevillagers.tinted_glass_slab": "Tinted Glass Slab",
+  "block.todevillagers.tinted_glass_wall": "Tinted Glass Wall",
+  "block.todevillagers.tinted_glass_fence": "Tinted Glass Fence",
+  "block.todevillagers.tinted_glass_fence_gate": "Tinted Glass Gate",
+  "block.todevillagers.tinted_glass_button": "Tinted Glass Button",
+  "block.todevillagers.tinted_glass_pressure_plate": "Tinted Glass Pressure Plate",
+  "block.todevillagers.tinted_glass_door": "Tinted Glass Door",
+  "block.todevillagers.tinted_glass_trapdoor": "Tinted Glass Trapdoor",
+
+  "itemGroup.todevillagers_tab": "Tode Villagers",
+  "itemGroup.todevillagers_glass_tab": "Glassblowing"
 }

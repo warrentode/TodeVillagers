@@ -1,0 +1,20 @@
+{
+  "type": "todevillagers:glassblowing",
+  "category": "glowing_glass",
+  "group": "glass_fence",
+  "ingredients": [
+    {
+      "item": "todevillagers:glowing_glass"
+    },
+    {
+      "item": "todevillagers:glowing_glass"
+    },
+    {
+      "item": "todevillagers:glassblower_shears"
+    }
+  ],
+  "result": {
+    "item": "todevillagers:glowing_glass_fence",
+    "count": 2
+  }
+}

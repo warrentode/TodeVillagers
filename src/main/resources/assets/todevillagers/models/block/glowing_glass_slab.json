@@ -1,0 +1,9 @@
+{
+  "parent": "minecraft:block/slab",
+  "render_type": "translucent",
+  "textures": {
+    "bottom": "todevillagers:block/glowing_glass",
+    "side": "todevillagers:block/glowing_glass_slab_double",
+    "top": "todevillagers:block/glowing_glass"
+  }
+}

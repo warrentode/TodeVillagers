@@ -1,0 +1,23 @@
+{
+  "type": "todevillagers:glassblowing",
+  "category": "shifting_glass",
+  "group": "glass_block",
+  "ingredients": [
+    {
+      "tag": "todevillagers:sand/colorless"
+    },
+    {
+      "item": "todevillagers:marver"
+    },
+    {
+      "item": "minecraft:quartz"
+    },
+    {
+      "item": "minecraft:prismarine_crystals"
+    }
+  ],
+  "result": {
+    "item": "todevillagers:shifting_glass",
+    "count": 1
+  }
+}

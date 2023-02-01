@@ -1,0 +1,20 @@
+{
+  "type": "todevillagers:glassblowing",
+  "category": "reinforced_glass",
+  "group": "glass_pressure_plate",
+  "ingredients": [
+    {
+      "item": "todevillagers:reinforced_glass_slab"
+    },
+    {
+      "item": "todevillagers:glassblower_shears"
+    },
+    {
+      "item": "todevillagers:marver"
+    }
+  ],
+  "result": {
+    "item": "todevillagers:reinforced_glass_button",
+    "count": 2
+  }
+}

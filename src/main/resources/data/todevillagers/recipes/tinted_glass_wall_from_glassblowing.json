@@ -1,0 +1,20 @@
+{
+  "type": "todevillagers:glassblowing",
+  "category": "tinted_glass",
+  "group": "glass_wall",
+  "ingredients": [
+    {
+      "item": "minecraft:tinted_glass"
+    },
+    {
+      "item": "todevillagers:tinted_glass"
+    },
+    {
+      "item": "todevillagers:marver"
+    }
+  ],
+  "result": {
+    "item": "todevillagers:tinted_glass_wall",
+    "count": 2
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "#forge:glass/silica",
+    "#todevillagers:glass/reinforced",
+    "#todevillagers:glass/glowing",
+    "#todevillagers:glass/shifting"
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "type": "todevillagers:glassblowing",
+  "category": "glowing_glass",
+  "group": "glass_stairs",
+  "ingredients": [
+    {
+      "item": "todevillagers:glowing_glass"
+    },
+    {
+      "item": "todevillagers:glassblower_shears"
+    },
+    {
+      "item": "todevillagers:marver"
+    }
+  ],
+  "result": {
+    "item": "todevillagers:glowing_glass_stairs",
+    "count": 2
+  }
+}

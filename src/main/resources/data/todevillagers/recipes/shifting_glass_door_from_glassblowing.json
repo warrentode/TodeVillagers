@@ -1,0 +1,23 @@
+{
+  "type": "todevillagers:glassblowing",
+  "category": "shifting_glass",
+  "group": "glass_door",
+  "ingredients": [
+    {
+      "item": "todevillagers:shifting_glass"
+    },
+    {
+      "item": "todevillagers:glassblower_shears"
+    },
+    {
+      "item": "todevillagers:glassblowing_pipe"
+    },
+    {
+      "item": "todevillagers:marver"
+    }
+  ],
+  "result": {
+    "item": "todevillagers:shifting_glass_door",
+    "count": 1
+  }
+}

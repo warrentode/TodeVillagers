@@ -1,0 +1,9 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "render_type": "translucent",
+  "textures": {
+    "bottom": "todevillagers:block/glowing_glass",
+    "side": "todevillagers:block/glowing_glass",
+    "top": "todevillagers:block/glowing_glass"
+  }
+}

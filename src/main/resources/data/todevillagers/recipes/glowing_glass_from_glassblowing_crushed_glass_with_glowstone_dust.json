@@ -1,0 +1,23 @@
+{
+  "type": "todevillagers:glassblowing",
+  "category": "recycling",
+  "group": "glass_block",
+  "ingredients": [
+    {
+      "item": "todevillagers:crushed_glass"
+    },
+    {
+      "item": "todevillagers:marver"
+    },
+    {
+      "item": "minecraft:quartz"
+    },
+    {
+      "item": "minecraft:glowstone_dust"
+    }
+  ],
+  "result": {
+    "item": "todevillagers:glowing_glass",
+    "count": 1
+  }
+}

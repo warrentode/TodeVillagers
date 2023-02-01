@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "powered=false": {
+      "model": "todevillagers:block/glowing_glass_pressure_plate"
+    },
+    "powered=true": {
+      "model": "todevillagers:block/glowing_glass_pressure_plate_down"
+    }
+  }
+}

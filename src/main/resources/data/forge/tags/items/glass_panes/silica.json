@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "#forge:glass_panes",
+    "#forge:stained_glass_panes",
+    "#todevillagers:glass_panes/reinforced",
+    "#todevillagers:glass_panes/glowing",
+    "#todevillagers:glass_panes/shifting"
+  ]
+}

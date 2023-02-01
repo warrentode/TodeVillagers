@@ -1,0 +1,20 @@
+{
+  "type": "todevillagers:glassblowing",
+  "category": "glass_block",
+  "group": "reinforced_glass",
+  "ingredients": [
+    {
+      "tag": "todevillagers:sand/colorless"
+    },
+    {
+      "item": "todevillagers:marver"
+    },
+    {
+      "item": "minecraft:quartz"
+    }
+  ],
+  "result": {
+    "item": "todevillagers:reinforced_glass",
+    "count": 1
+  }
+}

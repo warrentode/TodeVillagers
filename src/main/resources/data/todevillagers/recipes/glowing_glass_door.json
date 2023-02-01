@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "glass_door",
+  "key": {
+    "#": {
+      "item": "todevillagers:glowing_glass"
+    }
+  },
+  "pattern": [
+    "##",
+    "##",
+    "##"
+  ],
+  "result": {
+    "count": 3,
+    "item": "todevillagers:glowing_glass_door"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "parent": "minecraft:block/inner_stairs",
+  "render_type": "translucent",
+  "textures": {
+    "bottom": "todevillagers:block/reinforced_glass",
+    "side": "todevillagers:block/reinforced_glass",
+    "top": "todevillagers:block/reinforced_glass"
+  }
+}

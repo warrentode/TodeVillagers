@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "render_type": "translucent",
+  "textures": {
+    "end": "todevillagers:block/shifting_glass",
+    "side": "todevillagers:block/shifting_glass_slab_double"
+  }
+}

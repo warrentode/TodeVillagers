@@ -5,12 +5,14 @@ import net.minecraft.world.item.Rarity;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
+import net.warrentode.todevillagers.items.custom.CrushedGlassItem;
 import net.warrentode.todevillagers.items.custom.GlassblowerShearsItem;
 import net.warrentode.todevillagers.items.custom.GlassblowingPipeItem;
 import net.warrentode.todevillagers.items.custom.MarverItem;
 import net.warrentode.todevillagers.items.records.ChakraDreamRecordItem;
 import net.warrentode.todevillagers.sounds.ModSounds;
-import net.warrentode.todevillagers.util.ModCreativeModeTab;
+import net.warrentode.todevillagers.util.customtabs.ModCreativeModeTab;
+import net.warrentode.todevillagers.util.customtabs.ModGlassTab;
 
 import static net.warrentode.todevillagers.TodeVillagers.MODID;
 
@@ -22,9 +24,15 @@ public class ModItems {
                     new Item.Properties().tab(ModCreativeModeTab.TODEVILLAGERS_TAB).stacksTo(1).rarity(Rarity.RARE), 1360));
 
     public static final RegistryObject<Item> MARVER = REGISTRY.register("marver",
-            ()-> new MarverItem(new Item.Properties().durability(64).tab(ModCreativeModeTab.TODEVILLAGERS_TAB)));
+            ()-> new MarverItem(new Item.Properties().durability(64).tab(ModCreativeModeTab.TODEVILLAGERS_TAB)
+                    .tab(ModGlassTab.TODEVILLAGERS_GLASS_TAB)));
     public static final RegistryObject<Item> GLASSBLOWING_PIPE = REGISTRY.register("glassblowing_pipe",
-            ()-> new GlassblowingPipeItem(new Item.Properties().durability(64).tab(ModCreativeModeTab.TODEVILLAGERS_TAB)));
+            ()-> new GlassblowingPipeItem(new Item.Properties().durability(64).tab(ModCreativeModeTab.TODEVILLAGERS_TAB)
+                    .tab(ModGlassTab.TODEVILLAGERS_GLASS_TAB)));
     public static final RegistryObject<Item> GLASSBLOWER_SHEARS = REGISTRY.register("glassblower_shears",
-            ()-> new GlassblowerShearsItem(new Item.Properties().durability(64).tab(ModCreativeModeTab.TODEVILLAGERS_TAB)));
+            ()-> new GlassblowerShearsItem(new Item.Properties().durability(64).tab(ModCreativeModeTab.TODEVILLAGERS_TAB)
+                    .tab(ModGlassTab.TODEVILLAGERS_GLASS_TAB)));
+    public static final RegistryObject<Item> CRUSHED_GLASS = REGISTRY.register("crushed_glass",
+            ()-> new CrushedGlassItem(new Item.Properties().stacksTo(64).tab(ModCreativeModeTab.TODEVILLAGERS_TAB)
+                    .tab(ModGlassTab.TODEVILLAGERS_GLASS_TAB)));
 }

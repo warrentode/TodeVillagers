@@ -1,6 +1,7 @@
 {
   "type": "todevillagers:glassblowing",
-  "group": "glass pane",
+  "category": "glass_pane",
+  "group": "glass_pane",
   "ingredients": [
     {
       "item": "minecraft:glass"

@@ -1,0 +1,17 @@
+{
+  "type": "todevillagers:glassblowing",
+  "category": "colorless_glass",
+  "group": "glass_block",
+  "ingredients": [
+    {
+      "item": "minecraft:glass_bottle"
+    },
+    {
+      "item": "todevillagers:marver"
+    }
+  ],
+  "result": {
+    "item": "minecraft:glass",
+    "count": 1
+  }
+}

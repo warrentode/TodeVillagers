@@ -1,0 +1,17 @@
+{
+  "type": "todevillagers:glassblowing",
+  "category": "shifting_glass",
+  "group": "glass_pane",
+  "ingredients": [
+    {
+      "item": "todevillagers:shifting_glass"
+    },
+    {
+      "item": "todevillagers:glassblower_shears"
+    }
+  ],
+  "result": {
+    "item": "todevillagers:shifting_glass_pane",
+    "count": 4
+  }
+}

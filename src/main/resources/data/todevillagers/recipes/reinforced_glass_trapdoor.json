@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "glass_trapdoor",
+  "key": {
+    "#": {
+      "item": "todevillagers:reinforced_glass"
+    }
+  },
+  "pattern": [
+    "###",
+    "###"
+  ],
+  "result": {
+    "count": 2,
+    "item": "todevillagers:reinforced_glass_trapdoor"
+  }
+}

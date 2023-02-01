@@ -1,9 +1,10 @@
 {
   "type": "todevillagers:glassblowing",
-  "group": "glass",
+  "category": "colorless_glass",
+  "group": "glass_block",
   "ingredients": [
     {
-      "tag": "minecraft:sand"
+      "tag": "todevillagers:sand/colorless"
     },
     {
       "item": "todevillagers:marver"

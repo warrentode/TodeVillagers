@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "#forge:glass_panes",
+    "#todevillagers:glass_panes/colorless",
+    "#todevillagers:glass_panes/glowing",
+    "#todevillagers:glass_panes/shifting",
+    "#todevillagers:glass_panes/silica",
+    "#todevillagers:glass_panes/tinted"
+  ]
+}

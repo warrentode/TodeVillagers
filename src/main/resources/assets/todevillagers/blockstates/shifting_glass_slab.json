@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "todevillagers:block/shifting_glass_slab"
+    },
+    "type=double": {
+      "model": "todevillagers:block/shifting_glass_slab_double"
+    },
+    "type=top": {
+      "model": "todevillagers:block/shifting_glass_slab_top"
+    }
+  }
+}

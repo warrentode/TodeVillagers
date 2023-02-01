@@ -7,9 +7,9 @@ modId="todevillagers"
 version="1.19.2-0.0.2"
 displayName="Tode Villagers"
 #updateJSONURL="https://change.me.example.invalid/updates.json" #optional
-#displayURL="https://change.me.to.your.mods.homepage.example.invalid/"
+displayURL="https://github.com/toadie-odie/TodeVillagers"
 logoFile="logo.png"
-credits="Special thanks to my sons and Marshal Nash for supporting in yet another project I've gotten myself into!"
+credits="Special thanks to my sons, and my Patreon supporters: Marshal Nash and Trevor Brannigan, for supporting my blog and my various project!"
 authors="Warren Tode (ToadieOdie)"
 description="This mod adds a variety of villagers with their trades to the game."
 

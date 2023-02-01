@@ -1,0 +1,23 @@
+{
+  "type": "todevillagers:glassblowing",
+  "category": "glowing_glass",
+  "group": "glass_block",
+  "ingredients": [
+    {
+      "tag": "todevillagers:sand/colorless"
+    },
+    {
+      "item": "todevillagers:marver"
+    },
+    {
+      "item": "minecraft:quartz"
+    },
+    {
+      "item": "minecraft:glowstone_dust"
+    }
+  ],
+  "result": {
+    "item": "todevillagers:glowing_glass",
+    "count": 1
+  }
+}

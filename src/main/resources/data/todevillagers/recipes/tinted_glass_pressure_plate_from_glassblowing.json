@@ -1,0 +1,20 @@
+{
+  "type": "todevillagers:glassblowing",
+  "category": "tinted_glass",
+  "group": "glass_pressure_plate",
+  "ingredients": [
+    {
+      "item": "minecraft:tinted_glass_slab"
+    },
+    {
+      "item": "todevillagers:glassblower_shears"
+    },
+    {
+      "item": "todevillagers:marver"
+    }
+  ],
+  "result": {
+    "item": "todevillagers:tinted_glass_button",
+    "count": 2
+  }
+}

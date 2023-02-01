@@ -1,0 +1,20 @@
+{
+  "type": "todevillagers:glassblowing",
+  "category": "reinforced_glass",
+  "group": "glass_stairs",
+  "ingredients": [
+    {
+      "item": "todevillagers:reinforced_glass"
+    },
+    {
+      "item": "todevillagers:glassblower_shears"
+    },
+    {
+      "item": "todevillagers:marver"
+    }
+  ],
+  "result": {
+    "item": "todevillagers:reinforced_glass_stairs",
+    "count": 2
+  }
+}

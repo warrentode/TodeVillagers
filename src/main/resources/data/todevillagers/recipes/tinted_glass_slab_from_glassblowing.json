@@ -1,0 +1,20 @@
+{
+  "type": "todevillagers:glassblowing",
+  "category": "tinted_glass",
+  "group": "glass_slab",
+  "ingredients": [
+    {
+      "item": "minecraft:tinted_glass"
+    },
+    {
+      "item": "todevillagers:glassblower_shears"
+    },
+    {
+      "item": "todevillagers:glassblowing_pipe"
+    }
+  ],
+  "result": {
+    "item": "todevillagers:tinted_glass_slab",
+    "count": 2
+  }
+}

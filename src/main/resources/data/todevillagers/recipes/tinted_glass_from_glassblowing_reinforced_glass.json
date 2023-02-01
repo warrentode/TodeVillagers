@@ -1,0 +1,20 @@
+{
+  "type": "todevillagers:glassblowing",
+  "category": "tinted_glass",
+  "group": "glass_block",
+  "ingredients": [
+    {
+      "item": "todevillagers:reinforced_glass"
+    },
+    {
+      "item": "todevillagers:marver"
+    },
+    {
+      "item": "minecraft:amethyst_shard"
+    }
+  ],
+  "result": {
+    "item": "minecraft:tinted_glass",
+    "count": 1
+  }
+}

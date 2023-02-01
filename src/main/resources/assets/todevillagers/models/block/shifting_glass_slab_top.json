@@ -1,0 +1,9 @@
+{
+  "parent": "minecraft:block/slab_top",
+  "render_type": "translucent",
+  "textures": {
+    "bottom": "todevillagers:block/shifting_glass",
+    "side": "todevillagers:block/shifting_glass_slab_double",
+    "top": "todevillagers:block/shifting_glass"
+  }
+}

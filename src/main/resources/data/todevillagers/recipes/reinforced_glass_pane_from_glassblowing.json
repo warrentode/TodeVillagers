@@ -1,0 +1,17 @@
+{
+  "type": "todevillagers:glassblowing",
+  "category": "reinforced_glass",
+  "group": "glass_pane",
+  "ingredients": [
+    {
+      "item": "todevillagers:reinforced_glass"
+    },
+    {
+      "item": "todevillagers:glassblower_shears"
+    }
+  ],
+  "result": {
+    "item": "todevillagers:reinforced_glass_pane",
+    "count": 4
+  }
+}

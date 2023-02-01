@@ -1,0 +1,7 @@
+{
+  "replace": false,
+  "values": [
+    "#forge:glass/tinted",
+    "todevillagers:tinted_glass_pane"
+  ]
+}

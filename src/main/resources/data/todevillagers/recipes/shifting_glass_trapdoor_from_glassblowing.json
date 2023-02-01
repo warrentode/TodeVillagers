@@ -1,0 +1,17 @@
+{
+  "type": "todevillagers:glassblowing",
+  "category": "shifting_glass",
+  "group": "glass_trapdoor",
+  "ingredients": [
+    {
+      "item": "todevillagers:shifting_glass_door"
+    },
+    {
+      "item": "todevillagers:glassblower_shears"
+    }
+  ],
+  "result": {
+    "item": "todevillagers:shifting_glass_trapdoor",
+    "count": 2
+  }
+}

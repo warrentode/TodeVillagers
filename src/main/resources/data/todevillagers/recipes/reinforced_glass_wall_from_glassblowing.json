@@ -1,0 +1,20 @@
+{
+  "type": "todevillagers:glassblowing",
+  "category": "reinforced_glass",
+  "group": "glass_wall",
+  "ingredients": [
+    {
+      "item": "todevillagers:reinforced_glass"
+    },
+    {
+      "item": "todevillagers:reinforced_glass"
+    },
+    {
+      "item": "todevillagers:marver"
+    }
+  ],
+  "result": {
+    "item": "todevillagers:reinforced_glass_wall",
+    "count": 2
+  }
+}

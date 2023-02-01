@@ -1,0 +1,17 @@
+{
+  "type": "todevillagers:glassblowing",
+  "category": "glowing_glass",
+  "group": "glass_trapdoor",
+  "ingredients": [
+    {
+      "item": "todevillagers:glowing_glass_door"
+    },
+    {
+      "item": "todevillagers:glassblower_shears"
+    }
+  ],
+  "result": {
+    "item": "todevillagers:glowing_glass_trapdoor",
+    "count": 2
+  }
+}

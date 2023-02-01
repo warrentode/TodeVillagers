@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "glass_button",
+  "ingredients": [
+    {
+      "item": "todevillagers:glowing_glass"
+    }
+  ],
+  "result": {
+    "item": "todevillagers:glowing_glass_button"
+  }
+}

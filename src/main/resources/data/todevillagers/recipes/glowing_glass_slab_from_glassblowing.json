@@ -1,0 +1,20 @@
+{
+  "type": "todevillagers:glassblowing",
+  "category": "glowing_glass",
+  "group": "glass_slab",
+  "ingredients": [
+    {
+      "item": "todevillagers:glowing_glass"
+    },
+    {
+      "item": "todevillagers:glassblower_shears"
+    },
+    {
+      "item": "todevillagers:glassblowing_pipe"
+    }
+  ],
+  "result": {
+    "item": "todevillagers:glowing_glass_slab",
+    "count": 2
+  }
+}

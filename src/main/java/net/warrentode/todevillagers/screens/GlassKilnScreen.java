@@ -46,5 +46,6 @@ public class GlassKilnScreen extends AbstractContainerScreen<GlassKilnMenu> {
     public void render(@NotNull PoseStack pPoseStack, int mouseX, int mouseY, float delta) {
         renderBackground(pPoseStack);
         super.render(pPoseStack, mouseX, mouseY, delta);
+        renderTooltip(pPoseStack, mouseX, mouseY);
     }
 }

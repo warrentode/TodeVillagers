@@ -1,0 +1,23 @@
+{
+  "type": "todevillagers:glassblowing",
+  "category": "reinforced_glass",
+  "group": "glass_door",
+  "ingredients": [
+    {
+      "item": "todevillagers:reinforced_glass"
+    },
+    {
+      "item": "todevillagers:glassblower_shears"
+    },
+    {
+      "item": "todevillagers:glassblowing_pipe"
+    },
+    {
+      "item": "todevillagers:marver"
+    }
+  ],
+  "result": {
+    "item": "todevillagers:reinforced_glass_door",
+    "count": 1
+  }
+}

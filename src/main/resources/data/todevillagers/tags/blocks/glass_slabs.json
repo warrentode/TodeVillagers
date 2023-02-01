@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "#forge:glass_slabs",
+    "#todevillagers:glass_slabs/reinforced",
+    "#todevillagers:glass_slabs/glowing",
+    "#todevillagers:glass_slabs/shifting",
+    "#todevillagers:glass_slabs/tinted"
+  ]
+}
