@@ -2,9 +2,9 @@
   "replace": false,
   "values": [
     "#forge:glass_buttons",
-    "#todevillagers:glass_buttons/reinforced",
-    "#todevillagers:glass_buttons/glowing",
-    "#todevillagers:glass_buttons/shifting",
-    "#todevillagers:glass_buttons/tinted"
+    "todevillagers:glowing_glass_button",
+    "todevillagers:reinforced_glass_button",
+    "todevillagers:shifting_glass_button",
+    "todevillagers:tinted_glass_button"
   ]
 }

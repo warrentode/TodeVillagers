@@ -1,8 +1,0 @@
-{
-  "replace": false,
-  "values": [
-    "todevillagers:reinforced_glass_stairs",
-    "#todevillagers:glass_stairs/glowing",
-    "#todevillagers:glass_stairs/shifting"
-  ]
-}

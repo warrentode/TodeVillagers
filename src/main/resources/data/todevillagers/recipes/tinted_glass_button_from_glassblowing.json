@@ -4,7 +4,7 @@
   "group": "glass_button",
   "ingredients": [
     {
-      "item": "minecraft:tinted_glass_slab"
+      "item": "todevillagers:tinted_glass_slab"
     },
     {
       "item": "todevillagers:glassblower_shears"

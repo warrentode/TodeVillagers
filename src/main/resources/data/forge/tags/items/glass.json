@@ -3,9 +3,6 @@
   "values": [
     "#forge:glass/colorless",
     "#forge:stained_glass",
-    "#forge:glass/tinted",
-    "#todevillagers:glass/reinforced",
-    "#todevillagers:glass/glowing",
-    "#todevillagers:glass/shifting"
+    "#forge:glass/tinted"
   ]
 }

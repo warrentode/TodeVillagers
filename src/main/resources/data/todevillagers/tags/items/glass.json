@@ -2,9 +2,10 @@
   "replace": false,
   "values": [
     "#forge:glass",
-    "#todevillagers:glass/reinforced",
-    "#todevillagers:glass/glowing",
-    "#todevillagers:glass/shifting",
-    "#todevillagers:glass/tinted"
+    "todevillagers:glowing_glass",
+    "todevillagers:redstone_infused_glass",
+    "todevillagers:reinforced_glass",
+    "todevillagers:shifting_glass",
+    "minecraft:tinted_glass"
   ]
 }

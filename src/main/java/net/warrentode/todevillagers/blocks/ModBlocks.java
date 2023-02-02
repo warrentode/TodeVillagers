@@ -10,10 +10,7 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
-import net.warrentode.todevillagers.blocks.custom.GlassKilnBlock;
-import net.warrentode.todevillagers.blocks.custom.GlowingGlassBlock;
-import net.warrentode.todevillagers.blocks.custom.ReinforcedGlassBlock;
-import net.warrentode.todevillagers.blocks.custom.ShiftingGlassBlock;
+import net.warrentode.todevillagers.blocks.custom.*;
 import net.warrentode.todevillagers.items.ModItems;
 import net.warrentode.todevillagers.util.customtabs.ModCreativeModeTab;
 import net.warrentode.todevillagers.util.customtabs.ModGlassTab;
@@ -29,6 +26,11 @@ public class ModBlocks {
     public static final RegistryObject<Block> GLASS_KILN = registerBlock("glass_kiln",
             ()-> new GlassKilnBlock(Properties.of(Material.STONE).sound(SoundType.DEEPSLATE_BRICKS).strength(6f)
                     .requiresCorrectToolForDrops().lightLevel(state -> state.getValue(GlassKilnBlock.LIT) ? 15 : 0).noOcclusion()),
+            ModCreativeModeTab.TODEVILLAGERS_TAB);
+
+    public static final RegistryObject<Block> REDSTONE_INFUSED_GLASS = registerBlock("redstone_infused_glass",
+            ()-> new RedstoneInfusedGlassBlock(Properties.of(Material.GLASS).sound(SoundType.GLASS).strength(0.3f)
+                    .lightLevel(state -> state.getValue(RedstoneInfusedGlassBlock.LIT) ? 9 : 0).noOcclusion()),
             ModCreativeModeTab.TODEVILLAGERS_TAB);
 
     public static final RegistryObject<Block> REINFORCED_GLASS = registerBlock("reinforced_glass",

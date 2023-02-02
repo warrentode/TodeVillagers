@@ -2,7 +2,7 @@
   "type": "minecraft:stonecutting",
   "count": 2,
   "ingredient": {
-    "tag": "#forge:glass_pressure_plates"
+    "tag": "todevillagers:glass_pressure_plates"
   },
   "result": "todevillagers:crushed_glass"
 }

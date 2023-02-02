@@ -1,8 +1,0 @@
-{
-  "replace": false,
-  "values": [
-    "todevillagers:reinforced_glass_pane",
-    "#todevillagers:glass_panes/glowing",
-    "#todevillagers:glass_panes/shifting"
-  ]
-}

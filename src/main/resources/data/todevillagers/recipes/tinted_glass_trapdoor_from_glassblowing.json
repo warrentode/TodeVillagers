@@ -4,7 +4,7 @@
   "group": "glass_trapdoor",
   "ingredients": [
     {
-      "item": "minecraft:tinted_glass_door"
+      "item": "todevillagers:tinted_glass_door"
     },
     {
       "item": "todevillagers:glassblower_shears"

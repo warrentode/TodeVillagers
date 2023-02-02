@@ -1,0 +1,23 @@
+{
+  "type": "todevillagers:glassblowing",
+  "category": "redstone_infused_glass",
+  "group": "glass_block",
+  "ingredients": [
+    {
+      "tag": "todevillagers:sand/colorless"
+    },
+    {
+      "item": "todevillagers:marver"
+    },
+    {
+      "item": "minecraft:quartz"
+    },
+    {
+      "item": "minecraft:redstone"
+    }
+  ],
+  "result": {
+    "item": "todevillagers:redstone_infused_glass",
+    "count": 1
+  }
+}

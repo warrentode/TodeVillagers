@@ -1,8 +1,0 @@
-{
-  "replace": false,
-  "values": [
-    "todevillagers:reinforced_glass_pressure_plate",
-    "#todevillagers:glass_pressure_plates/glowing",
-    "#todevillagers:glass_pressure_plates/shifting"
-  ]
-}

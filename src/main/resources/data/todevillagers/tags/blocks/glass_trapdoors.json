@@ -2,9 +2,9 @@
   "replace": false,
   "values": [
     "#forge:glass_trapdoors",
-    "#todevillagers:glass_trapdoors/reinforced",
-    "#todevillagers:glass_trapdoors/glowing",
-    "#todevillagers:glass_trapdoors/shifting",
-    "#todevillagers:glass_trapdoors/tinted"
+    "todevillagers:glowing_glass_trapdoor",
+    "todevillagers:reinforced_glass_trapdoor",
+    "todevillagers:shifting_glass_trapdoor",
+    "todevillagers:tinted_glass_trapdoor"
   ]
 }

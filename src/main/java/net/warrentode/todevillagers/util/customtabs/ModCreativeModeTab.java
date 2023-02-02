@@ -22,13 +22,14 @@ public class ModCreativeModeTab extends CreativeModeTab {
     }
 
     @Override
-    public void fillItemList(final NonNullList<ItemStack> items) {
+    public void fillItemList(final @NotNull NonNullList<ItemStack> items) {
         items.add(ModItems.GLASSBLOWER_SHEARS.get().getDefaultInstance());
         items.add(ModItems.GLASSBLOWING_PIPE.get().getDefaultInstance());
         items.add(ModItems.MARVER.get().getDefaultInstance());
         items.add(ModItems.CRUSHED_GLASS.get().getDefaultInstance());
         items.add(ModItems.CHAKRA_DREAM_MUSIC_DISC.get().getDefaultInstance());
         items.add((ModBlocks.GLASS_KILN.get().asItem().getDefaultInstance()));
+        items.add((ModBlocks.REDSTONE_INFUSED_GLASS.get().asItem().getDefaultInstance()));
         items.add((ModBlocks.REINFORCED_GLASS.get().asItem().getDefaultInstance()));
         items.add((ModBlocks.REINFORCED_GLASS_PANE.get().asItem().getDefaultInstance()));
         items.add((ModBlocks.REINFORCED_GLASS_STAIRS.get().asItem().getDefaultInstance()));

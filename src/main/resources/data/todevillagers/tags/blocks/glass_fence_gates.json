@@ -2,9 +2,9 @@
   "replace": false,
   "values": [
     "#forge:glass_fence_gates",
-    "#todevillagers:glass_fence_gates/reinforced",
-    "#todevillagers:glass_fence_gates/glowing",
-    "#todevillagers:glass_fence_gates/shifting",
-    "#todevillagers:glass_fence_gates/tinted"
+    "todevillagers:glowing_glass_fence_gate",
+    "todevillagers:reinforced_glass_fence_gate",
+    "todevillagers:shifting_glass_fence_gate",
+    "todevillagers:tinted_glass_fence_gate"
   ]
 }

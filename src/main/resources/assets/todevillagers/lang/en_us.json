@@ -15,11 +15,13 @@
   "item.todevillagers.glassblower_shears": "Glassblowing Shears",
   "tooltips.todevillagers.glassblower_shears": "A glassblowing tool to cut hot glass",
 
-  "item.todevillagers.recycled_glass": "Crushed Glass",
-  "tooltips.todevillagers.recycled_glass": "Ready for recycling.",
+  "item.todevillagers.crushed_glass": "Crushed Glass",
+  "tooltips.todevillagers.crushed_glass": "Ready for recycling.",
 
   "block.todevillagers.glass_kiln": "Glass Kiln",
   "container.todevillagers.glass_kiln": "Glass Kiln",
+
+  "block.todevillagers.redstone_infused_glass": "Redstone Infused Glass",
 
   "block.todevillagers.reinforced_glass": "Reinforced Glass",
   "block.todevillagers.reinforced_glass_pane": "Reinforced Glass Pane",

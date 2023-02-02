@@ -2,7 +2,7 @@
   "type": "minecraft:stonecutting",
   "count": 1,
   "ingredient": {
-    "tag": "#forge:glass_stairs"
+    "tag": "todevillagers:glass_stairs"
   },
   "result": "todevillagers:crushed_glass"
 }

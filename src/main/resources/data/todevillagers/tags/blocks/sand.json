@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "#forge:sand"
+    "#forge:sand/colorless",
+    "#forge:sand/red"
   ]
 }
