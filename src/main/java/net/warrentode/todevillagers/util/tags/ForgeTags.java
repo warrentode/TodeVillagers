@@ -8,6 +8,7 @@ import net.minecraft.world.level.block.Block;
 
 public class ForgeTags {
 
+    @SuppressWarnings("unused")
     public static class Blocks {
         public static final TagKey<Block> GLASS_BUTTONS = forgeBlockTag("glass_buttons");
         public static final TagKey<Block> GLASS_DOORS = forgeBlockTag("glass_doors");
@@ -20,6 +21,7 @@ public class ForgeTags {
         public static final TagKey<Block> GLASS_WALLS = forgeBlockTag("glass_walls");
     }
 
+    @SuppressWarnings("unused")
     public static class Items {
         public static final TagKey<Item> GLASS_BUTTONS = forgeItemTag("glass_buttons");
         public static final TagKey<Item> GLASS_DOORS = forgeItemTag("glass_doors");

@@ -29,7 +29,7 @@ public class ModBlocks {
             ModCreativeModeTab.TODEVILLAGERS_TAB);
 
     public static final RegistryObject<Block> REDSTONE_INFUSED_GLASS = registerBlock("redstone_infused_glass",
-            ()-> new RedstoneInfusedGlassBlock(Properties.of(Material.GLASS).sound(SoundType.GLASS).strength(0.3f)
+            ()-> new RedstoneInfusedGlassBlock(Properties.of(Material.AMETHYST).sound(SoundType.GLASS).strength(0.3f)
                     .lightLevel(state -> state.getValue(RedstoneInfusedGlassBlock.LIT) ? 9 : 0).noOcclusion()),
             ModCreativeModeTab.TODEVILLAGERS_TAB);
 

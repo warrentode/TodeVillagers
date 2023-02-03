@@ -10,6 +10,7 @@ import static net.warrentode.todevillagers.TodeVillagers.MODID;
 
 public class ModTags {
 
+    @SuppressWarnings("unused")
     public static class Blocks {
         public static final TagKey<Block> GLASS = modBlockTag("glass");
         public static final TagKey<Block> GLASS_BUTTONS = modBlockTag("glass_buttons");
@@ -25,6 +26,7 @@ public class ModTags {
         public static final TagKey<Block> SAND = modBlockTag("sand");
     }
 
+    @SuppressWarnings("unused")
     public static class Items {
         public static final TagKey<Item> GLASS = modItemTag("glass");
         public static final TagKey<Item> GLASS_BUTTONS = modItemTag("glass_buttons");

@@ -9,6 +9,7 @@ import net.minecraftforge.fml.util.ObfuscationReflectionHelper;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
+import net.warrentode.todevillagers.blocks.ModBlocks;
 import net.warrentode.todevillagers.sounds.ModSounds;
 
 import java.lang.reflect.InvocationTargetException;
@@ -25,18 +26,24 @@ public class ModVillagers {
             () -> new PoiType(ImmutableSet.copyOf(Blocks.JUKEBOX.getStateDefinition().getPossibleStates()),
                     1, 1));
     public static final RegistryObject<VillagerProfession> DISC_JOCKEY = VILLAGER_PROFESSIONS.register("disc_jockey", () ->
-            new VillagerProfession("disc_jockey",
-                    x -> x.get() == DJ_POI.get(),
-                    x -> x.get() == DJ_POI.get(),
-                    ImmutableSet.of(),
-                    ImmutableSet.of(Blocks.NOTE_BLOCK),
-                    ModSounds.VILLAGER_WORK_DISC_JOCKEY.get()
+            new VillagerProfession("disc_jockey", x -> x.get() == DJ_POI.get(), x -> x.get() == DJ_POI.get(),
+                    ImmutableSet.of(), ImmutableSet.of(Blocks.NOTE_BLOCK), ModSounds.VILLAGER_WORK_DISC_JOCKEY.get()
+            ));
+
+    public static final RegistryObject<PoiType> GLASSBLOWING_POI = POI_TYPES.register("glassblowing_poi",
+            () -> new PoiType(ImmutableSet.copyOf(ModBlocks.GLASS_KILN.get().getStateDefinition().getPossibleStates()),
+                    1, 1));
+    public static final RegistryObject<VillagerProfession> GLASSBLOWER = VILLAGER_PROFESSIONS.register("glassblower", () ->
+            new VillagerProfession("glassblower", x -> x.get() == GLASSBLOWING_POI.get(), x -> x.get() == GLASSBLOWING_POI.get(),
+                    ImmutableSet.of(), ImmutableSet.of(), ModSounds.VILLAGER_WORK_GLASSBLOWER.get()
             ));
 
     public static void registerPOIs() {
         try {
             ObfuscationReflectionHelper.findMethod(PoiType.class,
                     "registerBlockStates", PoiType.class).invoke(null, DJ_POI.get());
+            ObfuscationReflectionHelper.findMethod(PoiType.class,
+                    "registerBlockStates", PoiType.class).invoke(null, GLASSBLOWER.get());
         } catch (InvocationTargetException | IllegalAccessException exception) {
             exception.printStackTrace();
         }

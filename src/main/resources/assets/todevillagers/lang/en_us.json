@@ -2,6 +2,9 @@
   "entity.minecraft.villager.todevillagers.disc_jockey": "Disc Jockey",
   "subtitles.todevillagers.work_dj": "Disc Jockey Works",
 
+  "entity.minecraft.villager.todevillagers.glassblower": "Glassblower",
+  "subtitles.todevillagers.work_glassblower": "Glassblower Works",
+
   "item.todevillagers.chakra_dream_music_disc": "Chakra Dream Music Disc",
   "item.todevillagers.chakra_dream_music_disc.desc": "Chakra Dream by Warren Tode © 2019 (CC BY-NC-ND 4.0)",
   "tooltips.todevillagers.chakra_dream_music_disc": "Composed with Muse Score",

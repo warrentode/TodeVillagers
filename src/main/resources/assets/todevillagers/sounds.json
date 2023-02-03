@@ -66,5 +66,46 @@
         "name": "minecraft:note/xylobone"
       }
     ]
+  },
+  "work_glassblower": {
+    "subtitle": "subtitles.todevillagers.work_glassblower",
+    "sounds": [
+      {
+        "name": "todevillagers:work_glassblower",
+        "weight": 1
+      },
+      {
+        "name": "minecraft:block/blastfurnace/blastfurnace1",
+        "weight": 3
+      },
+      {
+        "name": "minecraft:block/blastfurnace/blastfurnace2",
+        "weight": 3
+      },
+      {
+        "name": "minecraft:block/blastfurnace/blastfurnace3",
+        "weight": 3
+      },
+      {
+        "name": "minecraft:block/blastfurnace/blastfurnace4",
+        "weight": 3
+      },
+      {
+        "name": "minecraft:block/blastfurnace/blastfurnace5",
+        "weight": 3
+      },
+      {
+        "name": "minecraft:random/glass1",
+        "weight": 1
+      },
+      {
+        "name": "minecraft:random/glass2",
+        "weight": 1
+      },
+      {
+        "name": "minecraft:random/glass3",
+        "weight": 1
+      }
+    ]
   }
 }
