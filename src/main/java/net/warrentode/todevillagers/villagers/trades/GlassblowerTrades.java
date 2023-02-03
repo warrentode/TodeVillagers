@@ -42,7 +42,7 @@ public class GlassblowerTrades {
                     new ItemStack(Items.SAND, 8),
                     stack,12,2,0.02F));
         }
-        if(event.getType() == ModVillagers.DISC_JOCKEY.get()) {
+        if(event.getType() == ModVillagers.GLASSBLOWER.get()) {
             Int2ObjectMap<List<VillagerTrades.ItemListing>> trades = event.getTrades();
             //item for sale
             ItemStack stack = new ItemStack(Items.EMERALD, 1);
@@ -122,7 +122,7 @@ public class GlassblowerTrades {
             int villagerLevel = 4;
             //price - this is what is given to the villager
             trades.get(villagerLevel).add((trader, rand) -> new MerchantOffer(
-                    new ItemStack(Items.EMERALD, 10),
+                    new ItemStack(Items.EMERALD, 5),
                     stack,12,15,0.02F));
         }
         if(event.getType() == ModVillagers.GLASSBLOWER.get()) {
@@ -132,28 +132,28 @@ public class GlassblowerTrades {
             int villagerLevel = 4;
             //price - this is what is given to the villager
             trades.get(villagerLevel).add((trader, rand) -> new MerchantOffer(
-                    new ItemStack(Items.EMERALD, 10),
+                    new ItemStack(Items.EMERALD, 5),
                     stack,12,15,0.02F));
         }
         // level 5 trades
         if(event.getType() == ModVillagers.GLASSBLOWER.get()) {
             Int2ObjectMap<List<VillagerTrades.ItemListing>> trades = event.getTrades();
             //item for sale
-            ItemStack stack = new ItemStack(ModBlocks.SHIFTING_GLASS.get(), 2);
+            ItemStack stack = new ItemStack(ModBlocks.SHIFTING_GLASS.get(), 4);
             int villagerLevel = 5;
             //price - this is what is given to the villager
             trades.get(villagerLevel).add((trader, rand) -> new MerchantOffer(
-                    new ItemStack(Items.EMERALD, 10),
+                    new ItemStack(Items.EMERALD, 5),
                     stack,12,30,0.02F));
         }
         if(event.getType() == ModVillagers.GLASSBLOWER.get()) {
             Int2ObjectMap<List<VillagerTrades.ItemListing>> trades = event.getTrades();
             //item for sale
-            ItemStack stack = new ItemStack(ModBlocks.REDSTONE_INFUSED_GLASS.get(), 2);
+            ItemStack stack = new ItemStack(ModBlocks.REDSTONE_INFUSED_GLASS.get(), 4);
             int villagerLevel = 5;
             //price - this is what is given to the villager
             trades.get(villagerLevel).add((trader, rand) -> new MerchantOffer(
-                    new ItemStack(Items.EMERALD, 10),
+                    new ItemStack(Items.EMERALD, 5),
                     stack,12,30,0.02F));
         }
     }

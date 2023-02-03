@@ -93,18 +93,6 @@
       {
         "name": "minecraft:block/blastfurnace/blastfurnace5",
         "weight": 3
-      },
-      {
-        "name": "minecraft:random/glass1",
-        "weight": 1
-      },
-      {
-        "name": "minecraft:random/glass2",
-        "weight": 1
-      },
-      {
-        "name": "minecraft:random/glass3",
-        "weight": 1
       }
     ]
   }

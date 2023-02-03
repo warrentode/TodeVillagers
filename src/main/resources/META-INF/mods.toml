@@ -4,7 +4,7 @@ license="GNU_GPL.3"
 #issueTrackerURL="https://change.me.to.your.issue.tracker.example.invalid/"
 [[mods]]
 modId="todevillagers"
-version="1.19.2-0.1.3"
+version="1.19.2-0.1.4"
 displayName="Tode Villagers"
 #updateJSONURL="https://change.me.example.invalid/updates.json" #optional
 displayURL="https://github.com/toadie-odie/TodeVillagers"
