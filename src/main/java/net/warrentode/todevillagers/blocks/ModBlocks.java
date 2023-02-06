@@ -28,6 +28,10 @@ public class ModBlocks {
                     .requiresCorrectToolForDrops().lightLevel(state -> state.getValue(GlassKilnBlock.LIT) ? 15 : 0).noOcclusion()),
             ModCreativeModeTab.TODEVILLAGERS_TAB);
 
+    public static final RegistryObject<Block> WHEEL_CART = registerBlock("wheel_cart",
+            ()-> new WheelCartBlock(Properties.of(Material.WOOD).sound(SoundType.WOOD).noOcclusion()),
+            ModCreativeModeTab.TODEVILLAGERS_TAB);
+
     public static final RegistryObject<Block> REDSTONE_INFUSED_GLASS = registerBlock("redstone_infused_glass",
             ()-> new RedstoneInfusedGlassBlock(Properties.of(Material.AMETHYST).sound(SoundType.GLASS).strength(0.3f)
                     .lightLevel(state -> state.getValue(RedstoneInfusedGlassBlock.LIT) ? 9 : 0).noOcclusion()),

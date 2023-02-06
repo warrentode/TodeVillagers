@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=south": {
+      "model": "todevillagers:block/wheel_cart"
+    },
+    "facing=north": {
+      "model": "todevillagers:block/wheel_cart",
+      "y": 180
+    },
+    "facing=east": {
+      "model": "todevillagers:block/wheel_cart",
+      "y": 270
+    },
+    "facing=west": {
+      "model": "todevillagers:block/wheel_cart",
+      "y": 90
+    }
+  }
+}

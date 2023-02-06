@@ -5,6 +5,9 @@
   "entity.minecraft.villager.todevillagers.glassblower": "Glassblower",
   "subtitles.todevillagers.work_glassblower": "Glassblower Works",
 
+  "entity.minecraft.villager.todevillagers.retired_trader": "Retired Trader",
+  "subtitles.todevillagers.work_retired_trader": "Retired Trader Works",
+
   "item.todevillagers.chakra_dream_music_disc": "Chakra Dream Music Disc",
   "item.todevillagers.chakra_dream_music_disc.desc": "Chakra Dream by Warren Tode © 2019 (CC BY-NC-ND 4.0)",
   "tooltips.todevillagers.chakra_dream_music_disc": "Composed with Muse Score",
@@ -23,6 +26,9 @@
 
   "block.todevillagers.glass_kiln": "Glass Kiln",
   "container.todevillagers.glass_kiln": "Glass Kiln",
+
+  "block.todevillagers.wheel_cart": "Wheel Cart",
+  "tooltips.todevillagers.wheel_cart": "Transports goods for someone.",
 
   "block.todevillagers.redstone_infused_glass": "Redstone Infused Glass",
 

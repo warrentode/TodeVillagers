@@ -96,9 +96,7 @@ public class GlassblowingRecipe implements Recipe<SimpleContainer> {
     }
 
     public static class Type implements RecipeType<GlassblowingRecipe> {
-        private Type() {
-        }
-
+        private Type() { }
         public static final Type INSTANCE = new Type();
         @SuppressWarnings("unused")
         public static final String ID = "glassblowing";

@@ -4,12 +4,12 @@ license="GNU_GPL.3"
 #issueTrackerURL="https://change.me.to.your.issue.tracker.example.invalid/"
 [[mods]]
 modId="todevillagers"
-version="1.19.2-0.1.4"
+version="1.19.2-0.2.0"
 displayName="Tode Villagers"
 #updateJSONURL="https://change.me.example.invalid/updates.json" #optional
 displayURL="https://github.com/toadie-odie/TodeVillagers"
 logoFile="logo.png"
-credits="Special thanks to my sons, and my Patreon supporters: Marshal Nash and Trevor Brannigan, for supporting my blog and my various project!"
+credits="Special thanks to my sons, and my supporters: Marshal Nash and Trevor Brannigan, for supporting my blog and my various projects!"
 authors="Warren Tode (ToadieOdie)"
 description="This mod adds a variety of villagers with their trades to the game."
 
@@ -25,3 +25,7 @@ description="This mod adds a variety of villagers with their trades to the game.
     versionRange="[1.19.2,1.20)"
     ordering="NONE"
     side="BOTH"
+
+[modproperties.todevillagers]
+    catalogueItemIcon="todevillagers:crushed_glass" #Support for Catalogue mod
+    configuredBackground="todevillagers:textures/block/glass_kiln_side.png" #Support for Configured mod

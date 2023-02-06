@@ -3,7 +3,6 @@ package net.warrentode.todevillagers.util.customtabs;
 import net.minecraft.core.NonNullList;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Blocks;
 import net.warrentode.todevillagers.blocks.ModBlocks;
 import net.warrentode.todevillagers.items.ModItems;
@@ -18,7 +17,7 @@ public class ModCreativeModeTab extends CreativeModeTab {
 
     @Override
     public @NotNull ItemStack makeIcon() {
-        return new ItemStack(Items.LECTERN);
+        return new ItemStack(ModBlocks.WHEEL_CART.get());
     }
 
     @Override
@@ -28,6 +27,7 @@ public class ModCreativeModeTab extends CreativeModeTab {
         items.add(ModItems.MARVER.get().getDefaultInstance());
         items.add(ModItems.CRUSHED_GLASS.get().getDefaultInstance());
         items.add(ModItems.CHAKRA_DREAM_MUSIC_DISC.get().getDefaultInstance());
+        items.add((ModBlocks.WHEEL_CART.get().asItem().getDefaultInstance()));
         items.add((ModBlocks.GLASS_KILN.get().asItem().getDefaultInstance()));
         items.add((ModBlocks.REDSTONE_INFUSED_GLASS.get().asItem().getDefaultInstance()));
         items.add((ModBlocks.REINFORCED_GLASS.get().asItem().getDefaultInstance()));

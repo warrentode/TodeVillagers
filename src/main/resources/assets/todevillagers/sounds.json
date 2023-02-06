@@ -95,5 +95,13 @@
         "weight": 3
       }
     ]
+  },
+  "work_retired_trader": {
+    "subtitle": "subtitles.todevillagers.work_retired_trader",
+    "sounds": [
+      {
+        "name": "todevillagers:work_retired_trader"
+      }
+    ]
   }
 }

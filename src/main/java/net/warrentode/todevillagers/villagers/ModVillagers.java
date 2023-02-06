@@ -38,12 +38,23 @@ public class ModVillagers {
                     ImmutableSet.of(), ImmutableSet.of(), ModSounds.VILLAGER_WORK_GLASSBLOWER.get()
             ));
 
+    public static final RegistryObject<PoiType> TRADER_POI = POI_TYPES.register("trader_poi",
+            () -> new PoiType(ImmutableSet.copyOf(ModBlocks.WHEEL_CART.get().getStateDefinition().getPossibleStates()),
+                    1, 1));
+    public static final RegistryObject<VillagerProfession> RETIRED_TRADER = VILLAGER_PROFESSIONS.register("retired_trader", () ->
+            new VillagerProfession("retired_trader", x -> x.get() == TRADER_POI.get(), x -> x.get() == TRADER_POI.get(),
+                    ImmutableSet.of(), ImmutableSet.of(), ModSounds.VILLAGER_WORK_RETIRED_TRADER.get()
+            ));
+
+
     public static void registerPOIs() {
         try {
             ObfuscationReflectionHelper.findMethod(PoiType.class,
                     "registerBlockStates", PoiType.class).invoke(null, DJ_POI.get());
             ObfuscationReflectionHelper.findMethod(PoiType.class,
-                    "registerBlockStates", PoiType.class).invoke(null, GLASSBLOWER.get());
+                    "registerBlockStates", PoiType.class).invoke(null, GLASSBLOWING_POI.get());
+            ObfuscationReflectionHelper.findMethod(PoiType.class,
+                    "registerBlockStates", PoiType.class).invoke(null, TRADER_POI.get());
         } catch (InvocationTargetException | IllegalAccessException exception) {
             exception.printStackTrace();
         }
