@@ -1,10 +1,10 @@
 modLoader="javafml"
 loaderVersion="[43,)"
 license="GNU_GPL.3"
-#issueTrackerURL="https://change.me.to.your.issue.tracker.example.invalid/"
+issueTrackerURL="https://github.com/toadie-odie/TodeVillagers/issues"
 [[mods]]
 modId="todevillagers"
-version="1.19.2-0.2.0"
+version="1.19.2-0.2.1"
 displayName="Tode Villagers"
 #updateJSONURL="https://change.me.example.invalid/updates.json" #optional
 displayURL="https://github.com/toadie-odie/TodeVillagers"

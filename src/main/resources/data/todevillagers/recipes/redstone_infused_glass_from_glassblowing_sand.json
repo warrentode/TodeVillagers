@@ -1,6 +1,5 @@
 {
   "type": "todevillagers:glassblowing",
-  "category": "redstone_infused_glass",
   "group": "glass_block",
   "ingredients": [
     {

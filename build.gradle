@@ -6,9 +6,9 @@ plugins {
     id 'org.parchmentmc.librarian.forgegradle' version '1.+'
 }
 
-version = '1.19.2-0.2.0'
+version = '1.19.2-0.2.1'
 group = 'net.warrentode.todevillagers'
-archivesBaseName = 'modid'
+archivesBaseName = 'todevillagers'
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 
