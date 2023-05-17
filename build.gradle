@@ -6,7 +6,7 @@ plugins {
     id 'org.parchmentmc.librarian.forgegradle' version '1.+'
 }
 
-version = '1.19.2-0.2.1'
+version = '1.19.2-0.2.2'
 group = 'net.warrentode.todevillagers'
 archivesBaseName = 'todevillagers'
 
@@ -76,7 +76,7 @@ repositories {
 
 dependencies {
     implementation 'com.github.t9t.minecraft-rcon-client:minecraft-rcon-client:1.0.0'
-    minecraft 'net.minecraftforge:forge:1.19.2-43.2.4'
+    minecraft 'net.minecraftforge:forge:1.19.2-43.2.11'
 }
 jar {
     manifest {

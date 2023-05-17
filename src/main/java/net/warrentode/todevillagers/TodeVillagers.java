@@ -5,6 +5,7 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -25,6 +26,7 @@ public class TodeVillagers {
     @SuppressWarnings("unused")
     public static final Logger LOGGER = LogManager.getLogger(TodeVillagers.class);
     public static final String MODID = "todevillagers";
+    private static boolean annabethsextravillagersLoaded = false;
 
     public TodeVillagers() {
         MinecraftForge.EVENT_BUS.register(this);
@@ -43,6 +45,11 @@ public class TodeVillagers {
         ModVillagers.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
+
+        annabethsextravillagersLoaded = ModList.get().isLoaded("annabethsextravillagers");
+    }
+    public static boolean isAnnabethsExtraVillagersLoaded() {
+        return annabethsextravillagersLoaded;
     }
 
     @SuppressWarnings({"Convert2MethodRef", "CodeBlock2Expr"})
