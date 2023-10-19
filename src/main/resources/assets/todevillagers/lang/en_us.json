@@ -1,37 +1,26 @@
 {
   "entity.minecraft.villager.todevillagers.disc_jockey": "Disc Jockey",
   "subtitles.todevillagers.work_dj": "Disc Jockey Works",
-
   "entity.minecraft.villager.todevillagers.glassblower": "Glassblower",
   "subtitles.todevillagers.work_glassblower": "Glassblower Works",
-
   "entity.minecraft.villager.todevillagers.retired_trader": "Retired Trader",
   "subtitles.todevillagers.work_retired_trader": "Retired Trader Works",
-
   "item.todevillagers.chakra_dream_music_disc": "Chakra Dream Music Disc",
   "item.todevillagers.chakra_dream_music_disc.desc": "Chakra Dream by Warren Tode © 2019 (CC BY-NC-ND 4.0)",
   "tooltips.todevillagers.chakra_dream_music_disc": "Composed with Muse Score",
-
   "item.todevillagers.marver": "Glassblowing Marver",
   "tooltips.todevillagers.marver": "A glassblowing tool to shape hot glass",
-
   "item.todevillagers.glassblowing_pipe": "Glassblowing Pipe",
   "tooltips.todevillagers.glassblowing_pipe": "A glassblowing tool to blow hot glass",
-
   "item.todevillagers.glassblower_shears": "Glassblowing Shears",
   "tooltips.todevillagers.glassblower_shears": "A glassblowing tool to cut hot glass",
-
   "item.todevillagers.crushed_glass": "Crushed Glass",
   "tooltips.todevillagers.crushed_glass": "Ready for recycling.",
-
   "block.todevillagers.glass_kiln": "Glass Kiln",
   "container.todevillagers.glass_kiln": "Glass Kiln",
-
   "block.todevillagers.wheel_cart": "Wheel Cart",
   "tooltips.todevillagers.wheel_cart": "Transports goods for someone.",
-
   "block.todevillagers.redstone_infused_glass": "Redstone Infused Glass",
-
   "block.todevillagers.reinforced_glass": "Reinforced Glass",
   "block.todevillagers.reinforced_glass_pane": "Reinforced Glass Pane",
   "block.todevillagers.reinforced_glass_stairs": "Reinforced Glass Stairs",
@@ -43,7 +32,6 @@
   "block.todevillagers.reinforced_glass_pressure_plate": "Reinforced Glass Pressure Plate",
   "block.todevillagers.reinforced_glass_door": "Reinforced Glass Door",
   "block.todevillagers.reinforced_glass_trapdoor": "Reinforced Glass Trapdoor",
-
   "block.todevillagers.glowing_glass": "Glowing Glass",
   "block.todevillagers.glowing_glass_pane": "Glowing Glass Pane",
   "block.todevillagers.glowing_glass_stairs": "Glowing Glass Stairs",
@@ -55,7 +43,6 @@
   "block.todevillagers.glowing_glass_pressure_plate": "Glowing Glass Pressure Plate",
   "block.todevillagers.glowing_glass_door": "Glowing Glass Door",
   "block.todevillagers.glowing_glass_trapdoor": "Glowing Glass Trapdoor",
-
   "block.todevillagers.shifting_glass": "Shifting Glass",
   "block.todevillagers.shifting_glass_pane": "Shifting Glass Pane",
   "block.todevillagers.shifting_glass_stairs": "Shifting Glass Stairs",
@@ -67,7 +54,6 @@
   "block.todevillagers.shifting_glass_pressure_plate": "Shifting Glass Pressure Plate",
   "block.todevillagers.shifting_glass_door": "Shifting Glass Door",
   "block.todevillagers.shifting_glass_trapdoor": "Shifting Glass Trapdoor",
-
   "block.todevillagers.tinted_glass_pane": "Tinted Glass Pane",
   "block.todevillagers.tinted_glass_stairs": "Tinted Glass Stairs",
   "block.todevillagers.tinted_glass_slab": "Tinted Glass Slab",
@@ -78,7 +64,8 @@
   "block.todevillagers.tinted_glass_pressure_plate": "Tinted Glass Pressure Plate",
   "block.todevillagers.tinted_glass_door": "Tinted Glass Door",
   "block.todevillagers.tinted_glass_trapdoor": "Tinted Glass Trapdoor",
-
   "itemGroup.todevillagers_tab": "Tode Villagers",
-  "itemGroup.todevillagers_glass_tab": "Glassblowing"
+  "itemGroup.todevillagers_glass_tab": "Glassblowing",
+  "container.recipe_book.glassblowing": "Glassblowing Recipe Book",
+  "container.glass_kiln_block_gui": "Glass Kiln Menu"
 }

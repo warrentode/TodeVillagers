@@ -1,0 +1,24 @@
+{
+  "type": "todevillagers:glassblowing",
+  "experience": 0.35,
+  "glassblowingTime": 100,
+  "group": "glass_door",
+  "ingredients": [
+    {
+      "item": "minecraft:tinted_glass"
+    },
+    {
+      "item": "todevillagers:glassblower_shears"
+    },
+    {
+      "item": "todevillagers:glassblowing_pipe"
+    },
+    {
+      "item": "todevillagers:marver"
+    }
+  ],
+  "recipe_book_tab": "glass_work",
+  "result": {
+    "item": "todevillagers:tinted_glass_door"
+  }
+}

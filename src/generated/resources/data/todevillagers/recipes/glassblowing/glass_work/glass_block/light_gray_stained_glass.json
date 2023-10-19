@@ -1,0 +1,22 @@
+{
+  "type": "todevillagers:glassblowing",
+  "experience": 0.35,
+  "glassblowingTime": 100,
+  "group": "glass_block",
+  "ingredients": [
+    {
+      "tag": "forge:sand/colorless"
+    },
+    {
+      "item": "minecraft:light_gray_dye"
+    },
+    {
+      "item": "todevillagers:glassblowing_pipe"
+    }
+  ],
+  "recipe_book_tab": "glass_work",
+  "result": {
+    "count": 2,
+    "item": "minecraft:light_gray_stained_glass"
+  }
+}

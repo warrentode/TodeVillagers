@@ -1,0 +1,24 @@
+{
+  "type": "todevillagers:glassblowing",
+  "experience": 0.35,
+  "glassblowingTime": 100,
+  "group": "glass_block",
+  "ingredients": [
+    {
+      "item": "todevillagers:crushed_glass"
+    },
+    {
+      "item": "minecraft:quartz"
+    },
+    {
+      "item": "minecraft:glowstone_dust"
+    },
+    {
+      "item": "todevillagers:marver"
+    }
+  ],
+  "recipe_book_tab": "recycling",
+  "result": {
+    "item": "todevillagers:glowing_glass"
+  }
+}

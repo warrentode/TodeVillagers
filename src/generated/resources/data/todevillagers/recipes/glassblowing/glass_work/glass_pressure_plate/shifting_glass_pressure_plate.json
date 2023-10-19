@@ -1,0 +1,22 @@
+{
+  "type": "todevillagers:glassblowing",
+  "experience": 0.35,
+  "glassblowingTime": 100,
+  "group": "glass_pressure_plate",
+  "ingredients": [
+    {
+      "item": "todevillagers:shifting_glass_slab"
+    },
+    {
+      "item": "todevillagers:glassblower_shears"
+    },
+    {
+      "item": "todevillagers:marver"
+    }
+  ],
+  "recipe_book_tab": "glass_work",
+  "result": {
+    "count": 2,
+    "item": "todevillagers:shifting_glass_pressure_plate"
+  }
+}

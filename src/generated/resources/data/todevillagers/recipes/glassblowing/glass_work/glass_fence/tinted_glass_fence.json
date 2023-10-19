@@ -1,0 +1,22 @@
+{
+  "type": "todevillagers:glassblowing",
+  "experience": 0.35,
+  "glassblowingTime": 100,
+  "group": "glass_fence",
+  "ingredients": [
+    {
+      "item": "minecraft:tinted_glass"
+    },
+    {
+      "item": "minecraft:tinted_glass"
+    },
+    {
+      "item": "todevillagers:glassblower_shears"
+    }
+  ],
+  "recipe_book_tab": "glass_work",
+  "result": {
+    "count": 2,
+    "item": "todevillagers:tinted_glass_fence"
+  }
+}

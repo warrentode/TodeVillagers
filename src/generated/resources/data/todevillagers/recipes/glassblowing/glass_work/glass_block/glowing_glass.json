@@ -1,0 +1,24 @@
+{
+  "type": "todevillagers:glassblowing",
+  "experience": 0.35,
+  "glassblowingTime": 100,
+  "group": "glass_block",
+  "ingredients": [
+    {
+      "tag": "forge:sand/colorless"
+    },
+    {
+      "item": "todevillagers:marver"
+    },
+    {
+      "item": "minecraft:quartz"
+    },
+    {
+      "item": "minecraft:glow_ink_sac"
+    }
+  ],
+  "recipe_book_tab": "glass_work",
+  "result": {
+    "item": "todevillagers:glowing_glass"
+  }
+}

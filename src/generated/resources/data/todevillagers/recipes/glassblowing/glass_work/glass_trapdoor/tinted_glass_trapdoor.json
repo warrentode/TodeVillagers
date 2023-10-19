@@ -1,0 +1,19 @@
+{
+  "type": "todevillagers:glassblowing",
+  "experience": 0.35,
+  "glassblowingTime": 100,
+  "group": "glass_trapdoor",
+  "ingredients": [
+    {
+      "item": "todevillagers:tinted_glass_door"
+    },
+    {
+      "item": "todevillagers:glassblower_shears"
+    }
+  ],
+  "recipe_book_tab": "glass_work",
+  "result": {
+    "count": 2,
+    "item": "todevillagers:tinted_glass_trapdoor"
+  }
+}

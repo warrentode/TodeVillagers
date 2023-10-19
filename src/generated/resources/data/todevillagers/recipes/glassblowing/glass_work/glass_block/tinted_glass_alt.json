@@ -1,0 +1,21 @@
+{
+  "type": "todevillagers:glassblowing",
+  "experience": 0.35,
+  "glassblowingTime": 100,
+  "group": "glass_block",
+  "ingredients": [
+    {
+      "item": "todevillagers:reinforced_glass"
+    },
+    {
+      "item": "minecraft:amethyst_shard"
+    },
+    {
+      "item": "todevillagers:glassblower_shears"
+    }
+  ],
+  "recipe_book_tab": "glass_work",
+  "result": {
+    "item": "minecraft:tinted_glass"
+  }
+}

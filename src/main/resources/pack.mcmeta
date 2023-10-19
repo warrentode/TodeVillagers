@@ -1,6 +1,6 @@
 {
     "pack": {
-        "description": "Tode Villagers Resource and Data Packs",
+      "description": "todevillagers resources",
         "pack_format": 9,
         "forge:resource_pack_format": 9,
         "forge:data_pack_format": 10

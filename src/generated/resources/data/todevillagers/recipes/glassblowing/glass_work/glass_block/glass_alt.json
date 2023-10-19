@@ -1,0 +1,18 @@
+{
+  "type": "todevillagers:glassblowing",
+  "experience": 0.35,
+  "glassblowingTime": 100,
+  "group": "glass_block",
+  "ingredients": [
+    {
+      "item": "minecraft:glass_bottle"
+    },
+    {
+      "item": "todevillagers:glassblowing_pipe"
+    }
+  ],
+  "recipe_book_tab": "glass_work",
+  "result": {
+    "item": "minecraft:glass"
+  }
+}

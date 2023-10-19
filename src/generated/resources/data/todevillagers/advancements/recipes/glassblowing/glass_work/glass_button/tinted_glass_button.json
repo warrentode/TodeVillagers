@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "todevillagers:glassblowing/glass_work/glass_button/tinted_glass_button"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_tinted_glass_slab": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "todevillagers:tinted_glass_slab"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_tinted_glass_slab",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "todevillagers:glassblowing/glass_work/glass_button/tinted_glass_button"
+    ]
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "todevillagers:reinforced_glass"
+    }
+  ],
+  "result": {
+    "item": "todevillagers:reinforced_glass_button"
+  }
+}

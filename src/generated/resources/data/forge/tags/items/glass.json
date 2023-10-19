@@ -1,0 +1,12 @@
+{
+  "values": [
+    "#forge:glass/colorless",
+    "#forge:glass/silica",
+    "#forge:glass/tinted",
+    "#forge:stained_glass",
+    "#todevillagers:glass/infused",
+    "#todevillagers:glass/reinforced",
+    "#todevillagers:glass/glowing",
+    "#todevillagers:glass/shifting"
+  ]
+}

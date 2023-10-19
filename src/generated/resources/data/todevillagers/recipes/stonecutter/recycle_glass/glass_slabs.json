@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 2,
+  "ingredient": {
+    "tag": "todevillagers:glass_slabs"
+  },
+  "result": "todevillagers:crushed_glass"
+}

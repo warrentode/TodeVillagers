@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": {
+      "item": "todevillagers:reinforced_glass"
+    }
+  },
+  "pattern": [
+    "## "
+  ],
+  "result": {
+    "item": "todevillagers:reinforced_glass_pressure_plate"
+  }
+}

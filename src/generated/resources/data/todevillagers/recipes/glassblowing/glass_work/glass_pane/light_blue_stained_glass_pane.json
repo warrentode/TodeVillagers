@@ -1,0 +1,19 @@
+{
+  "type": "todevillagers:glassblowing",
+  "experience": 0.35,
+  "glassblowingTime": 100,
+  "group": "glass_pane",
+  "ingredients": [
+    {
+      "item": "minecraft:light_blue_stained_glass"
+    },
+    {
+      "item": "todevillagers:glassblower_shears"
+    }
+  ],
+  "recipe_book_tab": "glass_work",
+  "result": {
+    "count": 4,
+    "item": "minecraft:light_blue_stained_glass_pane"
+  }
+}

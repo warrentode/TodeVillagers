@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 3,
+  "ingredient": {
+    "item": "todevillagers:shifting_glass"
+  },
+  "result": "todevillagers:shifting_glass_pane"
+}

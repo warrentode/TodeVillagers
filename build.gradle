@@ -1,4 +1,16 @@
 //file:noinspection GroovyAssignabilityCheck
+//file:noinspection GrUnresolvedAccess
+buildscript {
+    repositories {
+        maven { url = 'https://maven.minecraftforge.net/' }
+        maven { url = 'https://repo.spongepowered.org/repository/maven-public/' }
+    }
+    dependencies {
+        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '5.1.+', changing: true
+        classpath group: 'org.spongepowered', name: 'mixingradle', version: '0.7-SNAPSHOT'
+    }
+}
+
 plugins {
     id 'eclipse'
     id 'maven-publish'
@@ -6,16 +18,22 @@ plugins {
     id 'org.parchmentmc.librarian.forgegradle' version '1.+'
 }
 
-version = '1.19.2-0.2.2'
-group = 'net.warrentode.todevillagers'
-archivesBaseName = 'todevillagers'
+apply plugin: 'net.minecraftforge.gradle'
+apply plugin: 'eclipse'
+apply plugin: 'maven-publish'
+apply plugin: 'org.spongepowered.mixin'
 
+version = "${project.minecraft_version}-${project.mod_version}"
+group = "${project.mod_domain}"
+archivesBaseName = "todevillagers"
+
+// Mojang ships Java 17 to end users in 1.18+, so your mod should target Java 17.
 java.toolchain.languageVersion = JavaLanguageVersion.of(17)
-
 println "Java: ${System.getProperty 'java.version'}, JVM: ${System.getProperty 'java.vm.version'} (${System.getProperty 'java.vendor'}), Arch: ${System.getProperty 'os.arch'}"
+
 minecraft {
     mappings channel: 'parchment', version: '2022.11.27-1.19.2'
-    // accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
+    accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
 
     runs {
         client {
@@ -23,6 +41,9 @@ minecraft {
             property 'forge.logging.markers', 'REGISTRIES'
             property 'forge.logging.console.level', 'debug'
             property 'forge.enabledGameTestNamespaces', 'todevillagers'
+            property 'mixin.env.remapRefMap', 'true'
+            property 'mixin.env.refMapRemappingFile', "${buildDir}/createSrgToMcp/output.srg"
+
             mods {
                 todevillagers {
                     source sourceSets.main
@@ -35,18 +56,22 @@ minecraft {
             property 'forge.logging.markers', 'REGISTRIES'
             property 'forge.logging.console.level', 'debug'
             property 'forge.enabledGameTestNamespaces', 'todevillagers'
+            property 'mixin.env.remapRefMap', 'true'
+            property 'mixin.env.refMapRemappingFile', "${buildDir}/createSrgToMcp/output.srg"
+
             mods {
                 todevillagers {
                     source sourceSets.main
                 }
             }
         }
+
         gameTestServer {
-            //noinspection GroovyAssignabilityCheck
             workingDirectory project.file('run')
             property 'forge.logging.markers', 'REGISTRIES'
             property 'forge.logging.console.level', 'debug'
             property 'forge.enabledGameTestNamespaces', 'todevillagers'
+
             mods {
                 todevillagers {
                     source sourceSets.main
@@ -59,6 +84,7 @@ minecraft {
             property 'forge.logging.markers', 'REGISTRIES'
             property 'forge.logging.console.level', 'debug'
             args '--mod', 'todevillagers', '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
+
             mods {
                 todevillagers {
                     source sourceSets.main
@@ -67,29 +93,75 @@ minecraft {
         }
     }
 }
-sourceSets.main.resources { srcDir 'src/generated/resources' }
-repositories {
-    mavenCentral()
 
+sourceSets.main.resources { srcDir 'src/generated/resources' }
+
+mixin {
+    add sourceSets.main, "mixins.todevillagers.refmap.json"
+    config "mixins.todevillagers.json"
+    showMessageTypes = true
+}
+
+repositories {
     // Put repositories for dependencies here
+    // ForgeGradle automatically adds the Forge maven and Maven Central for you
+
+    // If you have mod jar dependencies in ./libs, you can declare them as a repository like so:
+    // flatDir {
+    //     dir 'libs'
+    // }
 }
 
 dependencies {
-    implementation 'com.github.t9t.minecraft-rcon-client:minecraft-rcon-client:1.0.0'
-    minecraft 'net.minecraftforge:forge:1.19.2-43.2.11'
+    minecraft 'net.minecraftforge:forge:1.19.2-43.3.0'
+
+    // addresses vulnerabilities in netty and logging
+    implementation 'io.netty:netty-codec:4.1.86.Final'
+    implementation 'org.apache.logging.log4j:log4j-core:2.17.1'
+
+    // mod list
+
+    annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
 }
+
 jar {
     manifest {
         attributes([
-                "Specification-Title"     : "todevillagers",
-                "Specification-Vendor"    : "WarrenTode",
-                "Specification-Version"   : project.jar.archiveVersion,
-                "Implementation-Title"    : project.name,
+                "Specification-Title"     : project.modid,
+                "Specification-Vendor"    : project.mod_author,
+                "Specification-Version"   : "1",
+                "Implementation-Title"    : project.modid,
                 "Implementation-Version"  : project.jar.archiveVersion,
-                "Implementation-Vendor"   : "WarrenTode",
-                "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
+                "Implementation-Vendor"   : project.mod_author,
+                "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ"),
+                "MixinConfigs"            : "mixins.todevillagers.json"
         ])
     }
+}
+
+tasks.register('updateJson') {
+    file('update.json').withWriter { writer ->
+        file('update_template.json').eachLine { line ->
+            writer << line.replaceAll("version", project.version) + System.getProperty("line.separator")
+        }
+        writer.close()
+    }
+}
+
+tasks.register('deobfJar', Jar) { // Generate deobfuscated
+    from sourceSets.main.output
+    archiveClassifier = 'deobf'
+}
+
+tasks.register('sourceJar', Jar) { // Generate sources
+    from sourceSets.main.allSource
+    archiveClassifier = 'sources'
+}
+
+artifacts {
+    archives deobfJar
+    archives sourceJar
+    archives jar
 }
 
 jar.finalizedBy('reobfJar')
@@ -97,7 +169,11 @@ jar.finalizedBy('reobfJar')
 publishing {
     publications {
         mavenJava(MavenPublication) {
-            artifact jar
+            groupId = "${project.mod_domain}"
+            artifactId = "${project.name}"
+            version = "${project.minecraft_version}-${project.mod_version}"
+
+            from components.java
         }
     }
     repositories {

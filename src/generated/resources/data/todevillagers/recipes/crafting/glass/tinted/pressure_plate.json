@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": {
+      "item": "minecraft:tinted_glass"
+    }
+  },
+  "pattern": [
+    "## "
+  ],
+  "result": {
+    "item": "todevillagers:tinted_glass_pressure_plate"
+  }
+}

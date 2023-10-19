@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "F": {
+      "tag": "minecraft:wooden_fences"
+    },
+    "L": {
+      "tag": "minecraft:logs"
+    },
+    "W": {
+      "tag": "minecraft:wooden_trapdoors"
+    }
+  },
+  "pattern": [
+    "F F",
+    "LLL",
+    "W W"
+  ],
+  "result": {
+    "item": "todevillagers:wheel_cart"
+  }
+}

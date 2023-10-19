@@ -1,0 +1,9 @@
+{
+  "values": [
+    "minecraft:sand",
+    {
+      "id": "biomesoplenty:origin_sand",
+      "required": false
+    }
+  ]
+}
