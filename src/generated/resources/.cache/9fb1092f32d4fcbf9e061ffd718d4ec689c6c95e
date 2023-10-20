@@ -1,4 +1,4 @@
-// 1.19.2	2023-09-14T00:47:50.1802762	Recipes
+// 1.19.2	2023-10-20T10:24:54.4599745	Recipes
 fcbc1bc2bbdd29476a110d196fe36f6ee3ce77d9 data/todevillagers/advancements/recipes/glassblowing/glass_work/bottle/glass_bottle.json
 9b81e6e56a1419b5c9ece5c2ce04e007bb5d7633 data/todevillagers/advancements/recipes/glassblowing/glass_work/glass_block/black_stained_glass.json
 1a1b8890fea9272a40693e5cef990274f521b830 data/todevillagers/advancements/recipes/glassblowing/glass_work/glass_block/blue_stained_glass.json
@@ -109,7 +109,6 @@ e0c952c9b50c0dde3a1a93631b8de4e9f81c6485 data/todevillagers/advancements/recipes
 64c5bc802306500355177f0e78bfbda1cafdc685 data/todevillagers/advancements/recipes/todevillagers_glass_tab/crafting/glass/glowing/slab.json
 cc596d487a0eab4acbd64c4abcd9297ea3067361 data/todevillagers/advancements/recipes/todevillagers_glass_tab/crafting/glass/glowing/stairs.json
 f7c2e1bece25c9d6f8c8d3cd081a7db8de3b7e2f data/todevillagers/advancements/recipes/todevillagers_glass_tab/crafting/glass/glowing/trapdoor.json
-929576b2a3d67349e26e50b1ed942a2506bc5940 data/todevillagers/advancements/recipes/todevillagers_glass_tab/crafting/glass/glowing/wall.json
 d00868d3d47de2697248f0db5973bac894af33c7 data/todevillagers/advancements/recipes/todevillagers_glass_tab/crafting/glass/reinforced/button.json
 5985dabe7d14e5586e49d38b58dd6528fb7e6221 data/todevillagers/advancements/recipes/todevillagers_glass_tab/crafting/glass/reinforced/door.json
 853d528d6a322190a77a21733429c23ecfc2d2bc data/todevillagers/advancements/recipes/todevillagers_glass_tab/crafting/glass/reinforced/fence.json
@@ -120,7 +119,6 @@ c3027bbf13154c792b39c2e3e7a00fb3bb03c96b data/todevillagers/advancements/recipes
 76882ac678c2e0ceb7392a4242bddf1b7a5ebc74 data/todevillagers/advancements/recipes/todevillagers_glass_tab/crafting/glass/reinforced/slab.json
 36153e2f9655508ff716159ad49b4e361d4e6d5c data/todevillagers/advancements/recipes/todevillagers_glass_tab/crafting/glass/reinforced/stairs.json
 72e0a082b6d1db90f2ee2af0c2a737197f72cb88 data/todevillagers/advancements/recipes/todevillagers_glass_tab/crafting/glass/reinforced/trapdoor.json
-7487b2706c5e7204612e6584ff15d4214bf52e3e data/todevillagers/advancements/recipes/todevillagers_glass_tab/crafting/glass/reinforced/wall.json
 e60d525c9e8f6512f0b8a7b7d8034e4a6c3fadb7 data/todevillagers/advancements/recipes/todevillagers_glass_tab/crafting/glass/shifting/button.json
 0b7ebae6ee5ebba348b2e567ba61a88a11d5e114 data/todevillagers/advancements/recipes/todevillagers_glass_tab/crafting/glass/shifting/door.json
 2393922da69e1b595af4e958f20237ece64866a4 data/todevillagers/advancements/recipes/todevillagers_glass_tab/crafting/glass/shifting/fence.json
@@ -131,7 +129,6 @@ e6944072348792d8a813bbcd567bc3656bff0ebf data/todevillagers/advancements/recipes
 f25833f87d880343a37e8d7c2ee2749cbbb11617 data/todevillagers/advancements/recipes/todevillagers_glass_tab/crafting/glass/shifting/slab.json
 3218214ab36e130b56e5e111fa70ce785f7ae2cc data/todevillagers/advancements/recipes/todevillagers_glass_tab/crafting/glass/shifting/stairs.json
 869f7b947004b4ebd232e9eae7b400f6834087bf data/todevillagers/advancements/recipes/todevillagers_glass_tab/crafting/glass/shifting/trapdoor.json
-f676acb5af13a20be7929f97d626fff4d298dfb8 data/todevillagers/advancements/recipes/todevillagers_glass_tab/crafting/glass/shifting/wall.json
 3d8683bcfc7b4fa97cffc383050c155c9a08f4b7 data/todevillagers/advancements/recipes/todevillagers_glass_tab/crafting/glass/tinted/button.json
 f19d468d4761a8b212cf354b38ffecc66f88f207 data/todevillagers/advancements/recipes/todevillagers_glass_tab/crafting/glass/tinted/door.json
 56e41356af9c4e92838376aab685df036468bba7 data/todevillagers/advancements/recipes/todevillagers_glass_tab/crafting/glass/tinted/fence.json
@@ -141,7 +138,6 @@ b05ee6ca760767b1a3721ceb67c44c24dee73053 data/todevillagers/advancements/recipes
 6727b63227222f2fe046023fc2df00999d51d221 data/todevillagers/advancements/recipes/todevillagers_glass_tab/crafting/glass/tinted/slab.json
 b1caa43b794fdd88d9f5e6ee978ac135e5c50fcb data/todevillagers/advancements/recipes/todevillagers_glass_tab/crafting/glass/tinted/stairs.json
 c118fe1b7c6c307401cadd5960ebceea69554946 data/todevillagers/advancements/recipes/todevillagers_glass_tab/crafting/glass/tinted/trapdoor.json
-94281ca47a5fcf9197cd0517d68fb2fcc7ef0528 data/todevillagers/advancements/recipes/todevillagers_glass_tab/crafting/glass/tinted/wall.json
 4f946c0f9cf4d0fea66c1e590eadc41e310c8e81 data/todevillagers/advancements/recipes/todevillagers_glass_tab/stonecutter/glass_cutting/glowing/button.json
 6731c61afece3f0973b83237809c6b097fd2da68 data/todevillagers/advancements/recipes/todevillagers_glass_tab/stonecutter/glass_cutting/glowing/door.json
 c2891e2ed4acd99bb7e725b93fdf52e213b49592 data/todevillagers/advancements/recipes/todevillagers_glass_tab/stonecutter/glass_cutting/glowing/fence.json
@@ -211,7 +207,6 @@ c04edddca2d03b058518dcb8eae9d2d8dafc7897 data/todevillagers/recipes/crafting/gla
 b15091563d2b8842f3ba117b914abe084457938e data/todevillagers/recipes/crafting/glass/glowing/slab.json
 524817d1b2746fbe4e3d343a4f66d3e75667b5fb data/todevillagers/recipes/crafting/glass/glowing/stairs.json
 5c540e89675280b96ef7ce798bf7728f22c66231 data/todevillagers/recipes/crafting/glass/glowing/trapdoor.json
-70a5047e084f89f51db8eecbacf2ca9c2fd27474 data/todevillagers/recipes/crafting/glass/glowing/wall.json
 460e4412f42965f343c860d0c6f9b0d51b65f820 data/todevillagers/recipes/crafting/glass/infused/redstone.json
 32ec55d6805a6cfce4bf00ff7571371e5cdb8e2c data/todevillagers/recipes/crafting/glass/reinforced/button.json
 b6a23eb780ddb4e7327f00b9785512e5fec6394f data/todevillagers/recipes/crafting/glass/reinforced/door.json
@@ -223,7 +218,6 @@ af01aa918d4d4fd8e833298c79d229c6d8431c85 data/todevillagers/recipes/crafting/gla
 65ffd055afa870af2e49609ad41956f5726f00be data/todevillagers/recipes/crafting/glass/reinforced/slab.json
 6c8a87e6c178b4cbc9b554c25d0d337a246f5df2 data/todevillagers/recipes/crafting/glass/reinforced/stairs.json
 401692def4ac5696494f1a4a8f4b3288a47d31db data/todevillagers/recipes/crafting/glass/reinforced/trapdoor.json
-adb5eb8370d25f6646169154e56a30123c3f22cc data/todevillagers/recipes/crafting/glass/reinforced/wall.json
 3ea6f36a73b4df40165d86a9062abad67b2177df data/todevillagers/recipes/crafting/glass/shifting/button.json
 65d08534ece2a623801dcd56c46ad969e66f303d data/todevillagers/recipes/crafting/glass/shifting/door.json
 c467b6aeabdbc854e41c84e02c1ba605625d8c72 data/todevillagers/recipes/crafting/glass/shifting/fence.json
@@ -234,7 +228,6 @@ c86790c6b12e3461684858632ae5646f72731931 data/todevillagers/recipes/crafting/gla
 d00d9bedd9f8d0e76ea027a9f5f5aed23588d23f data/todevillagers/recipes/crafting/glass/shifting/slab.json
 40d99a4e0120e007078e3fcd96dce0cbbe11bcd7 data/todevillagers/recipes/crafting/glass/shifting/stairs.json
 589789ca4d8b8456860d7d7e616c5bdde93cfaa1 data/todevillagers/recipes/crafting/glass/shifting/trapdoor.json
-2adcce5f3dadef741170918071c21539d2c156fc data/todevillagers/recipes/crafting/glass/shifting/wall.json
 b2afd22aebd0b912e83a29e3ecfde914eaf3116d data/todevillagers/recipes/crafting/glass/tinted/button.json
 50a2c8e3af966276e3212195ef32782cc4d08558 data/todevillagers/recipes/crafting/glass/tinted/door.json
 684944ee7a4d365b12a3a89ce23019eeb1dd23b4 data/todevillagers/recipes/crafting/glass/tinted/fence.json
@@ -244,7 +237,6 @@ e386fdd0bc82824a08c13883d8a40031d6475b17 data/todevillagers/recipes/crafting/gla
 20631f130324e40df8d98ace1cffc6ed2c94b46d data/todevillagers/recipes/crafting/glass/tinted/slab.json
 e11dbf59889ec9a5cd242ece695ed2e951fb4566 data/todevillagers/recipes/crafting/glass/tinted/stairs.json
 fb2242615ab628f3041dc356520782fe54fef7e8 data/todevillagers/recipes/crafting/glass/tinted/trapdoor.json
-ce0f0b5caa6911246453a743741f30e617446552 data/todevillagers/recipes/crafting/glass/tinted/wall.json
 a5c7d90ef263cc5dbccfe5427cdc39a93917ae91 data/todevillagers/recipes/crafting/job_blocks/glass_kiln.json
 34b9636505b17ab368ba01db932adadf56d51fba data/todevillagers/recipes/crafting/job_blocks/wheel_cart.json
 42e0f4194f419c3ea724b1b384e94c318f798924 data/todevillagers/recipes/glassblowing/glass_work/bottle/glass_bottle.json

@@ -110,14 +110,18 @@ public class CraftingRecipesGen extends RecipeProvider implements IConditionBuil
                 .define('#', ModBlocks.GLOWING_GLASS.get())
                 .unlockedBy("has_glowing_glass", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.GLOWING_GLASS.get()))
                 .save(consumer, new ResourceLocation(MODID, "crafting/glass/glowing/trapdoor"));
+
+        /*
         ShapedRecipeBuilder.shaped(ModBlocks.GLOWING_GLASS_WALL.get(), 6)
                 .pattern("###")
                 .pattern("###")
+                .pattern("X  ")
                 .define('#', ModBlocks.GLOWING_GLASS.get())
-                .pattern("X")
                 .define('X', ModItems.MARVER.get())
                 .unlockedBy("has_glowing_glass", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.GLOWING_GLASS.get()))
                 .save(consumer, new ResourceLocation(MODID, "crafting/glass/glowing/wall"));
+         */
+
         // reinforced glass
         ShapedRecipeBuilder.shaped(ModBlocks.REINFORCED_GLASS.get(), 2)
                 .pattern(" I ")
@@ -181,14 +185,18 @@ public class CraftingRecipesGen extends RecipeProvider implements IConditionBuil
                 .define('#', ModBlocks.REINFORCED_GLASS.get())
                 .unlockedBy("has_reinforced_glass", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.REINFORCED_GLASS.get()))
                 .save(consumer, new ResourceLocation(MODID, "crafting/glass/reinforced/trapdoor"));
+
+        /*
         ShapedRecipeBuilder.shaped(ModBlocks.REINFORCED_GLASS_WALL.get(), 6)
                 .pattern("###")
                 .pattern("###")
+                .pattern("X  ")
                 .define('#', ModBlocks.REINFORCED_GLASS.get())
-                .pattern("X")
                 .define('X', ModItems.MARVER.get())
                 .unlockedBy("has_reinforced_glass", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.REINFORCED_GLASS.get()))
                 .save(consumer, new ResourceLocation(MODID, "crafting/glass/reinforced/wall"));
+        */
+
         // shifting glass
         ShapedRecipeBuilder.shaped(ModBlocks.SHIFTING_GLASS.get(), 2)
                 .pattern(" I ")
@@ -252,14 +260,18 @@ public class CraftingRecipesGen extends RecipeProvider implements IConditionBuil
                 .define('#', ModBlocks.SHIFTING_GLASS.get())
                 .unlockedBy("has_shifting_glass", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.SHIFTING_GLASS.get()))
                 .save(consumer, new ResourceLocation(MODID, "crafting/glass/shifting/trapdoor"));
+
+        /*
         ShapedRecipeBuilder.shaped(ModBlocks.SHIFTING_GLASS_WALL.get(), 6)
                 .pattern("###")
                 .pattern("###")
-                .pattern("X")
-                .define('X', ModItems.MARVER.get())
+                .pattern("X  ")
                 .define('#', ModBlocks.SHIFTING_GLASS.get())
+                .define('X', ModItems.MARVER.get())
                 .unlockedBy("has_shifting_glass", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.SHIFTING_GLASS.get()))
                 .save(consumer, new ResourceLocation(MODID, "crafting/glass/shifting/wall"));
+        */
+
         // tinted glass
         ShapelessRecipeBuilder.shapeless(ModBlocks.TINTED_GLASS_BUTTON.get(), 1)
                 .requires(Blocks.TINTED_GLASS)
@@ -315,14 +327,17 @@ public class CraftingRecipesGen extends RecipeProvider implements IConditionBuil
                 .define('#', Blocks.TINTED_GLASS)
                 .unlockedBy("has_tinted_glass", InventoryChangeTrigger.TriggerInstance.hasItems(Blocks.TINTED_GLASS))
                 .save(consumer, new ResourceLocation(MODID, "crafting/glass/tinted/trapdoor"));
+
+        /*
         ShapedRecipeBuilder.shaped(ModBlocks.TINTED_GLASS_WALL.get(), 6)
                 .pattern("###")
                 .pattern("###")
+                .pattern("X  ")
                 .define('#', Blocks.TINTED_GLASS)
-                .pattern("X")
                 .define('X', ModItems.MARVER.get())
                 .unlockedBy("has_tinted_glass", InventoryChangeTrigger.TriggerInstance.hasItems(Blocks.TINTED_GLASS))
                 .save(consumer, new ResourceLocation(MODID, "crafting/glass/tinted/wall"));
+         */
     }
 
     private static void glassblowingTools(Consumer<FinishedRecipe> consumer) {

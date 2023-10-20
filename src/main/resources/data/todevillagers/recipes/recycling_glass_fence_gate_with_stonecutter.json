@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "count": 2,
-  "ingredient": {
-    "tag": "todevillagers:glass_fence_gates"
-  },
-  "result": "todevillagers:crushed_glass"
-}
