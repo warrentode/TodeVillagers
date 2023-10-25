@@ -116,7 +116,7 @@ public class GlassKilnBlockEntity extends BlockEntity implements MenuProvider, N
             kilnBlock.glassblowingTime--;
             didInventoryChange = true;
         }
-        else if (!isBurningFuel(kilnBlock) && (kilnBlock.inventory.getStackInSlot(FUEL_SLOT).isEmpty() || recipe.isEmpty())) {
+        else if (kilnBlock.glassblowingTime == 0) {
             level.setBlock(pos, state.setValue(GlassKilnBlock.LIT, false), 3);
             didInventoryChange = true;
         }
@@ -162,8 +162,10 @@ public class GlassKilnBlockEntity extends BlockEntity implements MenuProvider, N
         ItemStack pFuel = kilnBlock.inventory.getStackInSlot(4).getItem().getDefaultInstance();
         int burnTimeForItem = getItemBurnTime(pFuel);
 
-        if (kilnBlock.fuelTime == 0) {
-            if (!pFuel.isEmpty() && getItemBurnTime(pFuel) > 0) {
+        Optional<GlassblowingRecipe> recipe = kilnBlock.getMatchingRecipe(new RecipeWrapper(kilnBlock.inventory));
+
+        if (kilnBlock.fuelTime == 0 && recipe.isPresent()) {
+            if (!pFuel.isEmpty() && (getItemBurnTime(pFuel) > 0) && kilnBlock.canProcess(recipe.get())) {
                 kilnBlock.fuelDuration = burnTimeForItem;
                 kilnBlock.fuelTime = kilnBlock.fuelDuration;
                 if (kilnBlock.inventory.getStackInSlot(4).hasCraftingRemainingItem()) {
