@@ -60,16 +60,16 @@ public class ModBlocks {
             () -> new FenceGateBlock(BlockBehaviour.Properties.copy(Blocks.GLASS).noOcclusion()),
             ModGlassTab.TODEVILLAGERS_GLASS_TAB);
     public static final RegistryObject<Block> REINFORCED_GLASS_BUTTON = registerBlock("reinforced_glass_button",
-            () -> new StoneButtonBlock(BlockBehaviour.Properties.of(Material.GLASS).strength(0.3f).noCollission()),
+            () -> new StoneButtonBlock(BlockBehaviour.Properties.of(Material.GLASS).strength(0.3f).noOcclusion()),
             ModGlassTab.TODEVILLAGERS_GLASS_TAB);
     public static final RegistryObject<Block> REINFORCED_GLASS_PRESSURE_PLATE = registerBlock("reinforced_glass_pressure_plate",
             () -> new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, BlockBehaviour.Properties.of(Material.GLASS)
-                    .strength(0.3f).noCollission()), ModGlassTab.TODEVILLAGERS_GLASS_TAB);
+                    .strength(0.3f).noOcclusion()), ModGlassTab.TODEVILLAGERS_GLASS_TAB);
     public static final RegistryObject<Block> REINFORCED_GLASS_DOOR = registerBlock("reinforced_glass_door",
-            () -> new DoorBlock(BlockBehaviour.Properties.of(Material.GLASS).strength(0.3f).noCollission()),
+            () -> new DoorBlock(BlockBehaviour.Properties.of(Material.GLASS).strength(0.3f).noOcclusion()),
             ModGlassTab.TODEVILLAGERS_GLASS_TAB);
     public static final RegistryObject<Block> REINFORCED_GLASS_TRAPDOOR = registerBlock("reinforced_glass_trapdoor",
-            () -> new TrapDoorBlock(BlockBehaviour.Properties.of(Material.GLASS).strength(0.3f).noCollission()),
+            () -> new TrapDoorBlock(BlockBehaviour.Properties.of(Material.GLASS).strength(0.3f).noOcclusion()),
             ModGlassTab.TODEVILLAGERS_GLASS_TAB);
 
     public static final RegistryObject<Block> GLOWING_GLASS = registerBlock("glowing_glass",
@@ -95,18 +95,18 @@ public class ModBlocks {
             () -> new FenceGateBlock(BlockBehaviour.Properties.copy(Blocks.GLASS).noOcclusion().lightLevel((blockState) -> 15)),
             ModGlassTab.TODEVILLAGERS_GLASS_TAB);
     public static final RegistryObject<Block> GLOWING_GLASS_BUTTON = registerBlock("glowing_glass_button",
-            () -> new StoneButtonBlock(BlockBehaviour.Properties.of(Material.GLASS).strength(0.3f).noCollission()
+            () -> new StoneButtonBlock(BlockBehaviour.Properties.of(Material.GLASS).strength(0.3f).noOcclusion()
                     .lightLevel((blockState) -> 15)),
             ModGlassTab.TODEVILLAGERS_GLASS_TAB);
     public static final RegistryObject<Block> GLOWING_GLASS_PRESSURE_PLATE = registerBlock("glowing_glass_pressure_plate",
             () -> new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, BlockBehaviour.Properties.of(Material.GLASS)
-                    .strength(0.3f).noCollission().lightLevel((blockState) -> 15)), ModGlassTab.TODEVILLAGERS_GLASS_TAB);
+                    .strength(0.3f).noOcclusion().lightLevel((blockState) -> 15)), ModGlassTab.TODEVILLAGERS_GLASS_TAB);
     public static final RegistryObject<Block> GLOWING_GLASS_DOOR = registerBlock("glowing_glass_door",
-            () -> new DoorBlock(BlockBehaviour.Properties.of(Material.GLASS).strength(0.3f).noCollission()
+            () -> new DoorBlock(BlockBehaviour.Properties.of(Material.GLASS).strength(0.3f).noOcclusion()
                     .lightLevel((blockState) -> 15)),
             ModGlassTab.TODEVILLAGERS_GLASS_TAB);
     public static final RegistryObject<Block> GLOWING_GLASS_TRAPDOOR = registerBlock("glowing_glass_trapdoor",
-            () -> new TrapDoorBlock(BlockBehaviour.Properties.of(Material.GLASS).strength(0.3f).noCollission()
+            () -> new TrapDoorBlock(BlockBehaviour.Properties.of(Material.GLASS).strength(0.3f).noOcclusion()
                     .lightLevel((blockState) -> 15)),
             ModGlassTab.TODEVILLAGERS_GLASS_TAB);
 
@@ -133,18 +133,18 @@ public class ModBlocks {
             () -> new FenceGateBlock(BlockBehaviour.Properties.copy(Blocks.GLASS).noOcclusion().lightLevel((blockState) -> 15)),
             ModGlassTab.TODEVILLAGERS_GLASS_TAB);
     public static final RegistryObject<Block> SHIFTING_GLASS_BUTTON = registerBlock("shifting_glass_button",
-            () -> new StoneButtonBlock(BlockBehaviour.Properties.of(Material.GLASS).strength(0.3f).noCollission()
+            () -> new StoneButtonBlock(BlockBehaviour.Properties.of(Material.GLASS).strength(0.3f).noOcclusion()
                     .lightLevel((blockState) -> 15)),
             ModGlassTab.TODEVILLAGERS_GLASS_TAB);
     public static final RegistryObject<Block> SHIFTING_GLASS_PRESSURE_PLATE = registerBlock("shifting_glass_pressure_plate",
             () -> new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, BlockBehaviour.Properties.of(Material.GLASS)
-                    .strength(0.3f).noCollission().lightLevel((blockState) -> 15)), ModGlassTab.TODEVILLAGERS_GLASS_TAB);
+                    .strength(0.3f).noOcclusion().lightLevel((blockState) -> 15)), ModGlassTab.TODEVILLAGERS_GLASS_TAB);
     public static final RegistryObject<Block> SHIFTING_GLASS_DOOR = registerBlock("shifting_glass_door",
-            () -> new DoorBlock(BlockBehaviour.Properties.of(Material.GLASS).strength(0.3f).noCollission()
+            () -> new DoorBlock(BlockBehaviour.Properties.of(Material.GLASS).strength(0.3f).noOcclusion()
                     .lightLevel((blockState) -> 15)),
             ModGlassTab.TODEVILLAGERS_GLASS_TAB);
     public static final RegistryObject<Block> SHIFTING_GLASS_TRAPDOOR = registerBlock("shifting_glass_trapdoor",
-            () -> new TrapDoorBlock(BlockBehaviour.Properties.of(Material.GLASS).strength(0.3f).noCollission()
+            () -> new TrapDoorBlock(BlockBehaviour.Properties.of(Material.GLASS).strength(0.3f).noOcclusion()
                     .lightLevel((blockState) -> 15)),
             ModGlassTab.TODEVILLAGERS_GLASS_TAB);
 
@@ -167,16 +167,16 @@ public class ModBlocks {
             () -> new FenceGateBlock(BlockBehaviour.Properties.copy(Blocks.TINTED_GLASS).noOcclusion()),
             ModGlassTab.TODEVILLAGERS_GLASS_TAB);
     public static final RegistryObject<Block> TINTED_GLASS_BUTTON = registerBlock("tinted_glass_button",
-            () -> new StoneButtonBlock(BlockBehaviour.Properties.of(Material.GLASS).strength(0.3f).noCollission()),
+            () -> new StoneButtonBlock(BlockBehaviour.Properties.of(Material.GLASS).strength(0.3f).noOcclusion()),
             ModGlassTab.TODEVILLAGERS_GLASS_TAB);
     public static final RegistryObject<Block> TINTED_GLASS_PRESSURE_PLATE = registerBlock("tinted_glass_pressure_plate",
             () -> new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, BlockBehaviour.Properties.of(Material.GLASS)
-                    .strength(0.3f).noCollission()), ModGlassTab.TODEVILLAGERS_GLASS_TAB);
+                    .strength(0.3f).noOcclusion()), ModGlassTab.TODEVILLAGERS_GLASS_TAB);
     public static final RegistryObject<Block> TINTED_GLASS_DOOR = registerBlock("tinted_glass_door",
-            () -> new DoorBlock(BlockBehaviour.Properties.of(Material.GLASS).strength(0.3f).noCollission()),
+            () -> new DoorBlock(BlockBehaviour.Properties.of(Material.GLASS).strength(0.3f).noOcclusion()),
             ModGlassTab.TODEVILLAGERS_GLASS_TAB);
     public static final RegistryObject<Block> TINTED_GLASS_TRAPDOOR = registerBlock("tinted_glass_trapdoor",
-            () -> new TrapDoorBlock(BlockBehaviour.Properties.of(Material.GLASS).strength(0.3f).noCollission()),
+            () -> new TrapDoorBlock(BlockBehaviour.Properties.of(Material.GLASS).strength(0.3f).noOcclusion()),
             ModGlassTab.TODEVILLAGERS_GLASS_TAB);
 
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block, CreativeModeTab tab) {
