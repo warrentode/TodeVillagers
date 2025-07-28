@@ -7,6 +7,7 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import net.minecraft.core.NonNullList;
+import net.minecraft.core.RegistryAccess;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.GsonHelper;
@@ -63,12 +64,12 @@ public class GlassblowingRecipe implements Recipe<RecipeWrapper> {
     }
 
     @Override
-    public @NotNull ItemStack getResultItem() {
+    public @NotNull ItemStack getResultItem(@NotNull RegistryAccess registryAccess) {
         return this.result;
     }
 
     @Override
-    public @NotNull ItemStack assemble(@NotNull RecipeWrapper inventory) {
+    public @NotNull ItemStack assemble(@NotNull RecipeWrapper inventory, @NotNull RegistryAccess registryAccess) {
         return this.result.copy();
     }
 
@@ -124,6 +125,7 @@ public class GlassblowingRecipe implements Recipe<RecipeWrapper> {
         }
     }
 
+    @SuppressWarnings("removal") // ResourceLocation method marked for removal
     public static class Serializer implements RecipeSerializer<GlassblowingRecipe> {
         public static final Serializer INSTANCE = new Serializer();
         @SuppressWarnings("unused")
@@ -159,7 +161,7 @@ public class GlassblowingRecipe implements Recipe<RecipeWrapper> {
                 final String tabKey = GsonHelper.getAsString(json, "recipe_book_tab", null);
                 final GlassblowingRecipeBookTab tab = GlassblowingRecipeBookTab.findByName(tabKey);
                 if (tabKey != null && tab == null) {
-                    TodeVillagers.LOGGER.warn("Optional field 'recipe_book_tab' does not match any valid tab. If defined, must be one of the following: " + EnumSet.allOf(GlassblowingRecipeBookTab.class));
+                    TodeVillagers.LOGGER.warn("Optional field 'recipe_book_tab' does not match any valid tab. If defined, must be one of the following: {}", EnumSet.allOf(GlassblowingRecipeBookTab.class));
                 }
                 ItemStack result = ShapedRecipe.itemStackFromJson(GsonHelper.getAsJsonObject(json, "result"));
                 final float experience = GsonHelper.getAsFloat(json, "experience", 0.0F);

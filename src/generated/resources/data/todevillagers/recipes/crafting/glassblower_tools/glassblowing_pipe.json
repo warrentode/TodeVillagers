@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "equipment",
   "key": {
     "B": {
       "item": "minecraft:iron_bars"
@@ -14,5 +15,6 @@
   ],
   "result": {
     "item": "todevillagers:glassblowing_pipe"
-  }
+  },
+  "show_notification": true
 }

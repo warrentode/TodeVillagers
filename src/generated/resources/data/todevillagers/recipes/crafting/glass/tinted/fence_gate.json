@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "building",
   "key": {
     "#": {
       "item": "minecraft:tinted_glass"
@@ -14,5 +15,6 @@
   ],
   "result": {
     "item": "todevillagers:tinted_glass_fence_gate"
-  }
+  },
+  "show_notification": true
 }

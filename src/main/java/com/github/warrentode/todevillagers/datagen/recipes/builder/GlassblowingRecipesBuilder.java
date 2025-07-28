@@ -29,6 +29,7 @@ import java.util.function.Consumer;
 
 import static com.github.warrentode.todevillagers.TodeVillagers.MODID;
 
+@SuppressWarnings("removal") // ResourceLocation method marked for removal
 public class GlassblowingRecipesBuilder {
     private GlassblowingRecipeBookTab tab;
     private String group;
@@ -131,10 +132,7 @@ public class GlassblowingRecipesBuilder {
             advancement.parent(new ResourceLocation("recipes/root")).addCriterion("has_the_recipe", RecipeUnlockedTrigger.unlocked(id))
                     .rewards(AdvancementRewards.Builder.recipe(id))
                     .requirements(RequirementsStrategy.OR);
-            ResourceLocation advancementId = null;
-            if (result.getItemCategory() != null) {
-                advancementId = new ResourceLocation(MODID, "recipes/" + id.getPath());
-            }
+            ResourceLocation advancementId = new ResourceLocation(MODID, "recipes/" + id.getPath());
             consumerIn.accept(new Result(id, result, count, ingredients, glassblowingTime, experience, tab, group, advancement, advancementId));
         }
         else {

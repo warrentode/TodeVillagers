@@ -30,5 +30,6 @@
     "recipes": [
       "todevillagers:glassblowing/glass_work/glass_pressure_plate/tinted_glass_pressure_plate"
     ]
-  }
+  },
+  "sends_telemetry_event": true
 }

@@ -5,13 +5,14 @@ import com.github.warrentode.todevillagers.datagen.recipes.builder.GlassblowingR
 import com.github.warrentode.todevillagers.item.ModItems;
 import com.github.warrentode.todevillagers.recipes.glassblowing.recipebook.GlassblowingRecipeBookTab;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
-import net.minecraft.data.DataGenerator;
+import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.function.Consumer;
 
@@ -19,8 +20,13 @@ public class GlassblowingRecipesGen extends RecipeProvider implements ICondition
     public static final float DEFAULT_XP = 0.35F;
     public static final int DEFAULT_TIME = 100;
 
-    public GlassblowingRecipesGen(DataGenerator pGenerator) {
-        super(pGenerator);
+    public GlassblowingRecipesGen(PackOutput packOutput) {
+        super(packOutput);
+    }
+
+    @Override
+    protected void buildRecipes(@NotNull Consumer<FinishedRecipe> consumer) {
+        register(consumer);
     }
 
     public static void register(Consumer<FinishedRecipe> consumer) {

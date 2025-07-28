@@ -28,5 +28,6 @@
     "recipes": [
       "todevillagers:glassblowing/glass_work/bottle/glass_bottle"
     ]
-  }
+  },
+  "sends_telemetry_event": true
 }

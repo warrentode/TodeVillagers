@@ -30,5 +30,6 @@
     "recipes": [
       "todevillagers:glassblowing/glass_work/glass_block/glowing_glass_alt1"
     ]
-  }
+  },
+  "sends_telemetry_event": true
 }

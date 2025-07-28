@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "misc",
   "key": {
     "F": {
       "tag": "minecraft:wooden_fences"
@@ -18,5 +19,6 @@
   ],
   "result": {
     "item": "todevillagers:wheel_cart"
-  }
+  },
+  "show_notification": true
 }

@@ -11,12 +11,12 @@ import org.jetbrains.annotations.NotNull;
 import java.util.function.Consumer;
 
 public class RecipesGen extends RecipeProvider {
-    public RecipesGen(DataGenerator generator) {
-        super(generator);
+    public RecipesGen(@NotNull DataGenerator generator) {
+        super(generator.getPackOutput());
     }
 
     @Override
-    protected void buildCraftingRecipes(@NotNull Consumer<FinishedRecipe> consumer) {
+    protected void buildRecipes(@NotNull Consumer<FinishedRecipe> consumer) {
         CraftingRecipesGen.register(consumer);
         StonecutterRecipesGen.register(consumer);
         GlassblowingRecipesGen.register(consumer);

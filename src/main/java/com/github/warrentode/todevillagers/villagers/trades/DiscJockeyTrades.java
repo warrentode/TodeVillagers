@@ -10,6 +10,7 @@ import net.minecraft.world.item.trading.MerchantOffer;
 import net.minecraftforge.event.village.VillagerTradesEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
@@ -17,17 +18,8 @@ import static com.github.warrentode.todevillagers.TodeVillagers.MODID;
 
 @Mod.EventBusSubscriber(modid = MODID)
 public class DiscJockeyTrades {
-    // I messed around quite a bit trying to figure out the best way to do this, but I guess I don't understand Java
-    // well enough yet to make the trades work with an Array List to ensure a fixed pool the game is choosing from at each
-    // trade level - what I'd like to have for example is a "sell list" and a "buy list" so there is one of each at every level
-    // instead, I'm stuck with using this method since I can make it work, and it's just a grab bag of everything you put in there
-    // I make some progress, but then I get stuck - perhaps I should get in the habit of saving those "stuck" files in "borked" branches
-    // for other people to look at so that maybe someone can tell me where I am going wrong with them
-
-    // I also decided to separate the villager trades into their own files from the main event file to prevent it from
-    // becoming an ultra mess to read and keep track of
     @SubscribeEvent
-    public static void addCustomTrades(VillagerTradesEvent event) {
+    public static void addCustomTrades(@NotNull VillagerTradesEvent event) {
         // level 1 trades
         if (event.getType() == ModVillagers.DISC_JOCKEY.get()) {
             Int2ObjectMap<List<VillagerTrades.ItemListing>> trades = event.getTrades();

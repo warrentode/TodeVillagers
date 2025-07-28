@@ -2,24 +2,27 @@ package com.github.warrentode.todevillagers.datagen.tags;
 
 import com.github.warrentode.todevillagers.block.ModBlocks;
 import com.github.warrentode.todevillagers.utils.ModTags;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
-import net.minecraft.data.tags.BlockTagsProvider;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.Tags;
+import net.minecraftforge.common.data.BlockTagsProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Objects;
+import java.util.concurrent.CompletableFuture;
 
 public class BlockTagsGen extends BlockTagsProvider {
-    public BlockTagsGen(DataGenerator pGenerator, String modId, @Nullable ExistingFileHelper existingFileHelper) {
-        super(pGenerator, modId, existingFileHelper);
+    public BlockTagsGen(DataGenerator generator, CompletableFuture<HolderLookup.Provider> lookupProvider, String modId, @Nullable ExistingFileHelper existingFileHelper) {
+        super(generator.getPackOutput(), lookupProvider, modId, existingFileHelper);
     }
 
     @Override
-    protected void addTags() {
+    protected void addTags(@NotNull HolderLookup.Provider provider) {
         this.registerModTags();
         this.registerMinecraftTags();
         this.registerBlockMineables();

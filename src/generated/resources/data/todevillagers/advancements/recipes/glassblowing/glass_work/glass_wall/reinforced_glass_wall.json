@@ -30,5 +30,6 @@
     "recipes": [
       "todevillagers:glassblowing/glass_work/glass_wall/reinforced_glass_wall"
     ]
-  }
+  },
+  "sends_telemetry_event": true
 }
