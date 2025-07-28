@@ -9,6 +9,7 @@ import net.minecraftforge.items.SlotItemHandler;
 import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nonnull;
+import java.util.Collections;
 
 public class GlassKilnResultSlot extends SlotItemHandler {
     public final GlassKilnBlockEntity kilnBlockEntity;
@@ -50,10 +51,10 @@ public class GlassKilnResultSlot extends SlotItemHandler {
 
     @Override
     protected void checkTakeAchievements(@NotNull ItemStack stack) {
-        stack.onCraftedBy(this.player.level, this.player, this.removeCount);
+        stack.onCraftedBy(this.player.level(), this.player, this.removeCount);
 
-        if (!this.player.level.isClientSide) {
-            kilnBlockEntity.awardUsedRecipes(this.player);
+        if (!this.player.level().isClientSide) {
+            kilnBlockEntity.awardUsedRecipes(this.player, Collections.singletonList(stack));
         }
 
         this.removeCount = 0;

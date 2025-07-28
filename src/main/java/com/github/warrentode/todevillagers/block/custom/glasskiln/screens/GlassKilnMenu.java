@@ -22,6 +22,7 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.Objects;
 
+@SuppressWarnings("CanBeFinal")
 public class GlassKilnMenu extends RecipeBookMenu<RecipeWrapper> {
     public static int FUEL_SLOT = 4;
     public static int RESULT_SLOT = 5;
@@ -30,6 +31,7 @@ public class GlassKilnMenu extends RecipeBookMenu<RecipeWrapper> {
     public final ItemStackHandler inventory;
     protected final Level level;
     private final ContainerData kilnBlockData;
+    @SuppressWarnings("unused")
     private final ContainerLevelAccess canInteractWithCallable;
 
     public GlassKilnMenu(int id, Inventory playerInventory, BlockEntity blockEntity, ContainerData data) {
@@ -37,14 +39,14 @@ public class GlassKilnMenu extends RecipeBookMenu<RecipeWrapper> {
         this.kilnBlock = (GlassKilnBlockEntity) blockEntity;
         this.inventory = ((GlassKilnBlockEntity) blockEntity).getInventory();
         this.kilnBlockData = data;
-        this.level = playerInventory.player.level;
+        this.level = playerInventory.player.level();
         this.canInteractWithCallable = ContainerLevelAccess.create(Objects.requireNonNull(kilnBlock.getLevel()), kilnBlock.getBlockPos());
         /* this value must be the same as the one given for the size of the itemStackHandler within the GlassKilnBlockEntity */
         checkContainerSize(playerInventory, 6);
 
         // Ingredient Slots - 2 Rows x 2 Columns
         int startX = 8;
-        int startY = 18;
+        @SuppressWarnings("unused") int startY = 18;
         int borderSlotSize = 18;
 
         int inputStartX = 43;
@@ -83,13 +85,13 @@ public class GlassKilnMenu extends RecipeBookMenu<RecipeWrapper> {
     public GlassKilnMenu(int id, Inventory inventory, @NotNull FriendlyByteBuf extraData) {
         /* the size of the SimpleContainerData must be the same size the getCount within the GlassKilnBlockEntity container data
          * be sure to change these values when you readjust these methods to track furnace/fuel data as well  */
-        this(id, inventory, Objects.requireNonNull(inventory.player.level.getBlockEntity(extraData.readBlockPos())), new SimpleContainerData(4));
+        this(id, inventory, Objects.requireNonNull(inventory.player.level().getBlockEntity(extraData.readBlockPos())), new SimpleContainerData(4));
     }
 
     private static GlassKilnBlockEntity getBlockEntity(final Inventory playerInventory, final FriendlyByteBuf data) {
         Objects.requireNonNull(playerInventory, "playerInventory for Glass Kiln cannot be null");
         Objects.requireNonNull(data, "Glass Kiln data cannot be null");
-        final BlockEntity blockAtPos = playerInventory.player.level.getBlockEntity(data.readBlockPos());
+        final BlockEntity blockAtPos = playerInventory.player.level().getBlockEntity(data.readBlockPos());
         if (blockAtPos instanceof GlassKilnBlockEntity) {
             return (GlassKilnBlockEntity) blockAtPos;
         }
@@ -104,7 +106,7 @@ public class GlassKilnMenu extends RecipeBookMenu<RecipeWrapper> {
 
     @Override
     public @NotNull ItemStack quickMoveStack(@NotNull Player playerIn, int index) {
-        int fuelIndex = FUEL_SLOT;
+        @SuppressWarnings("unused") int fuelIndex = FUEL_SLOT;
         int resultIndex = RESULT_SLOT;
         int startPlayerInv = resultIndex + 1;
         int endPlayerInv = startPlayerInv + 36;

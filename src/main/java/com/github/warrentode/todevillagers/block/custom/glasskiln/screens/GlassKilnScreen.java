@@ -2,7 +2,7 @@ package com.github.warrentode.todevillagers.block.custom.glasskiln.screens;
 
 import com.github.warrentode.todevillagers.recipes.glassblowing.recipebook.GlassblowingRecipeBookComponent;
 import com.mojang.blaze3d.systems.RenderSystem;
-import com.mojang.blaze3d.vertex.PoseStack;
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.ImageButton;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.gui.screens.recipebook.RecipeBookComponent;
@@ -20,6 +20,7 @@ import javax.annotation.Nonnull;
 import static com.github.warrentode.todevillagers.TodeVillagers.MODID;
 
 
+@SuppressWarnings("removal") // ResourceLocation method marked for removal
 public class GlassKilnScreen extends AbstractContainerScreen<GlassKilnMenu> implements RecipeUpdateListener {
     private static final ResourceLocation TEXTURE = new ResourceLocation(MODID, "textures/gui/glass_kiln_gui.png");
     private static final ResourceLocation RECIPE_BUTTON_TEXTURE = new ResourceLocation("textures/gui/recipe_button.png");
@@ -42,7 +43,7 @@ public class GlassKilnScreen extends AbstractContainerScreen<GlassKilnMenu> impl
         {
             this.recipeBookComponent.toggleVisibility();
             this.leftPos = this.recipeBookComponent.updateScreenPosition(this.width, this.imageWidth);
-            ((ImageButton) button).setPosition(this.leftPos + 5, this.height / 2 - 49);
+            button.setPosition(this.leftPos + 5, this.height / 2 - 49);
         }));
         this.addWidget(this.recipeBookComponent);
         this.setInitialFocus(this.recipeBookComponent);
@@ -55,44 +56,44 @@ public class GlassKilnScreen extends AbstractContainerScreen<GlassKilnMenu> impl
     }
 
     @Override
-    protected void renderBg(@NotNull PoseStack pPoseStack, float pPartialTick, int pMouseX, int pMouseY) {
+    protected void renderBg(@NotNull GuiGraphics graphics, float partialTick, int mouseX, int mouseY) {
         RenderSystem.setShader(GameRenderer::getPositionTexShader);
         RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
         RenderSystem.setShaderTexture(0, TEXTURE);
         int x = this.leftPos;
         int y = (height - imageHeight) / 2;
 
-        this.blit(pPoseStack, x, y, 0, 0, imageWidth, imageHeight);
+        graphics.blit(TEXTURE, x, y, 0, 0, imageWidth, imageHeight);
 
-        renderProgressArrow(pPoseStack, x, y);
+        renderProgressArrow(graphics, x, y);
     }
 
-    private void renderProgressArrow(PoseStack pPoseStack, int x, int y) {
+    private void renderProgressArrow(@NotNull GuiGraphics graphics, int x, int y) {
         if (menu.isCrafting()) {
-            blit(pPoseStack, x + 86, y + 45, 177, 14, menu.getScaledProgress(), 16);
+            graphics.blit(TEXTURE, x + 86, y + 45, 177, 14, menu.getScaledProgress(), 16);
         }
 
         if (menu.hasFuel()) {
-            blit(pPoseStack, x + 85, y + 77, 177, 4, menu.getScaledFuelProgress(), 3);
+            graphics.blit(TEXTURE, x + 85, y + 77, 177, 4, menu.getScaledFuelProgress(), 3);
         }
     }
 
     @Override
-    public void render(@NotNull PoseStack poseStack, int mouseX, int mouseY, float delta) {
-        this.renderBackground(poseStack);
+    public void render(@NotNull GuiGraphics graphics, int mouseX, int mouseY, float delta) {
+        this.renderBackground(graphics);
 
         if (this.recipeBookComponent.isVisible() && this.widthTooNarrow) {
-            this.renderBg(poseStack, delta, mouseX, mouseY);
-            this.recipeBookComponent.render(poseStack, mouseX, mouseY, delta);
+            this.renderBg(graphics, delta, mouseX, mouseY);
+            this.recipeBookComponent.render(graphics, mouseX, mouseY, delta);
         }
         else {
-            this.recipeBookComponent.render(poseStack, mouseX, mouseY, delta);
-            super.render(poseStack, mouseX, mouseY, delta);
-            this.recipeBookComponent.renderGhostRecipe(poseStack, this.leftPos, this.topPos, true, delta);
+            this.recipeBookComponent.render(graphics, mouseX, mouseY, delta);
+            super.render(graphics, mouseX, mouseY, delta);
+            this.recipeBookComponent.renderGhostRecipe(graphics, this.leftPos, this.topPos, true, delta);
         }
 
-        this.renderTooltip(poseStack, mouseX, mouseY);
-        this.recipeBookComponent.renderTooltip(poseStack, this.leftPos, this.topPos, mouseX, mouseY);
+        this.renderTooltip(graphics, mouseX, mouseY);
+        this.recipeBookComponent.renderTooltip(graphics, this.leftPos, this.topPos, mouseX, mouseY);
     }
 
     @Override
@@ -128,7 +129,6 @@ public class GlassKilnScreen extends AbstractContainerScreen<GlassKilnMenu> impl
 
     @Override
     public void removed() {
-        this.recipeBookComponent.removed();
         super.removed();
     }
 

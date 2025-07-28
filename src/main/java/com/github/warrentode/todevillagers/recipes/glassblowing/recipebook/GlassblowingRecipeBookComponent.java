@@ -16,6 +16,7 @@ import java.util.List;
 
 import static com.github.warrentode.todevillagers.TodeVillagers.MODID;
 
+@SuppressWarnings("removal") // ResourceLocation method marked for removal
 public class GlassblowingRecipeBookComponent extends RecipeBookComponent {
     protected static final ResourceLocation RECIPE_BOOK_BUTTONS = new ResourceLocation(MODID, "textures/gui/recipe_book_buttons.png");
 
@@ -24,6 +25,7 @@ public class GlassblowingRecipeBookComponent extends RecipeBookComponent {
         this.filterButton.initTextureValues(0, 0, 28, 18, RECIPE_BOOK_BUTTONS);
     }
 
+    @SuppressWarnings("unused")
     public void hide() {
         this.setVisible(false);
     }
@@ -36,7 +38,8 @@ public class GlassblowingRecipeBookComponent extends RecipeBookComponent {
 
     @Override
     public void setupGhostRecipe(@NotNull Recipe<?> recipe, @NotNull List<Slot> slots) {
-        ItemStack resultStack = recipe.getResultItem();
+        assert this.minecraft.level != null;
+        ItemStack resultStack = recipe.getResultItem(this.minecraft.level.registryAccess());
         this.ghostRecipe.setRecipe(recipe);
         NonNullList<Ingredient> nonnulllist = recipe.getIngredients();
         //result slot

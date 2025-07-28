@@ -2,10 +2,10 @@
 //file:noinspection GrUnresolvedAccess
 buildscript {
     repositories {
-        mavenCentral()
         maven { url = 'https://maven.minecraftforge.net/' }
         maven { url = 'https://repo.spongepowered.org/repository/maven-public/' }
         maven { url = 'https://jitpack.io' }
+        mavenCentral()
     }
     dependencies {
         classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '6.0,6.2', changing: true
@@ -37,6 +37,7 @@ println "Java: ${System.getProperty 'java.version'}, JVM: ${System.getProperty '
 minecraft {
     mappings channel: 'parchment', version: "${parchment_version}-${mc_version}"
     accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
+    copyIdeResources = true
 
     runs {
         client {
@@ -46,6 +47,7 @@ minecraft {
             property 'forge.enabledGameTestNamespaces', 'todevillagers'
             property 'mixin.env.remapRefMap', 'true'
             property 'mixin.env.refMapRemappingFile', "${buildDir}/createSrgToMcp/output.srg"
+            args '--modListOutput'
             mods {
                 todevillagers {
                     source sourceSets.main
@@ -84,6 +86,7 @@ minecraft {
             property 'forge.logging.markers', 'REGISTRIES'
             property 'forge.logging.console.level', 'debug'
             args '--mod', 'todevillagers', '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
+            environment 'target', 'fmluserdevdata'
             mods {
                 todevillagers {
                     source sourceSets.main
@@ -93,14 +96,14 @@ minecraft {
     }
 }
 
-sourceSets.main.resources {
-    srcDir 'src/generated/resources'
-}
-
 mixin {
     add sourceSets.main, "mixins.todevillagers.refmap.json"
     config "mixins.todevillagers.json"
     showMessageTypes = true
+}
+
+sourceSets.main.resources {
+    srcDir 'src/generated/resources'
 }
 
 repositories {
@@ -120,11 +123,12 @@ dependencies {
     minecraft "net.minecraftforge:forge:${mc_version}-${forge_version}"
 
     // addresses vulnerabilities with imported external libraries
-    implementation 'io.netty:netty-codec:4.1.104.Final'
-    implementation 'io.netty:netty-handler:4.1.104.Final'
+    implementation 'io.netty:netty-codec:4.2.3.Final'
+    implementation 'io.netty:netty-handler:4.2.3.Final'
     implementation 'com.google.guava:guava:33.0.0-jre'
     implementation 'org.apache.logging.log4j:log4j-core:2.17.1'
-    implementation 'org.apache.commons:commons-compress:1.26.1'
+    implementation 'org.apache.commons:commons-compress:1.27.1'
+    implementation 'org.apache.commons:commons-lang3:3.18.0'
 
     // compile against the JEI API but do not include it at runtime
     compileOnly(fg.deobf("mezz.jei:jei-${mc_version}-common-api:${jei_version}"))
@@ -133,6 +137,22 @@ dependencies {
     runtimeOnly(fg.deobf("mezz.jei:jei-${mc_version}-forge:${jei_version}"))
 
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
+}
+
+tasks.named('processResources', ProcessResources).configure {
+    var replaceProperties = [
+            minecraft_version   : mc_version, minecraft_version_range: minecraft_version_range,
+            forge_version       : forge_version, forge_version_range: forge_version_range,
+            loader_version_range: loader_version_range,
+            mod_id              : modid, mod_name: mod_name, mod_license: mod_license, mod_version: mod_version,
+            mod_authors         : mod_author, mod_description: mod_description, stable_version: stable_release,
+            mod_credits         : mod_credits,
+    ]
+    inputs.properties replaceProperties
+
+    filesMatching(['META-INF/mods.toml', 'pack.mcmeta', 'src/update.json']) {
+        expand replaceProperties + [project: project]
+    }
 }
 
 jar {
@@ -145,7 +165,7 @@ jar {
                 "Implementation-Version"  : project.jar.archiveVersion,
                 "Implementation-Vendor"   : project.mod_author,
                 "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ"),
-                "MixinConfigs": "mixins.todecoins.json"
+                "MixinConfigs": "mixins.todevillagers.json"
         ])
     }
 }
@@ -153,7 +173,8 @@ jar {
 tasks.register('updateJson') {
     file('update.json').withWriter { w ->
         file('update_template.json').eachLine { line ->
-            w << line.replaceAll("version", project.version) + System.getProperty("line.separator")
+            w << line.replaceAll("stable_release", stable_release)
+                    .replaceAll("latest_version", project.version) + System.lineSeparator()
         }
         w.close()
     }

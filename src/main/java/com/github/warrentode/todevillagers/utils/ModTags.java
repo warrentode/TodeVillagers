@@ -1,13 +1,15 @@
 package com.github.warrentode.todevillagers.utils;
 
-import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.BlockTags;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 
 import static com.github.warrentode.todevillagers.TodeVillagers.MODID;
 
+@SuppressWarnings("removal") // ResourceLocation method marked for removal
 public class ModTags {
 
     public static class Blocks {
@@ -81,20 +83,19 @@ public class ModTags {
         public static final TagKey<Item> SAND_WHITE = forgeItemTag("sand/white");
     }
 
-
     private static TagKey<Block> modBlockTag(String path) {
-        return TagKey.create(Registry.BLOCK_REGISTRY, new ResourceLocation(MODID, path));
+        return BlockTags.create(new ResourceLocation(MODID, path));
     }
 
     private static TagKey<Item> modItemTag(String path) {
-        return TagKey.create(Registry.ITEM_REGISTRY, new ResourceLocation(MODID, path));
+        return ItemTags.create(new ResourceLocation(MODID, path));
     }
 
     private static TagKey<Block> forgeBlockTag(String path) {
-        return TagKey.create(Registry.BLOCK_REGISTRY, new ResourceLocation("forge", path));
+        return BlockTags.create(new ResourceLocation("forge", path));
     }
 
     private static TagKey<Item> forgeItemTag(String path) {
-        return TagKey.create(Registry.ITEM_REGISTRY, new ResourceLocation("forge", path));
+        return ItemTags.create(new ResourceLocation("forge", path));
     }
 }

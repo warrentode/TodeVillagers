@@ -2,6 +2,7 @@
   "homepage": "https://github.com/warrentode/TodeVillagers",
   "devpage": "https://discord.gg/Pkv8Q6TCKx",
   "promos": {
-    "1.19.2-latest-release": "version"
+    "stable-release": "stable_release",
+    "latest-release": "latest_version"
   }
 }

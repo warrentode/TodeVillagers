@@ -30,5 +30,6 @@
     "recipes": [
       "todevillagers:glassblowing/recycling/bottle/glass_bottle"
     ]
-  }
+  },
+  "sends_telemetry_event": true
 }

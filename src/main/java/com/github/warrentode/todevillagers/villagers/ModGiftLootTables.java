@@ -17,6 +17,7 @@ public class ModGiftLootTables {
 
     private static final Set<ResourceLocation> IMMUTABLE_LOCATIONS = Collections.unmodifiableSet(LOCATIONS);
 
+    @SuppressWarnings("removal") // ResourceLocation method marked for removal
     private static ResourceLocation register(String path) {
         return register(new ResourceLocation(path));
     }
@@ -30,6 +31,7 @@ public class ModGiftLootTables {
         }
     }
 
+    @SuppressWarnings("unused")
     public static Set<ResourceLocation> all() {
         return IMMUTABLE_LOCATIONS;
     }

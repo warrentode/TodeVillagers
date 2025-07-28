@@ -9,23 +9,22 @@ import net.minecraft.world.entity.ai.village.poi.PoiType;
 import net.minecraft.world.entity.npc.VillagerProfession;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.fml.util.ObfuscationReflectionHelper;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import org.jetbrains.annotations.NotNull;
 
-import java.lang.reflect.InvocationTargetException;
-
 import static com.github.warrentode.todevillagers.TodeVillagers.MODID;
 
 public class ModVillagers {
-    public static final DeferredRegister<PoiType> POI_TYPES = DeferredRegister.create(ForgeRegistries.POI_TYPES, MODID);
-    public static final DeferredRegister<VillagerProfession> VILLAGER_PROFESSIONS = DeferredRegister.create(ForgeRegistries.VILLAGER_PROFESSIONS, MODID);
+    //TODO: add baker, potter
+    public static final DeferredRegister<PoiType> POI_TYPES =
+            DeferredRegister.create(ForgeRegistries.POI_TYPES, MODID);
+    public static final DeferredRegister<VillagerProfession> VILLAGER_PROFESSIONS =
+            DeferredRegister.create(ForgeRegistries.VILLAGER_PROFESSIONS, MODID);
 
     public static final RegistryObject<PoiType> DJ_POI = POI_TYPES.register("dj_poi",
-            () -> new PoiType(ImmutableSet.copyOf(Blocks.NOTE_BLOCK.getStateDefinition().getPossibleStates()), 1, 1));
-
+            () -> new PoiType(ImmutableSet.copyOf(Blocks.JUKEBOX.getStateDefinition().getPossibleStates()), 1, 1));
     public static final RegistryObject<VillagerProfession> DISC_JOCKEY = VILLAGER_PROFESSIONS.register("disc_jockey", () ->
             new VillagerProfession("disc_jockey", x -> x.get() == DJ_POI.get(), x -> x.get() == DJ_POI.get(),
                     ImmutableSet.of(), ImmutableSet.of(Blocks.JUKEBOX), ModSounds.VILLAGER_WORK_DISC_JOCKEY.get()
@@ -47,30 +46,16 @@ public class ModVillagers {
                     ImmutableSet.of(), ImmutableSet.of(), ModSounds.VILLAGER_WORK_RETIRED_TRADER.get()
             ));
 
+    @SuppressWarnings("removal") // ResourceLocation method marked for removal
     public static void init() {
         setHeroGifts(new ResourceLocation(MODID, "retired_trader_gift"), RETIRED_TRADER.get());
         setHeroGifts(new ResourceLocation(MODID, "glassblower_gift"), GLASSBLOWER.get());
         setHeroGifts(new ResourceLocation(MODID, "disc_jockey_gift"), DISC_JOCKEY.get());
     }
 
+    @SuppressWarnings("removal") // ResourceLocation method marked for removal
     public static void setHeroGifts(@NotNull ResourceLocation name, VillagerProfession profession) {
         GiveGiftToHero.GIFTS.put(profession, new ResourceLocation(name.getNamespace(), "gameplay/hero_of_the_village/" + name.getPath()));
-    }
-
-
-    public static void registerPOIs() {
-        try {
-            ObfuscationReflectionHelper.findMethod(PoiType.class,
-                    "registerBlockStates", PoiType.class).invoke(null, DJ_POI.get());
-            ObfuscationReflectionHelper.findMethod(PoiType.class,
-                    "registerBlockStates", PoiType.class).invoke(null, GLASSBLOWING_POI.get());
-            ObfuscationReflectionHelper.findMethod(PoiType.class,
-                    "registerBlockStates", PoiType.class).invoke(null, TRADER_POI.get());
-        }
-        catch (InvocationTargetException | IllegalAccessException exception) {
-            //noinspection CallToPrintStackTrace
-            exception.printStackTrace();
-        }
     }
 
     public static void register(IEventBus eventBus) {

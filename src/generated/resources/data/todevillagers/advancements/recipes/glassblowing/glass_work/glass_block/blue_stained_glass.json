@@ -28,5 +28,6 @@
     "recipes": [
       "todevillagers:glassblowing/glass_work/glass_block/blue_stained_glass"
     ]
-  }
+  },
+  "sends_telemetry_event": true
 }
