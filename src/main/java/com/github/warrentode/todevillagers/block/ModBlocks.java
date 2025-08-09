@@ -23,6 +23,10 @@ import static com.github.warrentode.todevillagers.item.ModItems.ITEMS;
 public class ModBlocks {
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, MODID);
 
+    public static final RegistryObject<Block> CERAMICS_TABLE = registerBlock("ceramics_table",
+            () -> new Block(BlockBehaviour.Properties.of(Material.WOOD).sound(SoundType.WOOD).noOcclusion()),
+            ModCreativeModeTab.TODEVILLAGERS_TAB);
+
     public static final RegistryObject<Block> GLASS_KILN_BLOCK = registerBlock("glass_kiln",
             () -> new GlassKilnBlock(BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.DEEPSLATE_BRICKS).strength(6f)
                     .requiresCorrectToolForDrops().lightLevel(state -> state.getValue(GlassKilnBlock.LIT) ? 15 : 0).noOcclusion()),

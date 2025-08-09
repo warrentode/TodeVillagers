@@ -115,9 +115,13 @@ repositories {
 dependencies {
     minecraft 'net.minecraftforge:forge:1.19.2-43.3.0'
 
-    // addresses vulnerabilities in netty and logging
-    implementation 'io.netty:netty-codec:4.1.86.Final'
+    // addresses vulnerabilities with imported external libraries
+    implementation 'io.netty:netty-codec:4.2.3.Final'
+    implementation 'io.netty:netty-handler:4.2.3.Final'
+    implementation 'com.google.guava:guava:33.0.0-jre'
     implementation 'org.apache.logging.log4j:log4j-core:2.17.1'
+    implementation 'org.apache.commons:commons-compress:1.27.1'
+    implementation 'org.apache.commons:commons-lang3:3.18.0'
 
     // mod list
 
@@ -140,11 +144,12 @@ jar {
 }
 
 tasks.register('updateJson') {
-    file('update.json').withWriter { writer ->
+    file('update.json').withWriter { w ->
         file('update_template.json').eachLine { line ->
-            writer << line.replaceAll("version", project.version) + System.getProperty("line.separator")
+            w << line.replaceAll("stable_release", stable_release)
+                    .replaceAll("latest_version", project.version) + System.lineSeparator()
         }
-        writer.close()
+        w.close()
     }
 }
 

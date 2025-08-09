@@ -21,6 +21,8 @@ public class ModSounds {
             () -> new SoundEvent(new ResourceLocation("todevillagers", "work_glassblower")));
     public static final RegistryObject<SoundEvent> VILLAGER_WORK_RETIRED_TRADER = SOUNDS.register("work_retired_trader",
             () -> new SoundEvent(new ResourceLocation("todevillagers", "work_retired_trader")));
+    public static final RegistryObject<SoundEvent> VILLAGER_WORK_POTTER = SOUNDS.register("work_retired_potter",
+            () -> new SoundEvent(new ResourceLocation("todevillagers", "work_retired_potter")));
 
 
     public static void register(IEventBus eventBus) {

@@ -16,6 +16,7 @@ public class PoiTypeTagsGen extends PoiTypeTagsProvider {
         tag(net.minecraft.tags.PoiTypeTags.ACQUIRABLE_JOB_SITE)
                 .add(ModVillagers.DJ_POI.get())
                 .add(ModVillagers.TRADER_POI.get())
-                .add(ModVillagers.GLASSBLOWING_POI.get());
+                .add(ModVillagers.GLASSBLOWING_POI.get())
+                .add(ModVillagers.POTTER_POI.get());
     }
 }
