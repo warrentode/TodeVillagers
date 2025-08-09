@@ -45,5 +45,13 @@ public class ModGiftLootGen extends VanillaGiftLoot {
                                         .add(TagEntry.expandTag(ItemTags.MUSIC_DISCS).setWeight(1))
                         )
         );
+        consumer.accept(ModGiftLootTables.POTTER_GIFT,
+                LootTable.lootTable()
+                        .withPool(
+                                LootPool.lootPool()
+                                        .setRolls(ConstantValue.exactly(1.0F))
+                                        .add(LootItem.lootTableItem(Items.CLAY_BALL))
+                        )
+        );
     }
 }

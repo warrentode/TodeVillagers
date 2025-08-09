@@ -3,7 +3,8 @@
     "sounds": [
       {
         "name": "todevillagers:chakra_dream",
-        "stream": true
+        "stream": true,
+        "volume": 0.5
       }
     ]
   },
@@ -71,28 +72,19 @@
     "subtitle": "subtitles.todevillagers.work_glassblower",
     "sounds": [
       {
-        "name": "todevillagers:work_glassblower",
-        "weight": 1
+        "name": "minecraft:block/blastfurnace/blastfurnace1"
       },
       {
-        "name": "minecraft:block/blastfurnace/blastfurnace1",
-        "weight": 3
+        "name": "minecraft:block/blastfurnace/blastfurnace2"
       },
       {
-        "name": "minecraft:block/blastfurnace/blastfurnace2",
-        "weight": 3
+        "name": "minecraft:block/blastfurnace/blastfurnace3"
       },
       {
-        "name": "minecraft:block/blastfurnace/blastfurnace3",
-        "weight": 3
+        "name": "minecraft:block/blastfurnace/blastfurnace4"
       },
       {
-        "name": "minecraft:block/blastfurnace/blastfurnace4",
-        "weight": 3
-      },
-      {
-        "name": "minecraft:block/blastfurnace/blastfurnace5",
-        "weight": 3
+        "name": "minecraft:block/blastfurnace/blastfurnace5"
       }
     ]
   },
@@ -101,6 +93,14 @@
     "sounds": [
       {
         "name": "todevillagers:work_retired_trader"
+      }
+    ]
+  },
+  "work_potter": {
+    "subtitle": "subtitles.todevillagers.work_potter",
+    "sounds": [
+      {
+        "name": "minecraft:block/gravel/break"
       }
     ]
   }
