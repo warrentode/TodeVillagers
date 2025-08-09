@@ -1,15 +1,14 @@
 modLoader = "javafml" #mandatory
 loaderVersion = "[43,)" #mandatory
 license = "GNU_GPL.3"
-# A URL to refer people to when problems occur with this mod
-#issueTrackerURL="https://change.me.to.your.issue.tracker.example.invalid/" #optional
+issueTrackerURL = "https://github.com/warrentode/TodeVillagers/issues"
 
 [[mods]]
 modId = "todevillagers"
 version = "${file.jarVersion}"
 displayName = "Tode Villagers"
-updateJSONURL = "https://raw.githubusercontent.com/warrentode/TodeVillagers-rewrite/master/update.json"
-displayURL = "https://github.com/warrentode/TodeVillagers-rewrite"
+updateJSONURL = "https://raw.githubusercontent.com/warrentode/TodeVillagers/main/update.json"
+displayURL = "https://github.com/warrentode/TodeVillagers"
 logoFile = "logo.png"
 credits = """
 Special thanks to my sons, and my supporters: \
