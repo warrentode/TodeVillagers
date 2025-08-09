@@ -12,19 +12,15 @@ import static com.github.warrentode.todevillagers.TodeVillagers.MODID;
 public class ModSounds {
     public static final DeferredRegister<SoundEvent> SOUNDS = DeferredRegister.create(ForgeRegistries.SOUND_EVENTS, MODID);
 
-    public static final RegistryObject<SoundEvent> CHAKRA_DREAM = SOUNDS.register("chakra_dream",
-            () -> new SoundEvent(new ResourceLocation("todevillagers", "chakra_dream")));
+    public static final RegistryObject<SoundEvent> CHAKRA_DREAM = registerSoundEvents("chakra_dream");
+    public static final RegistryObject<SoundEvent> VILLAGER_WORK_DISC_JOCKEY = registerSoundEvents("work_dj");
+    public static final RegistryObject<SoundEvent> VILLAGER_WORK_GLASSBLOWER = registerSoundEvents("work_glassblower");
+    public static final RegistryObject<SoundEvent> VILLAGER_WORK_RETIRED_TRADER = registerSoundEvents("work_retired_trader");
+    public static final RegistryObject<SoundEvent> VILLAGER_WORK_POTTER = registerSoundEvents("work_retired_potter");
 
-    public static final RegistryObject<SoundEvent> VILLAGER_WORK_DISC_JOCKEY = SOUNDS.register("work_dj",
-            () -> new SoundEvent(new ResourceLocation("todevillagers", "work_dj")));
-    public static final RegistryObject<SoundEvent> VILLAGER_WORK_GLASSBLOWER = SOUNDS.register("work_glassblower",
-            () -> new SoundEvent(new ResourceLocation("todevillagers", "work_glassblower")));
-    public static final RegistryObject<SoundEvent> VILLAGER_WORK_RETIRED_TRADER = SOUNDS.register("work_retired_trader",
-            () -> new SoundEvent(new ResourceLocation("todevillagers", "work_retired_trader")));
-    public static final RegistryObject<SoundEvent> VILLAGER_WORK_POTTER = SOUNDS.register("work_retired_potter",
-            () -> new SoundEvent(new ResourceLocation("todevillagers", "work_retired_potter")));
-
-
+    private static RegistryObject<SoundEvent> registerSoundEvents(String name) {
+        return SOUNDS.register(name, () -> SoundEvent.createVariableRangeEvent(new ResourceLocation(MODID, name)));
+    }
     public static void register(IEventBus eventBus) {
         SOUNDS.register(eventBus);
     }

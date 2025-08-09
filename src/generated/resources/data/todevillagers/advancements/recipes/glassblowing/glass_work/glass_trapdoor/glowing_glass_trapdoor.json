@@ -30,5 +30,6 @@
     "recipes": [
       "todevillagers:glassblowing/glass_work/glass_trapdoor/glowing_glass_trapdoor"
     ]
-  }
+  },
+  "sends_telemetry_event": true
 }

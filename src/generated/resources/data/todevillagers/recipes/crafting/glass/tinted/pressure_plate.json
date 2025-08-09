@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "building",
   "key": {
     "#": {
       "item": "minecraft:tinted_glass"
@@ -10,5 +11,6 @@
   ],
   "result": {
     "item": "todevillagers:tinted_glass_pressure_plate"
-  }
+  },
+  "show_notification": true
 }

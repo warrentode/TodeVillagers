@@ -6,6 +6,7 @@ import com.github.warrentode.todevillagers.item.ModItems;
 import com.github.warrentode.todevillagers.recipes.ModRecipes;
 import com.github.warrentode.todevillagers.recipes.glassblowing.recipebook.GlassblowingRecipeCategories;
 import com.github.warrentode.todevillagers.block.custom.glasskiln.screens.GlassKilnScreen;
+import com.github.warrentode.todevillagers.utils.ModCreativeModeTab;
 import com.github.warrentode.todevillagers.utils.ModMenuTypes;
 import com.github.warrentode.todevillagers.sounds.ModSounds;
 import com.github.warrentode.todevillagers.villagers.ModVillagers;
@@ -40,10 +41,10 @@ public class TodeVillagers {
         ModRecipes.register(modEventBus);
         ModVillagers.register(modEventBus);
         ModSounds.register(modEventBus);
+        ModCreativeModeTab.CREATIVE_TABS.register(modEventBus);
     }
 
     private void commonSetup(final @NotNull FMLCommonSetupEvent event) {
-        event.enqueueWork(ModVillagers::registerPOIs);
         event.enqueueWork(ModVillagers::init);
     }
 

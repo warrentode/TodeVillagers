@@ -36,7 +36,10 @@ public class GlassblowingRecipeBookComponent extends RecipeBookComponent {
 
     @Override
     public void setupGhostRecipe(@NotNull Recipe<?> recipe, @NotNull List<Slot> slots) {
-        ItemStack resultStack = recipe.getResultItem();
+        if (this.minecraft.level == null) {
+            return;
+        }
+        ItemStack resultStack = recipe.getResultItem(this.minecraft.level.registryAccess());
         this.ghostRecipe.setRecipe(recipe);
         NonNullList<Ingredient> nonnulllist = recipe.getIngredients();
         //result slot

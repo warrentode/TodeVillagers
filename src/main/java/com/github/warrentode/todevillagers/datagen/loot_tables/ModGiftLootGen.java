@@ -2,7 +2,7 @@ package com.github.warrentode.todevillagers.datagen.loot_tables;
 
 import com.github.warrentode.todevillagers.utils.ModTags;
 import com.github.warrentode.todevillagers.villagers.ModGiftLootTables;
-import net.minecraft.data.loot.GiftLoot;
+import net.minecraft.data.loot.packs.VanillaGiftLoot;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Items;
@@ -15,8 +15,8 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.function.BiConsumer;
 
-public class ModGiftLootGen extends GiftLoot {
-    public void accept(@NotNull BiConsumer<ResourceLocation, LootTable.Builder> consumer) {
+public class ModGiftLootGen extends VanillaGiftLoot {
+    public void generate(@NotNull BiConsumer<ResourceLocation, LootTable.Builder> consumer) {
         consumer.accept(ModGiftLootTables.RETIRED_TRADER_GIFT,
                 LootTable.lootTable()
                         .withPool(

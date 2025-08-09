@@ -7,6 +7,7 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import net.minecraft.core.NonNullList;
+import net.minecraft.core.RegistryAccess;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.GsonHelper;
@@ -63,12 +64,12 @@ public class GlassblowingRecipe implements Recipe<RecipeWrapper> {
     }
 
     @Override
-    public @NotNull ItemStack getResultItem() {
+    public @NotNull ItemStack getResultItem(@NotNull RegistryAccess registryAccess) {
         return this.result;
     }
 
     @Override
-    public @NotNull ItemStack assemble(@NotNull RecipeWrapper inventory) {
+    public @NotNull ItemStack assemble(@NotNull RecipeWrapper inventory, @NotNull RegistryAccess registryAccess) {
         return this.result.copy();
     }
 

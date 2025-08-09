@@ -248,7 +248,7 @@ public class GlassKilnBlockEntity extends BlockEntity implements MenuProvider, N
                 if (recipe.matches(inventory, level)) {
                     return Optional.of((GlassblowingRecipe) recipe);
                 }
-                if (recipe.getResultItem().sameItem(lastItemCrafted)) {
+                if (recipe.getResultItem(this.level.registryAccess()).is(lastItemCrafted.getItem())) {
                     return Optional.empty();
                 }
             }
@@ -280,8 +280,12 @@ public class GlassKilnBlockEntity extends BlockEntity implements MenuProvider, N
     }
 
     protected boolean canProcess(GlassblowingRecipe recipe) {
+        if (this.level == null) {
+            return false;
+        }
+
         if (hasInput()) {
-            ItemStack resultStack = recipe.getResultItem();
+            ItemStack resultStack = recipe.getResultItem(this.level.registryAccess());
             if (resultStack.isEmpty()) {
                 return false;
             }
@@ -290,7 +294,7 @@ public class GlassKilnBlockEntity extends BlockEntity implements MenuProvider, N
                 if (stackInSlot.isEmpty()) {
                     return true;
                 }
-                else if (!stackInSlot.sameItem(resultStack)) {
+                else if (!stackInSlot.is(resultStack.getItem())) {
                     return false;
                 }
                 else if (stackInSlot.getCount() + resultStack.getCount() <= inventory.getSlotLimit(RESULT_SLOT)) {
@@ -319,6 +323,9 @@ public class GlassKilnBlockEntity extends BlockEntity implements MenuProvider, N
     }
 
     private void craftItem(GlassblowingRecipe recipe, GlassKilnBlockEntity kilnBlock) {
+        if (this.level == null) {
+            return;
+        }
         for (int i = 0; i < inventory.getSlots(); i++) {
             inventory.setStackInSlot(i, inventory.getStackInSlot(i));
         }
@@ -373,10 +380,10 @@ public class GlassKilnBlockEntity extends BlockEntity implements MenuProvider, N
             inventory.extractItem(3, 1, false);
         }
 
-        inventory.setStackInSlot(RESULT_SLOT, new ItemStack(recipe.getResultItem().getItem(),
-                inventory.getStackInSlot(RESULT_SLOT).getCount() + (recipe.getResultItem().getCount())));
+        inventory.setStackInSlot(RESULT_SLOT, new ItemStack(recipe.getResultItem(this.level.registryAccess()).getItem(),
+                inventory.getStackInSlot(RESULT_SLOT).getCount() + (recipe.getResultItem(this.level.registryAccess()).getCount())));
 
-        lastItemCrafted = recipe.getResultItem();
+        lastItemCrafted = recipe.getResultItem(this.level.registryAccess());
         kilnBlock.setRecipeUsed(recipe);
         kilnBlock.resetProgress();
         setChanged();
@@ -401,8 +408,8 @@ public class GlassKilnBlockEntity extends BlockEntity implements MenuProvider, N
     }
 
     @Override
-    public void awardUsedRecipes(Player player) {
-        List<Recipe<?>> usedRecipes = getUsedRecipesAndPopExperience(player.level, player.position());
+    public void awardUsedRecipes(@NotNull Player player, @NotNull List<ItemStack> items) {
+        List<Recipe<?>> usedRecipes = getUsedRecipesAndPopExperience(player.level(), player.position());
         player.awardRecipes(usedRecipes);
         this.usedRecipes.clear();
     }

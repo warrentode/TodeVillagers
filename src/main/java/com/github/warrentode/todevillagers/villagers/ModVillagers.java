@@ -9,13 +9,10 @@ import net.minecraft.world.entity.ai.village.poi.PoiType;
 import net.minecraft.world.entity.npc.VillagerProfession;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.fml.util.ObfuscationReflectionHelper;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import org.jetbrains.annotations.NotNull;
-
-import java.lang.reflect.InvocationTargetException;
 
 import static com.github.warrentode.todevillagers.TodeVillagers.MODID;
 
@@ -39,32 +36,32 @@ public class ModVillagers {
     public static final RegistryObject<VillagerProfession> DISC_JOCKEY =
             VILLAGER_PROFESSIONS.register("disc_jockey",
                     () -> new VillagerProfession("disc_jockey",
-                            held -> held.get() == DJ_POI.get(),
-                            acquirable -> acquirable.get() == DJ_POI.get(),
+                            heldJobSite -> heldJobSite.get() == DJ_POI.get(),
+                            acquirableJobSite -> acquirableJobSite.get() == DJ_POI.get(),
                             ImmutableSet.of(), ImmutableSet.of(Blocks.JUKEBOX),
                             ModSounds.VILLAGER_WORK_DISC_JOCKEY.get()
                     ));
     public static final RegistryObject<VillagerProfession> GLASSBLOWER =
             VILLAGER_PROFESSIONS.register("glassblower",
                     () -> new VillagerProfession("glassblower",
-                            held -> held.get() == GLASSBLOWING_POI.get(),
-                            acquirable -> acquirable.get() == GLASSBLOWING_POI.get(),
+                            heldJobSite -> heldJobSite.get() == GLASSBLOWING_POI.get(),
+                            acquirableJobSite -> acquirableJobSite.get() == GLASSBLOWING_POI.get(),
                             ImmutableSet.of(), ImmutableSet.of(),
                             ModSounds.VILLAGER_WORK_GLASSBLOWER.get()
                     ));
     public static final RegistryObject<VillagerProfession> RETIRED_TRADER =
             VILLAGER_PROFESSIONS.register("retired_trader",
                     () -> new VillagerProfession("retired_trader",
-                            held -> held.get() == TRADER_POI.get(),
-                            acquirable -> acquirable.get() == TRADER_POI.get(),
+                            heldJobSite -> heldJobSite.get() == TRADER_POI.get(),
+                            acquirableJobSite -> acquirableJobSite.get() == TRADER_POI.get(),
                             ImmutableSet.of(), ImmutableSet.of(),
                             ModSounds.VILLAGER_WORK_RETIRED_TRADER.get()
                     ));
     public static final RegistryObject<VillagerProfession> POTTER =
             VILLAGER_PROFESSIONS.register("potter",
                     () -> new VillagerProfession("potter",
-                            held -> held.get() == POTTER_POI.get(),
-                            acquirable -> acquirable.get() == POTTER_POI.get(),
+                            heldJobSite -> heldJobSite.get() == POTTER_POI.get(),
+                            acquirableJobSite -> acquirableJobSite.get() == POTTER_POI.get(),
                             ImmutableSet.of(), ImmutableSet.of(),
                             ModSounds.VILLAGER_WORK_POTTER.get()
                     ));
@@ -78,28 +75,6 @@ public class ModVillagers {
 
     public static void setHeroGifts(@NotNull ResourceLocation name, VillagerProfession profession) {
         GiveGiftToHero.GIFTS.put(profession, new ResourceLocation(name.getNamespace(), "gameplay/hero_of_the_village/" + name.getPath()));
-    }
-
-
-    public static void registerPOIs() {
-        try {
-            ObfuscationReflectionHelper.findMethod(PoiType.class,
-                            "registerBlockStates", PoiType.class)
-                    .invoke(null, DJ_POI.get());
-            ObfuscationReflectionHelper.findMethod(PoiType.class,
-                            "registerBlockStates", PoiType.class)
-                    .invoke(null, GLASSBLOWING_POI.get());
-            ObfuscationReflectionHelper.findMethod(PoiType.class,
-                            "registerBlockStates", PoiType.class)
-                    .invoke(null, TRADER_POI.get());
-            ObfuscationReflectionHelper.findMethod(PoiType.class,
-                            "registerBlockStates", PoiType.class)
-                    .invoke(null, POTTER_POI.get());
-        }
-        catch (InvocationTargetException | IllegalAccessException exception) {
-            //noinspection CallToPrintStackTrace
-            exception.printStackTrace();
-        }
     }
 
     public static void register(IEventBus eventBus) {

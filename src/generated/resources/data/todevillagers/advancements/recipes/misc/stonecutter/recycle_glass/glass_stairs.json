@@ -1,0 +1,33 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_glass_stairs": {
+      "conditions": {
+        "items": [
+          {
+            "tag": "todevillagers:glass_stairs"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "todevillagers:stonecutter/recycle_glass/glass_stairs"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_glass_stairs",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "todevillagers:stonecutter/recycle_glass/glass_stairs"
+    ]
+  },
+  "sends_telemetry_event": false
+}

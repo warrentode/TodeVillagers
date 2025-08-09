@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "building",
   "key": {
     "#": {
       "item": "todevillagers:reinforced_glass"
@@ -14,5 +15,6 @@
   ],
   "result": {
     "item": "todevillagers:reinforced_glass_fence_gate"
-  }
+  },
+  "show_notification": true
 }

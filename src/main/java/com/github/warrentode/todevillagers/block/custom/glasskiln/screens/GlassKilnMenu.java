@@ -37,7 +37,7 @@ public class GlassKilnMenu extends RecipeBookMenu<RecipeWrapper> {
         this.kilnBlock = (GlassKilnBlockEntity) blockEntity;
         this.inventory = ((GlassKilnBlockEntity) blockEntity).getInventory();
         this.kilnBlockData = data;
-        this.level = playerInventory.player.level;
+        this.level = playerInventory.player.level();
         this.canInteractWithCallable = ContainerLevelAccess.create(Objects.requireNonNull(kilnBlock.getLevel()), kilnBlock.getBlockPos());
         /* this value must be the same as the one given for the size of the itemStackHandler within the GlassKilnBlockEntity */
         checkContainerSize(playerInventory, 6);
@@ -83,13 +83,13 @@ public class GlassKilnMenu extends RecipeBookMenu<RecipeWrapper> {
     public GlassKilnMenu(int id, Inventory inventory, @NotNull FriendlyByteBuf extraData) {
         /* the size of the SimpleContainerData must be the same size the getCount within the GlassKilnBlockEntity container data
          * be sure to change these values when you readjust these methods to track furnace/fuel data as well  */
-        this(id, inventory, Objects.requireNonNull(inventory.player.level.getBlockEntity(extraData.readBlockPos())), new SimpleContainerData(4));
+        this(id, inventory, Objects.requireNonNull(inventory.player.level().getBlockEntity(extraData.readBlockPos())), new SimpleContainerData(4));
     }
 
     private static GlassKilnBlockEntity getBlockEntity(final Inventory playerInventory, final FriendlyByteBuf data) {
         Objects.requireNonNull(playerInventory, "playerInventory for Glass Kiln cannot be null");
         Objects.requireNonNull(data, "Glass Kiln data cannot be null");
-        final BlockEntity blockAtPos = playerInventory.player.level.getBlockEntity(data.readBlockPos());
+        final BlockEntity blockAtPos = playerInventory.player.level().getBlockEntity(data.readBlockPos());
         if (blockAtPos instanceof GlassKilnBlockEntity) {
             return (GlassKilnBlockEntity) blockAtPos;
         }

@@ -3,26 +3,31 @@ package com.github.warrentode.todevillagers.datagen.tags;
 import com.github.warrentode.todevillagers.block.ModBlocks;
 import com.github.warrentode.todevillagers.item.ModItems;
 import com.github.warrentode.todevillagers.utils.ModTags;
-import net.minecraft.data.DataGenerator;
-import net.minecraft.data.tags.BlockTagsProvider;
+import net.minecraft.core.HolderLookup;
+import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
+import net.minecraft.data.tags.TagsProvider;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.data.ExistingFileHelper;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Objects;
+import java.util.concurrent.CompletableFuture;
+
+import static com.github.warrentode.todevillagers.TodeVillagers.MODID;
 
 public class ItemTagsGen extends ItemTagsProvider {
-    public ItemTagsGen(DataGenerator pGenerator, BlockTagsProvider pBlockTagsProvider, String modId,
-                       @Nullable ExistingFileHelper existingFileHelper) {
-        super(pGenerator, pBlockTagsProvider, modId, existingFileHelper);
+    public ItemTagsGen(PackOutput output, CompletableFuture<HolderLookup.Provider> provider, CompletableFuture<TagsProvider.TagLookup<Block>> blockTagProvider, @Nullable ExistingFileHelper existingFileHelper) {
+        super(output, provider, blockTagProvider, MODID, existingFileHelper);
     }
 
     @Override
-    protected void addTags() {
+    protected void addTags(@NotNull HolderLookup.Provider provider) {
         this.registerModTags();
     }
 

@@ -24,13 +24,13 @@ This mod adds a variety of villagers with their trades to the game.
 [[dependencies.todevillagers]]
 modId = "forge"
 mandatory = true
-versionRange = "[43,)"
+versionRange = "[47,)"
 ordering = "NONE"
 side = "BOTH"
 [[dependencies.todevillagers]]
 modId = "minecraft"
 mandatory = true
-versionRange = "[1.19.2,1.20)"
+versionRange = "[1.20,1.21)"
 ordering = "NONE"
 side = "BOTH"
 

@@ -30,5 +30,6 @@
     "recipes": [
       "todevillagers:glassblowing/glass_work/glass_slab/shifting_glass_slab"
     ]
-  }
+  },
+  "sends_telemetry_event": true
 }

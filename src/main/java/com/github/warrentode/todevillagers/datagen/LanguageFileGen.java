@@ -4,16 +4,29 @@ import com.github.warrentode.todevillagers.block.ModBlocks;
 import com.github.warrentode.todevillagers.item.ModItems;
 import com.github.warrentode.todevillagers.utils.ModCreativeModeTab;
 import com.github.warrentode.todevillagers.villagers.ModVillagers;
-import net.minecraft.data.DataGenerator;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import net.minecraft.data.PackOutput;
 import net.minecraftforge.common.data.LanguageProvider;
+
+import java.util.Map;
+import java.util.TreeMap;
 
 import static com.github.warrentode.todevillagers.TodeVillagers.MODID;
 
 public class LanguageFileGen extends LanguageProvider {
+    private static final Gson GSON = (new GsonBuilder()).setPrettyPrinting().disableHtmlEscaping().setLenient().create();
+    private final Map<String, String> data = new TreeMap<>();
+    private final PackOutput packOutput;
+    private final String modid;
+    private final String locale;
 
     @SuppressWarnings("unused")
-    public LanguageFileGen(DataGenerator generator, String modid, String locale) {
-        super(generator, MODID, locale);
+    public LanguageFileGen(PackOutput packOutput, String modid, String locale) {
+        super(packOutput, MODID, locale);
+        this.packOutput = packOutput;
+        this.modid = modid;
+        this.locale = locale;
     }
 
     @Override
@@ -29,7 +42,8 @@ public class LanguageFileGen extends LanguageProvider {
     }
 
     private void addItemGroups() {
-        add("itemGroup." + ModCreativeModeTab.TODEVILLAGERS_TAB.getId(), "TodeVillagers Tab");
+        add("itemGroup." + ModCreativeModeTab.TODEVILLAGERS_TAB.getId().getPath(), "TodeVillagers Tab");
+        add("itemGroup." + ModCreativeModeTab.TODEVILLAGERS_GLASS_TAB.getId().getPath(), "Glassblowing Tab");
     }
 
     private void addContainers() {
