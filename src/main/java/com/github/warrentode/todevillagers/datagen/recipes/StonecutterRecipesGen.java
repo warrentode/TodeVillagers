@@ -4,7 +4,7 @@ import com.github.warrentode.todevillagers.block.ModBlocks;
 import com.github.warrentode.todevillagers.item.ModItems;
 import com.github.warrentode.todevillagers.utils.ModTags;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
-import net.minecraft.data.DataGenerator;
+import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeProvider;
@@ -20,10 +20,9 @@ import java.util.function.Consumer;
 
 import static com.github.warrentode.todevillagers.TodeVillagers.MODID;
 
-@SuppressWarnings("removal") // ResourceLocation method marked for removal
 public class StonecutterRecipesGen extends RecipeProvider implements IConditionBuilder {
-    public StonecutterRecipesGen(DataGenerator generator) {
-        super(generator.getPackOutput());
+    public StonecutterRecipesGen(PackOutput packOutput) {
+        super(packOutput);
     }
 
     @Override

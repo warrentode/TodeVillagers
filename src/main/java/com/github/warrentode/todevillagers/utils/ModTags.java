@@ -9,7 +9,6 @@ import net.minecraft.world.level.block.Block;
 
 import static com.github.warrentode.todevillagers.TodeVillagers.MODID;
 
-@SuppressWarnings("removal") // ResourceLocation method marked for removal
 public class ModTags {
 
     public static class Blocks {

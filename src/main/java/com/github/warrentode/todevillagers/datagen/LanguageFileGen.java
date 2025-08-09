@@ -2,11 +2,11 @@ package com.github.warrentode.todevillagers.datagen;
 
 import com.github.warrentode.todevillagers.block.ModBlocks;
 import com.github.warrentode.todevillagers.item.ModItems;
-import com.github.warrentode.todevillagers.utils.ModCreativeModeTabs;
+import com.github.warrentode.todevillagers.utils.ModCreativeModeTab;
 import com.github.warrentode.todevillagers.villagers.ModVillagers;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import net.minecraft.data.DataGenerator;
+import net.minecraft.data.PackOutput;
 import net.minecraftforge.common.data.LanguageProvider;
 
 import java.util.Map;
@@ -14,17 +14,17 @@ import java.util.TreeMap;
 
 import static com.github.warrentode.todevillagers.TodeVillagers.MODID;
 
-@SuppressWarnings("unused")
 public class LanguageFileGen extends LanguageProvider {
     private static final Gson GSON = (new GsonBuilder()).setPrettyPrinting().disableHtmlEscaping().setLenient().create();
     private final Map<String, String> data = new TreeMap<>();
-    private final DataGenerator generator;
+    private final PackOutput packOutput;
     private final String modid;
     private final String locale;
 
-    public LanguageFileGen(DataGenerator generator, String modid, String locale) {
-        super(generator.getPackOutput(), MODID, locale);
-        this.generator = generator;
+    @SuppressWarnings("unused")
+    public LanguageFileGen(PackOutput packOutput, String modid, String locale) {
+        super(packOutput, MODID, locale);
+        this.packOutput = packOutput;
         this.modid = modid;
         this.locale = locale;
     }
@@ -42,7 +42,8 @@ public class LanguageFileGen extends LanguageProvider {
     }
 
     private void addItemGroups() {
-        add("itemGroup." + ModCreativeModeTabs.TODEVILLAGERS_TAB.getId().getPath(), "TodeVillagers Tab");
+        add("itemGroup." + ModCreativeModeTab.TODEVILLAGERS_TAB.getId().getPath(), "TodeVillagers Tab");
+        add("itemGroup." + ModCreativeModeTab.TODEVILLAGERS_GLASS_TAB.getId().getPath(), "Glassblowing Tab");
     }
 
     private void addContainers() {
@@ -52,6 +53,7 @@ public class LanguageFileGen extends LanguageProvider {
     }
 
     private void addBlocks() {
+        add("block." + MODID + "." + ModBlocks.CERAMICS_TABLE.getId().getPath(), "Ceramics Table");
         add("block." + MODID + "." + ModBlocks.GLASS_KILN_BLOCK.getId().getPath(), "Glass Kiln");
         add("block." + MODID + "." + ModBlocks.WHEEL_CART.getId().getPath(), "Wheel Cart");
         add("block." + MODID + "." + ModBlocks.REDSTONE_INFUSED_GLASS.getId().getPath(), "Redstone Infused Glass");
@@ -125,11 +127,13 @@ public class LanguageFileGen extends LanguageProvider {
         add("subtitles." + MODID + ".work_dj", "Disc Jockey Works");
         add("subtitles." + MODID + ".work_glassblower", "Glassblower Works");
         add("subtitles." + MODID + ".work_retired_trader", "Retired Trader Works");
+        add("subtitles." + MODID + ".work_potter", "Potter Works");
     }
 
     private void addEntities() {
         add("entity.minecraft.villager." + MODID + "." + ModVillagers.DISC_JOCKEY.getId().getPath(), "Disc Jockey");
         add("entity.minecraft.villager." + MODID + "." + ModVillagers.GLASSBLOWER.getId().getPath(), "Glassblower");
         add("entity.minecraft.villager." + MODID + "." + ModVillagers.RETIRED_TRADER.getId().getPath(), "Retired Trader");
+        add("entity.minecraft.villager." + MODID + "." + ModVillagers.POTTER.getId().getPath(), "Potter");
     }
 }

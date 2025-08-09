@@ -1,13 +1,12 @@
 {
   "required": true,
-  "minVersion": "0.8",
-  "package": "com.github.warrentode.todevillagers.mixins",
+  "package": "com.github.warrentode.todevillagers.mixin",
   "compatibilityLevel": "JAVA_17",
   "refmap": "mixins.todevillagers.refmap.json",
   "mixins": [
     "RecipeManagerAccessor"
   ],
-  "injectors": {
-    "defaultRequire": 1
-  }
+  "client": [
+  ],
+  "minVersion": "0.8"
 }

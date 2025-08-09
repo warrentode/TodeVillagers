@@ -29,7 +29,6 @@ import java.util.function.Consumer;
 
 import static com.github.warrentode.todevillagers.TodeVillagers.MODID;
 
-@SuppressWarnings("removal") // ResourceLocation method marked for removal
 public class GlassblowingRecipesBuilder {
     private GlassblowingRecipeBookTab tab;
     private String group;

@@ -22,7 +22,6 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.Objects;
 
-@SuppressWarnings("CanBeFinal")
 public class GlassKilnMenu extends RecipeBookMenu<RecipeWrapper> {
     public static int FUEL_SLOT = 4;
     public static int RESULT_SLOT = 5;
@@ -31,7 +30,6 @@ public class GlassKilnMenu extends RecipeBookMenu<RecipeWrapper> {
     public final ItemStackHandler inventory;
     protected final Level level;
     private final ContainerData kilnBlockData;
-    @SuppressWarnings("unused")
     private final ContainerLevelAccess canInteractWithCallable;
 
     public GlassKilnMenu(int id, Inventory playerInventory, BlockEntity blockEntity, ContainerData data) {
@@ -46,7 +44,7 @@ public class GlassKilnMenu extends RecipeBookMenu<RecipeWrapper> {
 
         // Ingredient Slots - 2 Rows x 2 Columns
         int startX = 8;
-        @SuppressWarnings("unused") int startY = 18;
+        int startY = 18;
         int borderSlotSize = 18;
 
         int inputStartX = 43;
@@ -106,7 +104,7 @@ public class GlassKilnMenu extends RecipeBookMenu<RecipeWrapper> {
 
     @Override
     public @NotNull ItemStack quickMoveStack(@NotNull Player playerIn, int index) {
-        @SuppressWarnings("unused") int fuelIndex = FUEL_SLOT;
+        int fuelIndex = FUEL_SLOT;
         int resultIndex = RESULT_SLOT;
         int startPlayerInv = resultIndex + 1;
         int endPlayerInv = startPlayerInv + 36;

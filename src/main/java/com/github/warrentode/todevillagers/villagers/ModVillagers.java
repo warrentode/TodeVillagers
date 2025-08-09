@@ -17,43 +17,62 @@ import org.jetbrains.annotations.NotNull;
 import static com.github.warrentode.todevillagers.TodeVillagers.MODID;
 
 public class ModVillagers {
-    //TODO: add baker, potter
-    public static final DeferredRegister<PoiType> POI_TYPES =
-            DeferredRegister.create(ForgeRegistries.POI_TYPES, MODID);
-    public static final DeferredRegister<VillagerProfession> VILLAGER_PROFESSIONS =
-            DeferredRegister.create(ForgeRegistries.VILLAGER_PROFESSIONS, MODID);
+    public static final DeferredRegister<PoiType> POI_TYPES = DeferredRegister.create(ForgeRegistries.POI_TYPES, MODID);
+    public static final DeferredRegister<VillagerProfession> VILLAGER_PROFESSIONS = DeferredRegister.create(ForgeRegistries.VILLAGER_PROFESSIONS, MODID);
 
     public static final RegistryObject<PoiType> DJ_POI = POI_TYPES.register("dj_poi",
-            () -> new PoiType(ImmutableSet.copyOf(Blocks.JUKEBOX.getStateDefinition().getPossibleStates()), 1, 1));
-    public static final RegistryObject<VillagerProfession> DISC_JOCKEY = VILLAGER_PROFESSIONS.register("disc_jockey", () ->
-            new VillagerProfession("disc_jockey", x -> x.get() == DJ_POI.get(), x -> x.get() == DJ_POI.get(),
-                    ImmutableSet.of(), ImmutableSet.of(Blocks.JUKEBOX), ModSounds.VILLAGER_WORK_DISC_JOCKEY.get()
-            ));
-
+            () -> new PoiType(ImmutableSet.copyOf(Blocks.NOTE_BLOCK
+                    .getStateDefinition().getPossibleStates()), 1, 1));
     public static final RegistryObject<PoiType> GLASSBLOWING_POI = POI_TYPES.register("glassblowing_poi",
-            () -> new PoiType(ImmutableSet.copyOf(ModBlocks.GLASS_KILN_BLOCK.get().getStateDefinition().getPossibleStates()),
-                    1, 1));
-    public static final RegistryObject<VillagerProfession> GLASSBLOWER = VILLAGER_PROFESSIONS.register("glassblower", () ->
-            new VillagerProfession("glassblower", x -> x.get() == GLASSBLOWING_POI.get(), x -> x.get() == GLASSBLOWING_POI.get(),
-                    ImmutableSet.of(), ImmutableSet.of(), ModSounds.VILLAGER_WORK_GLASSBLOWER.get()
-            ));
-
+            () -> new PoiType(ImmutableSet.copyOf(ModBlocks.GLASS_KILN_BLOCK.get()
+                    .getStateDefinition().getPossibleStates()), 1, 1));
     public static final RegistryObject<PoiType> TRADER_POI = POI_TYPES.register("trader_poi",
-            () -> new PoiType(ImmutableSet.copyOf(ModBlocks.WHEEL_CART.get().getStateDefinition().getPossibleStates()),
-                    1, 1));
-    public static final RegistryObject<VillagerProfession> RETIRED_TRADER = VILLAGER_PROFESSIONS.register("retired_trader", () ->
-            new VillagerProfession("retired_trader", x -> x.get() == TRADER_POI.get(), x -> x.get() == TRADER_POI.get(),
-                    ImmutableSet.of(), ImmutableSet.of(), ModSounds.VILLAGER_WORK_RETIRED_TRADER.get()
-            ));
+            () -> new PoiType(ImmutableSet.copyOf(ModBlocks.WHEEL_CART.get()
+                    .getStateDefinition().getPossibleStates()), 1, 1));
+    public static final RegistryObject<PoiType> POTTER_POI = POI_TYPES.register("potter_poi",
+            () -> new PoiType(ImmutableSet.copyOf(ModBlocks.CERAMICS_TABLE.get()
+                    .getStateDefinition().getPossibleStates()), 1, 1));
 
-    @SuppressWarnings("removal") // ResourceLocation method marked for removal
+    public static final RegistryObject<VillagerProfession> DISC_JOCKEY =
+            VILLAGER_PROFESSIONS.register("disc_jockey",
+                    () -> new VillagerProfession("disc_jockey",
+                            heldJobSite -> heldJobSite.get() == DJ_POI.get(),
+                            acquirableJobSite -> acquirableJobSite.get() == DJ_POI.get(),
+                            ImmutableSet.of(), ImmutableSet.of(Blocks.JUKEBOX),
+                            ModSounds.VILLAGER_WORK_DISC_JOCKEY.get()
+                    ));
+    public static final RegistryObject<VillagerProfession> GLASSBLOWER =
+            VILLAGER_PROFESSIONS.register("glassblower",
+                    () -> new VillagerProfession("glassblower",
+                            heldJobSite -> heldJobSite.get() == GLASSBLOWING_POI.get(),
+                            acquirableJobSite -> acquirableJobSite.get() == GLASSBLOWING_POI.get(),
+                            ImmutableSet.of(), ImmutableSet.of(),
+                            ModSounds.VILLAGER_WORK_GLASSBLOWER.get()
+                    ));
+    public static final RegistryObject<VillagerProfession> RETIRED_TRADER =
+            VILLAGER_PROFESSIONS.register("retired_trader",
+                    () -> new VillagerProfession("retired_trader",
+                            heldJobSite -> heldJobSite.get() == TRADER_POI.get(),
+                            acquirableJobSite -> acquirableJobSite.get() == TRADER_POI.get(),
+                            ImmutableSet.of(), ImmutableSet.of(),
+                            ModSounds.VILLAGER_WORK_RETIRED_TRADER.get()
+                    ));
+    public static final RegistryObject<VillagerProfession> POTTER =
+            VILLAGER_PROFESSIONS.register("potter",
+                    () -> new VillagerProfession("potter",
+                            heldJobSite -> heldJobSite.get() == POTTER_POI.get(),
+                            acquirableJobSite -> acquirableJobSite.get() == POTTER_POI.get(),
+                            ImmutableSet.of(), ImmutableSet.of(),
+                            ModSounds.VILLAGER_WORK_POTTER.get()
+                    ));
+
     public static void init() {
-        setHeroGifts(new ResourceLocation(MODID, "retired_trader_gift"), RETIRED_TRADER.get());
-        setHeroGifts(new ResourceLocation(MODID, "glassblower_gift"), GLASSBLOWER.get());
-        setHeroGifts(new ResourceLocation(MODID, "disc_jockey_gift"), DISC_JOCKEY.get());
+        setHeroGifts(ModGiftLootTables.RETIRED_TRADER_GIFT, RETIRED_TRADER.get());
+        setHeroGifts(ModGiftLootTables.GLASSBLOWER_GIFT, GLASSBLOWER.get());
+        setHeroGifts(ModGiftLootTables.DISC_JOCKEY_GIFT, DISC_JOCKEY.get());
+        setHeroGifts(ModGiftLootTables.POTTER_GIFT, POTTER.get());
     }
 
-    @SuppressWarnings("removal") // ResourceLocation method marked for removal
     public static void setHeroGifts(@NotNull ResourceLocation name, VillagerProfession profession) {
         GiveGiftToHero.GIFTS.put(profession, new ResourceLocation(name.getNamespace(), "gameplay/hero_of_the_village/" + name.getPath()));
     }

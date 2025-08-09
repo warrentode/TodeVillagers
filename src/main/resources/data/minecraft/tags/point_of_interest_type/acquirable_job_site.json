@@ -1,16 +1,8 @@
 {
   "values": [
-    {
-      "id": "todevillagers:dj_poi",
-      "required": false
-    },
-    {
-      "id": "todevillagers:trader_poi",
-      "required": false
-    },
-    {
-      "id": "todevillagers:glassblowing_poi",
-      "required": false
-    }
+    "todevillagers:dj_poi",
+    "todevillagers:trader_poi",
+    "todevillagers:glassblowing_poi",
+    "todevillagers:potter_poi"
   ]
 }

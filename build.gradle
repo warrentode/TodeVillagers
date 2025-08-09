@@ -4,11 +4,9 @@ buildscript {
     repositories {
         maven { url = 'https://maven.minecraftforge.net/' }
         maven { url = 'https://repo.spongepowered.org/repository/maven-public/' }
-        maven { url = 'https://jitpack.io' }
-        mavenCentral()
     }
     dependencies {
-        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '6.0,6.2', changing: true
+        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '5.1.+', changing: true
         classpath group: 'org.spongepowered', name: 'mixingradle', version: '0.7-SNAPSHOT'
     }
 }
@@ -16,7 +14,7 @@ buildscript {
 plugins {
     id 'eclipse'
     id 'maven-publish'
-    id 'net.minecraftforge.gradle' version '[6.0,6.2)'
+    id 'net.minecraftforge.gradle' version '5.1.+'
     id 'org.parchmentmc.librarian.forgegradle' version '1.+'
 }
 
@@ -25,19 +23,17 @@ apply plugin: 'eclipse'
 apply plugin: 'maven-publish'
 apply plugin: 'org.spongepowered.mixin'
 
-version = "${project.mc_version}-${project.mod_version}"
+version = "${project.minecraft_version}-${project.mod_version}"
 group = "${project.mod_domain}"
-base {
-    archivesName = "${project.modid}"
-}
+archivesBaseName = "todevillagers"
 
+// Mojang ships Java 17 to end users in 1.18+, so your mod should target Java 17.
 java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 println "Java: ${System.getProperty 'java.version'}, JVM: ${System.getProperty 'java.vm.version'} (${System.getProperty 'java.vendor'}), Arch: ${System.getProperty 'os.arch'}"
 
 minecraft {
-    mappings channel: 'parchment', version: "${parchment_version}-${mc_version}"
+    mappings channel: 'parchment', version: '2023.09.03-1.20.1'
     accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
-    copyIdeResources = true
 
     runs {
         client {
@@ -47,7 +43,7 @@ minecraft {
             property 'forge.enabledGameTestNamespaces', 'todevillagers'
             property 'mixin.env.remapRefMap', 'true'
             property 'mixin.env.refMapRemappingFile', "${buildDir}/createSrgToMcp/output.srg"
-            args '--modListOutput'
+
             mods {
                 todevillagers {
                     source sourceSets.main
@@ -62,6 +58,7 @@ minecraft {
             property 'forge.enabledGameTestNamespaces', 'todevillagers'
             property 'mixin.env.remapRefMap', 'true'
             property 'mixin.env.refMapRemappingFile', "${buildDir}/createSrgToMcp/output.srg"
+
             mods {
                 todevillagers {
                     source sourceSets.main
@@ -74,6 +71,7 @@ minecraft {
             property 'forge.logging.markers', 'REGISTRIES'
             property 'forge.logging.console.level', 'debug'
             property 'forge.enabledGameTestNamespaces', 'todevillagers'
+
             mods {
                 todevillagers {
                     source sourceSets.main
@@ -86,7 +84,7 @@ minecraft {
             property 'forge.logging.markers', 'REGISTRIES'
             property 'forge.logging.console.level', 'debug'
             args '--mod', 'todevillagers', '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
-            environment 'target', 'fmluserdevdata'
+
             mods {
                 todevillagers {
                     source sourceSets.main
@@ -96,31 +94,26 @@ minecraft {
     }
 }
 
+sourceSets.main.resources { srcDir 'src/generated/resources' }
+
 mixin {
     add sourceSets.main, "mixins.todevillagers.refmap.json"
     config "mixins.todevillagers.json"
     showMessageTypes = true
 }
 
-sourceSets.main.resources {
-    srcDir 'src/generated/resources'
-}
-
 repositories {
-    maven {
-        // location of the maven that hosts JEI files since January 2023
-        name = "Jared's maven"
-        url = "https://maven.blamejared.com/"
-    }
-    maven {
-        // location of a maven mirror for JEI files, as a fallback
-        name = "ModMaven"
-        url = "https://modmaven.dev"
-    }
+    // Put repositories for dependencies here
+    // ForgeGradle automatically adds the Forge maven and Maven Central for you
+
+    // If you have mod jar dependencies in ./libs, you can declare them as a repository like so:
+    // flatDir {
+    //     dir 'libs'
+    // }
 }
 
 dependencies {
-    minecraft "net.minecraftforge:forge:${mc_version}-${forge_version}"
+    minecraft 'net.minecraftforge:forge:1.20.1-47.1.0'
 
     // addresses vulnerabilities with imported external libraries
     implementation 'io.netty:netty-codec:4.2.3.Final'
@@ -130,29 +123,9 @@ dependencies {
     implementation 'org.apache.commons:commons-compress:1.27.1'
     implementation 'org.apache.commons:commons-lang3:3.18.0'
 
-    // compile against the JEI API but do not include it at runtime
-    compileOnly(fg.deobf("mezz.jei:jei-${mc_version}-common-api:${jei_version}"))
-    compileOnly(fg.deobf("mezz.jei:jei-${mc_version}-forge-api:${jei_version}"))
-    // at runtime, use the full JEI jar for Forge
-    runtimeOnly(fg.deobf("mezz.jei:jei-${mc_version}-forge:${jei_version}"))
+    // mod list
 
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
-}
-
-tasks.named('processResources', ProcessResources).configure {
-    var replaceProperties = [
-            minecraft_version   : mc_version, minecraft_version_range: minecraft_version_range,
-            forge_version       : forge_version, forge_version_range: forge_version_range,
-            loader_version_range: loader_version_range,
-            mod_id              : modid, mod_name: mod_name, mod_license: mod_license, mod_version: mod_version,
-            mod_authors         : mod_author, mod_description: mod_description, stable_version: stable_release,
-            mod_credits         : mod_credits,
-    ]
-    inputs.properties replaceProperties
-
-    filesMatching(['META-INF/mods.toml', 'pack.mcmeta', 'src/update.json']) {
-        expand replaceProperties + [project: project]
-    }
 }
 
 jar {
@@ -209,7 +182,7 @@ publishing {
         mavenJava(MavenPublication) {
             groupId = "${project.mod_domain}"
             artifactId = "${project.name}"
-            version = "${project.mc_version}-${project.mod_version}"
+            version = "${project.minecraft_version}-${project.mod_version}"
 
             from components.java
         }
@@ -223,5 +196,4 @@ publishing {
 
 tasks.withType(JavaCompile).configureEach {
     options.encoding = 'UTF-8' // Use the UTF-8 charset for Java compilation
-    options.release = 17
 }

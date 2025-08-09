@@ -2,9 +2,9 @@ package com.github.warrentode.todevillagers.datagen;
 
 import com.github.warrentode.todevillagers.datagen.tags.BlockTagsGen;
 import com.github.warrentode.todevillagers.datagen.tags.ItemTagsGen;
-import com.github.warrentode.todevillagers.datagen.tags.PoiTypeTagsGen;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
+import net.minecraft.data.PackOutput;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -20,21 +20,19 @@ public class ModDataGenerators {
     @SubscribeEvent
     public static void gatherData(@NotNull GatherDataEvent event) {
         DataGenerator generator = event.getGenerator();
-        ExistingFileHelper helper = event.getExistingFileHelper();
+        PackOutput packOutput = generator.getPackOutput();
         CompletableFuture<HolderLookup.Provider> lookupProvider = event.getLookupProvider();
+        ExistingFileHelper helper = event.getExistingFileHelper();
 
-        BlockTagsGen blockTagsGen = new BlockTagsGen(generator, lookupProvider, MODID, helper);
+        BlockTagsGen blockTagsGen = new BlockTagsGen(packOutput, lookupProvider, helper);
         generator.addProvider(event.includeServer(), blockTagsGen);
 
-        ItemTagsGen itemTagsGen = new ItemTagsGen(generator, lookupProvider, blockTagsGen, MODID, helper);
+        ItemTagsGen itemTagsGen = new ItemTagsGen(packOutput, lookupProvider, blockTagsGen.contentsGetter(), helper);
         generator.addProvider(event.includeServer(), itemTagsGen);
 
-        PoiTypeTagsGen poiTypeTagsGen = new PoiTypeTagsGen(generator, lookupProvider, MODID, helper);
-        generator.addProvider(event.includeServer(), poiTypeTagsGen);
+        generator.addProvider(event.includeClient(), new LanguageFileGen(packOutput, MODID, "en_us"));
 
-        generator.addProvider(event.includeClient(), new LanguageFileGen(generator, MODID, "en_us"));
-
-        generator.addProvider(event.includeServer(), new RecipesGen(generator));
-        generator.addProvider(event.includeServer(), ModLootTableGenProvider.create(generator.getPackOutput()));
+        generator.addProvider(event.includeServer(), new RecipesGen(packOutput));
+        generator.addProvider(event.includeServer(), ModLootTableGenProvider.create(packOutput));
     }
 }

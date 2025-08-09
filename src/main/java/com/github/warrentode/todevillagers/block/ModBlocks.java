@@ -21,15 +21,18 @@ import static com.github.warrentode.todevillagers.item.ModItems.ITEMS;
 public class ModBlocks {
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, MODID);
 
+    public static final RegistryObject<Block> CERAMICS_TABLE = registerBlock("ceramics_table",
+            () -> new Block(Block.Properties.copy(Blocks.OAK_PLANKS).strength(2.0F).sound(SoundType.WOOD).noOcclusion()));
+
     public static final RegistryObject<Block> GLASS_KILN_BLOCK = registerBlock("glass_kiln",
-            () -> new GlassKilnBlock(BlockBehaviour.Properties.copy(Blocks.STONE).sound(SoundType.DEEPSLATE_BRICKS).strength(6f)
+            () -> new GlassKilnBlock(Block.Properties.copy(Blocks.STONE).sound(SoundType.DEEPSLATE_BRICKS).strength(6f)
                     .requiresCorrectToolForDrops().lightLevel(state -> state.getValue(GlassKilnBlock.LIT) ? 15 : 0).noOcclusion()));
 
     public static final RegistryObject<Block> WHEEL_CART = registerBlock("wheel_cart",
-            () -> new WheelCartBlock(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS).sound(SoundType.WOOD).noOcclusion()));
+            () -> new WheelCartBlock(Block.Properties.copy(Blocks.OAK_PLANKS).strength(2.0F).sound(SoundType.WOOD).noOcclusion()));
 
     public static final RegistryObject<Block> REDSTONE_INFUSED_GLASS = registerBlock("redstone_infused_glass",
-            () -> new RedstoneInfusedGlassBlock(BlockBehaviour.Properties.copy(Blocks.AMETHYST_BLOCK).sound(SoundType.GLASS).strength(0.3f)
+            () -> new RedstoneInfusedGlassBlock(Block.Properties.copy(Blocks.AMETHYST_BLOCK).sound(SoundType.GLASS).strength(0.3f)
                     .lightLevel(state -> state.getValue(RedstoneInfusedGlassBlock.LIT) ? 9 : 0).noOcclusion()));
 
     public static final RegistryObject<Block> REINFORCED_GLASS = registerBlock("reinforced_glass",
@@ -100,11 +103,9 @@ public class ModBlocks {
     public static final RegistryObject<Block> SHIFTING_GLASS_PRESSURE_PLATE = registerBlock("shifting_glass_pressure_plate",
             () -> new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, BlockBehaviour.Properties.copy(Blocks.GLASS).strength(0.3f).noOcclusion().lightLevel((blockState) -> 15), BlockSetType.BAMBOO));
     public static final RegistryObject<Block> SHIFTING_GLASS_DOOR = registerBlock("shifting_glass_door",
-            () -> new DoorBlock(BlockBehaviour.Properties.copy(Blocks.GLASS).strength(0.3f).noOcclusion()
-                    .lightLevel((blockState) -> 15), BlockSetType.BAMBOO));
+            () -> new DoorBlock(BlockBehaviour.Properties.copy(Blocks.GLASS).strength(0.3f).noOcclusion().lightLevel((blockState) -> 15), BlockSetType.BAMBOO));
     public static final RegistryObject<Block> SHIFTING_GLASS_TRAPDOOR = registerBlock("shifting_glass_trapdoor",
-            () -> new TrapDoorBlock(BlockBehaviour.Properties.copy(Blocks.GLASS).strength(0.3f).noOcclusion()
-                    .lightLevel((blockState) -> 15), BlockSetType.BAMBOO));
+            () -> new TrapDoorBlock(BlockBehaviour.Properties.copy(Blocks.GLASS).strength(0.3f).noOcclusion().lightLevel((blockState) -> 15), BlockSetType.BAMBOO));
 
     public static final RegistryObject<Block> TINTED_GLASS_PANE = registerBlock("tinted_glass_pane",
             () -> new IronBarsBlock(BlockBehaviour.Properties.copy(Blocks.TINTED_GLASS).noOcclusion()));
@@ -117,11 +118,11 @@ public class ModBlocks {
     public static final RegistryObject<Block> TINTED_GLASS_FENCE = registerBlock("tinted_glass_fence",
             () -> new FenceBlock(BlockBehaviour.Properties.copy(Blocks.TINTED_GLASS).noOcclusion()));
     public static final RegistryObject<Block> TINTED_GLASS_FENCE_GATE = registerBlock("tinted_glass_fence_gate",
-            () -> new FenceGateBlock(BlockBehaviour.Properties.copy(Blocks.TINTED_GLASS).noOcclusion(), WoodType.OAK));
+            () -> new FenceGateBlock(BlockBehaviour.Properties.copy(Blocks.GLASS).noOcclusion(), WoodType.OAK));
     public static final RegistryObject<Block> TINTED_GLASS_BUTTON = registerBlock("tinted_glass_button",
-            () -> new ButtonBlock(BlockBehaviour.Properties.copy(Blocks.TINTED_GLASS).strength(0.3f).noOcclusion(), BlockSetType.BAMBOO, 30, true));
+            () -> new ButtonBlock(BlockBehaviour.Properties.copy(Blocks.GLASS).strength(0.3f).noOcclusion(), BlockSetType.BAMBOO, 30, true));
     public static final RegistryObject<Block> TINTED_GLASS_PRESSURE_PLATE = registerBlock("tinted_glass_pressure_plate",
-            () -> new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, BlockBehaviour.Properties.copy(Blocks.TINTED_GLASS).strength(0.3f).noOcclusion(), BlockSetType.BAMBOO));
+            () -> new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, BlockBehaviour.Properties.copy(Blocks.GLASS).strength(0.3f).noOcclusion().lightLevel((blockState) -> 15), BlockSetType.BAMBOO));
     public static final RegistryObject<Block> TINTED_GLASS_DOOR = registerBlock("tinted_glass_door",
             () -> new DoorBlock(BlockBehaviour.Properties.copy(Blocks.GLASS).strength(0.3f).noOcclusion(), BlockSetType.BAMBOO));
     public static final RegistryObject<Block> TINTED_GLASS_TRAPDOOR = registerBlock("tinted_glass_trapdoor",
