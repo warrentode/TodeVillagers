@@ -153,6 +153,12 @@ tasks.register('updateJson') {
     }
 }
 
+tasks.register('updateChangeLog', Exec) {
+    workingDir(project.projectDir)
+    commandLine 'git', 'log', '--date=short', '--pretty=\\"%cd - %s\\"', '--since=1.month', '--no-merges'
+    standardOutput = new PrintStream("${rootDir}/CHANGELOG.txt")
+}
+
 tasks.register('deobfJar', Jar) { // Generate deobfuscated
     from sourceSets.main.output
     archiveClassifier = 'deobf'
