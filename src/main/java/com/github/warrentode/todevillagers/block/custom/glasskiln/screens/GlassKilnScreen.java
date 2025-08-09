@@ -20,7 +20,6 @@ import javax.annotation.Nonnull;
 import static com.github.warrentode.todevillagers.TodeVillagers.MODID;
 
 
-@SuppressWarnings("removal") // ResourceLocation method marked for removal
 public class GlassKilnScreen extends AbstractContainerScreen<GlassKilnMenu> implements RecipeUpdateListener {
     private static final ResourceLocation TEXTURE = new ResourceLocation(MODID, "textures/gui/glass_kiln_gui.png");
     private static final ResourceLocation RECIPE_BUTTON_TEXTURE = new ResourceLocation("textures/gui/recipe_button.png");

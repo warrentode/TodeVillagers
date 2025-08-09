@@ -3,7 +3,7 @@ package com.github.warrentode.todevillagers.datagen.tags;
 import com.github.warrentode.todevillagers.block.ModBlocks;
 import com.github.warrentode.todevillagers.utils.ModTags;
 import net.minecraft.core.HolderLookup;
-import net.minecraft.data.DataGenerator;
+import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.block.Blocks;
@@ -16,9 +16,11 @@ import org.jetbrains.annotations.Nullable;
 import java.util.Objects;
 import java.util.concurrent.CompletableFuture;
 
+import static com.github.warrentode.todevillagers.TodeVillagers.MODID;
+
 public class BlockTagsGen extends BlockTagsProvider {
-    public BlockTagsGen(DataGenerator generator, CompletableFuture<HolderLookup.Provider> lookupProvider, String modId, @Nullable ExistingFileHelper existingFileHelper) {
-        super(generator.getPackOutput(), lookupProvider, modId, existingFileHelper);
+    public BlockTagsGen(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider, @Nullable ExistingFileHelper existingFileHelper) {
+        super(output, lookupProvider, MODID, existingFileHelper);
     }
 
     @Override
@@ -202,7 +204,7 @@ public class BlockTagsGen extends BlockTagsProvider {
     }
 
     protected void registerBlockMineables() {
-        tag(net.minecraft.tags.BlockTags.MINEABLE_WITH_PICKAXE)
+        tag(BlockTags.MINEABLE_WITH_PICKAXE)
                 .add(ModBlocks.GLASS_KILN_BLOCK.get());
     }
 }

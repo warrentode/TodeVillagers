@@ -49,7 +49,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
-@SuppressWarnings({"removal", "CanBeFinal"}) // ResourceLocation method marked for removal
 public class GlassKilnBlockEntity extends BlockEntity implements MenuProvider, Nameable, RecipeHolder {
     public static final int FUEL_SLOT = 4;
     public static final int RESULT_SLOT = 5;
@@ -249,7 +248,7 @@ public class GlassKilnBlockEntity extends BlockEntity implements MenuProvider, N
                 if (recipe.matches(inventory, level)) {
                     return Optional.of((GlassblowingRecipe) recipe);
                 }
-                if (ItemStack.isSameItem(recipe.getResultItem(this.level.registryAccess()), lastItemCrafted)) {
+                if (recipe.getResultItem(this.level.registryAccess()).is(lastItemCrafted.getItem())) {
                     return Optional.empty();
                 }
             }
@@ -281,33 +280,34 @@ public class GlassKilnBlockEntity extends BlockEntity implements MenuProvider, N
     }
 
     protected boolean canProcess(GlassblowingRecipe recipe) {
-        if (level != null) {
-            if (hasInput()) {
-                ItemStack resultStack = recipe.getResultItem(this.level.registryAccess());
-                if (resultStack.isEmpty()) {
-                    return false;
-                }
-                else {
-                    ItemStack stackInSlot = inventory.getStackInSlot(RESULT_SLOT);
-                    if (stackInSlot.isEmpty()) {
-                        return true;
-                    }
-                    else if (!stackInSlot.is(resultStack.getItem())) {
-                        return false;
-                    }
-                    else if (stackInSlot.getCount() + resultStack.getCount() <= inventory.getSlotLimit(RESULT_SLOT)) {
-                        return true;
-                    }
-                    else {
-                        return stackInSlot.getCount() + resultStack.getCount() <= resultStack.getMaxStackSize();
-                    }
-                }
-            }
-            else {
+        if (this.level == null) {
+            return false;
+        }
+
+        if (hasInput()) {
+            ItemStack resultStack = recipe.getResultItem(this.level.registryAccess());
+            if (resultStack.isEmpty()) {
                 return false;
             }
+            else {
+                ItemStack stackInSlot = inventory.getStackInSlot(RESULT_SLOT);
+                if (stackInSlot.isEmpty()) {
+                    return true;
+                }
+                else if (!stackInSlot.is(resultStack.getItem())) {
+                    return false;
+                }
+                else if (stackInSlot.getCount() + resultStack.getCount() <= inventory.getSlotLimit(RESULT_SLOT)) {
+                    return true;
+                }
+                else {
+                    return stackInSlot.getCount() + resultStack.getCount() <= resultStack.getMaxStackSize();
+                }
+            }
         }
-        return false;
+        else {
+            return false;
+        }
     }
 
     private void processGlass(GlassblowingRecipe recipe, GlassKilnBlockEntity kilnBlock) {
@@ -323,10 +323,9 @@ public class GlassKilnBlockEntity extends BlockEntity implements MenuProvider, N
     }
 
     private void craftItem(GlassblowingRecipe recipe, GlassKilnBlockEntity kilnBlock) {
-        if (level == null) {
+        if (this.level == null) {
             return;
         }
-
         for (int i = 0; i < inventory.getSlots(); i++) {
             inventory.setStackInSlot(i, inventory.getStackInSlot(i));
         }

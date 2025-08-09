@@ -35,7 +35,7 @@ public class CraftingRecipesGen extends RecipeProvider implements IConditionBuil
     @SuppressWarnings("CommentedOutCode") // recipes I need to fix or change
     private static void craftingGlass(Consumer<FinishedRecipe> consumer) {
         // redstone infused glass
-        //noinspection removal - ResourceLocation method marked for removal
+
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.REDSTONE_INFUSED_GLASS.get(), 2)
                 .pattern(" I ")
                 .pattern("IGI")
@@ -45,7 +45,7 @@ public class CraftingRecipesGen extends RecipeProvider implements IConditionBuil
                 .unlockedBy("has_redstone", InventoryChangeTrigger.TriggerInstance.hasItems(Items.REDSTONE))
                 .save(consumer, new ResourceLocation(MODID, "crafting/glass/infused/redstone"));
         // glowing glass
-        //noinspection removal - ResourceLocation method marked for removal
+
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.GLOWING_GLASS.get(), 2)
                 .pattern(" I ")
                 .pattern("IGI")
@@ -54,7 +54,7 @@ public class CraftingRecipesGen extends RecipeProvider implements IConditionBuil
                 .define('G', Items.GLASS)
                 .unlockedBy("has_glow_ink", InventoryChangeTrigger.TriggerInstance.hasItems(Items.GLOW_INK_SAC))
                 .save(consumer, new ResourceLocation(MODID, "crafting/glass/glowing/glow_ink"));
-        //noinspection removal - ResourceLocation method marked for removal
+
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.GLOWING_GLASS.get(), 2)
                 .pattern(" I ")
                 .pattern("IGI")
@@ -63,12 +63,12 @@ public class CraftingRecipesGen extends RecipeProvider implements IConditionBuil
                 .define('G', Items.GLASS)
                 .unlockedBy("has_glowstone_dust", InventoryChangeTrigger.TriggerInstance.hasItems(Items.GLOWSTONE_DUST))
                 .save(consumer, new ResourceLocation(MODID, "crafting/glass/glowing/glowstone_dust"));
-        //noinspection removal - ResourceLocation method marked for removal
+
         ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, ModBlocks.GLOWING_GLASS_BUTTON.get(), 1)
                 .requires(ModBlocks.GLOWING_GLASS.get())
                 .unlockedBy("has_glowing_glass", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.GLOWING_GLASS.get()))
                 .save(consumer, new ResourceLocation(MODID, "crafting/glass/glowing/button"));
-        //noinspection removal - ResourceLocation method marked for removal
+
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.GLOWING_GLASS_DOOR.get(), 3)
                 .pattern("## ")
                 .pattern("## ")
@@ -76,7 +76,7 @@ public class CraftingRecipesGen extends RecipeProvider implements IConditionBuil
                 .define('#', ModBlocks.GLOWING_GLASS.get())
                 .unlockedBy("has_glowing_glass", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.GLOWING_GLASS.get()))
                 .save(consumer, new ResourceLocation(MODID, "crafting/glass/glowing/door"));
-        //noinspection removal - ResourceLocation method marked for removal
+
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.GLOWING_GLASS_FENCE.get(), 3)
                 .pattern("#S#")
                 .pattern("#S#")
@@ -84,7 +84,7 @@ public class CraftingRecipesGen extends RecipeProvider implements IConditionBuil
                 .define('S', Items.STICK)
                 .unlockedBy("has_glowing_glass", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.GLOWING_GLASS.get()))
                 .save(consumer, new ResourceLocation(MODID, "crafting/glass/glowing/fence"));
-        //noinspection removal - ResourceLocation method marked for removal
+
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.GLOWING_GLASS_FENCE_GATE.get(), 1)
                 .pattern("S#S")
                 .pattern("S#S")
@@ -92,26 +92,26 @@ public class CraftingRecipesGen extends RecipeProvider implements IConditionBuil
                 .define('S', Items.STICK)
                 .unlockedBy("has_glowing_glass", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.GLOWING_GLASS.get()))
                 .save(consumer, new ResourceLocation(MODID, "crafting/glass/glowing/fence_gate"));
-        //noinspection removal - ResourceLocation method marked for removal
+
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.GLOWING_GLASS_PANE.get(), 16)
                 .pattern("###")
                 .pattern("###")
                 .define('#', ModBlocks.GLOWING_GLASS.get())
                 .unlockedBy("has_glowing_glass", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.GLOWING_GLASS.get()))
                 .save(consumer, new ResourceLocation(MODID, "crafting/glass/glowing/pane"));
-        //noinspection removal - ResourceLocation method marked for removal
+
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.GLOWING_GLASS_PRESSURE_PLATE.get(), 1)
                 .pattern("## ")
                 .define('#', ModBlocks.GLOWING_GLASS.get())
                 .unlockedBy("has_glowing_glass", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.GLOWING_GLASS.get()))
                 .save(consumer, new ResourceLocation(MODID, "crafting/glass/glowing/pressure_plate"));
-        //noinspection removal - ResourceLocation method marked for removal
+
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.GLOWING_GLASS_SLAB.get(), 6)
                 .pattern("###")
                 .define('#', ModBlocks.GLOWING_GLASS.get())
                 .unlockedBy("has_glowing_glass", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.GLOWING_GLASS.get()))
                 .save(consumer, new ResourceLocation(MODID, "crafting/glass/glowing/slab"));
-        //noinspection removal - ResourceLocation method marked for removal
+
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.GLOWING_GLASS_STAIRS.get(), 4)
                 .pattern("#  ")
                 .pattern("## ")
@@ -119,7 +119,7 @@ public class CraftingRecipesGen extends RecipeProvider implements IConditionBuil
                 .define('#', ModBlocks.GLOWING_GLASS.get())
                 .unlockedBy("has_glowing_glass", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.GLOWING_GLASS.get()))
                 .save(consumer, new ResourceLocation(MODID, "crafting/glass/glowing/stairs"));
-        //noinspection removal - ResourceLocation method marked for removal
+
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.GLOWING_GLASS_TRAPDOOR.get(), 2)
                 .pattern("## ")
                 .pattern("## ")
@@ -139,7 +139,7 @@ public class CraftingRecipesGen extends RecipeProvider implements IConditionBuil
          */
 
         // reinforced glass
-        //noinspection removal - ResourceLocation method marked for removal
+
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.REINFORCED_GLASS.get(), 2)
                 .pattern(" I ")
                 .pattern("IGI")
@@ -148,12 +148,12 @@ public class CraftingRecipesGen extends RecipeProvider implements IConditionBuil
                 .define('G', Items.GLASS)
                 .unlockedBy("has_quartz", InventoryChangeTrigger.TriggerInstance.hasItems(Items.QUARTZ))
                 .save(consumer, new ResourceLocation(MODID, "crafting/glass/reinforced/quartz"));
-        //noinspection removal - ResourceLocation method marked for removal
+
         ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, ModBlocks.REINFORCED_GLASS_BUTTON.get(), 1)
                 .requires(ModBlocks.REINFORCED_GLASS.get())
                 .unlockedBy("has_reinforced_glass", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.REINFORCED_GLASS.get()))
                 .save(consumer, new ResourceLocation(MODID, "crafting/glass/reinforced/button"));
-        //noinspection removal - ResourceLocation method marked for removal
+
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.REINFORCED_GLASS_DOOR.get(), 3)
                 .pattern("## ")
                 .pattern("## ")
@@ -161,7 +161,7 @@ public class CraftingRecipesGen extends RecipeProvider implements IConditionBuil
                 .define('#', ModBlocks.REINFORCED_GLASS.get())
                 .unlockedBy("has_reinforced_glass", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.REINFORCED_GLASS.get()))
                 .save(consumer, new ResourceLocation(MODID, "crafting/glass/reinforced/door"));
-        //noinspection removal - ResourceLocation method marked for removal
+
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.REINFORCED_GLASS_FENCE.get(), 3)
                 .pattern("#S#")
                 .pattern("#S#")
@@ -169,7 +169,7 @@ public class CraftingRecipesGen extends RecipeProvider implements IConditionBuil
                 .define('S', Items.STICK)
                 .unlockedBy("has_reinforced_glass", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.REINFORCED_GLASS.get()))
                 .save(consumer, new ResourceLocation(MODID, "crafting/glass/reinforced/fence"));
-        //noinspection removal - ResourceLocation method marked for removal
+
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.REINFORCED_GLASS_FENCE_GATE.get(), 1)
                 .pattern("S#S")
                 .pattern("S#S")
@@ -177,26 +177,26 @@ public class CraftingRecipesGen extends RecipeProvider implements IConditionBuil
                 .define('S', Items.STICK)
                 .unlockedBy("has_reinforced_glass", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.REINFORCED_GLASS.get()))
                 .save(consumer, new ResourceLocation(MODID, "crafting/glass/reinforced/fence_gate"));
-        //noinspection removal - ResourceLocation method marked for removal
+
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.REINFORCED_GLASS_PANE.get(), 16)
                 .pattern("###")
                 .pattern("###")
                 .define('#', ModBlocks.REINFORCED_GLASS.get())
                 .unlockedBy("has_reinforced_glass", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.REINFORCED_GLASS.get()))
                 .save(consumer, new ResourceLocation(MODID, "crafting/glass/reinforced/pane"));
-        //noinspection removal - ResourceLocation method marked for removal
+
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.REINFORCED_GLASS_PRESSURE_PLATE.get(), 1)
                 .pattern("## ")
                 .define('#', ModBlocks.REINFORCED_GLASS.get())
                 .unlockedBy("has_reinforced_glass", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.REINFORCED_GLASS.get()))
                 .save(consumer, new ResourceLocation(MODID, "crafting/glass/reinforced/pressure_plate"));
-        //noinspection removal - ResourceLocation method marked for removal
+
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.REINFORCED_GLASS_SLAB.get(), 6)
                 .pattern("###")
                 .define('#', ModBlocks.REINFORCED_GLASS.get())
                 .unlockedBy("has_reinforced_glass", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.REINFORCED_GLASS.get()))
                 .save(consumer, new ResourceLocation(MODID, "crafting/glass/reinforced/slab"));
-        //noinspection removal - ResourceLocation method marked for removal
+
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.REINFORCED_GLASS_STAIRS.get(), 4)
                 .pattern("#  ")
                 .pattern("## ")
@@ -204,7 +204,7 @@ public class CraftingRecipesGen extends RecipeProvider implements IConditionBuil
                 .define('#', ModBlocks.REINFORCED_GLASS.get())
                 .unlockedBy("has_reinforced_glass", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.REINFORCED_GLASS.get()))
                 .save(consumer, new ResourceLocation(MODID, "crafting/glass/reinforced/stairs"));
-        //noinspection removal - ResourceLocation method marked for removal
+
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.REINFORCED_GLASS_TRAPDOOR.get(), 2)
                 .pattern("## ")
                 .pattern("## ")
@@ -224,7 +224,7 @@ public class CraftingRecipesGen extends RecipeProvider implements IConditionBuil
         */
 
         // shifting glass
-        //noinspection removal - ResourceLocation method marked for removal
+
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.SHIFTING_GLASS.get(), 2)
                 .pattern(" I ")
                 .pattern("IGI")
@@ -233,12 +233,12 @@ public class CraftingRecipesGen extends RecipeProvider implements IConditionBuil
                 .define('G', Items.GLASS)
                 .unlockedBy("has_prismarine_crystals", InventoryChangeTrigger.TriggerInstance.hasItems(Items.PRISMARINE_CRYSTALS))
                 .save(consumer, new ResourceLocation(MODID, "crafting/glass/shifting/prismarine_crystals"));
-        //noinspection removal - ResourceLocation method marked for removal
+
         ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, ModBlocks.SHIFTING_GLASS_BUTTON.get(), 1)
                 .requires(ModBlocks.SHIFTING_GLASS.get())
                 .unlockedBy("has_shifting_glass", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.SHIFTING_GLASS.get()))
                 .save(consumer, new ResourceLocation(MODID, "crafting/glass/shifting/button"));
-        //noinspection removal - ResourceLocation method marked for removal
+
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.SHIFTING_GLASS_DOOR.get(), 3)
                 .pattern("## ")
                 .pattern("## ")
@@ -246,7 +246,7 @@ public class CraftingRecipesGen extends RecipeProvider implements IConditionBuil
                 .define('#', ModBlocks.SHIFTING_GLASS.get())
                 .unlockedBy("has_shifting_glass", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.SHIFTING_GLASS.get()))
                 .save(consumer, new ResourceLocation(MODID, "crafting/glass/shifting/door"));
-        //noinspection removal - ResourceLocation method marked for removal
+
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.SHIFTING_GLASS_FENCE.get(), 3)
                 .pattern("#S#")
                 .pattern("#S#")
@@ -254,7 +254,7 @@ public class CraftingRecipesGen extends RecipeProvider implements IConditionBuil
                 .define('S', Items.STICK)
                 .unlockedBy("has_shifting_glass", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.SHIFTING_GLASS.get()))
                 .save(consumer, new ResourceLocation(MODID, "crafting/glass/shifting/fence"));
-        //noinspection removal - ResourceLocation method marked for removal
+
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.SHIFTING_GLASS_FENCE_GATE.get(), 1)
                 .pattern("S#S")
                 .pattern("S#S")
@@ -262,26 +262,26 @@ public class CraftingRecipesGen extends RecipeProvider implements IConditionBuil
                 .define('S', Items.STICK)
                 .unlockedBy("has_shifting_glass", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.SHIFTING_GLASS.get()))
                 .save(consumer, new ResourceLocation(MODID, "crafting/glass/shifting/fence_gate"));
-        //noinspection removal - ResourceLocation method marked for removal
+
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.SHIFTING_GLASS_PANE.get(), 16)
                 .pattern("###")
                 .pattern("###")
                 .define('#', ModBlocks.SHIFTING_GLASS.get())
                 .unlockedBy("has_shifting_glass", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.SHIFTING_GLASS.get()))
                 .save(consumer, new ResourceLocation(MODID, "crafting/glass/shifting/pane"));
-        //noinspection removal - ResourceLocation method marked for removal
+
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.SHIFTING_GLASS_PRESSURE_PLATE.get(), 1)
                 .pattern("## ")
                 .define('#', ModBlocks.SHIFTING_GLASS.get())
                 .unlockedBy("has_shifting_glass", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.SHIFTING_GLASS.get()))
                 .save(consumer, new ResourceLocation(MODID, "crafting/glass/shifting/pressure_plate"));
-        //noinspection removal - ResourceLocation method marked for removal
+
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.SHIFTING_GLASS_SLAB.get(), 6)
                 .pattern("###")
                 .define('#', ModBlocks.SHIFTING_GLASS.get())
                 .unlockedBy("has_shifting_glass", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.SHIFTING_GLASS.get()))
                 .save(consumer, new ResourceLocation(MODID, "crafting/glass/shifting/slab"));
-        //noinspection removal - ResourceLocation method marked for removal
+
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.SHIFTING_GLASS_STAIRS.get(), 4)
                 .pattern("#  ")
                 .pattern("## ")
@@ -289,7 +289,7 @@ public class CraftingRecipesGen extends RecipeProvider implements IConditionBuil
                 .define('#', ModBlocks.SHIFTING_GLASS.get())
                 .unlockedBy("has_shifting_glass", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.SHIFTING_GLASS.get()))
                 .save(consumer, new ResourceLocation(MODID, "crafting/glass/shifting/stairs"));
-        //noinspection removal - ResourceLocation method marked for removal
+
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.SHIFTING_GLASS_TRAPDOOR.get(), 2)
                 .pattern("## ")
                 .pattern("## ")
@@ -309,12 +309,12 @@ public class CraftingRecipesGen extends RecipeProvider implements IConditionBuil
         */
 
         // tinted glass
-        //noinspection removal - ResourceLocation method marked for removal
+
         ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, ModBlocks.TINTED_GLASS_BUTTON.get(), 1)
                 .requires(Blocks.TINTED_GLASS)
                 .unlockedBy("has_tinted_glass", InventoryChangeTrigger.TriggerInstance.hasItems(Blocks.TINTED_GLASS))
                 .save(consumer, new ResourceLocation(MODID, "crafting/glass/tinted/button"));
-        //noinspection removal - ResourceLocation method marked for removal
+
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.TINTED_GLASS_DOOR.get(), 3)
                 .pattern("## ")
                 .pattern("## ")
@@ -322,7 +322,7 @@ public class CraftingRecipesGen extends RecipeProvider implements IConditionBuil
                 .define('#', Blocks.TINTED_GLASS)
                 .unlockedBy("has_tinted_glass", InventoryChangeTrigger.TriggerInstance.hasItems(Blocks.TINTED_GLASS))
                 .save(consumer, new ResourceLocation(MODID, "crafting/glass/tinted/door"));
-        //noinspection removal - ResourceLocation method marked for removal
+
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.TINTED_GLASS_FENCE.get(), 3)
                 .pattern("#S#")
                 .pattern("#S#")
@@ -330,7 +330,7 @@ public class CraftingRecipesGen extends RecipeProvider implements IConditionBuil
                 .define('S', Items.STICK)
                 .unlockedBy("has_tinted_glass", InventoryChangeTrigger.TriggerInstance.hasItems(Blocks.TINTED_GLASS))
                 .save(consumer, new ResourceLocation(MODID, "crafting/glass/tinted/fence"));
-        //noinspection removal - ResourceLocation method marked for removal
+
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.TINTED_GLASS_FENCE_GATE.get(), 1)
                 .pattern("S#S")
                 .pattern("S#S")
@@ -338,26 +338,26 @@ public class CraftingRecipesGen extends RecipeProvider implements IConditionBuil
                 .define('S', Items.STICK)
                 .unlockedBy("has_tinted_glass", InventoryChangeTrigger.TriggerInstance.hasItems(Blocks.TINTED_GLASS))
                 .save(consumer, new ResourceLocation(MODID, "crafting/glass/tinted/fence_gate"));
-        //noinspection removal - ResourceLocation method marked for removal
+
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.TINTED_GLASS_PANE.get(), 16)
                 .pattern("###")
                 .pattern("###")
                 .define('#', Blocks.TINTED_GLASS)
                 .unlockedBy("has_tinted_glass", InventoryChangeTrigger.TriggerInstance.hasItems(Blocks.TINTED_GLASS))
                 .save(consumer, new ResourceLocation(MODID, "crafting/glass/tinted/pane"));
-        //noinspection removal - ResourceLocation method marked for removal
+
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.TINTED_GLASS_PRESSURE_PLATE.get(), 1)
                 .pattern("## ")
                 .define('#', Blocks.TINTED_GLASS)
                 .unlockedBy("has_tinted_glass", InventoryChangeTrigger.TriggerInstance.hasItems(Blocks.TINTED_GLASS))
                 .save(consumer, new ResourceLocation(MODID, "crafting/glass/tinted/pressure_plate"));
-        //noinspection removal - ResourceLocation method marked for removal
+
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.TINTED_GLASS_SLAB.get(), 6)
                 .pattern("###")
                 .define('#', Blocks.TINTED_GLASS)
                 .unlockedBy("has_tinted_glass", InventoryChangeTrigger.TriggerInstance.hasItems(Blocks.TINTED_GLASS))
                 .save(consumer, new ResourceLocation(MODID, "crafting/glass/tinted/slab"));
-        //noinspection removal - ResourceLocation method marked for removal
+
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.TINTED_GLASS_STAIRS.get(), 4)
                 .pattern("#  ")
                 .pattern("## ")
@@ -365,7 +365,7 @@ public class CraftingRecipesGen extends RecipeProvider implements IConditionBuil
                 .define('#', Blocks.TINTED_GLASS)
                 .unlockedBy("has_tinted_glass", InventoryChangeTrigger.TriggerInstance.hasItems(Blocks.TINTED_GLASS))
                 .save(consumer, new ResourceLocation(MODID, "crafting/glass/tinted/stairs"));
-        //noinspection removal - ResourceLocation method marked for removal
+
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.TINTED_GLASS_TRAPDOOR.get(), 2)
                 .pattern("## ")
                 .pattern("## ")
@@ -386,7 +386,7 @@ public class CraftingRecipesGen extends RecipeProvider implements IConditionBuil
     }
 
     private static void glassblowingTools(Consumer<FinishedRecipe> consumer) {
-        //noinspection removal - ResourceLocation method marked for removal
+
         ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModItems.MARVER.get(), 1)
                 .pattern("I")
                 .pattern("B")
@@ -396,7 +396,7 @@ public class CraftingRecipesGen extends RecipeProvider implements IConditionBuil
                 .define('S', Items.STICK)
                 .unlockedBy("has_iron_ingot", InventoryChangeTrigger.TriggerInstance.hasItems(Items.IRON_INGOT))
                 .save(consumer, new ResourceLocation(MODID, "crafting/glassblower_tools/marver"));
-        //noinspection removal - ResourceLocation method marked for removal
+
         ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModItems.GLASSBLOWER_SHEARS.get(), 1)
                 .pattern("S")
                 .pattern("I")
@@ -405,7 +405,7 @@ public class CraftingRecipesGen extends RecipeProvider implements IConditionBuil
                 .define('S', Items.SHEARS)
                 .unlockedBy("has_shears", InventoryChangeTrigger.TriggerInstance.hasItems(Items.SHEARS))
                 .save(consumer, new ResourceLocation(MODID, "crafting/glassblower_tools/glassblower_shears"));
-        //noinspection removal - ResourceLocation method marked for removal
+
         ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModItems.GLASSBLOWING_PIPE.get(), 1)
                 .pattern("B")
                 .pattern("I")
@@ -416,7 +416,7 @@ public class CraftingRecipesGen extends RecipeProvider implements IConditionBuil
     }
 
     private static void jobBlockRecipes(Consumer<FinishedRecipe> consumer) {
-        //noinspection removal - ResourceLocation method marked for removal
+
         ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.GLASS_KILN_BLOCK.get(), 1)
                 .pattern("III")
                 .pattern("DFD")
@@ -426,7 +426,7 @@ public class CraftingRecipesGen extends RecipeProvider implements IConditionBuil
                 .define('D', Items.DEEPSLATE_BRICKS)
                 .unlockedBy("has_deepslate_bricks", InventoryChangeTrigger.TriggerInstance.hasItems(Items.DEEPSLATE_BRICKS))
                 .save(consumer, new ResourceLocation(MODID, "crafting/job_blocks/glass_kiln"));
-        //noinspection removal - ResourceLocation method marked for removal
+
         ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.WHEEL_CART.get(), 1)
                 .pattern("F F")
                 .pattern("LLL")

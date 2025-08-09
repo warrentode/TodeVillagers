@@ -9,15 +9,14 @@ import net.minecraftforge.registries.RegistryObject;
 
 import static com.github.warrentode.todevillagers.TodeVillagers.MODID;
 
-@SuppressWarnings("removal") // ResourceLocation method marked for removal
 public class ModSounds {
-    public static final DeferredRegister<SoundEvent> SOUNDS =
-            DeferredRegister.create(ForgeRegistries.SOUND_EVENTS, MODID);
+    public static final DeferredRegister<SoundEvent> SOUNDS = DeferredRegister.create(ForgeRegistries.SOUND_EVENTS, MODID);
 
     public static final RegistryObject<SoundEvent> CHAKRA_DREAM = registerSoundEvents("chakra_dream");
     public static final RegistryObject<SoundEvent> VILLAGER_WORK_DISC_JOCKEY = registerSoundEvents("work_dj");
     public static final RegistryObject<SoundEvent> VILLAGER_WORK_GLASSBLOWER = registerSoundEvents("work_glassblower");
     public static final RegistryObject<SoundEvent> VILLAGER_WORK_RETIRED_TRADER = registerSoundEvents("work_retired_trader");
+    public static final RegistryObject<SoundEvent> VILLAGER_WORK_POTTER = registerSoundEvents("work_retired_potter");
 
     private static RegistryObject<SoundEvent> registerSoundEvents(String name) {
         return SOUNDS.register(name, () -> SoundEvent.createVariableRangeEvent(new ResourceLocation(MODID, name)));

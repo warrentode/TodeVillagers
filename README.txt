@@ -1,3 +1,9 @@
-This is my second Minecraft Forge mod, mainly at the request of my children, but I do enjoy learning and figuring things out. Not only that, I also have an odd fondness for the Villegers in Minecraft, so this seems to work out for everyone in the home. The bonus side effect is, while I learn how to code they get to learn random real world trivia about various culture and history since I'd really want to fashion these guys as realistically as possible if I can. I mean, yes, it's just a game and it is for fun, but this is the sort of thing my brain enjoys.
+This mod adds the following:
 
-So I'm going to document my progress and research here - or at least try to remember to. And I hope it will prove interesting, productive, and fruitful for all involved.
+* Glassblower villager
+* Glass Kiln with Glassblowing recipes
+* additional varieties of glass
+* Disc Jockey Villager
+* Retired Trader with Wandering Trader trades
+* Potter from AnnabethsExtraVillagers
+** https://www.curseforge.com/minecraft/mc-mods/annabeths-extra-villagers (Public Domain License)
