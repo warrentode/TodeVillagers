@@ -1,0 +1,21 @@
+{
+  "type": "todevillagers:crafting_shaped_remainder",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "minecraft:tinted_glass"
+    },
+    "X": {
+      "item": "todevillagers:marver"
+    }
+  },
+  "pattern": [
+    "###",
+    "###",
+    "X  "
+  ],
+  "result": {
+    "count": 6,
+    "item": "todevillagers:tinted_glass_wall"
+  }
+}

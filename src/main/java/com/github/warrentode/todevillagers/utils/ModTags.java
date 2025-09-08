@@ -47,6 +47,11 @@ public class ModTags {
     }
 
     public static class Items {
+        public static final TagKey<Item> BUCKET_REMAINDERS = forgeItemTag("bucket_remainders");
+        public static final TagKey<Item> BOWL_REMAINDERS = forgeItemTag("bowl_remainders");
+        public static final TagKey<Item> BOTTLE_REMAINDERS = forgeItemTag("bottle_remainders");
+        public static final TagKey<Item> MATCHING_ITEM_REMAINDERS = forgeItemTag("matching_item_remainders");
+
         public static final TagKey<Item> GLASSBLOWER_TOOLS = modItemTag("glassblower_tools");
         public static final TagKey<Item> GLASS = forgeItemTag("glass");
         public static final TagKey<Item> GLASS_COLORLESS = forgeItemTag("glass/colorless");
@@ -80,6 +85,7 @@ public class ModTags {
         public static final TagKey<Item> SAND_ORANGE = forgeItemTag("sand/orange");
         public static final TagKey<Item> SAND_BLACK = forgeItemTag("sand/black");
         public static final TagKey<Item> SAND_WHITE = forgeItemTag("sand/white");
+        public static final TagKey<Item> SOUPS = forgeItemTag("soups");
     }
 
     private static TagKey<Block> modBlockTag(String path) {

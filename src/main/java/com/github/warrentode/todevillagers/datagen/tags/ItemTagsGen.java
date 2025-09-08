@@ -31,6 +31,28 @@ public class ItemTagsGen extends ItemTagsProvider {
     }
 
     private void registerModTags() {
+        tag(ModTags.Items.BUCKET_REMAINDERS)
+                .add(Items.TROPICAL_FISH_BUCKET)
+                .add(Items.SALMON_BUCKET)
+                .add(Items.PUFFERFISH_BUCKET)
+                .add(Items.COD_BUCKET)
+                .add(Items.AXOLOTL_BUCKET)
+                .add(Items.POWDER_SNOW_BUCKET)
+                .add(Items.WATER_BUCKET);
+        tag(ModTags.Items.MATCHING_ITEM_REMAINDERS)
+                .addTag(ModTags.Items.GLASSBLOWER_TOOLS);
+        tag(ModTags.Items.BOTTLE_REMAINDERS)
+                .add(Items.EXPERIENCE_BOTTLE)
+                .add(Items.LINGERING_POTION)
+                .add(Items.SPLASH_POTION)
+                .add(Items.POTION);
+        tag(ModTags.Items.BOWL_REMAINDERS)
+                .addTag(ModTags.Items.SOUPS);
+        tag(ModTags.Items.SOUPS)
+                .add(Items.SUSPICIOUS_STEW)
+                .add(Items.BEETROOT_SOUP)
+                .add(Items.MUSHROOM_STEW)
+                .add(Items.RABBIT_STEW);
         tag(ModTags.Items.GLASSBLOWER_TOOLS)
                 .add(ModItems.MARVER.get())
                 .add(ModItems.GLASSBLOWING_PIPE.get())
