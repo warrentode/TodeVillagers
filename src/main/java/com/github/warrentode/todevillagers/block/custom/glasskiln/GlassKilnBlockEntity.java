@@ -6,7 +6,7 @@ import com.github.warrentode.todevillagers.block.custom.glasskiln.slots.GlassKil
 import com.github.warrentode.todevillagers.mixins.RecipeManagerAccessor;
 import com.github.warrentode.todevillagers.recipes.ModRecipes;
 import com.github.warrentode.todevillagers.recipes.glassblowing.GlassblowingRecipe;
-import com.github.warrentode.todevillagers.utils.ModTags;
+import com.github.warrentode.todevillagers.utils.IngredientRemainderUtil;
 import com.google.common.collect.Lists;
 import it.unimi.dsi.fastutil.objects.Object2IntMap;
 import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
@@ -32,7 +32,6 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.levelgen.SingleThreadedRandomSource;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.common.capabilities.Capability;
@@ -41,6 +40,7 @@ import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
 import net.minecraftforge.items.wrapper.RecipeWrapper;
+import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -330,54 +330,21 @@ public class GlassKilnBlockEntity extends BlockEntity implements MenuProvider, N
             inventory.setStackInSlot(i, inventory.getStackInSlot(i));
         }
 
-        // check input slots for tools, remove if at max dmg, if not, dmg it
-        // SLOT 0 TOOL CHECK
-        if (inventory.getStackInSlot(0).getDamageValue() == (inventory.getStackInSlot(0).getMaxDamage() - 1)
-                && inventory.getStackInSlot(0).is(ModTags.Items.GLASSBLOWER_TOOLS)) {
-            inventory.extractItem(0, 1, false);
-        }
-        else if (inventory.getStackInSlot(0).getDamageValue() != inventory.getStackInSlot(0).getMaxDamage()
-                && inventory.getStackInSlot(0).is(ModTags.Items.GLASSBLOWER_TOOLS)) {
-            inventory.getStackInSlot(0).hurt(1, new SingleThreadedRandomSource(1), null);
-        }
-        else {
-            inventory.extractItem(0, 1, false);
-        }
-        // SLOT 1 TOOL CHECK
-        if (inventory.getStackInSlot(1).getDamageValue() == (inventory.getStackInSlot(1).getMaxDamage() - 1)
-                && inventory.getStackInSlot(1).is(ModTags.Items.GLASSBLOWER_TOOLS)) {
-            inventory.extractItem(1, 1, false);
-        }
-        else if (inventory.getStackInSlot(1).getDamageValue() != inventory.getStackInSlot(1).getMaxDamage()
-                && inventory.getStackInSlot(1).is(ModTags.Items.GLASSBLOWER_TOOLS)) {
-            inventory.getStackInSlot(1).hurt(1, new SingleThreadedRandomSource(1), null);
-        }
-        else {
-            inventory.extractItem(1, 1, false);
-        }
-        // SLOT 2 TOOL CHECK
-        if (inventory.getStackInSlot(2).getDamageValue() == (inventory.getStackInSlot(2).getMaxDamage() - 1)
-                && inventory.getStackInSlot(2).is(ModTags.Items.GLASSBLOWER_TOOLS)) {
-            inventory.extractItem(2, 1, false);
-        }
-        else if (inventory.getStackInSlot(2).getDamageValue() != inventory.getStackInSlot(2).getMaxDamage()
-                && inventory.getStackInSlot(2).is(ModTags.Items.GLASSBLOWER_TOOLS)) {
-            inventory.getStackInSlot(2).hurt(1, new SingleThreadedRandomSource(1), null);
-        }
-        else {
-            inventory.extractItem(2, 1, false);
-        }
-        // SLOT 3 TOOL CHECK
-        if (inventory.getStackInSlot(3).getDamageValue() == (inventory.getStackInSlot(3).getMaxDamage() - 1)
-                && inventory.getStackInSlot(3).is(ModTags.Items.GLASSBLOWER_TOOLS)) {
-            inventory.extractItem(3, 1, false);
-        }
-        else if (inventory.getStackInSlot(3).getDamageValue() != inventory.getStackInSlot(3).getMaxDamage()
-                && inventory.getStackInSlot(3).is(ModTags.Items.GLASSBLOWER_TOOLS)) {
-            inventory.getStackInSlot(3).hurt(1, new SingleThreadedRandomSource(1), null);
-        }
-        else {
-            inventory.extractItem(3, 1, false);
+        for (int i = 0; i < RESULT_SLOT; i++) {
+            ItemStack stack = inventory.getStackInSlot(i);
+            if (!stack.isEmpty()) {
+                ItemStack remainder = IngredientRemainderUtil.getRemainder(stack);
+
+                if (remainder != null && !remainder.isEmpty()) {
+                    // Replace with the remainder (like damaged tools, empty buckets, etc.)
+                    inventory.setStackInSlot(i, remainder.copy());
+                }
+                else {
+                    // Otherwise just consume ONE item
+                    stack.shrink(1);
+                    inventory.setStackInSlot(i, stack);
+                }
+            }
         }
 
         inventory.setStackInSlot(RESULT_SLOT, new ItemStack(recipe.getResultItem(this.level.registryAccess()).getItem(),
@@ -526,7 +493,8 @@ public class GlassKilnBlockEntity extends BlockEntity implements MenuProvider, N
         };
     }
 
-    private ContainerData createIntArray() {
+    @Contract(value = " -> new", pure = true)
+    private @NotNull ContainerData createIntArray() {
         return new ContainerData() {
             @Override
             public int get(int index) {

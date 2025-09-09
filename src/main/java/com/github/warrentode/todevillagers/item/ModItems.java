@@ -1,12 +1,10 @@
 package com.github.warrentode.todevillagers.item;
 
-import com.github.warrentode.todevillagers.item.custom.CrushedGlassItem;
-import com.github.warrentode.todevillagers.item.custom.GlassblowerShearsItem;
-import com.github.warrentode.todevillagers.item.custom.GlassblowingPipeItem;
-import com.github.warrentode.todevillagers.item.custom.MarverItem;
+import com.github.warrentode.todevillagers.item.custom.*;
+import com.github.warrentode.todevillagers.item.material.ModArmorMaterials;
+import com.github.warrentode.todevillagers.item.material.ModTiers;
 import com.github.warrentode.todevillagers.sounds.ModSounds;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.RecordItem;
+import net.minecraft.world.item.*;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -30,6 +28,26 @@ public class ModItems {
     public static final RegistryObject<Item> CRUSHED_GLASS = ITEMS.register("crushed_glass",
             () -> new CrushedGlassItem(new Item.Properties().stacksTo(64)));
 
+    public static final RegistryObject<Item> KNIFE_CERAMIC = ITEMS.register("knife_ceramic",
+            () -> new SwordItem(ModTiers.CERAMIC, -1, -2.0F,
+                    new Item.Properties()));
+    public static final RegistryObject<Item> CHISEL_IRON = ITEMS.register("chisel_iron",
+            () -> new Item(new Item.Properties().durability(250)));
+    public static final RegistryObject<Item> CERAMIC_CHIP = ITEMS.register("ceramic_chip",
+            () -> new Item(new Item.Properties().stacksTo(64)));
+
+    public static final RegistryObject<Item> CERAMIC_HELMET = ITEMS.register("ceramic_helmet",
+            () -> new CeramicArmorItem(ModArmorMaterials.CERAMIC, ArmorItem.Type.HELMET,
+                    new Item.Properties()));
+    public static final RegistryObject<Item> CERAMIC_CHESPLATE = ITEMS.register("ceramic_chestplate",
+            () -> new CeramicArmorItem(ModArmorMaterials.CERAMIC, ArmorItem.Type.CHESTPLATE,
+                    new Item.Properties()));
+    public static final RegistryObject<Item> CERAMIC_LEGGINGS = ITEMS.register("ceramic_leggings",
+            () -> new CeramicArmorItem(ModArmorMaterials.CERAMIC, ArmorItem.Type.LEGGINGS,
+                    new Item.Properties()));
+    public static final RegistryObject<Item> CERAMIC_BOOTS = ITEMS.register("ceramic_boots",
+            () -> new CeramicArmorItem(ModArmorMaterials.CERAMIC, ArmorItem.Type.BOOTS,
+                    new Item.Properties()));
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);

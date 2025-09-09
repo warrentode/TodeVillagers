@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "todevillagers:ceramics/glazing/glazed_vases/vase_glazed_white"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_vase_white": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "todevillagers:vase_white"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_vase_white",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "todevillagers:ceramics/glazing/glazed_vases/vase_glazed_white"
+    ]
+  },
+  "sends_telemetry_event": true
+}

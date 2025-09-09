@@ -2,15 +2,19 @@ package com.github.warrentode.todevillagers.datagen.recipes;
 
 import com.github.warrentode.todevillagers.block.ModBlocks;
 import com.github.warrentode.todevillagers.datagen.recipes.builder.RemainderShapedRecipeBuilder;
+import com.github.warrentode.todevillagers.datagen.recipes.builder.RemainderShapelessRecipeBuilder;
 import com.github.warrentode.todevillagers.item.ModItems;
+import com.github.warrentode.todevillagers.utils.ModTags;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.recipes.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
 import org.jetbrains.annotations.NotNull;
 
@@ -32,6 +36,176 @@ public class CraftingRecipesGen extends RecipeProvider implements IConditionBuil
         jobBlockRecipes(consumer);
         glassblowingTools(consumer);
         craftingGlass(consumer);
+        potterRecipes(consumer);
+    }
+
+    private static void potterRecipes(Consumer<FinishedRecipe> consumer) {
+        RemainderShapelessRecipeBuilder.shapelessRemainderRecipe(RecipeCategory.DECORATIONS, ModBlocks.VASE_RAW.get(), 1)
+                .addIngredient(Items.CLAY)
+                .addIngredient(ModTags.Items.TOOLS_KNIVES)
+                .unlockedBy("has_knife", has(ModTags.Items.TOOLS_KNIVES))
+                .save(consumer, new ResourceLocation(MODID, "crafting/ceramic/" + getItemName(ModBlocks.VASE_RAW.get())));
+        RemainderShapedRecipeBuilder.shapedRemainderRecipe(ModBlocks.JAR_RAW.get(), 1)
+                .pattern("X#X")
+                .pattern(" X ")
+                .define("#", Ingredient.of(ModTags.Items.TOOLS_KNIVES))
+                .define("X", Ingredient.of(Items.CLAY))
+                .define("X", Ingredient.of(Items.CLAY))
+                .define("X", Ingredient.of(Items.CLAY))
+                .unlockedBy("has_knife", has(ModTags.Items.TOOLS_KNIVES))
+                .save(consumer, new ResourceLocation(MODID, "crafting/ceramic/" + getItemName(ModBlocks.JAR_RAW.get())));
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.CERAMIC_HELMET.get())
+                .pattern(" X ")
+                .pattern("X#X")
+                .pattern(" X ")
+                .define('#', Items.LEATHER_HELMET)
+                .define('X', ModItems.CERAMIC_CHIP.get())
+                .unlockedBy("has_ceramic_chip", has(ModItems.CERAMIC_CHIP.get()))
+                .save(consumer, new ResourceLocation(MODID, "crafting/ceramic/ceramimc_helmet"));
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.CERAMIC_CHESPLATE.get())
+                .pattern(" X ")
+                .pattern("X#X")
+                .pattern(" X ")
+                .define('#', Items.LEATHER_CHESTPLATE)
+                .define('X', ModItems.CERAMIC_CHIP.get())
+                .unlockedBy("has_ceramic_chip", has(ModItems.CERAMIC_CHIP.get()))
+                .save(consumer, new ResourceLocation(MODID, "crafting/ceramic/ceramimc_chestplate"));
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.CERAMIC_LEGGINGS.get())
+                .pattern(" X ")
+                .pattern("X#X")
+                .pattern(" X ")
+                .define('#', Items.LEATHER_LEGGINGS)
+                .define('X', ModItems.CERAMIC_CHIP.get())
+                .unlockedBy("has_ceramic_chip", has(ModItems.CERAMIC_CHIP.get()))
+                .save(consumer, new ResourceLocation(MODID, "crafting/ceramic/ceramimc_leggings"));
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.CERAMIC_BOOTS.get())
+                .pattern(" X ")
+                .pattern("X#X")
+                .pattern(" X ")
+                .define('#', Items.LEATHER_BOOTS)
+                .define('X', ModItems.CERAMIC_CHIP.get())
+                .unlockedBy("has_ceramic_chip", has(ModItems.CERAMIC_CHIP.get()))
+                .save(consumer, new ResourceLocation(MODID, "crafting/ceramic/ceramimc_boots"));
+        RemainderShapelessRecipeBuilder.shapelessRemainderRecipe(RecipeCategory.MISC, ModItems.CERAMIC_CHIP.get(), 4)
+                .addIngredient(Items.BRICK)
+                .addIngredient(ModItems.CHISEL_IRON.get())
+                .unlockedBy("has_brick", InventoryChangeTrigger.TriggerInstance.hasItems(Items.BRICK))
+                .save(consumer, new ResourceLocation(MODID, "crafting/ceramic/ceramic_chip"));
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModItems.CHISEL_IRON.get())
+                .pattern("X")
+                .pattern("X")
+                .pattern("#")
+                .define('#', Items.STICK)
+                .define('X', Tags.Items.NUGGETS_IRON)
+                .unlockedBy("has_iron_nugget", has(Tags.Items.NUGGETS_IRON))
+                .save(consumer, new ResourceLocation(MODID, "crafting/ceramic/chisel_iron"));
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModItems.KNIFE_CERAMIC.get())
+                .pattern("X")
+                .pattern("#")
+                .define('#', Items.STICK)
+                .define('X', ModItems.CERAMIC_CHIP.get())
+                .unlockedBy("has_ceramic_chip", has(ModItems.CERAMIC_CHIP.get()))
+                .save(consumer, new ResourceLocation(MODID, "crafting/ceramic/knife_ceramic"));
+        // plate recipes
+        plateRecipes(consumer, Items.TERRACOTTA, ModBlocks.PLATE_TERRACOTTA.get().asItem());
+        plateRecipes(consumer, Items.WHITE_TERRACOTTA, ModBlocks.PLATE_WHITE.get().asItem());
+        plateRecipes(consumer, Items.ORANGE_TERRACOTTA, ModBlocks.PLATE_ORANGE.get().asItem());
+        plateRecipes(consumer, Items.MAGENTA_TERRACOTTA, ModBlocks.PLATE_MAGENTA.get().asItem());
+        plateRecipes(consumer, Items.LIGHT_BLUE_TERRACOTTA, ModBlocks.PLATE_LIGHT_BLUE.get().asItem());
+        plateRecipes(consumer, Items.YELLOW_TERRACOTTA, ModBlocks.PLATE_YELLOW.get().asItem());
+        plateRecipes(consumer, Items.LIME_TERRACOTTA, ModBlocks.PLATE_LIME.get().asItem());
+        plateRecipes(consumer, Items.PINK_TERRACOTTA, ModBlocks.PLATE_PINK.get().asItem());
+        plateRecipes(consumer, Items.GRAY_TERRACOTTA, ModBlocks.PLATE_GRAY.get().asItem());
+        plateRecipes(consumer, Items.LIGHT_GRAY_TERRACOTTA, ModBlocks.PLATE_LIGHT_GRAY.get().asItem());
+        plateRecipes(consumer, Items.CYAN_TERRACOTTA, ModBlocks.PLATE_CYAN.get().asItem());
+        plateRecipes(consumer, Items.PURPLE_TERRACOTTA, ModBlocks.PLATE_PURPLE.get().asItem());
+        plateRecipes(consumer, Items.BLUE_TERRACOTTA, ModBlocks.PLATE_BLUE.get().asItem());
+        plateRecipes(consumer, Items.BROWN_TERRACOTTA, ModBlocks.PLATE_BROWN.get().asItem());
+        plateRecipes(consumer, Items.GREEN_TERRACOTTA, ModBlocks.PLATE_GREEN.get().asItem());
+        plateRecipes(consumer, Items.RED_TERRACOTTA, ModBlocks.PLATE_RED.get().asItem());
+        plateRecipes(consumer, Items.BLACK_TERRACOTTA, ModBlocks.PLATE_BLACK.get().asItem());
+        // glazed plate recipes
+        plateRecipes(consumer, Items.WHITE_GLAZED_TERRACOTTA, ModBlocks.PLATE_GLAZED_WHITE.get().asItem());
+        plateRecipes(consumer, Items.ORANGE_GLAZED_TERRACOTTA, ModBlocks.PLATE_GLAZED_ORANGE.get().asItem());
+        plateRecipes(consumer, Items.MAGENTA_GLAZED_TERRACOTTA, ModBlocks.PLATE_GLAZED_MAGENTA.get().asItem());
+        plateRecipes(consumer, Items.LIGHT_BLUE_GLAZED_TERRACOTTA, ModBlocks.PLATE_GLAZED_LIGHT_BLUE.get().asItem());
+        plateRecipes(consumer, Items.YELLOW_GLAZED_TERRACOTTA, ModBlocks.PLATE_GLAZED_YELLOW.get().asItem());
+        plateRecipes(consumer, Items.LIME_GLAZED_TERRACOTTA, ModBlocks.PLATE_GLAZED_LIME.get().asItem());
+        plateRecipes(consumer, Items.PINK_GLAZED_TERRACOTTA, ModBlocks.PLATE_GLAZED_PINK.get().asItem());
+        plateRecipes(consumer, Items.GRAY_GLAZED_TERRACOTTA, ModBlocks.PLATE_GLAZED_GRAY.get().asItem());
+        plateRecipes(consumer, Items.LIGHT_GRAY_GLAZED_TERRACOTTA, ModBlocks.PLATE_GLAZED_LIGHT_GRAY.get().asItem());
+        plateRecipes(consumer, Items.CYAN_GLAZED_TERRACOTTA, ModBlocks.PLATE_GLAZED_CYAN.get().asItem());
+        plateRecipes(consumer, Items.PURPLE_GLAZED_TERRACOTTA, ModBlocks.PLATE_GLAZED_PURPLE.get().asItem());
+        plateRecipes(consumer, Items.BLUE_GLAZED_TERRACOTTA, ModBlocks.PLATE_GLAZED_BLUE.get().asItem());
+        plateRecipes(consumer, Items.BROWN_GLAZED_TERRACOTTA, ModBlocks.PLATE_GLAZED_BROWN.get().asItem());
+        plateRecipes(consumer, Items.GREEN_GLAZED_TERRACOTTA, ModBlocks.PLATE_GLAZED_GREEN.get().asItem());
+        plateRecipes(consumer, Items.RED_GLAZED_TERRACOTTA, ModBlocks.PLATE_GLAZED_RED.get().asItem());
+        plateRecipes(consumer, Items.BLACK_GLAZED_TERRACOTTA, ModBlocks.PLATE_GLAZED_BLACK.get().asItem());
+        // colored vase recipes
+        coloredVaseRecipes(consumer, Items.WHITE_DYE, ModBlocks.VASE_WHITE.get().asItem());
+        coloredVaseRecipes(consumer, Items.ORANGE_DYE, ModBlocks.VASE_ORANGE.get().asItem());
+        coloredVaseRecipes(consumer, Items.MAGENTA_DYE, ModBlocks.VASE_MAGENTA.get().asItem());
+        coloredVaseRecipes(consumer, Items.LIGHT_BLUE_DYE, ModBlocks.VASE_LIGHT_BLUE.get().asItem());
+        coloredVaseRecipes(consumer, Items.YELLOW_DYE, ModBlocks.VASE_YELLOW.get().asItem());
+        coloredVaseRecipes(consumer, Items.LIME_DYE, ModBlocks.VASE_LIME.get().asItem());
+        coloredVaseRecipes(consumer, Items.PINK_DYE, ModBlocks.VASE_PINK.get().asItem());
+        coloredVaseRecipes(consumer, Items.GRAY_DYE, ModBlocks.VASE_GRAY.get().asItem());
+        coloredVaseRecipes(consumer, Items.LIGHT_GRAY_DYE, ModBlocks.VASE_LIGHT_GRAY.get().asItem());
+        coloredVaseRecipes(consumer, Items.CYAN_DYE, ModBlocks.VASE_CYAN.get().asItem());
+        coloredVaseRecipes(consumer, Items.PURPLE_DYE, ModBlocks.VASE_PURPLE.get().asItem());
+        coloredVaseRecipes(consumer, Items.BLUE_DYE, ModBlocks.VASE_BLUE.get().asItem());
+        coloredVaseRecipes(consumer, Items.BROWN_DYE, ModBlocks.VASE_BROWN.get().asItem());
+        coloredVaseRecipes(consumer, Items.GREEN_DYE, ModBlocks.VASE_GREEN.get().asItem());
+        coloredVaseRecipes(consumer, Items.RED_DYE, ModBlocks.VASE_RED.get().asItem());
+        coloredVaseRecipes(consumer, Items.BLACK_DYE, ModBlocks.VASE_BLACK.get().asItem());
+        // colored jar recipes
+        coloredJarRecipes(consumer, Items.WHITE_DYE, ModBlocks.JAR_WHITE.get().asItem());
+        coloredJarRecipes(consumer, Items.ORANGE_DYE, ModBlocks.JAR_ORANGE.get().asItem());
+        coloredJarRecipes(consumer, Items.MAGENTA_DYE, ModBlocks.JAR_MAGENTA.get().asItem());
+        coloredJarRecipes(consumer, Items.LIGHT_BLUE_DYE, ModBlocks.JAR_LIGHT_BLUE.get().asItem());
+        coloredJarRecipes(consumer, Items.YELLOW_DYE, ModBlocks.JAR_YELLOW.get().asItem());
+        coloredJarRecipes(consumer, Items.LIME_DYE, ModBlocks.JAR_LIME.get().asItem());
+        coloredJarRecipes(consumer, Items.PINK_DYE, ModBlocks.JAR_PINK.get().asItem());
+        coloredJarRecipes(consumer, Items.GRAY_DYE, ModBlocks.JAR_GRAY.get().asItem());
+        coloredJarRecipes(consumer, Items.LIGHT_GRAY_DYE, ModBlocks.JAR_LIGHT_GRAY.get().asItem());
+        coloredJarRecipes(consumer, Items.CYAN_DYE, ModBlocks.JAR_CYAN.get().asItem());
+        coloredJarRecipes(consumer, Items.PURPLE_DYE, ModBlocks.JAR_PURPLE.get().asItem());
+        coloredJarRecipes(consumer, Items.BLUE_DYE, ModBlocks.JAR_BLUE.get().asItem());
+        coloredJarRecipes(consumer, Items.BROWN_DYE, ModBlocks.JAR_BROWN.get().asItem());
+        coloredJarRecipes(consumer, Items.GREEN_DYE, ModBlocks.JAR_GREEN.get().asItem());
+        coloredJarRecipes(consumer, Items.RED_DYE, ModBlocks.JAR_RED.get().asItem());
+        coloredJarRecipes(consumer, Items.BLACK_DYE, ModBlocks.JAR_BLACK.get().asItem());
+    }
+
+    private static void coloredJarRecipes(Consumer<FinishedRecipe> consumer, Item dye, @NotNull Item result) {
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, result, 8)
+                .pattern("XXX")
+                .pattern("X#X")
+                .pattern("XXX")
+                .define('#', dye)
+                .define('X', ModBlocks.JAR_TERRACOTTA.get())
+                .unlockedBy("has_jar", has(ModBlocks.JAR_TERRACOTTA.get()))
+                .save(consumer, new ResourceLocation(MODID, "crafting/ceramic/" + getItemName(result)));
+    }
+
+    private static void coloredVaseRecipes(Consumer<FinishedRecipe> consumer, Item dye, @NotNull Item result) {
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, result, 8)
+                .pattern("XXX")
+                .pattern("X#X")
+                .pattern("XXX")
+                .define('#', dye)
+                .define('X', ModBlocks.VASE_TERRACOTTA.get())
+                .unlockedBy("has_vase", has(ModBlocks.VASE_TERRACOTTA.get()))
+                .save(consumer, new ResourceLocation(MODID, "crafting/ceramic/" + getItemName(result)));
+    }
+
+    private static void plateRecipes(Consumer<FinishedRecipe> consumer, Item ingredient, Item result) {
+        RemainderShapelessRecipeBuilder.shapelessRemainderRecipe(RecipeCategory.DECORATIONS, result, 4)
+                .addIngredient(ingredient)
+                .addIngredient(ModItems.CHISEL_IRON.get())
+                .unlockedBy("has_" + getItemName(ingredient),
+                        InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.CHISEL_IRON.get(), ingredient))
+                .save(consumer, new ResourceLocation(MODID, "crafting/ceramic/" + getItemName(result)));
     }
 
     private static void craftingGlass(Consumer<FinishedRecipe> consumer) {
@@ -375,7 +549,6 @@ public class CraftingRecipesGen extends RecipeProvider implements IConditionBuil
     }
 
     private static void glassblowingTools(Consumer<FinishedRecipe> consumer) {
-
         ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModItems.MARVER.get(), 1)
                 .pattern("I")
                 .pattern("B")
@@ -405,7 +578,6 @@ public class CraftingRecipesGen extends RecipeProvider implements IConditionBuil
     }
 
     private static void jobBlockRecipes(Consumer<FinishedRecipe> consumer) {
-
         ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.GLASS_KILN_BLOCK.get(), 1)
                 .pattern("III")
                 .pattern("DFD")

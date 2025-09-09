@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 4,
+  "ingredient": {
+    "item": "minecraft:white_terracotta"
+  },
+  "result": "todevillagers:plate_white"
+}

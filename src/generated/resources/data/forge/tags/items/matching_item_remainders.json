@@ -1,5 +1,7 @@
 {
   "values": [
+    "#forge:tools/chisels",
+    "#forge:tools/knives",
     "#todevillagers:glassblower_tools"
   ]
 }

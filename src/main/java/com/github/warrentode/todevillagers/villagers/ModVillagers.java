@@ -32,6 +32,9 @@ public class ModVillagers {
     public static final RegistryObject<PoiType> POTTER_POI = POI_TYPES.register("potter_poi",
             () -> new PoiType(ImmutableSet.copyOf(ModBlocks.CERAMICS_TABLE.get()
                     .getStateDefinition().getPossibleStates()), 1, 1));
+    public static final RegistryObject<PoiType> BAKER_POI = POI_TYPES.register("baker_poi",
+            () -> new PoiType(ImmutableSet.copyOf(Blocks.FURNACE
+                    .getStateDefinition().getPossibleStates()), 1, 1));
 
     public static final RegistryObject<VillagerProfession> DISC_JOCKEY =
             VILLAGER_PROFESSIONS.register("disc_jockey",
@@ -65,12 +68,21 @@ public class ModVillagers {
                             ImmutableSet.of(), ImmutableSet.of(),
                             ModSounds.VILLAGER_WORK_POTTER.get()
                     ));
+    public static final RegistryObject<VillagerProfession> BAKER =
+            VILLAGER_PROFESSIONS.register("baker",
+                    () -> new VillagerProfession("baker",
+                            heldJobSite -> heldJobSite.get() == BAKER_POI.get(),
+                            acquirableJobSite -> acquirableJobSite.get() == BAKER_POI.get(),
+                            ImmutableSet.of(), ImmutableSet.of(),
+                            ModSounds.VILLAGER_WORK_BAKER.get()
+                    ));
 
     public static void init() {
         setHeroGifts(ModGiftLootTables.RETIRED_TRADER_GIFT, RETIRED_TRADER.get());
         setHeroGifts(ModGiftLootTables.GLASSBLOWER_GIFT, GLASSBLOWER.get());
         setHeroGifts(ModGiftLootTables.DISC_JOCKEY_GIFT, DISC_JOCKEY.get());
         setHeroGifts(ModGiftLootTables.POTTER_GIFT, POTTER.get());
+        setHeroGifts(ModGiftLootTables.BAKER_GIFT, BAKER.get());
     }
 
     public static void setHeroGifts(@NotNull ResourceLocation name, VillagerProfession profession) {

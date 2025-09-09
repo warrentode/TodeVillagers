@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "todevillagers:block/plate_red",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "todevillagers:block/plate_red"
+    },
+    "facing=south": {
+      "model": "todevillagers:block/plate_red",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "todevillagers:block/plate_red",
+      "y": 270
+    }
+  }
+}

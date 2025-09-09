@@ -1,0 +1,19 @@
+{
+  "type": "todevillagers:crafting_shaped_remainder",
+  "category": "misc",
+  "key": {
+    "#": {
+      "tag": "forge:tools/knives"
+    },
+    "X": {
+      "item": "minecraft:clay"
+    }
+  },
+  "pattern": [
+    "X#X",
+    " X "
+  ],
+  "result": {
+    "item": "todevillagers:jar_raw"
+  }
+}

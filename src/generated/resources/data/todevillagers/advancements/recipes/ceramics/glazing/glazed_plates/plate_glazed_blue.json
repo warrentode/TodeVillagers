@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_plate_blue": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "todevillagers:plate_blue"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "todevillagers:ceramics/glazing/glazed_plates/plate_glazed_blue"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_plate_blue",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "todevillagers:ceramics/glazing/glazed_plates/plate_glazed_blue"
+    ]
+  },
+  "sends_telemetry_event": true
+}

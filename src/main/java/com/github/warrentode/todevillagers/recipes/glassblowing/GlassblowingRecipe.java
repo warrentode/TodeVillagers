@@ -189,7 +189,7 @@ public class GlassblowingRecipe implements Recipe<RecipeWrapper> {
         }
 
         @Override
-        public void toNetwork(FriendlyByteBuf buf, GlassblowingRecipe recipe) {
+        public void toNetwork(@NotNull FriendlyByteBuf buf, @NotNull GlassblowingRecipe recipe) {
             buf.writeUtf(recipe.group);
             buf.writeUtf(recipe.tab != null ? recipe.tab.toString() : "");
             buf.writeVarInt(recipe.ingredients.size());

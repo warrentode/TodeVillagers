@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "todevillagers:reinforced_glass_door"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "todevillagers:blocks/reinforced_glass_door"
+}

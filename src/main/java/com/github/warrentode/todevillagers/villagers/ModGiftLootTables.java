@@ -15,6 +15,7 @@ public class ModGiftLootTables {
     public static final ResourceLocation GLASSBLOWER_GIFT = register(MODID + ":" + "gameplay/hero_of_the_village/glassblower_gift");
     public static final ResourceLocation DISC_JOCKEY_GIFT = register(MODID + ":" + "gameplay/hero_of_the_village/disc_jockey_gift");
     public static final ResourceLocation POTTER_GIFT = register(MODID + ":" + "gameplay/hero_of_the_village/potter_gift");
+    public static final ResourceLocation BAKER_GIFT = register(MODID + ":" + "gameplay/hero_of_the_village/baker_gift");
 
     private static final Set<ResourceLocation> IMMUTABLE_LOCATIONS = Collections.unmodifiableSet(LOCATIONS);
 

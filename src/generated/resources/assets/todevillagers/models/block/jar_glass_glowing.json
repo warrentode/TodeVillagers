@@ -1,0 +1,7 @@
+{
+  "parent": "todevillagers:block/jar_block",
+  "textures": {
+    "1": "todevillagers:block/glowing_glass",
+    "particle": "todevillagers:block/glowing_glass"
+  }
+}

@@ -48,16 +48,154 @@ public class LanguageFileGen extends LanguageProvider {
 
     private void addItemGroups() {
         add("itemGroup." + ModCreativeModeTab.TODEVILLAGERS_TAB.getId().getPath(), "TodeVillagers Tab");
-        add("itemGroup." + ModCreativeModeTab.TODEVILLAGERS_GLASS_TAB.getId().getPath(), "Glassblowing Tab");
+        add("itemGroup." + ModCreativeModeTab.TODEVILLAGERS_GLASS_TAB.getId().getPath(), "Glassblower's Tab");
+        add("itemGroup." + ModCreativeModeTab.TODEVILLAGERS_POTTERS_TAB.getId().getPath(), "Potter's Tab");
     }
 
     private void addContainers() {
         add("container." + MODID + "." + ModBlocks.GLASS_KILN_BLOCK.getId().getPath(), "Glass Kiln");
         add("container.recipe_book.glassblowing", "Glassblowing Recipe Book");
         add("container.glass_kiln_block_gui", "Glass Kiln Menu");
+
+        add("container." + MODID + "." + ModBlocks.CERAMICS_TABLE.getId().getPath(), "Ceramic Table");
+        add("container.todevillagers.ceramics_kiln", "Ceramic Kiln");
+        add("container.recipe_book.ceramic", "Ceramics Recipe Book");
+        add("container.ceramic_kiln_block_gui", "Ceramic Kiln Menu");
     }
 
     private void addBlocks() {
+        // plates
+        add("block." + MODID + "." + ModBlocks.PLATE_TERRACOTTA.getId().getPath(), "Terracotta Plate");
+        add("block." + MODID + "." + ModBlocks.PLATE_WHITE.getId().getPath(), "White Plate");
+        add("block." + MODID + "." + ModBlocks.PLATE_ORANGE.getId().getPath(), "Orange Plate");
+        add("block." + MODID + "." + ModBlocks.PLATE_MAGENTA.getId().getPath(), "Magenta Plate");
+        add("block." + MODID + "." + ModBlocks.PLATE_LIGHT_BLUE.getId().getPath(), "Light Blue Plate");
+        add("block." + MODID + "." + ModBlocks.PLATE_YELLOW.getId().getPath(), "Yellow Plate");
+        add("block." + MODID + "." + ModBlocks.PLATE_LIME.getId().getPath(), "Lime Plate");
+        add("block." + MODID + "." + ModBlocks.PLATE_PINK.getId().getPath(), "Pink Plate");
+        add("block." + MODID + "." + ModBlocks.PLATE_GRAY.getId().getPath(), "Gray Plate");
+        add("block." + MODID + "." + ModBlocks.PLATE_LIGHT_GRAY.getId().getPath(), "Light Gray Plate");
+        add("block." + MODID + "." + ModBlocks.PLATE_CYAN.getId().getPath(), "Cyan Plate");
+        add("block." + MODID + "." + ModBlocks.PLATE_PURPLE.getId().getPath(), "Purple Plate");
+        add("block." + MODID + "." + ModBlocks.PLATE_BLUE.getId().getPath(), "Blue Plate");
+        add("block." + MODID + "." + ModBlocks.PLATE_BROWN.getId().getPath(), "Brown Plate");
+        add("block." + MODID + "." + ModBlocks.PLATE_GREEN.getId().getPath(), "Green Plate");
+        add("block." + MODID + "." + ModBlocks.PLATE_RED.getId().getPath(), "Red Plate");
+        add("block." + MODID + "." + ModBlocks.PLATE_BLACK.getId().getPath(), "Black Plate");
+        // glazed plates
+        add("block." + MODID + "." + ModBlocks.PLATE_GLAZED_WHITE.getId().getPath(), "White Glazed Plate");
+        add("block." + MODID + "." + ModBlocks.PLATE_GLAZED_ORANGE.getId().getPath(), "Orange Glazed Plate");
+        add("block." + MODID + "." + ModBlocks.PLATE_GLAZED_MAGENTA.getId().getPath(), "Magenta Glazed Plate");
+        add("block." + MODID + "." + ModBlocks.PLATE_GLAZED_LIGHT_BLUE.getId().getPath(), "Light Blue Glazed Plate");
+        add("block." + MODID + "." + ModBlocks.PLATE_GLAZED_YELLOW.getId().getPath(), "Yellow Glazed Plate");
+        add("block." + MODID + "." + ModBlocks.PLATE_GLAZED_LIME.getId().getPath(), "Lime Glazed Plate");
+        add("block." + MODID + "." + ModBlocks.PLATE_GLAZED_PINK.getId().getPath(), "Pink Glazed Plate");
+        add("block." + MODID + "." + ModBlocks.PLATE_GLAZED_GRAY.getId().getPath(), "Gray Glazed Plate");
+        add("block." + MODID + "." + ModBlocks.PLATE_GLAZED_LIGHT_GRAY.getId().getPath(), "Light Gray Glazed Plate");
+        add("block." + MODID + "." + ModBlocks.PLATE_GLAZED_CYAN.getId().getPath(), "Cyan Glazed Plate");
+        add("block." + MODID + "." + ModBlocks.PLATE_GLAZED_PURPLE.getId().getPath(), "Purple Glazed Plate");
+        add("block." + MODID + "." + ModBlocks.PLATE_GLAZED_BLUE.getId().getPath(), "Blue Glazed Plate");
+        add("block." + MODID + "." + ModBlocks.PLATE_GLAZED_BROWN.getId().getPath(), "Brown Glazed Plate");
+        add("block." + MODID + "." + ModBlocks.PLATE_GLAZED_GREEN.getId().getPath(), "Green Glazed Plate");
+        add("block." + MODID + "." + ModBlocks.PLATE_GLAZED_RED.getId().getPath(), "Red Glazed Plate");
+        add("block." + MODID + "." + ModBlocks.PLATE_GLAZED_BLACK.getId().getPath(), "Black Glazed Plate");
+        // vases
+        add("block." + MODID + "." + ModBlocks.VASE_RAW.getId().getPath(), "Raw Vase");
+        add("block." + MODID + "." + ModBlocks.VASE_TERRACOTTA.getId().getPath(), "Terracotta Vase");
+        add("block." + MODID + "." + ModBlocks.VASE_WHITE.getId().getPath(), "White Vase");
+        add("block." + MODID + "." + ModBlocks.VASE_ORANGE.getId().getPath(), "Orange Vase");
+        add("block." + MODID + "." + ModBlocks.VASE_MAGENTA.getId().getPath(), "Magenta Vase");
+        add("block." + MODID + "." + ModBlocks.VASE_LIGHT_BLUE.getId().getPath(), "Light Blue Vase");
+        add("block." + MODID + "." + ModBlocks.VASE_YELLOW.getId().getPath(), "Yellow Vase");
+        add("block." + MODID + "." + ModBlocks.VASE_LIME.getId().getPath(), "Lime Vase");
+        add("block." + MODID + "." + ModBlocks.VASE_PINK.getId().getPath(), "Pink Vase");
+        add("block." + MODID + "." + ModBlocks.VASE_GRAY.getId().getPath(), "Gray Vase");
+        add("block." + MODID + "." + ModBlocks.VASE_LIGHT_GRAY.getId().getPath(), "Light Gray Vase");
+        add("block." + MODID + "." + ModBlocks.VASE_CYAN.getId().getPath(), "Cyan Vase");
+        add("block." + MODID + "." + ModBlocks.VASE_PURPLE.getId().getPath(), "Purple Vase");
+        add("block." + MODID + "." + ModBlocks.VASE_BLUE.getId().getPath(), "Blue Vase");
+        add("block." + MODID + "." + ModBlocks.VASE_BROWN.getId().getPath(), "Brown Vase");
+        add("block." + MODID + "." + ModBlocks.VASE_GREEN.getId().getPath(), "Green Vase");
+        add("block." + MODID + "." + ModBlocks.VASE_RED.getId().getPath(), "Red Vase");
+        add("block." + MODID + "." + ModBlocks.VASE_BLACK.getId().getPath(), "Black Vase");
+        // glazed vases
+        add("block." + MODID + "." + ModBlocks.VASE_GLAZED_WHITE.getId().getPath(), "White Glazed Vase");
+        add("block." + MODID + "." + ModBlocks.VASE_GLAZED_ORANGE.getId().getPath(), "Orange Glazed Vase");
+        add("block." + MODID + "." + ModBlocks.VASE_GLAZED_MAGENTA.getId().getPath(), "Magenta Glazed Vase");
+        add("block." + MODID + "." + ModBlocks.VASE_GLAZED_LIGHT_BLUE.getId().getPath(), "Light Blue Glazed Vase");
+        add("block." + MODID + "." + ModBlocks.VASE_GLAZED_YELLOW.getId().getPath(), "Yellow Glazed Vase");
+        add("block." + MODID + "." + ModBlocks.VASE_GLAZED_LIME.getId().getPath(), "Lime Glazed Vase");
+        add("block." + MODID + "." + ModBlocks.VASE_GLAZED_PINK.getId().getPath(), "Pink Glazed Vase");
+        add("block." + MODID + "." + ModBlocks.VASE_GLAZED_GRAY.getId().getPath(), "Gray Glazed Vase");
+        add("block." + MODID + "." + ModBlocks.VASE_GLAZED_LIGHT_GRAY.getId().getPath(), "Light Gray Glazed Vase");
+        add("block." + MODID + "." + ModBlocks.VASE_GLAZED_CYAN.getId().getPath(), "Cyan Glazed Vase");
+        add("block." + MODID + "." + ModBlocks.VASE_GLAZED_PURPLE.getId().getPath(), "Purple Glazed Vase");
+        add("block." + MODID + "." + ModBlocks.VASE_GLAZED_BLUE.getId().getPath(), "Blue Glazed Vase");
+        add("block." + MODID + "." + ModBlocks.VASE_GLAZED_BROWN.getId().getPath(), "Brown Glazed Vase");
+        add("block." + MODID + "." + ModBlocks.VASE_GLAZED_GREEN.getId().getPath(), "Green Glazed Vase");
+        add("block." + MODID + "." + ModBlocks.VASE_GLAZED_RED.getId().getPath(), "Red Glazed Vase");
+        add("block." + MODID + "." + ModBlocks.VASE_GLAZED_BLACK.getId().getPath(), "Black Glazed Vase");
+        // jars
+        add("block." + MODID + "." + ModBlocks.JAR_RAW.getId().getPath(), "Raw Jar");
+        add("block." + MODID + "." + ModBlocks.JAR_TERRACOTTA.getId().getPath(), "Terracotta Jar");
+        add("block." + MODID + "." + ModBlocks.JAR_WHITE.getId().getPath(), "White Jar");
+        add("block." + MODID + "." + ModBlocks.JAR_ORANGE.getId().getPath(), "Orange Jar");
+        add("block." + MODID + "." + ModBlocks.JAR_MAGENTA.getId().getPath(), "Magenta Jar");
+        add("block." + MODID + "." + ModBlocks.JAR_LIGHT_BLUE.getId().getPath(), "Light Blue Jar");
+        add("block." + MODID + "." + ModBlocks.JAR_YELLOW.getId().getPath(), "Yellow Jar");
+        add("block." + MODID + "." + ModBlocks.JAR_LIME.getId().getPath(), "Lime Jar");
+        add("block." + MODID + "." + ModBlocks.JAR_PINK.getId().getPath(), "Pink Jar");
+        add("block." + MODID + "." + ModBlocks.JAR_GRAY.getId().getPath(), "Gray Jar");
+        add("block." + MODID + "." + ModBlocks.JAR_LIGHT_GRAY.getId().getPath(), "Light Gray Jar");
+        add("block." + MODID + "." + ModBlocks.JAR_CYAN.getId().getPath(), "Cyan Jar");
+        add("block." + MODID + "." + ModBlocks.JAR_PURPLE.getId().getPath(), "Purple Jar");
+        add("block." + MODID + "." + ModBlocks.JAR_BLUE.getId().getPath(), "Blue Jar");
+        add("block." + MODID + "." + ModBlocks.JAR_BROWN.getId().getPath(), "Brown Jar");
+        add("block." + MODID + "." + ModBlocks.JAR_GREEN.getId().getPath(), "Green Jar");
+        add("block." + MODID + "." + ModBlocks.JAR_RED.getId().getPath(), "Red Jar");
+        add("block." + MODID + "." + ModBlocks.JAR_BLACK.getId().getPath(), "Black Jar");
+        // glazed jars
+        add("block." + MODID + "." + ModBlocks.JAR_GLAZED_WHITE.getId().getPath(), "White Glazed Jar");
+        add("block." + MODID + "." + ModBlocks.JAR_GLAZED_ORANGE.getId().getPath(), "Orange Glazed Jar");
+        add("block." + MODID + "." + ModBlocks.JAR_GLAZED_MAGENTA.getId().getPath(), "Magenta Glazed Jar");
+        add("block." + MODID + "." + ModBlocks.JAR_GLAZED_LIGHT_BLUE.getId().getPath(), "Light Blue Glazed Jar");
+        add("block." + MODID + "." + ModBlocks.JAR_GLAZED_YELLOW.getId().getPath(), "Yellow Glazed Jar");
+        add("block." + MODID + "." + ModBlocks.JAR_GLAZED_LIME.getId().getPath(), "Lime Glazed Jar");
+        add("block." + MODID + "." + ModBlocks.JAR_GLAZED_PINK.getId().getPath(), "Pink Glazed Jar");
+        add("block." + MODID + "." + ModBlocks.JAR_GLAZED_GRAY.getId().getPath(), "Gray Glazed Jar");
+        add("block." + MODID + "." + ModBlocks.JAR_GLAZED_LIGHT_GRAY.getId().getPath(), "Light Gray Glazed Jar");
+        add("block." + MODID + "." + ModBlocks.JAR_GLAZED_CYAN.getId().getPath(), "Cyan Glazed Jar");
+        add("block." + MODID + "." + ModBlocks.JAR_GLAZED_PURPLE.getId().getPath(), "Purple Glazed Jar");
+        add("block." + MODID + "." + ModBlocks.JAR_GLAZED_BLUE.getId().getPath(), "Blue Glazed Jar");
+        add("block." + MODID + "." + ModBlocks.JAR_GLAZED_BROWN.getId().getPath(), "Brown Glazed Jar");
+        add("block." + MODID + "." + ModBlocks.JAR_GLAZED_GREEN.getId().getPath(), "Green Glazed Jar");
+        add("block." + MODID + "." + ModBlocks.JAR_GLAZED_RED.getId().getPath(), "Red Glazed Jar");
+        add("block." + MODID + "." + ModBlocks.JAR_GLAZED_BLACK.getId().getPath(), "Black Glazed Jar");
+        // glass jars
+        add("block." + MODID + "." + ModBlocks.JAR_GLASS.getId().getPath(), "Glass Jar");
+        add("block." + MODID + "." + ModBlocks.JAR_GLASS_TINTED.getId().getPath(), "Tinted Glass Jar");
+        add("block." + MODID + "." + ModBlocks.JAR_GLASS_WHITE.getId().getPath(), "White Glass Jar");
+        add("block." + MODID + "." + ModBlocks.JAR_GLASS_ORANGE.getId().getPath(), "Orange Glass Jar");
+        add("block." + MODID + "." + ModBlocks.JAR_GLASS_MAGENTA.getId().getPath(), "Magenta Glass Jar");
+        add("block." + MODID + "." + ModBlocks.JAR_GLASS_LIGHT_BLUE.getId().getPath(), "Light Blue Glass Jar");
+        add("block." + MODID + "." + ModBlocks.JAR_GLASS_YELLOW.getId().getPath(), "Yellow Glass Jar");
+        add("block." + MODID + "." + ModBlocks.JAR_GLASS_LIME.getId().getPath(), "Lime Glass Jar");
+        add("block." + MODID + "." + ModBlocks.JAR_GLASS_PINK.getId().getPath(), "Pink Glass Jar");
+        add("block." + MODID + "." + ModBlocks.JAR_GLASS_GRAY.getId().getPath(), "Gray Glass Jar");
+        add("block." + MODID + "." + ModBlocks.JAR_GLASS_LIGHT_GRAY.getId().getPath(), "Light Gray Glass Jar");
+        add("block." + MODID + "." + ModBlocks.JAR_GLASS_CYAN.getId().getPath(), "Cyan Glass Jar");
+        add("block." + MODID + "." + ModBlocks.JAR_GLASS_PURPLE.getId().getPath(), "Purple Glass Jar");
+        add("block." + MODID + "." + ModBlocks.JAR_GLASS_BLUE.getId().getPath(), "Blue Glass Jar");
+        add("block." + MODID + "." + ModBlocks.JAR_GLASS_BROWN.getId().getPath(), "Brown Glass Jar");
+        add("block." + MODID + "." + ModBlocks.JAR_GLASS_GREEN.getId().getPath(), "Green Glass Jar");
+        add("block." + MODID + "." + ModBlocks.JAR_GLASS_RED.getId().getPath(), "Red Glass Jar");
+        add("block." + MODID + "." + ModBlocks.JAR_GLASS_BLACK.getId().getPath(), "Black Glass Jar");
+        // modded glass jars
+        add("block." + MODID + "." + ModBlocks.JAR_GLASS_REINFORCED.getId().getPath(), "Reinforced Glass Jar");
+        add("block." + MODID + "." + ModBlocks.JAR_GLASS_REDSTONE_INFUSED.getId().getPath(), "Redstone Infused Glass Jar");
+        add("block." + MODID + "." + ModBlocks.JAR_GLASS_SHIFTING.getId().getPath(), "Shifting Glass Jar");
+        add("block." + MODID + "." + ModBlocks.JAR_GLASS_GLOWING.getId().getPath(), "Glowing Glass Jar");
+
         add("block." + MODID + "." + ModBlocks.CERAMICS_TABLE.getId().getPath(), "Ceramics Table");
         add("block." + MODID + "." + ModBlocks.GLASS_KILN_BLOCK.getId().getPath(), "Glass Kiln");
         add("block." + MODID + "." + ModBlocks.WHEEL_CART.getId().getPath(), "Wheel Cart");
@@ -126,6 +264,13 @@ public class LanguageFileGen extends LanguageProvider {
         add("item." + MODID + "." + ModItems.GLASSBLOWING_PIPE.getId().getPath(), "Glassblowing Pipe");
         add("item." + MODID + "." + ModItems.GLASSBLOWER_SHEARS.getId().getPath(), "Glassblowing Shears");
         add("item." + MODID + "." + ModItems.CRUSHED_GLASS.getId().getPath(), "Crushed Glass");
+        add("item." + MODID + "." + ModItems.CERAMIC_CHIP.getId().getPath(), "Ceramic Chip");
+        add("item." + MODID + "." + ModItems.KNIFE_CERAMIC.getId().getPath(), "Potter's Knife");
+        add("item." + MODID + "." + ModItems.CHISEL_IRON.getId().getPath(), "Potter's Iron Chisel");
+        add("item." + MODID + "." + ModItems.CERAMIC_BOOTS.getId().getPath(), "Ceramic Scale Boots");
+        add("item." + MODID + "." + ModItems.CERAMIC_CHESPLATE.getId().getPath(), "Ceramic Scale Chestplate");
+        add("item." + MODID + "." + ModItems.CERAMIC_LEGGINGS.getId().getPath(), "Ceramic Scale Leggings");
+        add("item." + MODID + "." + ModItems.CERAMIC_HELMET.getId().getPath(), "Ceramic Scale Helmet");
     }
 
     private void addSubtitles() {
@@ -133,6 +278,7 @@ public class LanguageFileGen extends LanguageProvider {
         add("subtitles." + MODID + ".work_glassblower", "Glassblower Works");
         add("subtitles." + MODID + ".work_retired_trader", "Retired Trader Works");
         add("subtitles." + MODID + ".work_potter", "Potter Works");
+        add("subtitles." + MODID + ".work_baker", "Baker Works");
     }
 
     private void addEntities() {
@@ -140,5 +286,6 @@ public class LanguageFileGen extends LanguageProvider {
         add("entity.minecraft.villager." + MODID + "." + ModVillagers.GLASSBLOWER.getId().getPath(), "Glassblower");
         add("entity.minecraft.villager." + MODID + "." + ModVillagers.RETIRED_TRADER.getId().getPath(), "Retired Trader");
         add("entity.minecraft.villager." + MODID + "." + ModVillagers.POTTER.getId().getPath(), "Potter");
+        add("entity.minecraft.villager." + MODID + "." + ModVillagers.BAKER.getId().getPath(), "Baker");
     }
 }

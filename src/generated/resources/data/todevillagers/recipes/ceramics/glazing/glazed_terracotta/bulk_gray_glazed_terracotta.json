@@ -1,0 +1,25 @@
+{
+  "type": "todevillagers:ceramic",
+  "ceramicKilnTime": 100,
+  "experience": 0.35,
+  "group": "glazed_terracotta",
+  "ingredients": [
+    {
+      "item": "minecraft:gray_terracotta"
+    },
+    {
+      "item": "minecraft:gray_terracotta"
+    },
+    {
+      "item": "minecraft:gray_terracotta"
+    },
+    {
+      "item": "minecraft:gray_terracotta"
+    }
+  ],
+  "recipe_book_tab": "glazing",
+  "result": {
+    "count": 4,
+    "item": "minecraft:gray_glazed_terracotta"
+  }
+}

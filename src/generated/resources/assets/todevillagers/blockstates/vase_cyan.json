@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "todevillagers:block/vase_cyan",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "todevillagers:block/vase_cyan"
+    },
+    "facing=south": {
+      "model": "todevillagers:block/vase_cyan",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "todevillagers:block/vase_cyan",
+      "y": 270
+    }
+  }
+}

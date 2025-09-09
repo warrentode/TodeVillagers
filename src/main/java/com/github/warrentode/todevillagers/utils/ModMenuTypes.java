@@ -1,7 +1,10 @@
 package com.github.warrentode.todevillagers.utils;
 
+import com.github.warrentode.todevillagers.block.custom.ceramics_table.screens.CeramicCraftMenu;
+import com.github.warrentode.todevillagers.block.custom.ceramics_table.screens.CeramicKilnMenu;
 import com.github.warrentode.todevillagers.block.custom.glasskiln.screens.GlassKilnMenu;
 import net.minecraft.world.inventory.AbstractContainerMenu;
+import net.minecraft.world.inventory.ContainerLevelAccess;
 import net.minecraft.world.inventory.MenuType;
 import net.minecraftforge.common.extensions.IForgeMenuType;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -18,6 +21,12 @@ public class ModMenuTypes {
 
     public static final RegistryObject<MenuType<GlassKilnMenu>> GLASS_KILN_MENU =
             registerMenuType(GlassKilnMenu::new, "glass_kiln_menu");
+
+    public static final RegistryObject<MenuType<CeramicCraftMenu>> CERAMIC_CRAFT_MENU =
+            registerMenuType((id, inv, buf) -> new CeramicCraftMenu(id, inv, ContainerLevelAccess.create(inv.player.level(), buf.readBlockPos())), "ceramic_craft_menu");
+
+    public static final RegistryObject<MenuType<CeramicKilnMenu>> CERAMIC_KILN_MENU =
+            registerMenuType(CeramicKilnMenu::new, "ceramic_kiln_menu");
 
     private static <T extends AbstractContainerMenu> RegistryObject<MenuType<T>> registerMenuType(IContainerFactory<T> factory, @SuppressWarnings("SameParameterValue") String name) {
         return MENUS.register(name, () -> IForgeMenuType.create(factory));

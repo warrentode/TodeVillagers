@@ -2,20 +2,21 @@ package com.github.warrentode.todevillagers.datagen.recipes;
 
 import com.github.warrentode.todevillagers.block.ModBlocks;
 import com.github.warrentode.todevillagers.item.ModItems;
-import com.github.warrentode.todevillagers.utils.ModTags;
-import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.data.recipes.SingleItemRecipeBuilder;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
-import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
+import net.minecraftforge.registries.ForgeRegistries;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.List;
 import java.util.function.Consumer;
 
 import static com.github.warrentode.todevillagers.TodeVillagers.MODID;
@@ -31,173 +32,144 @@ public class StonecutterRecipesGen extends RecipeProvider implements IConditionB
     }
 
     public static void register(Consumer<FinishedRecipe> consumer) {
-        createRecycleGlassRecipes(consumer);
+        createCrushedGlassRecipes(consumer);
         createGlassCuttingRecipes(consumer);
+        createCeramicCuttingRecipes(consumer);
     }
 
+    private static void createCrushedGlassRecipes(Consumer<FinishedRecipe> consumer) {
+        List<Block> glassItems = ForgeRegistries.BLOCKS.getValues().stream()
+                .filter(item -> item.getDescriptionId().contains("glass"))
+                .filter(item -> !item.getDescriptionId().contains("kiln")).toList();
+        glassItems.forEach(item ->
+                SingleItemRecipeBuilder.stonecutting(Ingredient.of(item), RecipeCategory.MISC, ModItems.CRUSHED_GLASS.get(), 1)
+                        .unlockedBy("has_" + getItemName(item), has(item))
+                        .save(consumer, new ResourceLocation(MODID, "stonecutter/recycle_glass/" +
+                                getConversionRecipeName(ModItems.CRUSHED_GLASS.get(), item))));
+    }
     private static void createGlassCuttingRecipes(Consumer<FinishedRecipe> consumer) {
-        // glowing glass
-        SingleItemRecipeBuilder.stonecutting(Ingredient.of(ModBlocks.GLOWING_GLASS.get()), RecipeCategory.BUILDING_BLOCKS, ModBlocks.GLOWING_GLASS_BUTTON.get(), 6)
-                .unlockedBy("has_glowing_glass", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.GLOWING_GLASS.get()))
-                .save(consumer, new ResourceLocation(MODID, "stonecutter/glass_cutting/glowing/button"));
-        SingleItemRecipeBuilder.stonecutting(Ingredient.of(ModBlocks.GLOWING_GLASS.get()), RecipeCategory.BUILDING_BLOCKS, ModBlocks.GLOWING_GLASS_DOOR.get(), 1)
-                .unlockedBy("has_glowing_glass", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.GLOWING_GLASS.get()))
-                .save(consumer, new ResourceLocation(MODID, "stonecutter/glass_cutting/glowing/door"));
-        SingleItemRecipeBuilder.stonecutting(Ingredient.of(ModBlocks.GLOWING_GLASS.get()), RecipeCategory.BUILDING_BLOCKS, ModBlocks.GLOWING_GLASS_FENCE.get(), 1)
-                .unlockedBy("has_glowing_glass", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.GLOWING_GLASS.get()))
-                .save(consumer, new ResourceLocation(MODID, "stonecutter/glass_cutting/glowing/fence"));
-        SingleItemRecipeBuilder.stonecutting(Ingredient.of(ModBlocks.GLOWING_GLASS.get()), RecipeCategory.BUILDING_BLOCKS, ModBlocks.GLOWING_GLASS_FENCE_GATE.get(), 1)
-                .unlockedBy("has_glowing_glass", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.GLOWING_GLASS.get()))
-                .save(consumer, new ResourceLocation(MODID, "stonecutter/glass_cutting/glowing/fence_gate"));
-        SingleItemRecipeBuilder.stonecutting(Ingredient.of(ModBlocks.GLOWING_GLASS.get()), RecipeCategory.BUILDING_BLOCKS, ModBlocks.GLOWING_GLASS_PANE.get(), 3)
-                .unlockedBy("has_glowing_glass", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.GLOWING_GLASS.get()))
-                .save(consumer, new ResourceLocation(MODID, "stonecutter/glass_cutting/glowing/pane"));
-        SingleItemRecipeBuilder.stonecutting(Ingredient.of(ModBlocks.GLOWING_GLASS.get()), RecipeCategory.BUILDING_BLOCKS, ModBlocks.GLOWING_GLASS_PRESSURE_PLATE.get(), 1)
-                .unlockedBy("has_glowing_glass", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.GLOWING_GLASS.get()))
-                .save(consumer, new ResourceLocation(MODID, "stonecutter/glass_cutting/glowing/pressure_plate"));
-        SingleItemRecipeBuilder.stonecutting(Ingredient.of(ModBlocks.GLOWING_GLASS.get()), RecipeCategory.BUILDING_BLOCKS, ModBlocks.GLOWING_GLASS_SLAB.get(), 2)
-                .unlockedBy("has_glowing_glass", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.GLOWING_GLASS.get()))
-                .save(consumer, new ResourceLocation(MODID, "stonecutter/glass_cutting/glowing/slab"));
-        SingleItemRecipeBuilder.stonecutting(Ingredient.of(ModBlocks.GLOWING_GLASS.get()), RecipeCategory.BUILDING_BLOCKS, ModBlocks.GLOWING_GLASS_STAIRS.get(), 1)
-                .unlockedBy("has_glowing_glass", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.GLOWING_GLASS.get()))
-                .save(consumer, new ResourceLocation(MODID, "stonecutter/glass_cutting/glowing/stairs"));
-        SingleItemRecipeBuilder.stonecutting(Ingredient.of(ModBlocks.GLOWING_GLASS.get()), RecipeCategory.BUILDING_BLOCKS, ModBlocks.GLOWING_GLASS_TRAPDOOR.get(), 1)
-                .unlockedBy("has_glowing_glass", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.GLOWING_GLASS.get()))
-                .save(consumer, new ResourceLocation(MODID, "stonecutter/glass_cutting/glowing/trapdoor"));
-        SingleItemRecipeBuilder.stonecutting(Ingredient.of(ModBlocks.GLOWING_GLASS.get()), RecipeCategory.BUILDING_BLOCKS, ModBlocks.GLOWING_GLASS_WALL.get(), 1)
-                .unlockedBy("has_glowing_glass", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.GLOWING_GLASS.get()))
-                .save(consumer, new ResourceLocation(MODID, "stonecutter/glass_cutting/glowing/wall"));
-        // reinforced glass
-        SingleItemRecipeBuilder.stonecutting(Ingredient.of(ModBlocks.REINFORCED_GLASS.get()), RecipeCategory.BUILDING_BLOCKS, ModBlocks.REINFORCED_GLASS_BUTTON.get(), 6)
-                .unlockedBy("has_reinforced_glass", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.REINFORCED_GLASS.get()))
-                .save(consumer, new ResourceLocation(MODID, "stonecutter/glass_cutting/reinforced/button"));
-        SingleItemRecipeBuilder.stonecutting(Ingredient.of(ModBlocks.REINFORCED_GLASS.get()), RecipeCategory.BUILDING_BLOCKS, ModBlocks.REINFORCED_GLASS_DOOR.get(), 1)
-                .unlockedBy("has_reinforced_glass", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.REINFORCED_GLASS.get()))
-                .save(consumer, new ResourceLocation(MODID, "stonecutter/glass_cutting/reinforced/door"));
-        SingleItemRecipeBuilder.stonecutting(Ingredient.of(ModBlocks.REINFORCED_GLASS.get()), RecipeCategory.BUILDING_BLOCKS, ModBlocks.REINFORCED_GLASS_FENCE.get(), 1)
-                .unlockedBy("has_reinforced_glass", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.REINFORCED_GLASS.get()))
-                .save(consumer, new ResourceLocation(MODID, "stonecutter/glass_cutting/reinforced/fence"));
-        SingleItemRecipeBuilder.stonecutting(Ingredient.of(ModBlocks.REINFORCED_GLASS.get()), RecipeCategory.BUILDING_BLOCKS, ModBlocks.REINFORCED_GLASS_FENCE_GATE.get(), 1)
-                .unlockedBy("has_reinforced_glass", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.REINFORCED_GLASS.get()))
-                .save(consumer, new ResourceLocation(MODID, "stonecutter/glass_cutting/reinforced/fence_gate"));
-        SingleItemRecipeBuilder.stonecutting(Ingredient.of(ModBlocks.REINFORCED_GLASS.get()), RecipeCategory.BUILDING_BLOCKS, ModBlocks.REINFORCED_GLASS_PANE.get(), 3)
-                .unlockedBy("has_reinforced_glass", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.REINFORCED_GLASS.get()))
-                .save(consumer, new ResourceLocation(MODID, "stonecutter/glass_cutting/reinforced/pane"));
-        SingleItemRecipeBuilder.stonecutting(Ingredient.of(ModBlocks.REINFORCED_GLASS.get()), RecipeCategory.BUILDING_BLOCKS, ModBlocks.REINFORCED_GLASS_PRESSURE_PLATE.get(), 1)
-                .unlockedBy("has_reinforced_glass", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.REINFORCED_GLASS.get()))
-                .save(consumer, new ResourceLocation(MODID, "stonecutter/glass_cutting/reinforced/pressure_plate"));
-        SingleItemRecipeBuilder.stonecutting(Ingredient.of(ModBlocks.REINFORCED_GLASS.get()), RecipeCategory.BUILDING_BLOCKS, ModBlocks.REINFORCED_GLASS_SLAB.get(), 2)
-                .unlockedBy("has_reinforced_glass", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.REINFORCED_GLASS.get()))
-                .save(consumer, new ResourceLocation(MODID, "stonecutter/glass_cutting/reinforced/slab"));
-        SingleItemRecipeBuilder.stonecutting(Ingredient.of(ModBlocks.REINFORCED_GLASS.get()), RecipeCategory.BUILDING_BLOCKS, ModBlocks.REINFORCED_GLASS_STAIRS.get(), 1)
-                .unlockedBy("has_reinforced_glass", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.REINFORCED_GLASS.get()))
-                .save(consumer, new ResourceLocation(MODID, "stonecutter/glass_cutting/reinforced/stairs"));
-        SingleItemRecipeBuilder.stonecutting(Ingredient.of(ModBlocks.REINFORCED_GLASS.get()), RecipeCategory.BUILDING_BLOCKS, ModBlocks.REINFORCED_GLASS_TRAPDOOR.get(), 1)
-                .unlockedBy("has_reinforced_glass", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.REINFORCED_GLASS.get()))
-                .save(consumer, new ResourceLocation(MODID, "stonecutter/glass_cutting/reinforced/trapdoor"));
-        SingleItemRecipeBuilder.stonecutting(Ingredient.of(ModBlocks.REINFORCED_GLASS.get()), RecipeCategory.BUILDING_BLOCKS, ModBlocks.REINFORCED_GLASS_WALL.get(), 1)
-                .unlockedBy("has_reinforced_glass", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.REINFORCED_GLASS.get()))
-                .save(consumer, new ResourceLocation(MODID, "stonecutter/glass_cutting/reinforced/wall"));
-        // shifting glass
-        SingleItemRecipeBuilder.stonecutting(Ingredient.of(ModBlocks.SHIFTING_GLASS.get()), RecipeCategory.BUILDING_BLOCKS, ModBlocks.SHIFTING_GLASS_BUTTON.get(), 6)
-                .unlockedBy("has_shifting_glass", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.SHIFTING_GLASS.get()))
-                .save(consumer, new ResourceLocation(MODID, "stonecutter/glass_cutting/shifting/button"));
-        SingleItemRecipeBuilder.stonecutting(Ingredient.of(ModBlocks.SHIFTING_GLASS.get()), RecipeCategory.BUILDING_BLOCKS, ModBlocks.SHIFTING_GLASS_DOOR.get(), 1)
-                .unlockedBy("has_shifting_glass", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.SHIFTING_GLASS.get()))
-                .save(consumer, new ResourceLocation(MODID, "stonecutter/glass_cutting/shifting/door"));
-        SingleItemRecipeBuilder.stonecutting(Ingredient.of(ModBlocks.SHIFTING_GLASS.get()), RecipeCategory.BUILDING_BLOCKS, ModBlocks.SHIFTING_GLASS_FENCE.get(), 1)
-                .unlockedBy("has_shifting_glass", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.SHIFTING_GLASS.get()))
-                .save(consumer, new ResourceLocation(MODID, "stonecutter/glass_cutting/shifting/fence"));
-        SingleItemRecipeBuilder.stonecutting(Ingredient.of(ModBlocks.SHIFTING_GLASS.get()), RecipeCategory.BUILDING_BLOCKS, ModBlocks.SHIFTING_GLASS_FENCE_GATE.get(), 1)
-                .unlockedBy("has_shifting_glass", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.SHIFTING_GLASS.get()))
-                .save(consumer, new ResourceLocation(MODID, "stonecutter/glass_cutting/shifting/fence_gate"));
-        SingleItemRecipeBuilder.stonecutting(Ingredient.of(ModBlocks.SHIFTING_GLASS.get()), RecipeCategory.BUILDING_BLOCKS, ModBlocks.SHIFTING_GLASS_PANE.get(), 3)
-                .unlockedBy("has_shifting_glass", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.SHIFTING_GLASS.get()))
-                .save(consumer, new ResourceLocation(MODID, "stonecutter/glass_cutting/shifting/pane"));
-        SingleItemRecipeBuilder.stonecutting(Ingredient.of(ModBlocks.SHIFTING_GLASS.get()), RecipeCategory.BUILDING_BLOCKS, ModBlocks.SHIFTING_GLASS_PRESSURE_PLATE.get(), 1)
-                .unlockedBy("has_shifting_glass", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.SHIFTING_GLASS.get()))
-                .save(consumer, new ResourceLocation(MODID, "stonecutter/glass_cutting/shifting/pressure_plate"));
-        SingleItemRecipeBuilder.stonecutting(Ingredient.of(ModBlocks.SHIFTING_GLASS.get()), RecipeCategory.BUILDING_BLOCKS, ModBlocks.SHIFTING_GLASS_SLAB.get(), 2)
-                .unlockedBy("has_shifting_glass", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.SHIFTING_GLASS.get()))
-                .save(consumer, new ResourceLocation(MODID, "stonecutter/glass_cutting/shifting/slab"));
-        SingleItemRecipeBuilder.stonecutting(Ingredient.of(ModBlocks.SHIFTING_GLASS.get()), RecipeCategory.BUILDING_BLOCKS, ModBlocks.SHIFTING_GLASS_STAIRS.get(), 1)
-                .unlockedBy("has_shifting_glass", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.SHIFTING_GLASS.get()))
-                .save(consumer, new ResourceLocation(MODID, "stonecutter/glass_cutting/shifting/stairs"));
-        SingleItemRecipeBuilder.stonecutting(Ingredient.of(ModBlocks.SHIFTING_GLASS.get()), RecipeCategory.BUILDING_BLOCKS, ModBlocks.SHIFTING_GLASS_TRAPDOOR.get(), 1)
-                .unlockedBy("has_shifting_glass", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.SHIFTING_GLASS.get()))
-                .save(consumer, new ResourceLocation(MODID, "stonecutter/glass_cutting/shifting/trapdoor"));
-        SingleItemRecipeBuilder.stonecutting(Ingredient.of(ModBlocks.SHIFTING_GLASS.get()), RecipeCategory.BUILDING_BLOCKS, ModBlocks.SHIFTING_GLASS_WALL.get(), 1)
-                .unlockedBy("has_shifting_glass", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.SHIFTING_GLASS.get()))
-                .save(consumer, new ResourceLocation(MODID, "stonecutter/glass_cutting/shifting/wall"));
-        // tinted glass
-        SingleItemRecipeBuilder.stonecutting(Ingredient.of(Blocks.TINTED_GLASS), RecipeCategory.BUILDING_BLOCKS, ModBlocks.TINTED_GLASS_BUTTON.get(), 6)
-                .unlockedBy("has_tinted_glass", InventoryChangeTrigger.TriggerInstance.hasItems(Blocks.TINTED_GLASS))
-                .save(consumer, new ResourceLocation(MODID, "stonecutter/glass_cutting/tinted/button"));
-        SingleItemRecipeBuilder.stonecutting(Ingredient.of(Blocks.TINTED_GLASS), RecipeCategory.BUILDING_BLOCKS, ModBlocks.TINTED_GLASS_DOOR.get(), 1)
-                .unlockedBy("has_tinted_glass", InventoryChangeTrigger.TriggerInstance.hasItems(Blocks.TINTED_GLASS))
-                .save(consumer, new ResourceLocation(MODID, "stonecutter/glass_cutting/tinted/door"));
-        SingleItemRecipeBuilder.stonecutting(Ingredient.of(Blocks.TINTED_GLASS), RecipeCategory.BUILDING_BLOCKS, ModBlocks.TINTED_GLASS_FENCE.get(), 1)
-                .unlockedBy("has_tinted_glass", InventoryChangeTrigger.TriggerInstance.hasItems(Blocks.TINTED_GLASS))
-                .save(consumer, new ResourceLocation(MODID, "stonecutter/glass_cutting/tinted/fence"));
-        SingleItemRecipeBuilder.stonecutting(Ingredient.of(Blocks.TINTED_GLASS), RecipeCategory.BUILDING_BLOCKS, ModBlocks.TINTED_GLASS_FENCE_GATE.get(), 1)
-                .unlockedBy("has_tinted_glass", InventoryChangeTrigger.TriggerInstance.hasItems(Blocks.TINTED_GLASS))
-                .save(consumer, new ResourceLocation(MODID, "stonecutter/glass_cutting/tinted/fence_gate"));
-        SingleItemRecipeBuilder.stonecutting(Ingredient.of(Blocks.TINTED_GLASS), RecipeCategory.BUILDING_BLOCKS, ModBlocks.TINTED_GLASS_PANE.get(), 3)
-                .unlockedBy("has_tinted_glass", InventoryChangeTrigger.TriggerInstance.hasItems(Blocks.TINTED_GLASS))
-                .save(consumer, new ResourceLocation(MODID, "stonecutter/glass_cutting/tinted/pane"));
-        SingleItemRecipeBuilder.stonecutting(Ingredient.of(Blocks.TINTED_GLASS), RecipeCategory.BUILDING_BLOCKS, ModBlocks.TINTED_GLASS_PRESSURE_PLATE.get(), 1)
-                .unlockedBy("has_tinted_glass", InventoryChangeTrigger.TriggerInstance.hasItems(Blocks.TINTED_GLASS))
-                .save(consumer, new ResourceLocation(MODID, "stonecutter/glass_cutting/tinted/pressure_plate"));
-        SingleItemRecipeBuilder.stonecutting(Ingredient.of(Blocks.TINTED_GLASS), RecipeCategory.BUILDING_BLOCKS, ModBlocks.TINTED_GLASS_SLAB.get(), 2)
-                .unlockedBy("has_tinted_glass", InventoryChangeTrigger.TriggerInstance.hasItems(Blocks.TINTED_GLASS))
-                .save(consumer, new ResourceLocation(MODID, "stonecutter/glass_cutting/tinted/slab"));
-        SingleItemRecipeBuilder.stonecutting(Ingredient.of(Blocks.TINTED_GLASS), RecipeCategory.BUILDING_BLOCKS, ModBlocks.TINTED_GLASS_STAIRS.get(), 1)
-                .unlockedBy("has_tinted_glass", InventoryChangeTrigger.TriggerInstance.hasItems(Blocks.TINTED_GLASS))
-                .save(consumer, new ResourceLocation(MODID, "stonecutter/glass_cutting/tinted/stairs"));
-        SingleItemRecipeBuilder.stonecutting(Ingredient.of(Blocks.TINTED_GLASS), RecipeCategory.BUILDING_BLOCKS, ModBlocks.TINTED_GLASS_TRAPDOOR.get(), 1)
-                .unlockedBy("has_tinted_glass", InventoryChangeTrigger.TriggerInstance.hasItems(Blocks.TINTED_GLASS))
-                .save(consumer, new ResourceLocation(MODID, "stonecutter/glass_cutting/tinted/trapdoor"));
-        SingleItemRecipeBuilder.stonecutting(Ingredient.of(Blocks.TINTED_GLASS), RecipeCategory.BUILDING_BLOCKS, ModBlocks.TINTED_GLASS_WALL.get(), 1)
-                .unlockedBy("has_tinted_glass", InventoryChangeTrigger.TriggerInstance.hasItems(Blocks.TINTED_GLASS))
-                .save(consumer, new ResourceLocation(MODID, "stonecutter/glass_cutting/tinted/wall"));
+        // glass buttons
+        sixGlassBlockResultTemplate(consumer, ModBlocks.GLOWING_GLASS.get().asItem(), ModBlocks.GLOWING_GLASS_BUTTON.get().asItem());
+        sixGlassBlockResultTemplate(consumer, ModBlocks.REINFORCED_GLASS.get().asItem(), ModBlocks.REINFORCED_GLASS_BUTTON.get().asItem());
+        sixGlassBlockResultTemplate(consumer, ModBlocks.SHIFTING_GLASS.get().asItem(), ModBlocks.SHIFTING_GLASS_BUTTON.get().asItem());
+        sixGlassBlockResultTemplate(consumer, Items.TINTED_GLASS, ModBlocks.TINTED_GLASS_BUTTON.get().asItem());
+        // glass doors
+        oneGlassBlockResultTemplate(consumer, ModBlocks.GLOWING_GLASS.get().asItem(), ModBlocks.GLOWING_GLASS_DOOR.get().asItem());
+        oneGlassBlockResultTemplate(consumer, ModBlocks.REINFORCED_GLASS.get().asItem(), ModBlocks.REINFORCED_GLASS_DOOR.get().asItem());
+        oneGlassBlockResultTemplate(consumer, ModBlocks.SHIFTING_GLASS.get().asItem(), ModBlocks.SHIFTING_GLASS_DOOR.get().asItem());
+        oneGlassBlockResultTemplate(consumer, Items.TINTED_GLASS, ModBlocks.TINTED_GLASS_DOOR.get().asItem());
+        // glass trapdoors
+        oneGlassBlockResultTemplate(consumer, ModBlocks.GLOWING_GLASS.get().asItem(), ModBlocks.GLOWING_GLASS_TRAPDOOR.get().asItem());
+        oneGlassBlockResultTemplate(consumer, ModBlocks.REINFORCED_GLASS.get().asItem(), ModBlocks.REINFORCED_GLASS_TRAPDOOR.get().asItem());
+        oneGlassBlockResultTemplate(consumer, ModBlocks.SHIFTING_GLASS.get().asItem(), ModBlocks.SHIFTING_GLASS_TRAPDOOR.get().asItem());
+        oneGlassBlockResultTemplate(consumer, Items.TINTED_GLASS, ModBlocks.TINTED_GLASS_TRAPDOOR.get().asItem());
+        // glass fences
+        oneGlassBlockResultTemplate(consumer, ModBlocks.GLOWING_GLASS.get().asItem(), ModBlocks.GLOWING_GLASS_FENCE.get().asItem());
+        oneGlassBlockResultTemplate(consumer, ModBlocks.REINFORCED_GLASS.get().asItem(), ModBlocks.REINFORCED_GLASS_FENCE.get().asItem());
+        oneGlassBlockResultTemplate(consumer, ModBlocks.SHIFTING_GLASS.get().asItem(), ModBlocks.SHIFTING_GLASS_FENCE.get().asItem());
+        oneGlassBlockResultTemplate(consumer, Items.TINTED_GLASS, ModBlocks.TINTED_GLASS_FENCE.get().asItem());
+        // glass fence gates
+        oneGlassBlockResultTemplate(consumer, ModBlocks.GLOWING_GLASS.get().asItem(), ModBlocks.GLOWING_GLASS_FENCE_GATE.get().asItem());
+        oneGlassBlockResultTemplate(consumer, ModBlocks.REINFORCED_GLASS.get().asItem(), ModBlocks.REINFORCED_GLASS_FENCE_GATE.get().asItem());
+        oneGlassBlockResultTemplate(consumer, ModBlocks.SHIFTING_GLASS.get().asItem(), ModBlocks.SHIFTING_GLASS_FENCE_GATE.get().asItem());
+        oneGlassBlockResultTemplate(consumer, Items.TINTED_GLASS, ModBlocks.TINTED_GLASS_FENCE_GATE.get().asItem());
+        // glass pressure plates
+        oneGlassBlockResultTemplate(consumer, ModBlocks.GLOWING_GLASS.get().asItem(), ModBlocks.GLOWING_GLASS_PRESSURE_PLATE.get().asItem());
+        oneGlassBlockResultTemplate(consumer, ModBlocks.REINFORCED_GLASS.get().asItem(), ModBlocks.REINFORCED_GLASS_PRESSURE_PLATE.get().asItem());
+        oneGlassBlockResultTemplate(consumer, ModBlocks.SHIFTING_GLASS.get().asItem(), ModBlocks.SHIFTING_GLASS_PRESSURE_PLATE.get().asItem());
+        oneGlassBlockResultTemplate(consumer, Items.TINTED_GLASS, ModBlocks.TINTED_GLASS_PRESSURE_PLATE.get().asItem());
+        // glass stairs
+        oneGlassBlockResultTemplate(consumer, ModBlocks.GLOWING_GLASS.get().asItem(), ModBlocks.GLOWING_GLASS_STAIRS.get().asItem());
+        oneGlassBlockResultTemplate(consumer, ModBlocks.REINFORCED_GLASS.get().asItem(), ModBlocks.REINFORCED_GLASS_STAIRS.get().asItem());
+        oneGlassBlockResultTemplate(consumer, ModBlocks.SHIFTING_GLASS.get().asItem(), ModBlocks.SHIFTING_GLASS_STAIRS.get().asItem());
+        oneGlassBlockResultTemplate(consumer, Items.TINTED_GLASS, ModBlocks.TINTED_GLASS_STAIRS.get().asItem());
+        // glass walls
+        oneGlassBlockResultTemplate(consumer, ModBlocks.GLOWING_GLASS.get().asItem(), ModBlocks.GLOWING_GLASS_WALL.get().asItem());
+        oneGlassBlockResultTemplate(consumer, ModBlocks.REINFORCED_GLASS.get().asItem(), ModBlocks.REINFORCED_GLASS_WALL.get().asItem());
+        oneGlassBlockResultTemplate(consumer, ModBlocks.SHIFTING_GLASS.get().asItem(), ModBlocks.SHIFTING_GLASS_WALL.get().asItem());
+        oneGlassBlockResultTemplate(consumer, Items.TINTED_GLASS, ModBlocks.TINTED_GLASS_WALL.get().asItem());
+        // glass panes
+        threeGlassBlockResultTemplate(consumer, ModBlocks.GLOWING_GLASS.get().asItem(), ModBlocks.GLOWING_GLASS_PANE.get().asItem());
+        threeGlassBlockResultTemplate(consumer, ModBlocks.REINFORCED_GLASS.get().asItem(), ModBlocks.REINFORCED_GLASS_PANE.get().asItem());
+        threeGlassBlockResultTemplate(consumer, ModBlocks.SHIFTING_GLASS.get().asItem(), ModBlocks.SHIFTING_GLASS_PANE.get().asItem());
+        threeGlassBlockResultTemplate(consumer, Items.TINTED_GLASS, ModBlocks.TINTED_GLASS_PANE.get().asItem());
+        // glass slabs
+        twoGlassBlockResultTemplate(consumer, ModBlocks.GLOWING_GLASS.get().asItem(), ModBlocks.GLOWING_GLASS_SLAB.get().asItem());
+        twoGlassBlockResultTemplate(consumer, ModBlocks.REINFORCED_GLASS.get().asItem(), ModBlocks.REINFORCED_GLASS_SLAB.get().asItem());
+        twoGlassBlockResultTemplate(consumer, ModBlocks.SHIFTING_GLASS.get().asItem(), ModBlocks.SHIFTING_GLASS_SLAB.get().asItem());
+        twoGlassBlockResultTemplate(consumer, Items.TINTED_GLASS, ModBlocks.TINTED_GLASS_SLAB.get().asItem());
     }
 
-    private static void createRecycleGlassRecipes(Consumer<FinishedRecipe> consumer) {
-        SingleItemRecipeBuilder.stonecutting(Ingredient.of(Items.GLASS_BOTTLE), RecipeCategory.MISC, ModItems.CRUSHED_GLASS.get(), 1)
-                .unlockedBy("has_glass_bottle", InventoryChangeTrigger.TriggerInstance.hasItems(Items.GLASS_BOTTLE))
-                .save(consumer, new ResourceLocation(MODID, "stonecutter/recycle_glass/glass_bottle"));
-        SingleItemRecipeBuilder.stonecutting(Ingredient.of(ModTags.Items.GLASS), RecipeCategory.MISC, ModItems.CRUSHED_GLASS.get(), 1)
-                .unlockedBy("has_glass", has(ModTags.Items.GLASS))
-                .save(consumer, new ResourceLocation(MODID, "stonecutter/recycle_glass/glass_blocks"));
-        SingleItemRecipeBuilder.stonecutting(Ingredient.of(ModTags.Items.GLASS_PANES), RecipeCategory.MISC, ModItems.CRUSHED_GLASS.get(), 1)
-                .unlockedBy("has_glass_pane", has(ModTags.Items.GLASS_PANES))
-                .save(consumer, new ResourceLocation(MODID, "stonecutter/recycle_glass/glass_panes"));
-        SingleItemRecipeBuilder.stonecutting(Ingredient.of(ModTags.Items.GLASS_BUTTONS), RecipeCategory.MISC, ModItems.CRUSHED_GLASS.get(), 1)
-                .unlockedBy("has_glass_button", has(ModTags.Items.GLASS_BUTTONS))
-                .save(consumer, new ResourceLocation(MODID, "stonecutter/recycle_glass/glass_buttons"));
-        SingleItemRecipeBuilder.stonecutting(Ingredient.of(ModTags.Items.GLASS_STAIRS), RecipeCategory.MISC, ModItems.CRUSHED_GLASS.get(), 1)
-                .unlockedBy("has_glass_stairs", has(ModTags.Items.GLASS_STAIRS))
-                .save(consumer, new ResourceLocation(MODID, "stonecutter/recycle_glass/glass_stairs"));
-        SingleItemRecipeBuilder.stonecutting(Ingredient.of(ModTags.Items.GLASS_WALLS), RecipeCategory.MISC, ModItems.CRUSHED_GLASS.get(), 1)
-                .unlockedBy("has_glass_walls", has(ModTags.Items.GLASS_WALLS))
-                .save(consumer, new ResourceLocation(MODID, "stonecutter/recycle_glass/glass_walls"));
-        SingleItemRecipeBuilder.stonecutting(Ingredient.of(ModTags.Items.GLASS_DOORS), RecipeCategory.MISC, ModItems.CRUSHED_GLASS.get(), 2)
-                .unlockedBy("has_glass_doors", has(ModTags.Items.GLASS_DOORS))
-                .save(consumer, new ResourceLocation(MODID, "stonecutter/recycle_glass/glass_doors"));
-        SingleItemRecipeBuilder.stonecutting(Ingredient.of(ModTags.Items.GLASS_FENCES), RecipeCategory.MISC, ModItems.CRUSHED_GLASS.get(), 2)
-                .unlockedBy("has_glass_fences", has(ModTags.Items.GLASS_FENCES))
-                .save(consumer, new ResourceLocation(MODID, "stonecutter/recycle_glass/glass_fences"));
-        SingleItemRecipeBuilder.stonecutting(Ingredient.of(ModTags.Items.GLASS_FENCES), RecipeCategory.MISC, ModItems.CRUSHED_GLASS.get(), 2)
-                .unlockedBy("has_glass_fence_gates", has(ModTags.Items.GLASS_FENCE_GATES))
-                .save(consumer, new ResourceLocation(MODID, "stonecutter/recycle_glass/glass_fence_gates"));
-        SingleItemRecipeBuilder.stonecutting(Ingredient.of(ModTags.Items.GLASS_PRESSURE_PLATES), RecipeCategory.MISC, ModItems.CRUSHED_GLASS.get(), 2)
-                .unlockedBy("has_glass_pressure_plates", has(ModTags.Items.GLASS_PRESSURE_PLATES))
-                .save(consumer, new ResourceLocation(MODID, "stonecutter/recycle_glass/glass_pressure_plates"));
-        SingleItemRecipeBuilder.stonecutting(Ingredient.of(ModTags.Items.GLASS_SLABS), RecipeCategory.MISC, ModItems.CRUSHED_GLASS.get(), 2)
-                .unlockedBy("has_glass_slabs", has(ModTags.Items.GLASS_SLABS))
-                .save(consumer, new ResourceLocation(MODID, "stonecutter/recycle_glass/glass_slabs"));
-        SingleItemRecipeBuilder.stonecutting(Ingredient.of(ModTags.Items.GLASS_TRAPDOORS), RecipeCategory.MISC, ModItems.CRUSHED_GLASS.get(), 3)
-                .unlockedBy("has_glass_trapdoors", has(ModTags.Items.GLASS_TRAPDOORS))
-                .save(consumer, new ResourceLocation(MODID, "stonecutter/recycle_glass/glass_trapdoors"));
+    private static void createCeramicCuttingRecipes(Consumer<FinishedRecipe> consumer) {
+        SingleItemRecipeBuilder.stonecutting(Ingredient.of(Items.BRICKS), RecipeCategory.DECORATIONS, ModItems.CERAMIC_CHIP.get(), 16)
+                .unlockedBy("has_" + getItemName(Items.BRICKS), has(Items.BRICKS))
+                .save(consumer, new ResourceLocation(MODID, "stonecutter/ceramic/" + getItemName(ModItems.CERAMIC_CHIP.get())));
+        // plate recipes with stonecutter
+        plateRecipeTemplate(consumer, ModBlocks.PLATE_TERRACOTTA.get().asItem(), Items.TERRACOTTA);
+        plateRecipeTemplate(consumer, ModBlocks.PLATE_WHITE.get().asItem(), Items.WHITE_TERRACOTTA);
+        plateRecipeTemplate(consumer, ModBlocks.PLATE_ORANGE.get().asItem(), Items.ORANGE_TERRACOTTA);
+        plateRecipeTemplate(consumer, ModBlocks.PLATE_MAGENTA.get().asItem(), Items.MAGENTA_TERRACOTTA);
+        plateRecipeTemplate(consumer, ModBlocks.PLATE_LIGHT_BLUE.get().asItem(), Items.LIGHT_BLUE_TERRACOTTA);
+        plateRecipeTemplate(consumer, ModBlocks.PLATE_YELLOW.get().asItem(), Items.YELLOW_TERRACOTTA);
+        plateRecipeTemplate(consumer, ModBlocks.PLATE_LIME.get().asItem(), Items.LIME_TERRACOTTA);
+        plateRecipeTemplate(consumer, ModBlocks.PLATE_PINK.get().asItem(), Items.PINK_TERRACOTTA);
+        plateRecipeTemplate(consumer, ModBlocks.PLATE_GRAY.get().asItem(), Items.GRAY_TERRACOTTA);
+        plateRecipeTemplate(consumer, ModBlocks.PLATE_LIGHT_GRAY.get().asItem(), Items.LIGHT_GRAY_TERRACOTTA);
+        plateRecipeTemplate(consumer, ModBlocks.PLATE_CYAN.get().asItem(), Items.CYAN_TERRACOTTA);
+        plateRecipeTemplate(consumer, ModBlocks.PLATE_PURPLE.get().asItem(), Items.PURPLE_TERRACOTTA);
+        plateRecipeTemplate(consumer, ModBlocks.PLATE_BLUE.get().asItem(), Items.BLUE_TERRACOTTA);
+        plateRecipeTemplate(consumer, ModBlocks.PLATE_BROWN.get().asItem(), Items.BROWN_TERRACOTTA);
+        plateRecipeTemplate(consumer, ModBlocks.PLATE_GREEN.get().asItem(), Items.GREEN_TERRACOTTA);
+        plateRecipeTemplate(consumer, ModBlocks.PLATE_RED.get().asItem(), Items.RED_TERRACOTTA);
+        plateRecipeTemplate(consumer, ModBlocks.PLATE_BLACK.get().asItem(), Items.BLACK_TERRACOTTA);
+        // glazed plate recipes with stonecutter
+        plateRecipeTemplate(consumer, ModBlocks.PLATE_GLAZED_WHITE.get().asItem(), Items.WHITE_GLAZED_TERRACOTTA);
+        plateRecipeTemplate(consumer, ModBlocks.PLATE_GLAZED_ORANGE.get().asItem(), Items.ORANGE_GLAZED_TERRACOTTA);
+        plateRecipeTemplate(consumer, ModBlocks.PLATE_GLAZED_MAGENTA.get().asItem(), Items.MAGENTA_GLAZED_TERRACOTTA);
+        plateRecipeTemplate(consumer, ModBlocks.PLATE_GLAZED_LIGHT_BLUE.get().asItem(), Items.LIGHT_BLUE_GLAZED_TERRACOTTA);
+        plateRecipeTemplate(consumer, ModBlocks.PLATE_GLAZED_YELLOW.get().asItem(), Items.YELLOW_GLAZED_TERRACOTTA);
+        plateRecipeTemplate(consumer, ModBlocks.PLATE_GLAZED_LIME.get().asItem(), Items.LIME_GLAZED_TERRACOTTA);
+        plateRecipeTemplate(consumer, ModBlocks.PLATE_GLAZED_PINK.get().asItem(), Items.PINK_GLAZED_TERRACOTTA);
+        plateRecipeTemplate(consumer, ModBlocks.PLATE_GLAZED_GRAY.get().asItem(), Items.GRAY_GLAZED_TERRACOTTA);
+        plateRecipeTemplate(consumer, ModBlocks.PLATE_GLAZED_LIGHT_GRAY.get().asItem(), Items.LIGHT_GRAY_GLAZED_TERRACOTTA);
+        plateRecipeTemplate(consumer, ModBlocks.PLATE_GLAZED_CYAN.get().asItem(), Items.CYAN_GLAZED_TERRACOTTA);
+        plateRecipeTemplate(consumer, ModBlocks.PLATE_GLAZED_PURPLE.get().asItem(), Items.PURPLE_GLAZED_TERRACOTTA);
+        plateRecipeTemplate(consumer, ModBlocks.PLATE_GLAZED_BLUE.get().asItem(), Items.BLUE_GLAZED_TERRACOTTA);
+        plateRecipeTemplate(consumer, ModBlocks.PLATE_GLAZED_BROWN.get().asItem(), Items.BROWN_GLAZED_TERRACOTTA);
+        plateRecipeTemplate(consumer, ModBlocks.PLATE_GLAZED_GREEN.get().asItem(), Items.GREEN_GLAZED_TERRACOTTA);
+        plateRecipeTemplate(consumer, ModBlocks.PLATE_GLAZED_RED.get().asItem(), Items.RED_GLAZED_TERRACOTTA);
+        plateRecipeTemplate(consumer, ModBlocks.PLATE_GLAZED_BLACK.get().asItem(), Items.BLACK_GLAZED_TERRACOTTA);
     }
+
+    private static void plateRecipeTemplate(Consumer<FinishedRecipe> consumer, @NotNull Item result, Item ingredient) {
+        SingleItemRecipeBuilder.stonecutting(Ingredient.of(ingredient), RecipeCategory.DECORATIONS, result, 4)
+                .unlockedBy("has_" + getItemName(ingredient), has(ingredient))
+                .save(consumer, new ResourceLocation(MODID, "stonecutter/ceramic/plates/" + getItemName(result)));
+    }
+
+    private static void sixGlassBlockResultTemplate(Consumer<FinishedRecipe> consumer, Item ingredient, Item result) {
+        SingleItemRecipeBuilder.stonecutting(Ingredient.of(ingredient), RecipeCategory.BUILDING_BLOCKS, result, 6)
+                .unlockedBy("has_" + getItemName(ingredient), has(ingredient))
+                .save(consumer, new ResourceLocation(MODID, "stonecutter/glass_cutting/" + getItemName(result)));
+
+    }
+
+    private static void threeGlassBlockResultTemplate(Consumer<FinishedRecipe> consumer, Item ingredient, Item result) {
+        SingleItemRecipeBuilder.stonecutting(Ingredient.of(ingredient), RecipeCategory.BUILDING_BLOCKS, result, 3)
+                .unlockedBy("has_" + getItemName(ingredient), has(ingredient))
+                .save(consumer, new ResourceLocation(MODID, "stonecutter/glass_cutting/" + getItemName(result)));
+    }
+
+    private static void twoGlassBlockResultTemplate(Consumer<FinishedRecipe> consumer, Item ingredient, Item result) {
+        SingleItemRecipeBuilder.stonecutting(Ingredient.of(ingredient), RecipeCategory.BUILDING_BLOCKS, result, 2)
+                .unlockedBy("has_" + getItemName(ingredient), has(ingredient))
+                .save(consumer, new ResourceLocation(MODID, "stonecutter/glass_cutting/" + getItemName(result)));
+    }
+
+    private static void oneGlassBlockResultTemplate(Consumer<FinishedRecipe> consumer, Item ingredient, Item result) {
+        SingleItemRecipeBuilder.stonecutting(Ingredient.of(ingredient), RecipeCategory.BUILDING_BLOCKS, result, 1)
+                .unlockedBy("has_" + getItemName(ingredient), has(ingredient))
+                .save(consumer, new ResourceLocation(MODID, "stonecutter/glass_cutting/" + getItemName(result)));
+    }
+
 }

@@ -459,6 +459,93 @@ public class ModVillagerTrades {
                         )
                 );
             }
+            if (event.getType() == ModVillagers.BAKER.get()) {
+                trades.get(novice).addAll(List.of(
+                                new ItemForItemTrade(
+                                        Items.EGG.getDefaultInstance(), 12,
+                                        Items.EMERALD.getDefaultInstance(), 1,
+                                        COMMON_USES,
+                                        BASE_XP * novice,
+                                        COMMON_MULTIPLIER
+                                ),
+                                new ItemForItemTrade(
+                                        Items.MILK_BUCKET.getDefaultInstance(), 1,
+                                        Items.EMERALD.getDefaultInstance(), 1,
+                                        COMMON_USES,
+                                        BASE_XP * novice,
+                                        COMMON_MULTIPLIER
+                                )
+                        )
+                );
+                trades.get(apprentice).addAll(List.of(
+                                new ItemForItemTrade(
+                                        Items.SUGAR.getDefaultInstance(), 12,
+                                        Items.EMERALD.getDefaultInstance(), 1,
+                                        COMMON_USES,
+                                        BASE_XP * apprentice,
+                                        COMMON_MULTIPLIER
+                                ),
+                                new ItemForItemTrade(
+                                        Items.WHEAT.getDefaultInstance(), 20,
+                                        Items.EMERALD.getDefaultInstance(), 1,
+                                        COMMON_USES,
+                                        BASE_XP * apprentice,
+                                        COMMON_MULTIPLIER
+                                )
+                        )
+                );
+                trades.get(journeyman).addAll(List.of(
+                                new ItemForItemTrade(
+                                        Items.BREAD.getDefaultInstance(), 6,
+                                        Items.EMERALD.getDefaultInstance(), 1,
+                                        COMMON_USES,
+                                        BASE_XP * journeyman,
+                                        COMMON_MULTIPLIER
+                                ),
+                                new ItemForItemTrade(
+                                        Items.COOKIE.getDefaultInstance(), 18,
+                                        Items.EMERALD.getDefaultInstance(), 3,
+                                        COMMON_USES,
+                                        BASE_XP * journeyman,
+                                        COMMON_MULTIPLIER
+                                )
+                        )
+                );
+                trades.get(expert).addAll(List.of(
+                                new ItemForItemTrade(
+                                        Items.APPLE.getDefaultInstance(), 4,
+                                        Items.EMERALD.getDefaultInstance(), 1,
+                                        COMMON_USES,
+                                        BASE_XP * expert,
+                                        COMMON_MULTIPLIER
+                                ),
+                                new ItemForItemTrade(
+                                        Items.SWEET_BERRIES.getDefaultInstance(), 10,
+                                        Items.EMERALD.getDefaultInstance(), 1,
+                                        COMMON_USES,
+                                        BASE_XP * expert,
+                                        COMMON_MULTIPLIER
+                                )
+                        )
+                );
+                trades.get(master).addAll(List.of(
+                                new ItemForItemTrade(
+                                        Items.CAKE.getDefaultInstance(), 1,
+                                        Items.EMERALD.getDefaultInstance(), 1,
+                                        COMMON_USES,
+                                        BASE_XP * master,
+                                        COMMON_MULTIPLIER
+                                ),
+                                new ItemForItemTrade(
+                                        Items.PUMPKIN_PIE.getDefaultInstance(), 4,
+                                        Items.EMERALD.getDefaultInstance(), 1,
+                                        COMMON_USES,
+                                        BASE_XP * master,
+                                        COMMON_MULTIPLIER
+                                )
+                        )
+                );
+            }
         }
     }
 }

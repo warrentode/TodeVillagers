@@ -1,0 +1,21 @@
+{
+  "type": "todevillagers:glassblowing",
+  "experience": 0.35,
+  "glassblowingTime": 100,
+  "group": "jar",
+  "ingredients": [
+    {
+      "item": "minecraft:glass"
+    },
+    {
+      "item": "todevillagers:glassblowing_pipe"
+    },
+    {
+      "item": "todevillagers:marver"
+    }
+  ],
+  "recipe_book_tab": "glass_work",
+  "result": {
+    "item": "todevillagers:jar_glass"
+  }
+}

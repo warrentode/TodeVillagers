@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "#": {
+      "item": "minecraft:leather_boots"
+    },
+    "X": {
+      "item": "todevillagers:ceramic_chip"
+    }
+  },
+  "pattern": [
+    " X ",
+    "X#X",
+    " X "
+  ],
+  "result": {
+    "item": "todevillagers:ceramic_boots"
+  },
+  "show_notification": true
+}

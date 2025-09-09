@@ -52,6 +52,17 @@ public class ModTags {
         public static final TagKey<Item> BOTTLE_REMAINDERS = forgeItemTag("bottle_remainders");
         public static final TagKey<Item> MATCHING_ITEM_REMAINDERS = forgeItemTag("matching_item_remainders");
 
+        public static final TagKey<Item> VASE_PLANTS = modItemTag("vase_plants");
+        public static final TagKey<Item> JAR_ITEMS = modItemTag("jar_items");
+        public static final TagKey<Item> COOKIES = forgeItemTag("cookies");
+        public static final TagKey<Item> CAKES = forgeItemTag("cakes");
+        public static final TagKey<Item> PIES = forgeItemTag("pies");
+
+        public static final TagKey<Item> TOOLS_KNIVES = forgeItemTag("tools/knives");
+        public static final TagKey<Item> STONE_TIER_KNIVES = forgeItemTag("tools/stone/knives");
+        public static final TagKey<Item> TOOLS_CHISELS = forgeItemTag("tools/chisels");
+        public static final TagKey<Item> IRON_TIER_CHISELS = forgeItemTag("tools/iron/chisels");
+
         public static final TagKey<Item> GLASSBLOWER_TOOLS = modItemTag("glassblower_tools");
         public static final TagKey<Item> GLASS = forgeItemTag("glass");
         public static final TagKey<Item> GLASS_COLORLESS = forgeItemTag("glass/colorless");

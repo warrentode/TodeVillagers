@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "#": {
+      "item": "minecraft:leather_leggings"
+    },
+    "X": {
+      "item": "todevillagers:ceramic_chip"
+    }
+  },
+  "pattern": [
+    " X ",
+    "X#X",
+    " X "
+  ],
+  "result": {
+    "item": "todevillagers:ceramic_leggings"
+  },
+  "show_notification": true
+}

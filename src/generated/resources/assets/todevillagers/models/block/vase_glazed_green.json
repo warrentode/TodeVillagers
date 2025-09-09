@@ -1,0 +1,8 @@
+{
+  "parent": "todevillagers:block/vase_block",
+  "textures": {
+    "1": "todevillagers:block/plate_glazed_green",
+    "2": "minecraft:block/rooted_dirt",
+    "particle": "todevillagers:block/plate_glazed_green"
+  }
+}

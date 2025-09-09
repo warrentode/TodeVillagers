@@ -33,7 +33,7 @@ public class GlassKilnMenu extends RecipeBookMenu<RecipeWrapper> {
     @SuppressWarnings("unused")
     private final ContainerLevelAccess canInteractWithCallable;
 
-    public GlassKilnMenu(int id, Inventory playerInventory, BlockEntity blockEntity, ContainerData data) {
+    public GlassKilnMenu(int id, @NotNull Inventory playerInventory, BlockEntity blockEntity, ContainerData data) {
         super(ModMenuTypes.GLASS_KILN_MENU.get(), id);
         this.kilnBlock = (GlassKilnBlockEntity) blockEntity;
         this.inventory = ((GlassKilnBlockEntity) blockEntity).getInventory();
@@ -88,7 +88,7 @@ public class GlassKilnMenu extends RecipeBookMenu<RecipeWrapper> {
         this(id, inventory, Objects.requireNonNull(inventory.player.level().getBlockEntity(extraData.readBlockPos())), new SimpleContainerData(4));
     }
 
-    private static GlassKilnBlockEntity getBlockEntity(final Inventory playerInventory, final FriendlyByteBuf data) {
+    private static @NotNull GlassKilnBlockEntity getBlockEntity(final Inventory playerInventory, final FriendlyByteBuf data) {
         Objects.requireNonNull(playerInventory, "playerInventory for Glass Kiln cannot be null");
         Objects.requireNonNull(data, "Glass Kiln data cannot be null");
         final BlockEntity blockAtPos = playerInventory.player.level().getBlockEntity(data.readBlockPos());

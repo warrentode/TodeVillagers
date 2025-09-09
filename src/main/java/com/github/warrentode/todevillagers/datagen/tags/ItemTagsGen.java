@@ -7,6 +7,7 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -31,6 +32,55 @@ public class ItemTagsGen extends ItemTagsProvider {
     }
 
     private void registerModTags() {
+        tag(ModTags.Items.COOKIES)
+                .add(Items.COOKIE);
+        tag(ModTags.Items.CAKES)
+                .add(Items.CAKE);
+        tag(ModTags.Items.PIES)
+                .add(Items.PUMPKIN_PIE);
+        tag(ModTags.Items.JAR_ITEMS)
+                .add(ModItems.CERAMIC_CHIP.get())
+                .add(Items.HEART_OF_THE_SEA)
+                .add(Items.ENDER_PEARL)
+                .add(Items.ENDER_EYE)
+                .add(Items.DRAGON_BREATH)
+                .add(Items.LINGERING_POTION)
+                .add(Items.SPLASH_POTION)
+                .add(Items.POTION)
+                .add(Items.EXPERIENCE_BOTTLE)
+                .add(Items.HONEY_BOTTLE)
+                .add(Items.GLASS_BOTTLE)
+                .add(Items.BOWL)
+                .add(Items.SUGAR)
+                .addTag(Tags.Items.STRING)
+                .addTag(Tags.Items.DYES)
+                .addTag(Tags.Items.SLIMEBALLS)
+                .addTag(Tags.Items.SEEDS)
+                .addTag(Tags.Items.RODS)
+                .addTag(Tags.Items.RAW_MATERIALS)
+                .addTag(Tags.Items.NETHER_STARS)
+                .addTag(Tags.Items.MUSHROOMS)
+                .addTag(Tags.Items.GUNPOWDER)
+                .addTag(Tags.Items.EGGS)
+                .addTag(Tags.Items.BONES)
+                .addTag(Tags.Items.GEMS)
+                .addTag(Tags.Items.NUGGETS)
+                .addTag(Tags.Items.DUSTS)
+                .addTag(Tags.Items.DYES)
+                .addTag(ItemTags.MUSIC_DISCS)
+                .addOptionalTag(Objects.requireNonNull(ResourceLocation.tryParse("todecoins:tip_jar_tems")));
+        tag(ModTags.Items.VASE_PLANTS)
+                .add(Items.BAMBOO)
+                .add(Blocks.DEAD_BUSH.asItem())
+                .add(Blocks.SWEET_BERRY_BUSH.asItem())
+                .add(Items.CRIMSON_FUNGUS)
+                .add(Items.WARPED_FUNGUS)
+                .add(Items.RED_MUSHROOM)
+                .add(Items.BROWN_MUSHROOM)
+                .add(Items.LARGE_FERN)
+                .add(Items.FERN)
+                .addTag(ItemTags.SAPLINGS)
+                .addTag(ItemTags.FLOWERS);
         tag(ModTags.Items.BUCKET_REMAINDERS)
                 .add(Items.TROPICAL_FISH_BUCKET)
                 .add(Items.SALMON_BUCKET)
@@ -40,7 +90,17 @@ public class ItemTagsGen extends ItemTagsProvider {
                 .add(Items.POWDER_SNOW_BUCKET)
                 .add(Items.WATER_BUCKET);
         tag(ModTags.Items.MATCHING_ITEM_REMAINDERS)
+                .addTag(ModTags.Items.TOOLS_CHISELS)
+                .addTag(ModTags.Items.TOOLS_KNIVES)
                 .addTag(ModTags.Items.GLASSBLOWER_TOOLS);
+        tag(ModTags.Items.TOOLS_KNIVES)
+                .addTag(ModTags.Items.STONE_TIER_KNIVES);
+        tag(ModTags.Items.STONE_TIER_KNIVES)
+                .add(ModItems.KNIFE_CERAMIC.get());
+        tag(ModTags.Items.TOOLS_CHISELS)
+                .addTag(ModTags.Items.IRON_TIER_CHISELS);
+        tag(ModTags.Items.IRON_TIER_CHISELS)
+                .add(ModItems.CHISEL_IRON.get());
         tag(ModTags.Items.BOTTLE_REMAINDERS)
                 .add(Items.EXPERIENCE_BOTTLE)
                 .add(Items.LINGERING_POTION)

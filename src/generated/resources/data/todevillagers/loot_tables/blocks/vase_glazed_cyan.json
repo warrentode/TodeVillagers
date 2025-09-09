@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "todevillagers:vase_glazed_cyan"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "todevillagers:blocks/vase_glazed_cyan"
+}

@@ -103,5 +103,13 @@
         "name": "minecraft:block/gravel/break"
       }
     ]
+  },
+  "work_baker": {
+    "subtitle": "subtitles.todevillagers.work_baker",
+    "sounds": [
+      {
+        "name": "minecraft:block/wool/break"
+      }
+    ]
   }
 }

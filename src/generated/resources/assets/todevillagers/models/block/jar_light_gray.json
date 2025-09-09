@@ -1,0 +1,7 @@
+{
+  "parent": "todevillagers:block/jar_block",
+  "textures": {
+    "1": "minecraft:block/light_gray_terracotta",
+    "particle": "minecraft:block/light_gray_terracotta"
+  }
+}

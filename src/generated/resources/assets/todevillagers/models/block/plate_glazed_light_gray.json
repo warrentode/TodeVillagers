@@ -1,0 +1,7 @@
+{
+  "parent": "todevillagers:block/plate_block",
+  "textures": {
+    "1": "todevillagers:block/plate_glazed_light_gray",
+    "particle": "todevillagers:block/plate_glazed_light_gray"
+  }
+}
