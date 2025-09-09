@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "minecraft:white_dye"
+    },
+    "X": {
+      "item": "todevillagers:jar_terracotta"
+    }
+  },
+  "pattern": [
+    "XXX",
+    "X#X",
+    "XXX"
+  ],
+  "result": {
+    "count": 8,
+    "item": "todevillagers:jar_white"
+  },
+  "show_notification": true
+}

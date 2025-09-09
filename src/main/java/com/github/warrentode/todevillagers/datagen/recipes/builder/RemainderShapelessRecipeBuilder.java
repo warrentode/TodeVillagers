@@ -94,17 +94,17 @@ public class RemainderShapelessRecipeBuilder {
         return this;
     }
 
-    public void build(Consumer<FinishedRecipe> consumerIn) {
+    public void save(Consumer<FinishedRecipe> consumerIn) {
         ResourceLocation location = ForgeRegistries.ITEMS.getKey(result);
         assert location != null;
-        build(consumerIn, MODID + ":shapeless_remainder/" + location.getPath());
+        save(consumerIn, MODID + ":shapeless_remainder/" + location.getPath());
     }
 
-    public void build(Consumer<FinishedRecipe> consumerIn, String save) {
-        build(consumerIn, new ResourceLocation(save));
+    public void save(Consumer<FinishedRecipe> consumerIn, String save) {
+        save(consumerIn, new ResourceLocation(save));
     }
 
-    public void build(Consumer<FinishedRecipe> consumerIn, ResourceLocation id) {
+    public void save(Consumer<FinishedRecipe> consumerIn, ResourceLocation id) {
         if (!advancement.getCriteria().isEmpty()) {
             advancement.parent(new ResourceLocation("recipes/root"))
                     .addCriterion("has_the_recipe", RecipeUnlockedTrigger.unlocked(id))

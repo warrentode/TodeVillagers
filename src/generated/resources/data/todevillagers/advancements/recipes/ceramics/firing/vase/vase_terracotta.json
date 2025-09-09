@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_raw_vase": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "todevillagers:vase_raw"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "todevillagers:ceramics/firing/vase/vase_terracotta"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_raw_vase",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "todevillagers:ceramics/firing/vase/vase_terracotta"
+    ]
+  },
+  "sends_telemetry_event": true
+}

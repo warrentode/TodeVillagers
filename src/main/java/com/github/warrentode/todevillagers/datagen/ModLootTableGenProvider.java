@@ -1,5 +1,6 @@
 package com.github.warrentode.todevillagers.datagen;
 
+import com.github.warrentode.todevillagers.datagen.loot_tables.BlockLootTablesGen;
 import com.github.warrentode.todevillagers.datagen.loot_tables.ModGiftLootGen;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.loot.LootTableProvider;
@@ -14,7 +15,8 @@ public class ModLootTableGenProvider {
     @Contract("_ -> new")
     public static @NotNull LootTableProvider create(PackOutput output) {
         return new LootTableProvider(output, Set.of(), List.of(
-                new LootTableProvider.SubProviderEntry(ModGiftLootGen::new, LootContextParamSets.GIFT)
+                new LootTableProvider.SubProviderEntry(ModGiftLootGen::new, LootContextParamSets.GIFT),
+                new LootTableProvider.SubProviderEntry(BlockLootTablesGen::new, LootContextParamSets.BLOCK)
         ));
     }
 }

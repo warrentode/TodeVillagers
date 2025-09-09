@@ -127,11 +127,6 @@ public class GlassKilnScreen extends AbstractContainerScreen<GlassKilnMenu> impl
     }
 
     @Override
-    public void removed() {
-        super.removed();
-    }
-
-    @Override
     @Nonnull
     public RecipeBookComponent getRecipeBookComponent() {
         return this.recipeBookComponent;

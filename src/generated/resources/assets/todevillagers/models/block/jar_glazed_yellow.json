@@ -1,0 +1,7 @@
+{
+  "parent": "todevillagers:block/jar_block",
+  "textures": {
+    "1": "todevillagers:block/plate_glazed_yellow",
+    "particle": "todevillagers:block/plate_glazed_yellow"
+  }
+}

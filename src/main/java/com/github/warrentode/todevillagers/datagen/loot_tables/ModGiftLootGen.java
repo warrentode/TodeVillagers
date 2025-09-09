@@ -17,6 +17,16 @@ import java.util.function.BiConsumer;
 
 public class ModGiftLootGen extends VanillaGiftLoot {
     public void generate(@NotNull BiConsumer<ResourceLocation, LootTable.Builder> consumer) {
+        consumer.accept(ModGiftLootTables.BAKER_GIFT,
+                LootTable.lootTable()
+                        .withPool(
+                                LootPool.lootPool()
+                                        .setRolls(ConstantValue.exactly(1.0F))
+                                        .add(TagEntry.expandTag(ModTags.Items.COOKIES))
+                                        .add(TagEntry.expandTag(ModTags.Items.CAKES))
+                                        .add(TagEntry.expandTag(ModTags.Items.PIES))
+                        )
+        );
         consumer.accept(ModGiftLootTables.RETIRED_TRADER_GIFT,
                 LootTable.lootTable()
                         .withPool(

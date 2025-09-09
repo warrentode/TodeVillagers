@@ -1,5 +1,6 @@
 package com.github.warrentode.todevillagers.datagen;
 
+import com.github.warrentode.todevillagers.datagen.models.BlockStateGen;
 import com.github.warrentode.todevillagers.datagen.tags.BlockTagsGen;
 import com.github.warrentode.todevillagers.datagen.tags.ItemTagsGen;
 import net.minecraft.core.HolderLookup;
@@ -29,6 +30,8 @@ public class ModDataGenerators {
 
         ItemTagsGen itemTagsGen = new ItemTagsGen(packOutput, lookupProvider, blockTagsGen.contentsGetter(), helper);
         generator.addProvider(event.includeServer(), itemTagsGen);
+
+        generator.addProvider(event.includeServer(), new BlockStateGen(packOutput, MODID, helper));
 
         generator.addProvider(event.includeClient(), new LanguageFileGen(packOutput, MODID, "en_us"));
 

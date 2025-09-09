@@ -144,7 +144,7 @@ jar {
 tasks.register('updateJson') {
     file('update.json').withWriter { w ->
         file('update_template.json').eachLine { line ->
-            w << line.replaceAll("stable_release", stable_release)
+            w << line.replaceAll("recommended_release", recommended_release)
                     .replaceAll("latest_version", project.version) + System.lineSeparator()
         }
         w.close()

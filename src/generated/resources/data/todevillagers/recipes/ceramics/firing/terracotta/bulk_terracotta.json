@@ -1,0 +1,25 @@
+{
+  "type": "todevillagers:ceramic",
+  "ceramicKilnTime": 100,
+  "experience": 0.35,
+  "group": "terracotta",
+  "ingredients": [
+    {
+      "item": "minecraft:clay"
+    },
+    {
+      "item": "minecraft:clay"
+    },
+    {
+      "item": "minecraft:clay"
+    },
+    {
+      "item": "minecraft:clay"
+    }
+  ],
+  "recipe_book_tab": "firing",
+  "result": {
+    "count": 4,
+    "item": "minecraft:terracotta"
+  }
+}

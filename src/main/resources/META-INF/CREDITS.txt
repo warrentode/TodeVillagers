@@ -1,0 +1,5 @@
+- textures for the tool_chisel_iron (ceramic knife) and tool_fancy_iron_chisel (iron chisel) from:
+-- malcolmriley's unused-textures repo at:
+-- https://github.com/malcolmriley/unused-textures/tree/master
+
+- village house injection class from ChefsDelight used as a template

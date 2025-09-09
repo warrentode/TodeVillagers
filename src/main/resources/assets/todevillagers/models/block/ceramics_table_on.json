@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "up": "minecraft:block/crafting_table_top",
+    "down": "minecraft:block/bricks",
+    "north": "todevillagers:block/ceramics_table_on",
+    "east": "minecraft:block/bricks",
+    "south": "minecraft:block/bricks",
+    "west": "minecraft:block/bricks",
+    "particle": "minecraft:block/bricks"
+  }
+}

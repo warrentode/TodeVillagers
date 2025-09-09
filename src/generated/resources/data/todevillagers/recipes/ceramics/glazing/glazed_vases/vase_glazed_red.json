@@ -1,0 +1,25 @@
+{
+  "type": "todevillagers:ceramic",
+  "ceramicKilnTime": 100,
+  "experience": 0.35,
+  "group": "glazed_vases",
+  "ingredients": [
+    {
+      "item": "todevillagers:vase_red"
+    },
+    {
+      "item": "todevillagers:vase_red"
+    },
+    {
+      "item": "todevillagers:vase_red"
+    },
+    {
+      "item": "todevillagers:vase_red"
+    }
+  ],
+  "recipe_book_tab": "glazing",
+  "result": {
+    "count": 4,
+    "item": "todevillagers:vase_glazed_red"
+  }
+}

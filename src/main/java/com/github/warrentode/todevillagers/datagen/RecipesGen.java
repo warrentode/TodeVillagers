@@ -1,5 +1,6 @@
 package com.github.warrentode.todevillagers.datagen;
 
+import com.github.warrentode.todevillagers.datagen.recipes.CeramicRecipesGen;
 import com.github.warrentode.todevillagers.datagen.recipes.CraftingRecipesGen;
 import com.github.warrentode.todevillagers.datagen.recipes.GlassblowingRecipesGen;
 import com.github.warrentode.todevillagers.datagen.recipes.StonecutterRecipesGen;
@@ -20,5 +21,6 @@ public class RecipesGen extends RecipeProvider {
         CraftingRecipesGen.register(consumer);
         StonecutterRecipesGen.register(consumer);
         GlassblowingRecipesGen.register(consumer);
+        CeramicRecipesGen.register(consumer);
     }
 }

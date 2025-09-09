@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "item": "todevillagers:tinted_glass_pressure_plate"
+  },
+  "result": "todevillagers:crushed_glass"
+}

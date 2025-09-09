@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "item": "todevillagers:glowing_glass_button"
+  },
+  "result": "todevillagers:crushed_glass"
+}

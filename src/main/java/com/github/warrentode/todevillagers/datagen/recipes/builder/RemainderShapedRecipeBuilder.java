@@ -94,7 +94,7 @@ public class RemainderShapedRecipeBuilder {
         private final ResourceLocation id;
         private final Item result;
         private final int count;
-        private List<String> pattern = new ArrayList<>();
+        private List<String> pattern;
         private final Map<String, Ingredient> keyMap;
         private final CraftingBookCategory category;
         private final String group; // NEW

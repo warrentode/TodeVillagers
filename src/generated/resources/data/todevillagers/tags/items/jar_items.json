@@ -1,0 +1,37 @@
+{
+  "values": [
+    "todevillagers:ceramic_chip",
+    "minecraft:heart_of_the_sea",
+    "minecraft:ender_pearl",
+    "minecraft:ender_eye",
+    "minecraft:dragon_breath",
+    "minecraft:lingering_potion",
+    "minecraft:splash_potion",
+    "minecraft:potion",
+    "minecraft:experience_bottle",
+    "minecraft:honey_bottle",
+    "minecraft:glass_bottle",
+    "minecraft:bowl",
+    "minecraft:sugar",
+    "#forge:string",
+    "#forge:dyes",
+    "#forge:slimeballs",
+    "#forge:seeds",
+    "#forge:rods",
+    "#forge:raw_materials",
+    "#forge:nether_stars",
+    "#forge:mushrooms",
+    "#forge:gunpowder",
+    "#forge:eggs",
+    "#forge:bones",
+    "#forge:gems",
+    "#forge:nuggets",
+    "#forge:dusts",
+    "#forge:dyes",
+    "#minecraft:music_discs",
+    {
+      "id": "#todecoins:tip_jar_tems",
+      "required": false
+    }
+  ]
+}

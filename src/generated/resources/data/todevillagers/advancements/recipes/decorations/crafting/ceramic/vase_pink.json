@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "todevillagers:crafting/ceramic/vase_pink"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_vase": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "todevillagers:vase_terracotta"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_vase",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "todevillagers:crafting/ceramic/vase_pink"
+    ]
+  },
+  "sends_telemetry_event": false
+}

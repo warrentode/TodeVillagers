@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_jar_magenta": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "todevillagers:jar_magenta"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "todevillagers:ceramics/glazing/glazed_jars/jar_glazed_magenta"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_jar_magenta",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "todevillagers:ceramics/glazing/glazed_jars/jar_glazed_magenta"
+    ]
+  },
+  "sends_telemetry_event": true
+}

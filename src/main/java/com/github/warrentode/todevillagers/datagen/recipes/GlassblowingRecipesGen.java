@@ -8,6 +8,7 @@ import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeProvider;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.Tags;
@@ -31,6 +32,7 @@ public class GlassblowingRecipesGen extends RecipeProvider implements ICondition
 
     public static void register(Consumer<FinishedRecipe> consumer) {
         blowGlassRecipes(consumer);
+        processJarRecipes(consumer);
     }
 
     private static void blowGlassRecipes(Consumer<FinishedRecipe> consumer) {
@@ -801,6 +803,43 @@ public class GlassblowingRecipesGen extends RecipeProvider implements ICondition
                 .addIngredient(ModItems.GLASSBLOWER_SHEARS.get())
                 .setRecipeBookTab(GlassblowingRecipeBookTab.GLASS_WORK)
                 .unlockedBy("has_tinted_glass_door", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.TINTED_GLASS_DOOR.get()))
+                .build(consumer);
+        glassJarRecipes(consumer, Items.GLASS, ModBlocks.JAR_GLASS.get().asItem());
+    }
+
+    private static void processJarRecipes(Consumer<FinishedRecipe> consumer) {
+        glassJarRecipes(consumer, Items.BLACK_STAINED_GLASS, ModBlocks.JAR_GLASS_BLACK.get().asItem());
+        glassJarRecipes(consumer, Items.BLUE_STAINED_GLASS, ModBlocks.JAR_GLASS_BLUE.get().asItem());
+        glassJarRecipes(consumer, Items.BROWN_STAINED_GLASS, ModBlocks.JAR_GLASS_BROWN.get().asItem());
+        glassJarRecipes(consumer, Items.CYAN_STAINED_GLASS, ModBlocks.JAR_GLASS_CYAN.get().asItem());
+        glassJarRecipes(consumer, Items.GRAY_STAINED_GLASS, ModBlocks.JAR_GLASS_GRAY.get().asItem());
+        glassJarRecipes(consumer, Items.GREEN_STAINED_GLASS, ModBlocks.JAR_GLASS_GREEN.get().asItem());
+        glassJarRecipes(consumer, Items.LIGHT_BLUE_STAINED_GLASS, ModBlocks.JAR_GLASS_LIGHT_BLUE.get().asItem());
+        glassJarRecipes(consumer, Items.LIGHT_GRAY_STAINED_GLASS, ModBlocks.JAR_GLASS_LIGHT_GRAY.get().asItem());
+        glassJarRecipes(consumer, Items.LIME_STAINED_GLASS, ModBlocks.JAR_GLASS_LIME.get().asItem());
+        glassJarRecipes(consumer, Items.MAGENTA_STAINED_GLASS, ModBlocks.JAR_GLASS_MAGENTA.get().asItem());
+        glassJarRecipes(consumer, Items.ORANGE_STAINED_GLASS, ModBlocks.JAR_GLASS_ORANGE.get().asItem());
+        glassJarRecipes(consumer, Items.PINK_STAINED_GLASS, ModBlocks.JAR_GLASS_PINK.get().asItem());
+        glassJarRecipes(consumer, Items.PURPLE_STAINED_GLASS, ModBlocks.JAR_GLASS_PURPLE.get().asItem());
+        glassJarRecipes(consumer, Items.RED_STAINED_GLASS, ModBlocks.JAR_GLASS_RED.get().asItem());
+        glassJarRecipes(consumer, Items.WHITE_STAINED_GLASS, ModBlocks.JAR_GLASS_WHITE.get().asItem());
+        glassJarRecipes(consumer, Items.YELLOW_STAINED_GLASS, ModBlocks.JAR_GLASS_YELLOW.get().asItem());
+        glassJarRecipes(consumer, Items.TINTED_GLASS, ModBlocks.JAR_GLASS_TINTED.get().asItem());
+        // modded glass jars
+        glassJarRecipes(consumer, ModBlocks.REINFORCED_GLASS.get().asItem(), ModBlocks.JAR_GLASS_REINFORCED.get().asItem());
+        glassJarRecipes(consumer, ModBlocks.REDSTONE_INFUSED_GLASS.get().asItem(), ModBlocks.JAR_GLASS_REDSTONE_INFUSED.get().asItem());
+        glassJarRecipes(consumer, ModBlocks.GLOWING_GLASS.get().asItem(), ModBlocks.JAR_GLASS_GLOWING.get().asItem());
+        glassJarRecipes(consumer, ModBlocks.SHIFTING_GLASS.get().asItem(), ModBlocks.JAR_GLASS_SHIFTING.get().asItem());
+    }
+
+    private static void glassJarRecipes(Consumer<FinishedRecipe> consumer, Item ingredient, Item result) {
+        GlassblowingRecipesBuilder.glassblowingRecipe(null, result, 1, DEFAULT_TIME, DEFAULT_XP)
+                .setGroup("jar")
+                .addIngredient(ingredient)
+                .addIngredient(ModItems.GLASSBLOWING_PIPE.get())
+                .addIngredient(ModItems.MARVER.get())
+                .setRecipeBookTab(GlassblowingRecipeBookTab.GLASS_WORK)
+                .unlockedBy("has_glass", has(Tags.Items.GLASS))
                 .build(consumer);
     }
 }

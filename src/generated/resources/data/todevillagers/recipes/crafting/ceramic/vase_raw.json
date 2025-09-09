@@ -1,0 +1,15 @@
+{
+  "type": "todevillagers:crafting_shapeless_remainder",
+  "ingredients": [
+    {
+      "item": "minecraft:clay"
+    },
+    {
+      "tag": "forge:tools/knives"
+    }
+  ],
+  "recipe_book_category": "DECORATIONS",
+  "result": {
+    "item": "todevillagers:vase_raw"
+  }
+}

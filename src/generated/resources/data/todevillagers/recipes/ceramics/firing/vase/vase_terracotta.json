@@ -1,0 +1,25 @@
+{
+  "type": "todevillagers:ceramic",
+  "ceramicKilnTime": 100,
+  "experience": 0.35,
+  "group": "vase",
+  "ingredients": [
+    {
+      "item": "todevillagers:vase_raw"
+    },
+    {
+      "item": "todevillagers:vase_raw"
+    },
+    {
+      "item": "todevillagers:vase_raw"
+    },
+    {
+      "item": "todevillagers:vase_raw"
+    }
+  ],
+  "recipe_book_tab": "firing",
+  "result": {
+    "count": 4,
+    "item": "todevillagers:vase_terracotta"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "minecraft:yellow_dye"
+    },
+    "X": {
+      "item": "todevillagers:vase_terracotta"
+    }
+  },
+  "pattern": [
+    "XXX",
+    "X#X",
+    "XXX"
+  ],
+  "result": {
+    "count": 8,
+    "item": "todevillagers:vase_yellow"
+  },
+  "show_notification": true
+}

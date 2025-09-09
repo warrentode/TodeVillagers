@@ -1,0 +1,16 @@
+{
+  "type": "todevillagers:crafting_shapeless_remainder",
+  "ingredients": [
+    {
+      "item": "minecraft:pink_terracotta"
+    },
+    {
+      "item": "todevillagers:chisel_iron"
+    }
+  ],
+  "recipe_book_category": "DECORATIONS",
+  "result": {
+    "count": 4,
+    "item": "todevillagers:plate_pink"
+  }
+}

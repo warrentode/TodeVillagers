@@ -1,0 +1,7 @@
+{
+  "parent": "todevillagers:block/jar_block",
+  "textures": {
+    "1": "minecraft:block/purple_stained_glass",
+    "particle": "minecraft:block/purple_stained_glass"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "type": "todevillagers:ceramic",
+  "ceramicKilnTime": 100,
+  "experience": 0.35,
+  "group": "brick",
+  "ingredients": [
+    {
+      "item": "minecraft:clay_ball"
+    }
+  ],
+  "recipe_book_tab": "firing",
+  "result": {
+    "item": "minecraft:brick"
+  }
+}

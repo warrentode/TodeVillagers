@@ -1,0 +1,25 @@
+{
+  "type": "todevillagers:ceramic",
+  "ceramicKilnTime": 100,
+  "experience": 0.35,
+  "group": "glazed_jars",
+  "ingredients": [
+    {
+      "item": "todevillagers:jar_red"
+    },
+    {
+      "item": "todevillagers:jar_red"
+    },
+    {
+      "item": "todevillagers:jar_red"
+    },
+    {
+      "item": "todevillagers:jar_red"
+    }
+  ],
+  "recipe_book_tab": "glazing",
+  "result": {
+    "count": 4,
+    "item": "todevillagers:jar_glazed_red"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_jar_white": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "todevillagers:jar_white"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "todevillagers:ceramics/glazing/glazed_jars/jar_glazed_white"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_jar_white",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "todevillagers:ceramics/glazing/glazed_jars/jar_glazed_white"
+    ]
+  },
+  "sends_telemetry_event": true
+}

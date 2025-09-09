@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "todevillagers:ceramics/glazing/glazed_vases/vase_glazed_green"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_vase_green": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "todevillagers:vase_green"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_vase_green",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "todevillagers:ceramics/glazing/glazed_vases/vase_glazed_green"
+    ]
+  },
+  "sends_telemetry_event": true
+}

@@ -160,7 +160,7 @@ public class GlassblowingRecipe implements Recipe<RecipeWrapper> {
                 final String tabKey = GsonHelper.getAsString(json, "recipe_book_tab", null);
                 final GlassblowingRecipeBookTab tab = GlassblowingRecipeBookTab.findByName(tabKey);
                 if (tabKey != null && tab == null) {
-                    TodeVillagers.LOGGER.warn("Optional field 'recipe_book_tab' does not match any valid tab. If defined, must be one of the following: " + EnumSet.allOf(GlassblowingRecipeBookTab.class));
+                    TodeVillagers.LOGGER.warn("Optional field 'recipe_book_tab' does not match any valid tab. If defined, must be one of the following: {}", EnumSet.allOf(GlassblowingRecipeBookTab.class));
                 }
                 ItemStack result = ShapedRecipe.itemStackFromJson(GsonHelper.getAsJsonObject(json, "result"));
                 final float experience = GsonHelper.getAsFloat(json, "experience", 0.0F);
@@ -189,7 +189,7 @@ public class GlassblowingRecipe implements Recipe<RecipeWrapper> {
         }
 
         @Override
-        public void toNetwork(FriendlyByteBuf buf, GlassblowingRecipe recipe) {
+        public void toNetwork(@NotNull FriendlyByteBuf buf, @NotNull GlassblowingRecipe recipe) {
             buf.writeUtf(recipe.group);
             buf.writeUtf(recipe.tab != null ? recipe.tab.toString() : "");
             buf.writeVarInt(recipe.ingredients.size());

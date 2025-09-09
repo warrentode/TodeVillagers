@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "todevillagers:block/jar_glass_red",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "todevillagers:block/jar_glass_red"
+    },
+    "facing=south": {
+      "model": "todevillagers:block/jar_glass_red",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "todevillagers:block/jar_glass_red",
+      "y": 270
+    }
+  }
+}

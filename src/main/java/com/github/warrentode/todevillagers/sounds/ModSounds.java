@@ -16,7 +16,8 @@ public class ModSounds {
     public static final RegistryObject<SoundEvent> VILLAGER_WORK_DISC_JOCKEY = registerSoundEvents("work_dj");
     public static final RegistryObject<SoundEvent> VILLAGER_WORK_GLASSBLOWER = registerSoundEvents("work_glassblower");
     public static final RegistryObject<SoundEvent> VILLAGER_WORK_RETIRED_TRADER = registerSoundEvents("work_retired_trader");
-    public static final RegistryObject<SoundEvent> VILLAGER_WORK_POTTER = registerSoundEvents("work_retired_potter");
+    public static final RegistryObject<SoundEvent> VILLAGER_WORK_POTTER = registerSoundEvents("work_potter");
+    public static final RegistryObject<SoundEvent> VILLAGER_WORK_BAKER = registerSoundEvents("work_baker");
 
     private static RegistryObject<SoundEvent> registerSoundEvents(String name) {
         return SOUNDS.register(name, () -> SoundEvent.createVariableRangeEvent(new ResourceLocation(MODID, name)));
