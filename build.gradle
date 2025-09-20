@@ -177,12 +177,8 @@ jar.finalizedBy('reobfJar')
 
 publishing {
     publications {
-        mavenJava(MavenPublication) {
-            groupId = "${project.mod_domain}"
-            artifactId = "${project.name}"
-            version = "${project.minecraft_version}-${project.mod_version}"
-
-            from components.java
+        register('mavenJava', MavenPublication) {
+            artifact jar
         }
     }
     repositories {
