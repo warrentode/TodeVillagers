@@ -68,7 +68,7 @@ public class ItemTagsGen extends ItemTagsProvider {
                 .addTag(Tags.Items.DUSTS)
                 .addTag(Tags.Items.DYES)
                 .addTag(ItemTags.MUSIC_DISCS)
-                .addOptionalTag(Objects.requireNonNull(ResourceLocation.tryParse("todecoins:tip_jar_tems")));
+                .addOptionalTag(Objects.requireNonNull(ResourceLocation.tryParse("todecoins:tip_jar_items")));
         tag(ModTags.Items.VASE_PLANTS)
                 .add(Items.BAMBOO)
                 .add(Blocks.DEAD_BUSH.asItem())

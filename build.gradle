@@ -179,8 +179,6 @@ publishing {
     publications {
         register('mavenJava', MavenPublication) {
             artifact jar
-            artifact deobfJar
-            artifact sourceJar
         }
     }
     repositories {
